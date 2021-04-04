@@ -10,12 +10,20 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  body {
+    background: ${(props) => props.theme.colors.primary};
+  }
+
   body, button {
     font-family: 'Inter', sans serif;
   }
 
   body, input, textarea, button {
     font: 400 1rem 'Inter', sans-serif;
+  }
+
+  input {
+    border: 0;
   }
 
   button {

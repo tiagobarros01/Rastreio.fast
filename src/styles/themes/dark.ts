@@ -1,7 +1,17 @@
 export default {
-  title: 'light',
+  title: 'dark',
 
   colors: {
-    
-  }
-}
+    primary: '#191716',
+    secondary: '#ccc',
+    text: '#eee',
+    yellow: '#f1c40f',
+    red: '#e8384d',
+    DarkRed: '#d9415f',
+    green: '#4cd62b',
+    DarkGreen: '#49b22a',
+    blue: '#5965e0',
+    DarkBlue: '#3953b8',
+    TwitterBlue: '#2aa9e0',
+  },
+};
