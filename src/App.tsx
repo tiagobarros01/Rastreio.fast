@@ -1,8 +1,9 @@
-function App() {
+import TrackOrder from './components/TrackOrder/index'
 
+function App() {
   return (
     <div className="App">
-     <h1>Salve</h1>
+     <TrackOrder />
     </div>
   );
 }
