@@ -1,9 +1,11 @@
-import TrackOrder from './components/TrackOrder/index'
+import TrackOrder from "./components/TrackOrder/index";
+import GlobalStyle from "./styles/global";
 
 function App() {
   return (
     <div className="App">
-     <TrackOrder />
+      <TrackOrder />
+      <GlobalStyle />
     </div>
   );
 }
