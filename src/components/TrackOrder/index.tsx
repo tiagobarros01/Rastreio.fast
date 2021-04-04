@@ -1,8 +1,8 @@
-import { useState } from "react";
-import api from "../../services/api";
+import React, { useState } from 'react';
+import api from '../../services/api';
 
 const TrackOrder = () => {
-  const [code, setCode] = useState("OO135195662BR");
+  const [code, setCode] = useState('OO135195662BR');
   const [trackingData, setTrackingData] = useState();
 
   async function getTrackingData() {
@@ -19,7 +19,7 @@ const TrackOrder = () => {
         value={code}
         onChange={(event) => setCode(event.target.value)}
       />
-      <button onClick={getTrackingData}>Track order</button>
+      <button type="button" onClick={getTrackingData}>Track order</button>
       {trackingData}
     </div>
   );
