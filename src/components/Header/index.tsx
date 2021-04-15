@@ -19,7 +19,7 @@ function Header() {
               <li>Login</li>
             </a>
             <a href="#">
-              <li>Sign In</li>
+              <li>Sign In ⚡</li>
             </a>
           </ul>
         </div>

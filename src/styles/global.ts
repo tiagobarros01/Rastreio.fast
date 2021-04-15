@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.colors.primary};
   }
 
+  h1, h2, h3, p {
+    color: ${(props) => props.theme.colors.text}
+  }
+
   body, button {
     font-family: 'Poppins', sans serif;
   }
