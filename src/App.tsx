@@ -5,12 +5,17 @@ import dark from './styles/themes/dark';
 import GlobalStyle from './styles/global';
 import Header from './components/Header/index';
 import TrackBox from './components/TrackBox/index';
+import Footer from './components/Footer/index';
+import { AppContainer } from './styles/pages/App';
 
 function App() {
   return (
     <ThemeProvider theme={dark}>
       <Header />
-      <TrackBox />
+      <AppContainer>
+        <TrackBox />
+        <Footer />
+      </AppContainer>
       <GlobalStyle />
     </ThemeProvider>
   );

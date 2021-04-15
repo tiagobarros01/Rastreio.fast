@@ -5,6 +5,7 @@ export default {
     primary: '#191716',
     secondary: '#ccc',
     text: '#eee',
+    shadow: '#1f1d1c',
     yellow: '#f1c40f',
     red: '#e8384d',
     DarkRed: '#d9415f',

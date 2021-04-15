@@ -18,6 +18,8 @@ export const TrackBoxContainer = styled.div`
 
     background: ${(props) => props.theme.colors.secondary};
 
+    transition: background-color 200ms;
+
     &:hover {
       background: ${(props) => props.theme.colors.yellow};
     }
@@ -31,7 +33,7 @@ export const Title = styled.div`
 
   text-align: center;
 
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 
   & h1 {
     color: ${(props) => props.theme.colors.text};

@@ -4,7 +4,7 @@ import {
   TrackBoxContainer, Title, Input,
 } from './style';
 
-const TrackBox = () => {
+function TrackBox() {
   const [code, setCode] = useState('OO135195662BR');
   const [trackingData, setTrackingData] = useState();
 
@@ -26,6 +26,7 @@ const TrackBox = () => {
       </Title>
       <div>
         <Input
+          max="10"
           type="text"
           value={code}
           onChange={(event) => setCode(event.target.value)}
@@ -35,6 +36,6 @@ const TrackBox = () => {
       </div>
     </TrackBoxContainer>
   );
-};
+}
 
 export default TrackBox;

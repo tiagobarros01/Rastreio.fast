@@ -15,11 +15,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body, button {
-    font-family: 'Inter', sans serif;
+    font-family: 'Poppins', sans serif;
   }
 
   body, input, textarea, button {
-    font: 400 1rem 'Inter', sans-serif;
+    font: 400 1rem 'Poppins', sans-serif;
   }
 
   input {

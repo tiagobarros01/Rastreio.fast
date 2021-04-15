@@ -28,7 +28,8 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "space-before-function-paren": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "import/resolver": {
