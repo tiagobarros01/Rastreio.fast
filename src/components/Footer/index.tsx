@@ -7,7 +7,7 @@ export default function Footer() {
     <FooterContainer>
       <p>
         Created with 💛 by
-        <a href="https://github.com/users/tiagobarros01"> Tiago Barros</a>
+        <a href="https://github.com/TiagoBarros01"> Tiago Barros</a>
       </p>
     </FooterContainer>
   );

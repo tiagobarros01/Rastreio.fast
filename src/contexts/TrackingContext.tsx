@@ -8,31 +8,34 @@ interface TrackingProviderProps {
 }
 
 interface TrackingContextData {
-  signed: boolean;
   code: string;
   setCode: (code: string) => void;
   getTrackingData: () => void;
+  dateHour: string;
 }
 
 const initialContext = {
-  signed: false,
-  code: '',
+  code: 'OO135195662BR',
   setCode: () => {},
   getTrackingData: () => {},
+  dateHour: '',
 };
 
 const TrackingContext = createContext<TrackingContextData>(initialContext);
 
 function TrackingProvider({ children }: TrackingProviderProps) {
-  const [code, setCode] = useState('OO135195662BR');
-  const signed = true;
+  const [code, setCode] = useState(initialContext.code);
+  const [dateHour, setDateHour] = useState(initialContext.dateHour);
 
   async function getTrackingData() {
     try {
       const { data, status } = await api.get(`v1?codigo=${code}`);
 
+      setDateHour(data.map((item: any) => item.dataHora).join(' '));
+
       console.log('status:', status);
-      console.log(data.map((item: any) => item.data).join(' | '));
+      console.log(data);
+      console.log(data.map((item: any) => item.dataHora).join(' | '));
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +43,7 @@ function TrackingProvider({ children }: TrackingProviderProps) {
 
   return (
     <TrackingContext.Provider value={{
-      signed, code, getTrackingData, setCode,
+      code, getTrackingData, setCode, dateHour,
     }}
     >
       {children}

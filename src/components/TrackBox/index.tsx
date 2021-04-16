@@ -7,13 +7,12 @@ import { TrackBoxContainer, Title, Input } from './style';
 
 function TrackBox() {
   const {
-    signed, code, setCode, getTrackingData,
+    code, setCode, getTrackingData,
   } = useContext(TrackingContext);
   // const [trackCode, setTrackCode] = useState(code);
 
   const handleSigned = () => {
     getTrackingData();
-    console.log(signed);
     console.log(code);
   };
 
