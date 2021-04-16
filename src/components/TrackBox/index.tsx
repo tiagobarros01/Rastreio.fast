@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-unused-vars */
+import React, { useContext, useState } from 'react';
 
-import api from '../../services/api';
-import {
-  TrackBoxContainer, Title, Input,
-} from './style';
+import { TrackingContext } from '../../contexts/TrackingContext';
+import { TrackBoxContainer, Title, Input } from './style';
 
 function TrackBox() {
-  const [code, setCode] = useState('OO135195662BR');
-  const [trackingData, setTrackingData] = useState();
+  const {
+    signed, code, setCode, getTrackingData,
+  } = useContext(TrackingContext);
+  // const [trackCode, setTrackCode] = useState(code);
 
-  async function getTrackingData() {
-    const { data } = await api.get(`v1?codigo=${code}`);
-
-    setTrackingData(data[0].descricao);
-    console.log(data[0]);
-  }
+  const handleSigned = () => {
+    getTrackingData();
+    console.log(signed);
+    console.log(code);
+  };
 
   return (
     <TrackBoxContainer>
@@ -29,11 +30,15 @@ function TrackBox() {
         <Input
           max="10"
           type="text"
-          value={code}
+          value={code.toUpperCase()}
           onChange={(event) => setCode(event.target.value)}
         />
-        <button type="button" onClick={getTrackingData}>Track order</button>
-        {trackingData}
+        <button
+          type="button"
+          onClick={handleSigned}
+        >
+          Track order
+        </button>
       </div>
     </TrackBoxContainer>
   );
