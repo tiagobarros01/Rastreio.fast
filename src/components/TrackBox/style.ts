@@ -1,4 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const TrackBoxAnimation = keyframes`
+ 0% { opacity: 0 }
+ 50% { opacity: .5 }
+ 100% { opacity: 1 }
+`;
 
 export const TrackBoxContainer = styled.div`
   width: 90%;
@@ -10,6 +16,8 @@ export const TrackBoxContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  animation: ${TrackBoxAnimation} 300ms;
 
   & button {
     padding: 1rem;
