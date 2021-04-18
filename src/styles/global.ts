@@ -39,6 +39,30 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  @media (max-width: 1200px) {
+html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 992px) {
+html {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 768px) {
+html {
+    font-size: 81.25%;
+  }
+}
+
+@media (max-width: 576px) {
+html {
+    font-size: 75%;
+  }
+}
 `;
 
 export default GlobalStyle;

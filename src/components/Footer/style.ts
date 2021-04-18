@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
   width: 100%;
+  bottom: 10px;
+  position: absolute;
   
   p {
     text-align: center;
