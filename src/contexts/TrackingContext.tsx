@@ -42,10 +42,10 @@ function TrackingProvider({ children }: TrackingProviderProps) {
       const { data, status } = await api.get(`v1?codigo=${code}`);
 
       for (let i = 0; i < data.length; i++) {
-        const cities = data.map((item: any) => `<p>${item.cidade}</p>`)[i];
-        const ufs = data.map((item: any) => `<p>${item.uf}</p>`)[i];
-        const dateHours = data.map((item: any) => `<p>${item.dataHora}</p>`)[i];
-        const descriptions = data.map((item: any) => `<p>${item.descricao}</p>`)[i];
+        const cities = data.map((item: any) => item.cidade)[i];
+        const ufs = data.map((item: any) => item.uf)[i];
+        const dateHours = data.map((item: any) => item.dataHora)[i];
+        const descriptions = data.map((item: any) => item.descricao)[i];
 
         setDateHour(dateHours);
         setDescription(descriptions);

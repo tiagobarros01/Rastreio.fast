@@ -44,6 +44,7 @@ function TrackBox() {
         >
           Track order
         </button>
+        <p>Ex: OO135195662BR</p>
       </div>
     </TrackBoxContainer>
   );
