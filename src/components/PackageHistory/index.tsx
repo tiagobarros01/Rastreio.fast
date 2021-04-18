@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useContext } from 'react';
 
@@ -12,7 +13,11 @@ import {
 } from './style';
 
 export default function PackageHistory() {
-  const { code, getTrackingData, dateHour } = useContext(TrackingContext);
+  const {
+    code, getTrackingData, dateHour, city, uf, description,
+  } = useContext(
+    TrackingContext,
+  );
 
   const handleSigned = () => {
     getTrackingData();
@@ -34,24 +39,38 @@ export default function PackageHistory() {
           <LineHistory />
           <InfoContainer>
             <div>
-              <p>{dateHour}</p>
+              <p>
+                <strong>City: </strong>
+                {city}
+                <br />
+                <strong>State: </strong>
+                {uf}
+                <br />
+                <strong>Date-hour: </strong>
+                {dateHour}
+                <br />
+                <strong>Description: </strong>
+                {description}
+              </p>
             </div>
             <div>
-              <p>{dateHour}</p>
+              <p>a</p>
             </div>
             <div>
-              <p>{dateHour}</p>
+              <p>a</p>
             </div>
             <div>
-              <p>{dateHour}</p>
+              <p>a</p>
             </div>
             <div>
-              <p>{dateHour}</p>
+              <p>a</p>
             </div>
           </InfoContainer>
         </LineHistoryContainer>
       </PackagesHistory>
-      <button type="button" onClick={handleSigned}>CLick me</button>
+      <button type="button" onClick={handleSigned}>
+        CLick me
+      </button>
     </PackageContainer>
   );
 }
