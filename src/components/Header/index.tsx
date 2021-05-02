@@ -3,7 +3,7 @@ import React from 'react';
 
 import HeaderContent from './style';
 
-function Header() {
+export function Header() {
   return (
     <HeaderContent>
       <div>
@@ -25,5 +25,3 @@ function Header() {
     </HeaderContent>
   );
 }
-
-export default Header;

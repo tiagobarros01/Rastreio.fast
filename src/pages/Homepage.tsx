@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import { Header } from '../components/Header';
 import { TrackingContext } from '../contexts/TrackingContext';
 import history from '../services/history';
 import GlobalStyle from '../styles/global';

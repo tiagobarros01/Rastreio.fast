@@ -12,11 +12,11 @@ function TrackBox() {
     code, setCode, getTrackingData,
   } = useContext(TrackingContext);
 
-  const handleClick = () => history.push('/tracks');
+  const handlePush = () => history.push('/tracks');
 
   const handleSigned = () => {
     getTrackingData();
-    handleClick();
+    handlePush();
     console.log(code);
   };
 
