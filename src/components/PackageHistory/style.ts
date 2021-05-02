@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PackageContainer = styled.div`
   width: 100%;
   margin-top: 6rem;
+
 `;
 
 export const PackagesHistory = styled.div`
@@ -64,4 +65,19 @@ export const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  div {
+    background: ${(props) => props.theme.colors.primary};
+    filter: brightness(1.2);
+    
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  p {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+  }
 `;
