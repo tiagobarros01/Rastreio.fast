@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import { Header } from '../components/Header';
 import { TrackingContext } from '../contexts/TrackingContext';
 import history from '../services/history';
-import GlobalStyle from '../styles/global';
 import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
 import dark from '../styles/themes/dark';
 
@@ -51,7 +50,6 @@ export default function Homepage() {
         </div>
       </TrackBoxContainer>
       <Footer />
-      <GlobalStyle />
     </ThemeProvider>
   );
 }

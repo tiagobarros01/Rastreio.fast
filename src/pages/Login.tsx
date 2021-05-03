@@ -2,8 +2,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import Footer from '../components/Footer';
-import { Header } from '../components/Header';
 import GlobalStyle from '../styles/global';
 import {
   LoginContainer,
@@ -16,7 +14,6 @@ import dark from '../styles/themes/dark';
 export default function Login() {
   return (
     <ThemeProvider theme={dark}>
-      <Header />
       <LoginContainer>
         <FormContainer>
           <HeaderForm>
@@ -48,7 +45,6 @@ export default function Login() {
           </LoginForm>
         </FormContainer>
       </LoginContainer>
-      <Footer />
       <GlobalStyle />
     </ThemeProvider>
   );

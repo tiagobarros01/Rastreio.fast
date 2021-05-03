@@ -2,22 +2,19 @@ import styled from 'styled-components';
 
 export const LoginContainer = styled.div`
   width: 100vw;
+  height: 100vh;
 
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FormContainer = styled.div`
   width: 50%;
-  height: 100%;
   margin: 0 auto;
   
   background: ${(props) => props.theme.colors.secondary};
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
 `;
 
 export const HeaderForm = styled.div`
@@ -34,6 +31,7 @@ export const HeaderForm = styled.div`
   }
 
   p {
+    margin-top: 1rem;
     color: ${(props) => props.theme.colors.third};
     font-weight: bold;
   }
@@ -55,7 +53,7 @@ export const LoginForm = styled.form`
   justify-content: center;
   flex-direction: column;
 
-  margin-top: 1rem;
+  margin-top: 2rem;
   
   fieldset {
     border: 0;
