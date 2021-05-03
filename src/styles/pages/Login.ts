@@ -7,11 +7,11 @@ export const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: ${(props) => props.theme.colors.secondary};
 `;
 
 export const FormContainer = styled.div`
   width: 50%;
-  background: ${(props) => props.theme.colors.secondary};
 `;
 
 export const HeaderForm = styled.div`

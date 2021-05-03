@@ -7,19 +7,20 @@ export const SignInContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: ${(props) => props.theme.colors.secondary};
+
+  overflow: hidden;
 `;
 
 export const FormContainer = styled.div`
   width: 50vw;
-  margin-top: 3rem;
-
-  background: ${(props) => props.theme.colors.secondary};
+  margin-top: 5rem;
 `;
 
 export const HeaderForm = styled.div`
   flex: 1;
 
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
 
   h1 {

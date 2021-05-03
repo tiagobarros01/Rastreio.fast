@@ -8,7 +8,7 @@ export const HeaderContent = styled.header`
 
   background: ${(props) => props.theme.colors.primary};
   filter: brightness(0.9);
-  filter: drop-shadow(0px 0px 40px ${(props) => props.theme.colors.primary});
+  filter: drop-shadow(0px 0px 15px ${(props) => props.theme.colors.primary});
 
   div {
     width: 90%;
