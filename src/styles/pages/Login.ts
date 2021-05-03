@@ -79,6 +79,13 @@ export const LoginForm = styled.form`
 
     margin-bottom: 1rem;
 
+    ::-ms-reveal {
+      border: 1px solid transparent;
+      border-radius: 50%;
+      box-shadow: 0 0 3px currentColor;
+      background: ${(props) => props.theme.colors.primary}
+    }
+
     :focus {
       border: 3px solid ${(props) => props.theme.colors.yellow}
     }
@@ -97,6 +104,13 @@ export const LoginForm = styled.form`
       color: ${(props) => props.theme.colors.third};
       font-weight: 700;
       text-decoration: underline;
+
+      transition: filter 200ms;
+
+
+      :hover {
+        filter: brightness(1.8);
+      }
     }
 
     button {
@@ -109,6 +123,12 @@ export const LoginForm = styled.form`
       font-weight: bold;
 
       margin-left: 1rem;
+
+      transition: background 400ms;
+
+      :hover {
+        background: ${(props) => props.theme.colors.text};
+      }
     }
   }
 `;
