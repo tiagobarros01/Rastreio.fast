@@ -6,6 +6,7 @@ import HeaderContent from './style';
 
 export function Header() {
   const handleLogin = () => history.push('/login');
+  const handleSignIn = () => history.push('/signin');
 
   return (
     <HeaderContent>
@@ -20,7 +21,7 @@ export function Header() {
           <a href="" onClick={handleLogin}>
             <li>Login</li>
           </a>
-          <a href="">
+          <a href="" onClick={handleSignIn}>
             <li>Sign In ⚡</li>
           </a>
         </ul>
