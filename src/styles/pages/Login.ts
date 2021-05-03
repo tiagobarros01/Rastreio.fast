@@ -55,8 +55,9 @@ export const LoginForm = styled.form`
   justify-content: center;
   flex-direction: column;
 
+  margin-top: 1rem;
+  
   fieldset {
-    margin-top: 1rem;
     border: 0;
   }
   
@@ -79,20 +80,12 @@ export const LoginForm = styled.form`
 
     margin-bottom: 1rem;
 
-    ::-ms-reveal {
-      border: 1px solid transparent;
-      border-radius: 50%;
-      box-shadow: 0 0 3px currentColor;
-      background: ${(props) => props.theme.colors.primary}
-    }
-
     :focus {
       border: 3px solid ${(props) => props.theme.colors.yellow}
     }
   }
 
   div {
-
     display: flex;
     align-items: center;
     justify-content: flex-end;

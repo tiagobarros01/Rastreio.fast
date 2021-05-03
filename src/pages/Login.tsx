@@ -35,10 +35,10 @@ export default function Login() {
                 <input type="text" id="emailOrUserName" autoComplete="email" required maxLength="28" />
               </label>
               <br />
-              <label htmlFor="password">
+              <label htmlFor="password" id="password">
                 Password
                 <br />
-                <input type="password" id="password" autoComplete="password" required maxLength="24" />
+                <input type="password" id="password" autoComplete="password" required maxLength="22" />
               </label>
             </fieldset>
             <div>
