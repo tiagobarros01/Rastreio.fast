@@ -40,6 +40,12 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  @media (max-width: 1366px) {
+html {
+    font-size: 93.75%;
+  }
+}
+
   @media (max-width: 1200px) {
 html {
     font-size: 93.75%;

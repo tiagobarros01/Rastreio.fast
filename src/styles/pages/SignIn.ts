@@ -37,7 +37,7 @@ export const SignInForm = styled.form`
   justify-content: center;
   flex-direction: column;
 
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 
   fieldset {
     border: 0;
