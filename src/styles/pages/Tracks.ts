@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const PackageContainer = styled.div`
-  width: 100%;
-  margin-top: 6rem;
+  width: 100vw;
+  height: 100vh;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const PackagesHistory = styled.div`
