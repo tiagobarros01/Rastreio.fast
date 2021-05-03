@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HeaderContent = styled.header`
+export const HeaderContent = styled.header`
   width: 100vw;
 
   position: fixed;
@@ -44,5 +44,3 @@ const HeaderContent = styled.header`
     }
   }
 `;
-
-export default HeaderContent;

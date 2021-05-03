@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from '../components/Footer';
-import { Header } from '../components/Header';
 import { TrackingContext } from '../contexts/TrackingContext';
 import history from '../services/history';
 import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
@@ -23,7 +22,6 @@ export default function Homepage() {
 
   return (
     <ThemeProvider theme={dark}>
-      <Header />
       <TrackBoxContainer>
         <Title>
           <h1>

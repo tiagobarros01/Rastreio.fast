@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const TrackBoxContainer = styled.div`
-  width: 90%;
-  margin: 0 auto;
-
-  padding-top: 10rem;
+  width: 100vw;
+  height: 100vh;
 
   display: flex;
   align-items: center;

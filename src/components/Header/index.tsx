@@ -2,7 +2,7 @@
 import React from 'react';
 
 import history from '../../services/history';
-import HeaderContent from './style';
+import { HeaderContent } from './style';
 
 export function Header() {
   const handleLogin = () => history.push('/login');
