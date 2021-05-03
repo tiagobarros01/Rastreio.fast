@@ -5,8 +5,9 @@ import history from '../../services/history';
 import { HeaderContent } from './style';
 
 export function Header() {
-  const handleLogin = () => history.push('/login');
-  const handleSignIn = () => history.push('/signin');
+  const handleLoginPage = () => history.push('/login');
+  const handleSignInPage = () => history.push('/signin');
+  const handleCEPPage = () => history.push('/searchcep');
 
   return (
     <HeaderContent>
@@ -15,13 +16,13 @@ export function Header() {
           <a href="">
             <li>Integrations</li>
           </a>
-          <a href="">
+          <a href="" onClick={handleCEPPage}>
             <li>Search CEP</li>
           </a>
-          <a href="" onClick={handleLogin}>
+          <a href="" onClick={handleLoginPage}>
             <li>Login</li>
           </a>
-          <a href="" onClick={handleSignIn}>
+          <a href="" onClick={handleSignInPage}>
             <li>Sign In ⚡</li>
           </a>
         </ul>
