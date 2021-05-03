@@ -4,6 +4,7 @@ export default {
   colors: {
     primary: '#191716',
     secondary: '#ccc',
+    third: '#353230',
     text: '#eee',
     shadow: '#1f1d1c',
     yellow: '#f1c40f',
