@@ -2,13 +2,16 @@ import styled from 'styled-components';
 
 export const SignInContainer = styled.div`
   width: 100vw;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const FormContainer = styled.div`
   width: 50vw;
-  margin: 0 auto;
+  margin-top: 3rem;
 
   background: ${(props) => props.theme.colors.secondary};
 `;

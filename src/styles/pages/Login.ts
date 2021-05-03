@@ -11,10 +11,7 @@ export const LoginContainer = styled.div`
 
 export const FormContainer = styled.div`
   width: 50%;
-  margin: 0 auto;
-  
   background: ${(props) => props.theme.colors.secondary};
-
 `;
 
 export const HeaderForm = styled.div`

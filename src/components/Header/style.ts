@@ -3,6 +3,9 @@ import styled from 'styled-components';
 const HeaderContent = styled.header`
   width: 100vw;
 
+  position: fixed;
+  z-index: 3;
+
   background: ${(props) => props.theme.colors.primary};
   filter: brightness(0.9);
   filter: drop-shadow(0px 0px 40px ${(props) => props.theme.colors.primary});
