@@ -1,11 +1,27 @@
 import React from 'react';
 
-import { CEPContainer } from '../styles/pages/SearchCEP';
+import {
+  CEPContainer, CEPTitle, CEPInput,
+} from '../styles/pages/SearchCEP';
 
 export default function SearchCEP() {
   return (
     <CEPContainer>
-      <h1>a</h1>
+      <CEPTitle>
+        <h1>
+          Search
+          {' '}
+          <span>CEP</span>
+        </h1>
+      </CEPTitle>
+      <div>
+        <CEPInput type="number" maxLength={8} min="0" max="99999999" required autoComplete="on" />
+        <button
+          type="button"
+        >
+          Search
+        </button>
+      </div>
     </CEPContainer>
   );
 }

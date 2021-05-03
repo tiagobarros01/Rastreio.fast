@@ -9,7 +9,8 @@ export const TrackBoxContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  & button {
+
+  button {
     padding: 1rem;
     
     border: 0;
@@ -18,7 +19,7 @@ export const TrackBoxContainer = styled.div`
 
     transition: background-color 200ms;
 
-    &:hover {
+    :hover {
       background: ${(props) => props.theme.colors.yellow};
     }
 
@@ -33,11 +34,11 @@ export const Title = styled.div`
 
   margin-bottom: 1rem;
 
-  & h1 {
+  h1 {
     color: ${(props) => props.theme.colors.text};
     font-size: 3rem;
 
-    & span {
+    span {
       color: ${(props) => props.theme.colors.yellow};
     }
   }
