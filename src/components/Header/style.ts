@@ -1,32 +1,37 @@
 import styled from 'styled-components';
 
-export const HeaderContent = styled.header`
+export const HeaderContainer = styled.header`
   width: 100vw;
+  height: 4.5rem;
 
   position: fixed;
   z-index: 3;
 
+  display: flex;
+  align-items: center;
+
   background: ${(props) => props.theme.colors.primary};
   filter: brightness(0.9);
   filter: drop-shadow(0px 0px 15px ${(props) => props.theme.colors.primary});
+`;
 
-  div {
-    width: 90%;
-    margin: 0 auto;
-    height: 5rem;
+export const HeaderContent = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  nav {
+    margin-right: 2rem;
   }
 
-  div ul {
+  nav ul {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  div ul a {
+  nav ul a {
     padding: 1rem;
     color: ${(props) => props.theme.colors.text};
     font-size: 1.1rem;
@@ -42,5 +47,21 @@ export const HeaderContent = styled.header`
       filter: brightness(0.8);
       transform: translateY(-2px);
     }
+  }
+`;
+
+export const HomeContainer = styled.div`
+  margin-left: 1rem;
+
+  transition: filter 200ms;
+
+  p {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  :hover {
+    cursor: pointer;
+    filter: brightness(.8)
   }
 `;
