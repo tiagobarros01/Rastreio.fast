@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable no-plusplus */
 /* eslint-disable no-unused-vars */
 import React, { createContext, ReactNode, useState } from 'react';
 
