@@ -11,15 +11,10 @@ import {
 } from '../styles/pages/Tracks';
 
 export default function Tracks() {
-  const {
-    code, getTrackingData, dateHour, city, uf, description,
-  } = useContext(
-    TrackingContext,
-  );
+  const { code, dataTrack, getTrackingData } = useContext(TrackingContext);
 
   const handleSigned = () => {
     getTrackingData();
-    console.log(code);
   };
 
   return (
@@ -37,33 +32,7 @@ export default function Tracks() {
             </PointContainer>
             <LineHistory />
             <InfoContainer>
-              <div>
-                <p>
-                  <strong>City: </strong>
-                  {city}
-                  <br />
-                  <strong>State: </strong>
-                  {uf}
-                  <br />
-                  <strong>Date-hour: </strong>
-                  {dateHour}
-                  <br />
-                  <strong>Description: </strong>
-                  {description}
-                </p>
-              </div>
-              <div>
-                <p>a</p>
-              </div>
-              <div>
-                <p>a</p>
-              </div>
-              <div>
-                <p>a</p>
-              </div>
-              <div>
-                <p>a</p>
-              </div>
+              {dataTrack}
             </InfoContainer>
           </LineHistoryContainer>
         </PackagesHistory>

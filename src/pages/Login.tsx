@@ -40,7 +40,7 @@ export default function Login() {
             </fieldset>
             <div>
               <a href="">Miss your password?</a>
-              <button type="submit">Enter</button>
+              <button form="login" type="submit">Enter</button>
             </div>
           </LoginForm>
         </FormContainer>

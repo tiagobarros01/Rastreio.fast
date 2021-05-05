@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-unused-vars */
 import React, { createContext, ReactNode, useState } from 'react';
@@ -11,53 +12,39 @@ interface TrackingProviderProps {
 interface TrackingContextData {
   code: string;
   setCode: (code: string) => void;
+  dataTrack: any;
   getTrackingData: () => void;
-  dateHour: string;
-  description: string,
-  uf: string,
-  city: string,
 }
 
-const initialContext = {
-  code: 'OO135195662BR',
-  setCode: () => {},
-  getTrackingData: () => {},
-  dateHour: '',
-  description: '',
-  uf: '',
-  city: '',
-};
-
-const TrackingContext = createContext<TrackingContextData>(initialContext);
+const TrackingContext = createContext({} as TrackingContextData);
 
 function TrackingProvider({ children }: TrackingProviderProps) {
-  const [code, setCode] = useState(initialContext.code);
-  const [dateHour, setDateHour] = useState(initialContext.dateHour);
-  const [description, setDescription] = useState(initialContext.description);
-  const [uf, setUf] = useState(initialContext.uf);
-  const [city, setCity] = useState(initialContext.city);
+  const [code, setCode] = useState('OO135195662BR');
+  const [dataTrack, setDataTrack] = useState();
 
   async function getTrackingData() {
     try {
-      const { data, status } = await api.get(`v1?codigo=${code}`);
+      (async () => {
+        const { data } = await api.get(`v1?codigo=${code}`);
 
-      for (let i = 0; i < data.length; i++) {
-        const cities = data.map((item: any) => item.cidade)[i];
-        const ufs = data.map((item: any) => item.uf)[i];
-        const dateHours = data.map((item: any) => item.dataHora)[i];
-        const descriptions = data.map((item: any) => item.descricao)[i];
-
-        setDateHour(dateHours);
-        setDescription(descriptions);
-        setUf(ufs);
-        setCity(cities);
-
-        console.log(
-          cities, ufs, dateHours, descriptions,
-        );
-      }
-
-      console.log('status:', status);
+        setDataTrack(data.map((item: any) => (
+          <div>
+            <p>
+              <strong>City: </strong>
+              {item.cidade}
+              <br />
+              <strong>State: </strong>
+              {item.uf}
+              <br />
+              <strong>Date-hour: </strong>
+              {item.dataHora}
+              <br />
+              <strong>Description: </strong>
+              {item.descricao}
+            </p>
+          </div>
+        )));
+      })();
     } catch (error) {
       console.log(error);
     }
@@ -66,12 +53,9 @@ function TrackingProvider({ children }: TrackingProviderProps) {
   return (
     <TrackingContext.Provider value={{
       code,
-      getTrackingData,
       setCode,
-      dateHour,
-      description,
-      uf,
-      city,
+      dataTrack,
+      getTrackingData,
     }}
     >
       {children}
