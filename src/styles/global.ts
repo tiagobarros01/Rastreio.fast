@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${(props) => props.theme.colors.primary};
+    overflow: hidden;
   }
 
   h1, h2, h3, p {

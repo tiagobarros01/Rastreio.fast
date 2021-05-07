@@ -4,7 +4,7 @@ import React, { createContext, ReactNode, useState } from 'react';
 import api from '../services/api';
 
 interface TrackingProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface TrackingContextData {
@@ -17,7 +17,8 @@ interface TrackingContextData {
 const TrackingContext = createContext({} as TrackingContextData);
 
 function TrackingProvider({ children }: TrackingProviderProps) {
-  const [code, setCode] = useState('OO135195662BR');
+  const [code, setCode] = useState('');
+  // OO135195662BR
   const [dataTrack, setDataTrack] = useState();
 
   async function getTrackingData() {
@@ -25,23 +26,36 @@ function TrackingProvider({ children }: TrackingProviderProps) {
       (async () => {
         const { data } = await api.get(`v1?codigo=${code}`);
 
-        setDataTrack(data.map((item: any) => (
-          <div>
-            <p>
-              <strong>City: </strong>
-              {item.cidade}
-              <br />
-              <strong>State: </strong>
-              {item.uf}
-              <br />
-              <strong>Date-hour: </strong>
-              {item.dataHora}
-              <br />
-              <strong>Description: </strong>
-              {item.descricao}
-            </p>
-          </div>
-        )));
+        setDataTrack(
+          data.map((item: any) => (
+            <div>
+              <div>
+                <h3>
+                  <strong>City: </strong>
+                </h3>
+                <p>{item.cidade}</p>
+              </div>
+              <div>
+                <h3>
+                  <strong>State: </strong>
+                </h3>
+                <p>{item.uf}</p>
+              </div>
+              <div>
+                <h3>
+                  <strong>Date-Hour: </strong>
+                </h3>
+                <p>{item.dataHora}</p>
+              </div>
+              <div>
+                <h3>
+                  <strong>Description: </strong>
+                </h3>
+                <p>{item.descricao}</p>
+              </div>
+            </div>
+          )),
+        );
       })();
     } catch (error) {
       console.log(error);
@@ -49,12 +63,13 @@ function TrackingProvider({ children }: TrackingProviderProps) {
   }
 
   return (
-    <TrackingContext.Provider value={{
-      code,
-      setCode,
-      dataTrack,
-      getTrackingData,
-    }}
+    <TrackingContext.Provider
+      value={{
+        code,
+        setCode,
+        dataTrack,
+        getTrackingData,
+      }}
     >
       {children}
     </TrackingContext.Provider>

@@ -7,15 +7,14 @@ import {
   LineHistoryContainer,
   PackageContainer,
   PackagesHistory,
-  PointContainer,
 } from '../styles/pages/Tracks';
 
 export default function Tracks() {
-  const { code, dataTrack, getTrackingData } = useContext(TrackingContext);
+  const { code, dataTrack } = useContext(TrackingContext);
 
-  const handleSigned = () => {
-    getTrackingData();
-  };
+  // const handleSigned = () => {
+  //   getTrackingData();
+  // };
 
   return (
     <>
@@ -23,22 +22,15 @@ export default function Tracks() {
         <PackagesHistory>
           <h1>{code}</h1>
           <LineHistoryContainer>
-            <PointContainer>
-              <div>.</div>
-              <div>.</div>
-              <div>.</div>
-              <div>.</div>
-              <div>.</div>
-            </PointContainer>
             <LineHistory />
             <InfoContainer>
               {dataTrack}
             </InfoContainer>
           </LineHistoryContainer>
         </PackagesHistory>
-        <button type="button" onClick={handleSigned}>
+        {/* <button type="button" onClick={handleSigned}>
           CLick me
-        </button>
+        </button> */}
       </PackageContainer>
     </>
   );

@@ -36,8 +36,9 @@ export default function Homepage() {
             type="text"
             value={code.toUpperCase()}
             onChange={(event) => setCode(event.target.value)}
-            required
             autoComplete="on"
+            placeholder="Code here"
+            required
           />
           <button
             type="button"

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const PackageContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 20vh);
 
   display: flex;
   align-items: center;
@@ -33,54 +33,22 @@ export const LineHistory = styled.div`
   background: ${(props) => props.theme.colors.yellow};
 `;
 
-export const PointContainer = styled.div`
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  position: absolute;
-  top: -0.5rem;
-
-  div {
-    width: 1.2rem;
-    height: 1.2rem;
-    background: ${(props) => props.theme.colors.yellow};
-
-    color: ${(props) => props.theme.colors.yellow};
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 3px solid ${(props) => props.theme.colors.text};
-
-    border-radius: 50%;
-  }
-`;
-
 export const InfoContainer = styled.div`
   margin-top: 1rem;
 
-  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  height: 20rem;
 
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+
+  background: ${(props) => props.theme.colors.primary};
+  filter: brightness(1.2);
+
 
   div {
-    background: ${(props) => props.theme.colors.primary};
-    filter: brightness(1.2);
-    
-    padding: 1rem;
+    padding: .5rem;
     border-radius: 10px;
-  }
-
-  p {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
   }
 `;
