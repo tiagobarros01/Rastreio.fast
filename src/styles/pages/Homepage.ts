@@ -15,7 +15,7 @@ export const TrackBoxContainer = styled.div`
     
     border: 0;
 
-    background: ${(props) => props.theme.colors.secondary};
+    background: ${(props) => props.theme.colors.thirdBackground};
 
     transition: background-color 200ms;
 
@@ -48,6 +48,13 @@ export const Input = styled.input`
   width: 20rem;
   padding: 1rem;
 
+  background: ${(props) => props.theme.colors.inputBackground};
+  color: ${(props) => props.theme.colors.inputText};
+
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+
+  ::placeholder {
+    color: ${(props) => props.theme.colors.inputText};
+  }
 `;

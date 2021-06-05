@@ -10,9 +10,9 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
 
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.background};
   filter: brightness(0.9);
-  filter: drop-shadow(0px 0px 15px ${(props) => props.theme.colors.primary});
+  filter: drop-shadow(0px 0px 15px ${(props) => props.theme.colors.background});
 `;
 
 export const HeaderContent = styled.div`
