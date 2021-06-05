@@ -9,6 +9,8 @@ export const CEPContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  background: ${(props) => props.theme.colors.scndBackground};
+
   button {
     padding: 1rem;
     

@@ -9,6 +9,7 @@ import {
   HeaderContainer,
   HeaderContent,
   HomeContainer,
+  HomeIcon,
   MoonDark,
   SunLight,
   ToggleTheme,
@@ -26,13 +27,13 @@ export function Header() {
     <HeaderContainer>
       <HeaderContent>
         <HomeContainer>
-          <p onClick={() => handleHomepage()}>HOME</p>
-          <ToggleTheme onClick={() => toggleTheme()}>
-            {theme.title === 'light' ? <MoonDark /> : <SunLight />}
-          </ToggleTheme>
+          <HomeIcon size={28} onClick={() => handleHomepage()} />
         </HomeContainer>
         <nav>
           <ul>
+            <ToggleTheme onClick={() => toggleTheme()}>
+              {theme.title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
+            </ToggleTheme>
             <li>Integrations</li>
             <li onClick={() => handleCEPPage()}>Search CEP</li>
             <li onClick={() => handleLoginPage()}>Login</li>
