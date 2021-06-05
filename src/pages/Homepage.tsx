@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
 
 import Footer from '../components/Footer';
 import { TrackingContext } from '../contexts/TrackingContext';
 import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
-import dark from '../styles/themes/dark';
 
 export default function Homepage() {
   const [code, setCode] = useState<string>('');
@@ -14,7 +12,7 @@ export default function Homepage() {
   } = useContext(TrackingContext);
 
   return (
-    <ThemeProvider theme={dark}>
+    <>
       <TrackBoxContainer>
         <Title>
           <h1>
@@ -42,6 +40,6 @@ export default function Homepage() {
         </div>
       </TrackBoxContainer>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 }

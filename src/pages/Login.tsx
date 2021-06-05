@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from '../styles/global';
 import {
@@ -9,11 +8,10 @@ import {
   HeaderForm,
   LoginForm,
 } from '../styles/pages/Login';
-import dark from '../styles/themes/dark';
 
 export default function Login() {
   return (
-    <ThemeProvider theme={dark}>
+    <>
       <LoginContainer>
         <FormContainer>
           <HeaderForm>
@@ -46,6 +44,6 @@ export default function Login() {
         </FormContainer>
       </LoginContainer>
       <GlobalStyle />
-    </ThemeProvider>
+    </>
   );
 }
