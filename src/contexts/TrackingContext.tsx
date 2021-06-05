@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {
-  createContext, useMemo, useState,
-} from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 
 import api from '../services/api';
 import history from '../services/history';
@@ -36,6 +34,9 @@ function TrackingProvider({ children }: TrackingProviderProps) {
   });
   const [trackCode, setTrackCode] = useState<string>('');
   // OO135195662BR
+  // LB559365129SE
+  // NX150736229BR
+  // LB559302234SE
 
   async function getTrackingData(code: string) {
     const { data } = await api.get(`v1?codigo=${code}`);
@@ -44,34 +45,73 @@ function TrackingProvider({ children }: TrackingProviderProps) {
 
     try {
       setDataTrack(
-        data.map((item: DataProps) => (
-          <div>
+        data
+          .map((item: DataProps) => (
             <div>
-              <h3>
-                <strong>City: </strong>
-              </h3>
-              <p>{item.cidade}</p>
+              {item.cidade ? (
+                <div>
+                  <h3>
+                    <strong>City/Country: </strong>
+                  </h3>
+                  <p>{item.cidade}</p>
+                </div>
+              ) : (
+                <div>
+                  <h3>
+                    <strong>City/Country: </strong>
+                  </h3>
+                  <p>There&apos;s no information ❗</p>
+                </div>
+              )}
+
+              {item.uf ? (
+                <div>
+                  <h3>
+                    <strong>State: </strong>
+                  </h3>
+                  <p>{item.uf}</p>
+                </div>
+              ) : (
+                <div>
+                  <h3>
+                    <strong>State: </strong>
+                  </h3>
+                  <p>There&apos;s no information ❗</p>
+                </div>
+              )}
+              {item.dataHora ? (
+                <div>
+                  <h3>
+                    <strong>Date-Hour: </strong>
+                  </h3>
+                  <p>{item.dataHora}</p>
+                </div>
+              ) : (
+                <div>
+                  <h3>
+                    <strong>Date-Hour: </strong>
+                  </h3>
+                  <p>There&apos;s no information ❗</p>
+                </div>
+              )}
+              {item.descricao ? (
+                <div>
+                  <h3>
+                    <strong>Description: </strong>
+                  </h3>
+                  <p>{item.descricao}</p>
+                </div>
+              ) : (
+                <div>
+                  <h3>
+                    <strong>Description: </strong>
+                  </h3>
+                  <p>There&apos;s no information ❗</p>
+                </div>
+              )}
             </div>
-            <div>
-              <h3>
-                <strong>State: </strong>
-              </h3>
-              <p>{item.uf}</p>
-            </div>
-            <div>
-              <h3>
-                <strong>Date-Hour: </strong>
-              </h3>
-              <p>{item.dataHora}</p>
-            </div>
-            <div>
-              <h3>
-                <strong>Description: </strong>
-              </h3>
-              <p>{item.descricao}</p>
-            </div>
-          </div>
-        )).reverse(),
+          ))
+          .reverse(),
       );
       setTrackCode(code);
       history.push('/tracks');
@@ -79,10 +119,8 @@ function TrackingProvider({ children }: TrackingProviderProps) {
       console.debug('Error at:', error);
     }
   }
-  const memoizedValue = useMemo(() => ({
-    trackCode, dataTrack, getTrackingData,
-  }),
-  [trackCode, dataTrack, getTrackingData]);
+  const memoizedValue = useMemo(() => ({ trackCode, dataTrack, getTrackingData }),
+    [trackCode, dataTrack, getTrackingData]);
 
   return (
     <TrackingContext.Provider value={memoizedValue}>
