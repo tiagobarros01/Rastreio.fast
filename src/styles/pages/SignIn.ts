@@ -7,7 +7,7 @@ export const SignInContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${(props) => props.theme.colors.secondary};
+  background: ${(props) => props.theme.colors.scndBackground};
 
   overflow: hidden;
 `;
@@ -25,7 +25,7 @@ export const HeaderForm = styled.div`
 
   h1 {
     text-align: center;
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.title};
     font-size: 3.5rem;
   }
 `;
@@ -45,7 +45,7 @@ export const SignInForm = styled.form`
   }
 
   label {
-    color: ${(props) => props.theme.colors.third};
+    color: ${(props) => props.theme.colors.text};
     font-weight: bold;
   }
 
@@ -62,8 +62,8 @@ export const SignInForm = styled.form`
 
     border-radius: 10px;
 
-    background: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.text};
+    background: ${(props) => props.theme.colors.inputBackground};
+    color: ${(props) => props.theme.colors.inputText};
 
     :focus {
       border: 3px solid ${(props) => props.theme.colors.yellow}

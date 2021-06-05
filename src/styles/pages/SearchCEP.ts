@@ -14,7 +14,7 @@ export const CEPContainer = styled.div`
     
     border: 0;
 
-    background: ${(props) => props.theme.colors.secondary};
+    background: ${(props) => props.theme.colors.thirdBackground};
 
     transition: background-color 200ms;
 

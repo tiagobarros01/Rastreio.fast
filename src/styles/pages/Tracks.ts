@@ -54,7 +54,7 @@ export const InfoContainer = styled.div`
 
   display: flex;
 
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.background};
   filter: brightness(1.2);
 
 
