@@ -46,6 +46,9 @@ export const CEPInput = styled.input`
   width: 20rem;
   padding: 1rem;
 
+  background: ${(props) => props.theme.colors.inputBackground};
+  color: ${(props) => props.theme.colors.inputText};
+
   outline: 0;
 
   border-top-left-radius: 10px;
