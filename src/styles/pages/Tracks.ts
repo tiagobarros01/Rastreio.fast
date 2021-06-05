@@ -1,3 +1,4 @@
+import { FiCheckCircle } from 'react-icons/fi';
 import styled from 'styled-components';
 
 export const PackageContainer = styled.div`
@@ -10,6 +11,11 @@ export const PackageContainer = styled.div`
 `;
 
 export const PackagesHistory = styled.div`
+  h1 {
+    display: flex;
+    align-items: center;
+  }
+
   width: 100%;
 
   display: flex;
@@ -17,6 +23,11 @@ export const PackagesHistory = styled.div`
   justify-content: center;
 
   flex-direction: column;
+`;
+
+export const CheckIcon = styled(FiCheckCircle)`
+  color: ${(props) => props.theme.colors.green};
+  margin-left: 1rem;
 `;
 
 export const LineHistoryContainer = styled.div`

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { TrackingContext } from '../contexts/TrackingContext';
 import {
+  CheckIcon,
   InfoContainer,
   LineHistory,
   LineHistoryContainer,
@@ -10,7 +11,7 @@ import {
 } from '../styles/pages/Tracks';
 
 export default function Tracks() {
-  const { dataTrack } = useContext(TrackingContext);
+  const { dataTrack, trackCode } = useContext(TrackingContext);
 
   // const handleSigned = () => {
   //   getTrackingData();
@@ -20,7 +21,10 @@ export default function Tracks() {
     <>
       <PackageContainer>
         <PackagesHistory>
-          <h1>{}</h1>
+          <h1>
+            {trackCode}
+            <CheckIcon />
+          </h1>
           <LineHistoryContainer>
             <LineHistory />
             <InfoContainer>
