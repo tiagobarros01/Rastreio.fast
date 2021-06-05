@@ -1,17 +1,19 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 
+import { ThemeContextProvider } from './ThemeContext';
 import { TrackingProvider } from './TrackingContext';
 
 interface ContextProviderProps {
-  children?: React.ReactNode
+  children: React.ReactNode;
 }
 
 function ContextProvider({ children }: ContextProviderProps) {
   return (
-    <TrackingProvider>
-      {children}
-    </TrackingProvider>
+    <ThemeContextProvider>
+      <TrackingProvider>
+        {children}
+      </TrackingProvider>
+    </ThemeContextProvider>
   );
 }
 
