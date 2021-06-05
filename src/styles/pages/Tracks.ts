@@ -1,5 +1,14 @@
 import { FiCheckCircle } from 'react-icons/fi';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const PackageContainer = styled.div`
   width: 100vw;
@@ -11,11 +20,6 @@ export const PackageContainer = styled.div`
 `;
 
 export const PackagesHistory = styled.div`
-  h1 {
-    display: flex;
-    align-items: center;
-  }
-
   width: 100%;
 
   display: flex;
@@ -23,6 +27,14 @@ export const PackagesHistory = styled.div`
   justify-content: center;
 
   flex-direction: column;
+
+  animation: ${fade} 1s;
+  
+  h1 {
+    display: flex;
+    align-items: center;
+
+  }
 `;
 
 export const CheckIcon = styled(FiCheckCircle)`
@@ -57,9 +69,8 @@ export const InfoContainer = styled.div`
   background: ${(props) => props.theme.colors.background};
   filter: brightness(1.2);
 
-
   div {
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: 10px;
   }
 `;
