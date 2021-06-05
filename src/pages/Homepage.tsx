@@ -1,24 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import Footer from '../components/Footer';
 import { TrackingContext } from '../contexts/TrackingContext';
-import history from '../services/history';
 import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
 import dark from '../styles/themes/dark';
 
 export default function Homepage() {
+  const [code, setCode] = useState<string>('');
+
   const {
-    code, setCode, getTrackingData,
+    getTrackingData,
   } = useContext(TrackingContext);
-
-  const handleClick = () => history.push('/tracks');
-
-  const handleSigned = () => {
-    getTrackingData();
-    handleClick();
-    console.log(code);
-  };
 
   return (
     <ThemeProvider theme={dark}>
@@ -42,7 +35,7 @@ export default function Homepage() {
           />
           <button
             type="button"
-            onClick={handleSigned}
+            onClick={() => getTrackingData(code)}
           >
             Track order
           </button>

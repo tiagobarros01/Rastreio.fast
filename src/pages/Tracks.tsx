@@ -10,7 +10,7 @@ import {
 } from '../styles/pages/Tracks';
 
 export default function Tracks() {
-  const { code, dataTrack } = useContext(TrackingContext);
+  const { dataTrack } = useContext(TrackingContext);
 
   // const handleSigned = () => {
   //   getTrackingData();
@@ -20,7 +20,7 @@ export default function Tracks() {
     <>
       <PackageContainer>
         <PackagesHistory>
-          <h1>{code}</h1>
+          <h1>{}</h1>
           <LineHistoryContainer>
             <LineHistory />
             <InfoContainer>
