@@ -1,16 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useMemo, useState } from 'react';
 
+import { DataTrack } from '../components/DataTrack/index';
 import api from '../services/api';
 import history from '../services/history';
-
-interface DataProps {
-  cidade: string;
-  data?: string;
-  dataHora: string;
-  descricao: string;
-  uf: string;
-}
+import { DataProps } from '../types/DataProps';
 
 interface TrackingProviderProps {
   children: React.ReactNode;
@@ -46,70 +40,15 @@ function TrackingProvider({ children }: TrackingProviderProps) {
     try {
       setDataTrack(
         data
-          .map((item: DataProps) => (
-            <div>
-              {item.cidade ? (
-                <div>
-                  <h3>
-                    <strong>City/Country: </strong>
-                  </h3>
-                  <p>{item.cidade}</p>
-                </div>
-              ) : (
-                <div>
-                  <h3>
-                    <strong>City/Country: </strong>
-                  </h3>
-                  <p>There&apos;s no information ❗</p>
-                </div>
-              )}
-
-              {item.uf ? (
-                <div>
-                  <h3>
-                    <strong>State: </strong>
-                  </h3>
-                  <p>{item.uf}</p>
-                </div>
-              ) : (
-                <div>
-                  <h3>
-                    <strong>State: </strong>
-                  </h3>
-                  <p>There&apos;s no information ❗</p>
-                </div>
-              )}
-              {item.dataHora ? (
-                <div>
-                  <h3>
-                    <strong>Date-Hour: </strong>
-                  </h3>
-                  <p>{item.dataHora}</p>
-                </div>
-              ) : (
-                <div>
-                  <h3>
-                    <strong>Date-Hour: </strong>
-                  </h3>
-                  <p>There&apos;s no information ❗</p>
-                </div>
-              )}
-              {item.descricao ? (
-                <div>
-                  <h3>
-                    <strong>Description: </strong>
-                  </h3>
-                  <p>{item.descricao}</p>
-                </div>
-              ) : (
-                <div>
-                  <h3>
-                    <strong>Description: </strong>
-                  </h3>
-                  <p>There&apos;s no information ❗</p>
-                </div>
-              )}
-            </div>
+          .map(({
+            cidade, dataHora, descricao, uf,
+          }: DataProps) => (
+            <DataTrack
+              cidade={cidade}
+              dataHora={dataHora}
+              descricao={descricao}
+              uf={uf}
+            />
           ))
           .reverse(),
       );
@@ -119,8 +58,10 @@ function TrackingProvider({ children }: TrackingProviderProps) {
       console.debug('Error at:', error);
     }
   }
-  const memoizedValue = useMemo(() => ({ trackCode, dataTrack, getTrackingData }),
-    [trackCode, dataTrack, getTrackingData]);
+  const memoizedValue = useMemo(
+    () => ({ trackCode, dataTrack, getTrackingData }),
+    [trackCode, dataTrack, getTrackingData],
+  );
 
   return (
     <TrackingContext.Provider value={memoizedValue}>
