@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import { Loader } from '../components/Loader/index';
 import { TrackingContext } from '../contexts/TrackingContext';
 import {
   CheckIcon,
@@ -13,33 +14,24 @@ import {
 export default function Tracks() {
   const { loading, dataTrack, trackCode } = useContext(TrackingContext);
 
-  // const handleSigned = () => {
-  //   getTrackingData();
-  // };
-
   return (
-    <>
-      <PackageContainer>
-        {loading === true ? (
-          <h1>Loading</h1>
-        ) : (
-          <PackagesHistory>
-            <h1>
-              {trackCode}
-              <CheckIcon />
-            </h1>
-            <LineHistoryContainer>
-              <LineHistory />
-              <InfoContainer>
-                {dataTrack}
-              </InfoContainer>
-            </LineHistoryContainer>
-          </PackagesHistory>
-        )}
-        {/* <button type="button" onClick={handleSigned}>
-          CLick me
-        </button> */}
-      </PackageContainer>
-    </>
+    <PackageContainer>
+      {loading === true ? (
+        <Loader />
+      ) : (
+        <PackagesHistory>
+          <h1>
+            {trackCode}
+            <CheckIcon />
+          </h1>
+          <LineHistoryContainer>
+            <LineHistory />
+            <InfoContainer>
+              {dataTrack}
+            </InfoContainer>
+          </LineHistoryContainer>
+        </PackagesHistory>
+      )}
+    </PackageContainer>
   );
 }

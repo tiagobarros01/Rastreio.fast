@@ -12,7 +12,7 @@ interface TrackingProviderProps {
 
 interface TrackingContextData {
   trackCode: string;
-  dataTrack: DataProps;
+  dataTrack: DataProps | null;
   loading: boolean;
   getTrackingData: (code: string) => void;
 }
@@ -20,26 +20,19 @@ interface TrackingContextData {
 const TrackingContext = createContext({} as TrackingContextData);
 
 function TrackingProvider({ children }: TrackingProviderProps) {
-  const [dataTrack, setDataTrack] = useState<DataProps>({
-    cidade: '',
-    data: '',
-    dataHora: '',
-    descricao: '',
-    uf: '',
-  });
+  const [dataTrack, setDataTrack] = useState<DataProps | null>(null);
   const [trackCode, setTrackCode] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   // OO135195662BR
   // LB559365129SE
   // NX150736229BR
   // LB559302234SE
 
   async function getTrackingData(code: string) {
-    history.push('/tracks');
     setLoading(true);
+    setDataTrack(null);
+    history.push('/tracks');
     const { data } = await api.get(`v1?codigo=${code}`);
-
-    console.log(data);
 
     try {
       setDataTrack(
@@ -56,10 +49,11 @@ function TrackingProvider({ children }: TrackingProviderProps) {
           ))
           .reverse(),
       );
+      console.log(data);
       setTrackCode(code);
       setLoading(false);
     } catch (error) {
-      console.debug('Error at:', error);
+      console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
     }
   }
   const memoizedValue = useMemo(
