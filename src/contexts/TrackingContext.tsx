@@ -13,6 +13,7 @@ interface TrackingProviderProps {
 interface TrackingContextData {
   trackCode: string;
   dataTrack: DataProps;
+  loading: boolean;
   getTrackingData: (code: string) => void;
 }
 
@@ -27,12 +28,15 @@ function TrackingProvider({ children }: TrackingProviderProps) {
     uf: '',
   });
   const [trackCode, setTrackCode] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   // OO135195662BR
   // LB559365129SE
   // NX150736229BR
   // LB559302234SE
 
   async function getTrackingData(code: string) {
+    history.push('/tracks');
+    setLoading(true);
     const { data } = await api.get(`v1?codigo=${code}`);
 
     console.log(data);
@@ -53,14 +57,16 @@ function TrackingProvider({ children }: TrackingProviderProps) {
           .reverse(),
       );
       setTrackCode(code);
-      history.push('/tracks');
+      setLoading(false);
     } catch (error) {
       console.debug('Error at:', error);
     }
   }
   const memoizedValue = useMemo(
-    () => ({ trackCode, dataTrack, getTrackingData }),
-    [trackCode, dataTrack, getTrackingData],
+    () => ({
+      trackCode, dataTrack, loading, getTrackingData,
+    }),
+    [trackCode, dataTrack, loading, getTrackingData],
   );
 
   return (
