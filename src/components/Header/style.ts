@@ -1,4 +1,4 @@
-import { RiMoonFill, RiSunFill, RiHome2Line } from 'react-icons/ri';
+import { RiMoonFill, RiSunFill } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
@@ -53,21 +53,21 @@ export const HeaderContent = styled.div`
 `;
 
 export const HomeContainer = styled.div`
-  margin-left: 1rem;
+  margin-top: .5rem;
+  margin-left: .5rem;
 
   display: flex;
   align-items: center;
 `;
 
-export const HomeIcon = styled(RiHome2Line)`
-  color: ${(props) => props.theme.colors.yellow};
+export const HomeImage = styled.img`
+  width: 4rem;
+  height: 4rem;
 
   cursor: pointer;
 
-  transition: filter 200ms;
-
   :hover {
-    filter: brightness(0.8);
+    transform: translateY(-3px);
   }
 `;
 

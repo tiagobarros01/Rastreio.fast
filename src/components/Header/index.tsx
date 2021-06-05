@@ -4,12 +4,13 @@
 import React, { useContext } from 'react';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
+import Logo from '../../img/Logo.svg';
 import history from '../../services/history';
 import {
   HeaderContainer,
   HeaderContent,
   HomeContainer,
-  HomeIcon,
+  HomeImage,
   MoonDark,
   SunLight,
   ToggleTheme,
@@ -27,7 +28,7 @@ export function Header() {
     <HeaderContainer>
       <HeaderContent>
         <HomeContainer>
-          <HomeIcon size={28} onClick={() => handleHomepage()} />
+          <HomeImage src={Logo} alt="Logo" onClick={() => handleHomepage()} />
         </HomeContainer>
         <nav>
           <ul>
