@@ -25,7 +25,7 @@ export default function Homepage() {
         </Title>
         <div>
           <Input
-            maxLength="15"
+            maxLength={15}
             type="text"
             value={code.toUpperCase()}
             onChange={(event) => setCode(event.target.value)}

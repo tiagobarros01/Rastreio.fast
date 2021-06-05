@@ -24,13 +24,13 @@ export default function SignIn() {
               <label htmlFor="userName">
                 User name
                 <br />
-                <input type="text" id="userName" required maxLength="12" />
+                <input type="text" id="userName" required maxLength={12} />
               </label>
               <br />
               <label htmlFor="email">
                 E-mail
                 <br />
-                <input type="email" id="email" required maxLength="28" />
+                <input type="email" id="email" required maxLength={28} />
               </label>
               <br />
               <DividesFields>
@@ -38,13 +38,13 @@ export default function SignIn() {
                   <label htmlFor="name">
                     Name
                     <br />
-                    <input type="text" id="name" required maxLength="12" />
+                    <input type="text" id="name" required maxLength={12} />
                   </label>
                   <br />
                   <label htmlFor="lastName">
                     Last name
                     <br />
-                    <input type="text" id="lastName" required maxLength="12" />
+                    <input type="text" id="lastName" required maxLength={12} />
                   </label>
                 </NameContainer>
                 <br />
@@ -56,7 +56,7 @@ export default function SignIn() {
                       type="password"
                       id="password"
                       required
-                      maxLength="22"
+                      maxLength={22}
                     />
                   </label>
                   <br />
@@ -67,7 +67,7 @@ export default function SignIn() {
                       type="password"
                       id="confirmPassword"
                       required
-                      maxLength="22"
+                      maxLength={22}
                     />
                   </label>
                 </div>
