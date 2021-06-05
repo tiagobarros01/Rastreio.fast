@@ -32,13 +32,14 @@ export const HeaderContent = styled.div`
     justify-content: center;
   }
 
-  nav ul a {
+  nav ul li {
     padding: 1rem;
     color: ${(props) => props.theme.colors.text};
     font-size: 1.1rem;
     font-weight: bold;
 
     transition: filter transform 200ms;
+    cursor: pointer;
 
     :last-child {
       color: ${(props) => props.theme.colors.yellow};

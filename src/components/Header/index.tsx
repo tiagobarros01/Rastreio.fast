@@ -1,10 +1,17 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext } from 'react';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import history from '../../services/history';
 import {
-  HeaderContainer, HeaderContent, HomeContainer, MoonDark, SunLight, ToggleTheme,
+  HeaderContainer,
+  HeaderContent,
+  HomeContainer,
+  MoonDark,
+  SunLight,
+  ToggleTheme,
 } from './style';
 
 export function Header() {
@@ -18,26 +25,18 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <HomeContainer onClick={() => handleHomepage()}>
-          <p>HOME</p>
+        <HomeContainer>
+          <p onClick={() => handleHomepage()}>HOME</p>
           <ToggleTheme onClick={() => toggleTheme()}>
             {theme.title === 'light' ? <MoonDark /> : <SunLight />}
           </ToggleTheme>
         </HomeContainer>
         <nav>
           <ul>
-            <a href="">
-              <li>Integrations</li>
-            </a>
-            <a href="" onClick={() => handleCEPPage()}>
-              <li>Search CEP</li>
-            </a>
-            <a href="" onClick={() => handleLoginPage()}>
-              <li>Login</li>
-            </a>
-            <a href="" onClick={() => handleSignInPage()}>
-              <li>Sign In ⚡</li>
-            </a>
+            <li>Integrations</li>
+            <li onClick={() => handleCEPPage()}>Search CEP</li>
+            <li onClick={() => handleLoginPage()}>Login</li>
+            <li onClick={() => handleSignInPage()}>Sign In ⚡</li>
           </ul>
         </nav>
       </HeaderContent>
