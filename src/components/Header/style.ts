@@ -1,3 +1,4 @@
+import { RiMoonFill, RiSunFill } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
@@ -53,15 +54,49 @@ export const HeaderContent = styled.div`
 export const HomeContainer = styled.div`
   margin-left: 1rem;
 
-  transition: filter 200ms;
+  display: flex;
+  align-items: center;
+
 
   p {
     font-weight: bold;
     font-size: 1.5rem;
+
+    transition: filter 200ms;
+
+    :hover {
+      cursor: pointer;
+      filter: brightness(0.8);
+    }
   }
-  
+`;
+
+export const ToggleTheme = styled.div`
+  width: 2rem;
+  height: 2rem;
+
+  border-radius: 50%;
+
+  margin-left: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: ${(props) => props.theme.colors.scndBackground};
+
+  transition: filter 200ms;
+
   :hover {
     cursor: pointer;
-    filter: brightness(.8)
+    filter: brightness(0.85);
   }
+`;
+
+export const MoonDark = styled(RiMoonFill)`
+  color: ${(props) => props.theme.colors.yellow};
+`;
+
+export const SunLight = styled(RiSunFill)`
+  color: ${(props) => props.theme.colors.yellow};
 `;
