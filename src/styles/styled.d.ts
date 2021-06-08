@@ -7,10 +7,10 @@ declare module 'styled-components' {
       background: string;
       scndBackground: string;
       thirdBackground: string;
-      inputBackground: string,
+      inputBackground: string;
 
       title: string;
-      inputText: string,
+      inputText: string;
       text: string;
 
       shadow: string;
