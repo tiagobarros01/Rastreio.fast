@@ -7,7 +7,7 @@ export const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${(props) => props.theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.scndBackground};
 `;
 
 export const FormContainer = styled.div`
@@ -23,22 +23,22 @@ export const HeaderForm = styled.div`
   margin-top: 1rem;
 
   h1 {
-    color: ${(props) => props.theme.colors.title};
+    color: ${({ theme }) => theme.colors.title};
     font-size: 3.5rem;
   }
 
   p {
     margin-top: 1rem;
-    color: ${(props) => props.theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     font-weight: bold;
   }
 
   a {
-    color: ${(props) => props.theme.colors.yellow};
-    text-decoration: underline ${(props) => props.theme.colors.yellow} 2px;
+    color: ${({ theme }) => theme.colors.yellow};
+    text-decoration: underline ${({ theme }) => theme.colors.yellow} 2px;
 
     :hover {
-      filter: brightness(1.2)
+      filter: brightness(1.2);
     }
   }
 `;
@@ -51,13 +51,13 @@ export const LoginForm = styled.form`
   flex-direction: column;
 
   margin-top: 2rem;
-  
+
   fieldset {
     border: 0;
   }
-  
+
   label {
-    color: ${(props) => props.theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     font-weight: bold;
   }
 
@@ -66,17 +66,17 @@ export const LoginForm = styled.form`
     padding: 1rem;
     border-radius: 10px;
 
-    background: ${(props) => props.theme.colors.inputBackground};
-    color: ${(props) => props.theme.colors.inputText};
+    background: ${({ theme }) => theme.colors.inputBackground};
+    color: ${({ theme }) => theme.colors.inputText};
     font-weight: 500;
-    
+
     border: 0;
     outline: 0;
 
     margin-bottom: 1rem;
 
     :focus {
-      border: 3px solid ${(props) => props.theme.colors.yellow}
+      border: 3px solid ${({ theme }) => theme.colors.yellow};
     }
   }
 
@@ -85,16 +85,15 @@ export const LoginForm = styled.form`
     align-items: center;
     justify-content: flex-end;
 
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     margin-bottom: 1.5rem;
 
     a {
-      color: ${(props) => props.theme.colors.text};
+      color: ${({ theme }) => theme.colors.text};
       font-weight: 700;
       text-decoration: underline;
 
       transition: filter 200ms;
-
 
       :hover {
         filter: brightness(1.8);
@@ -102,12 +101,12 @@ export const LoginForm = styled.form`
     }
 
     button {
-      width: 7.5rem; 
+      width: 7.5rem;
       height: 3.5rem;
       border-radius: 10px;
       border: 0;
 
-      background: ${(props) => props.theme.colors.yellow};
+      background: ${({ theme }) => theme.colors.yellow};
       font-weight: bold;
 
       margin-left: 1rem;
@@ -115,7 +114,7 @@ export const LoginForm = styled.form`
       transition: background 400ms;
 
       :hover {
-        background: ${(props) => props.theme.colors.text};
+        background: ${({ theme }) => theme.colors.text};
       }
     }
   }

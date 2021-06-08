@@ -9,23 +9,21 @@ export const CEPContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  background: ${(props) => props.theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.scndBackground};
 
   button {
     padding: 1rem;
-    
+
     border: 0;
 
-    background: ${(props) => props.theme.colors.thirdBackground};
+    background: ${({ theme }) => theme.colors.thirdBackground};
 
     transition: background-color 200ms;
 
     :hover {
-      background: ${(props) => props.theme.colors.yellow};
+      background: ${({ theme }) => theme.colors.yellow};
     }
-
   }
-
 `;
 
 export const CEPTitle = styled.div`
@@ -36,11 +34,11 @@ export const CEPTitle = styled.div`
 
   h1 {
     font-size: 3rem;
-    color: ${(props) => props.theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   span {
-    color: ${(props) => props.theme.colors.yellow};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
 
@@ -48,8 +46,8 @@ export const CEPInput = styled.input`
   width: 20rem;
   padding: 1rem;
 
-  background: ${(props) => props.theme.colors.inputBackground};
-  color: ${(props) => props.theme.colors.inputText};
+  background: ${({ theme }) => theme.colors.inputBackground};
+  color: ${({ theme }) => theme.colors.inputText};
 
   outline: 0;
 

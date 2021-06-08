@@ -29,16 +29,15 @@ export const PackagesHistory = styled.div`
   flex-direction: column;
 
   animation: ${fade} 1s;
-  
+
   h1 {
     display: flex;
     align-items: center;
-
   }
 `;
 
 export const CheckIcon = styled(FiCheckCircle)`
-  color: ${(props) => props.theme.colors.green};
+  color: ${({ theme }) => theme.colors.green};
   margin-left: 1rem;
 `;
 
@@ -53,7 +52,7 @@ export const LineHistoryContainer = styled.div`
 export const LineHistory = styled.div`
   height: 0.3rem;
 
-  background: ${(props) => props.theme.colors.yellow};
+  background: ${({ theme }) => theme.colors.yellow};
 `;
 
 export const InfoContainer = styled.div`
@@ -66,7 +65,7 @@ export const InfoContainer = styled.div`
 
   display: flex;
 
-  background: ${(props) => props.theme.colors.background};
+  background: ${({ theme }) => theme.colors.background};
   filter: brightness(1.2);
 
   div {

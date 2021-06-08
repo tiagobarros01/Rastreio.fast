@@ -13,12 +13,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colors.background};
+    background: ${({ theme }) => theme.colors.background};
     overflow: hidden;
   }
 
   h1, h2, h3, p {
-    color: ${(props) => props.theme.colors.text}
+    color: ${({ theme }) => theme.colors.text}
   }
 
   body, button {

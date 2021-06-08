@@ -9,20 +9,18 @@ export const TrackBoxContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 
-
   button {
     padding: 1rem;
-    
+
     border: 0;
 
-    background: ${(props) => props.theme.colors.thirdBackground};
+    background: ${({ theme }) => theme.colors.thirdBackground};
 
     transition: background-color 200ms;
 
     :hover {
-      background: ${(props) => props.theme.colors.yellow};
+      background: ${({ theme }) => theme.colors.yellow};
     }
-
   }
 `;
 
@@ -35,11 +33,11 @@ export const Title = styled.div`
   margin-bottom: 1rem;
 
   h1 {
-    color: ${(props) => props.theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 3rem;
 
     span {
-      color: ${(props) => props.theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.yellow};
     }
   }
 `;
@@ -48,13 +46,13 @@ export const Input = styled.input`
   width: 20rem;
   padding: 1rem;
 
-  background: ${(props) => props.theme.colors.inputBackground};
-  color: ${(props) => props.theme.colors.inputText};
+  background: ${({ theme }) => theme.colors.inputBackground};
+  color: ${({ theme }) => theme.colors.inputText};
 
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 
   ::placeholder {
-    color: ${(props) => props.theme.colors.inputText};
+    color: ${({ theme }) => theme.colors.inputText};
   }
 `;

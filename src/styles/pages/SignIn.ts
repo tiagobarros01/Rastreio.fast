@@ -7,7 +7,7 @@ export const SignInContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${(props) => props.theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.scndBackground};
 
   overflow: hidden;
 `;
@@ -25,7 +25,7 @@ export const HeaderForm = styled.div`
 
   h1 {
     text-align: center;
-    color: ${(props) => props.theme.colors.title};
+    color: ${({ theme }) => theme.colors.title};
     font-size: 3.5rem;
   }
 `;
@@ -45,7 +45,7 @@ export const SignInForm = styled.form`
   }
 
   label {
-    color: ${(props) => props.theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     font-weight: bold;
   }
 
@@ -62,32 +62,31 @@ export const SignInForm = styled.form`
 
     border-radius: 10px;
 
-    background: ${(props) => props.theme.colors.inputBackground};
-    color: ${(props) => props.theme.colors.inputText};
+    background: ${({ theme }) => theme.colors.inputBackground};
+    color: ${({ theme }) => theme.colors.inputText};
 
     :focus {
-      border: 3px solid ${(props) => props.theme.colors.yellow}
+      border: 3px solid ${({ theme }) => theme.colors.yellow};
     }
   }
 
   #btnContainer {
     button {
-      width: 7.5rem; 
+      width: 7.5rem;
       height: 3.5rem;
       border-radius: 10px;
       border: 0;
 
-      background: ${(props) => props.theme.colors.yellow};
+      background: ${({ theme }) => theme.colors.yellow};
       font-weight: bold;
 
       transition: background 400ms;
 
       :hover {
-        background: ${(props) => props.theme.colors.text};
+        background: ${({ theme }) => theme.colors.text};
       }
     }
   }
-
 `;
 
 export const DividesFields = styled.div`
