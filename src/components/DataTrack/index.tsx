@@ -1,73 +1,63 @@
 import React from 'react';
 
 import { DataProps } from '../../types/DataProps';
+import {
+  Container,
+  DateHour,
+  Icon,
+  State,
+  City,
+  Description,
+  Info,
+  Details,
+} from './style';
 
 export function DataTrack({
   cidade, dataHora, descricao, uf,
 }: DataProps) {
   return (
-    <div>
-      {cidade ? (
-        <div>
-          <h3>
-            <strong>City/Country: </strong>
-          </h3>
-          <p>{cidade}</p>
-        </div>
-      ) : (
-        <div>
-          <h3>
-            <strong>City/Country: </strong>
-          </h3>
-          <p>There&apos;s no information ❗</p>
-        </div>
-      )}
-
-      {uf ? (
-        <div>
-          <h3>
-            <strong>State: </strong>
-          </h3>
-          <p>{uf}</p>
-        </div>
-      ) : (
-        <div>
-          <h3>
-            <strong>State: </strong>
-          </h3>
-          <p>There&apos;s no information ❗</p>
-        </div>
-      )}
+    <Container>
       {dataHora ? (
-        <div>
-          <h3>
-            <strong>Date-Hour: </strong>
-          </h3>
+        <DateHour>
           <p>{dataHora}</p>
-        </div>
+        </DateHour>
       ) : (
-        <div>
-          <h3>
-            <strong>Date-Hour: </strong>
-          </h3>
-          <p>There&apos;s no information ❗</p>
-        </div>
+        <DateHour>
+          <p>--/--/---- --:--</p>
+        </DateHour>
       )}
-      {descricao ? (
-        <div>
-          <h3>
-            <strong>Description: </strong>
-          </h3>
-          <p>{descricao}</p>
-        </div>
-      ) : (
-        <div>
-          <h3>
-            <strong>Description: </strong>
-          </h3>
-          <p>There&apos;s no information ❗</p>
-        </div>
-      )}
-    </div>
+      <Icon color="#fff" description={descricao} />
+      <Info>
+        {descricao ? (
+          <Description>
+            <p>{descricao}</p>
+          </Description>
+        ) : (
+          <Description>
+            <p>There&apos;s no information</p>
+          </Description>
+        )}
+        <Details>
+          {uf ? (
+            <State>
+              <p>{uf}</p>
+            </State>
+          ) : (
+            <State>
+              <p>There&apos;s no information</p>
+            </State>
+          )}
+          {cidade ? (
+            <City>
+              <p>{cidade}</p>
+            </City>
+          ) : (
+            <City>
+              <p>There&apos;s no information</p>
+            </City>
+          )}
+        </Details>
+      </Info>
+    </Container>
   );
 }
