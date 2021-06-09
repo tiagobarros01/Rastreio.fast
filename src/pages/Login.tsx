@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 import GlobalStyle from '../styles/global';
@@ -37,7 +36,7 @@ export default function Login() {
               </label>
             </fieldset>
             <div>
-              <a href="">Miss your password?</a>
+              <a href="#">Miss your password?</a>
               <button form="login" type="submit">Enter</button>
             </div>
           </LoginForm>
