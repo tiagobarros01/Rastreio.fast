@@ -12,7 +12,7 @@ const fade = keyframes`
 
 export const PackageContainer = styled.div`
   width: 100vw;
-  height: calc(100vh - 20vh);
+  height: 100vh;
 
   display: flex;
   align-items: center;
@@ -31,8 +31,12 @@ export const PackagesHistory = styled.div`
   animation: ${fade} 1s;
 
   h1 {
+    width: 100%;
+    height: 2rem;
+
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -41,35 +45,8 @@ export const CheckIcon = styled(FiCheckCircle)`
   margin-left: 1rem;
 `;
 
-export const LineHistoryContainer = styled.div`
-  width: 85%;
-  height: 3rem;
-  margin-top: 3rem;
-
-  position: relative;
-`;
-
-export const LineHistory = styled.div`
-  height: 0.3rem;
-
-  background: ${({ theme }) => theme.colors.yellow};
-`;
-
-export const InfoContainer = styled.div`
-  margin-top: 1rem;
+export const TrackContainer = styled.div`
+  max-height: 32rem;
 
   overflow-y: scroll;
-  overflow-x: hidden;
-
-  height: 20rem;
-
-  display: flex;
-
-  background: ${({ theme }) => theme.colors.background};
-  filter: brightness(1.2);
-
-  div {
-    padding: 0.5rem;
-    border-radius: 10px;
-  }
 `;

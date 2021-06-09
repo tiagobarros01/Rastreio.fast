@@ -4,15 +4,13 @@ import { Loader } from '../components/Loader/index';
 import { TrackingContext } from '../contexts/TrackingContext';
 import {
   CheckIcon,
-  InfoContainer,
-  LineHistory,
-  LineHistoryContainer,
   PackageContainer,
   PackagesHistory,
+  TrackContainer,
 } from '../styles/pages/Tracks';
 
 export default function Tracks() {
-  const { loading, dataTrack, trackCode } = useContext(TrackingContext);
+  const { loading, trackCode, dataTrack } = useContext(TrackingContext);
 
   return (
     <PackageContainer>
@@ -24,12 +22,9 @@ export default function Tracks() {
             {trackCode}
             <CheckIcon />
           </h1>
-          <LineHistoryContainer>
-            <LineHistory />
-            <InfoContainer>
-              {dataTrack}
-            </InfoContainer>
-          </LineHistoryContainer>
+          <TrackContainer>
+            {dataTrack}
+          </TrackContainer>
         </PackagesHistory>
       )}
     </PackageContainer>
