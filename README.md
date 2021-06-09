@@ -16,6 +16,7 @@
  - ⚛️ **ReactJs** - A JavaScript library for building user interfaces
  - **Typescript** - A superset of Javascript
  - **Styled-components** - A lib of styles for React
+ - **React-icons** - A lib of icons on React
  - _I also used Eslint & Eslint-plugin-import-helpers in development_
 
 ## Getting started
