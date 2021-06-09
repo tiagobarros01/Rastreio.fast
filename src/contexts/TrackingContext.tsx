@@ -46,8 +46,7 @@ function TrackingProvider({ children }: TrackingProviderProps) {
               descricao={descricao}
               uf={uf}
             />
-          ))
-          .reverse(),
+          )),
       );
       console.log(data);
       setTrackCode(code);
