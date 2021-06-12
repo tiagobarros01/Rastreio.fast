@@ -28,9 +28,13 @@ export const PackagesHistory = styled.div`
 
   flex-direction: column;
 
+  gap: 2rem;
+
   animation: ${fade} 1s;
 
   h1 {
+    margin-top: 3rem;
+
     width: 100%;
     height: 2rem;
 
@@ -48,5 +52,20 @@ export const CheckIcon = styled(FiCheckCircle)`
 export const TrackContainer = styled.div`
   max-height: 32rem;
 
+  padding: 0.5rem;
+
   overflow-y: scroll;
+
+  background: ${({ theme }) => theme.colors.scndBackground};
+
+  border-radius: 0.8rem;
+
+  ::-webkit-scrollbar {
+    width: .8rem;
+    background: ${({ theme }) => theme.colors.thirdBackground};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.yellow};
+    border-radius: .5rem;
+  }
 `;
