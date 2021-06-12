@@ -1,4 +1,6 @@
 /* eslint-disable no-confusing-arrow */
+import { BiPackage } from 'react-icons/bi';
+import { FiCheckCircle } from 'react-icons/fi';
 import { RiTruckLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
@@ -19,7 +21,31 @@ export const DateHour = styled.div`
   text-align: center;
 `;
 
-export const Icon = styled(RiTruckLine)<{ description: string }>`
+export const Posted = styled(FiCheckCircle)`
+  width: 2.5rem;
+  height: 2.5rem;
+
+  margin-right: 0.5rem;
+
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+
+  background: ${({ theme }) => theme.colors.red};
+`;
+
+export const Delivered = styled(BiPackage)`
+  width: 2.5rem;
+  height: 2.5rem;
+
+  margin-right: 0.5rem;
+
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+
+  background: ${({ theme }) => theme.colors.blue};
+`;
+
+export const Transit = styled(RiTruckLine)<{ description: string }>`
   width: 2.5rem;
   height: 2.5rem;
 
@@ -32,9 +58,7 @@ export const Icon = styled(RiTruckLine)<{ description: string }>`
     ? ({ theme }) => theme.colors.green
     : () => description === 'Objeto entregue ao destinatário'
       ? ({ theme }) => theme.colors.blue
-      : () => description === 'Objeto postado'
-        ? ({ theme }) => theme.colors.red
-        : ({ theme }) => theme.colors.yellow};
+      : ({ theme }) => theme.colors.yellow};
 `;
 
 export const Info = styled.div``;
@@ -50,7 +74,7 @@ export const Description = styled.div`
 `;
 
 export const State = styled.div`
-  margin-right: 0.5rem;
+  margin-right: 0.4rem;
 
   p {
     font-weight: bold;

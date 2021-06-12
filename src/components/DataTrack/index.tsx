@@ -1,10 +1,13 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 
 import { DataProps } from '../../types/DataProps';
 import {
   Container,
   DateHour,
-  Icon,
+  Posted,
+  Delivered,
+  Transit,
   State,
   City,
   Description,
@@ -26,7 +29,13 @@ export function DataTrack({
           <p>--/--/---- --:--</p>
         </DateHour>
       )}
-      <Icon color="#fff" description={descricao} />
+      {descricao === 'Objeto postado' ? (
+        <Posted color="#fff" />
+      ) : descricao === 'Objeto entregue ao destinatário' ? (
+        <Delivered color="#fff" />
+      ) : (
+        <Transit color="#fff" description={descricao} />
+      )}
       <Info>
         {descricao ? (
           <Description>
@@ -34,7 +43,7 @@ export function DataTrack({
           </Description>
         ) : (
           <Description>
-            <p>There&apos;s no information</p>
+            <p>--</p>
           </Description>
         )}
         <Details>
@@ -44,16 +53,16 @@ export function DataTrack({
             </State>
           ) : (
             <State>
-              <p>There&apos;s no information</p>
+              <p>--</p>
             </State>
           )}
           {cidade ? (
             <City>
-              <p>{cidade}</p>
+              <p>{` | ${cidade}`}</p>
             </City>
           ) : (
             <City>
-              <p>There&apos;s no information</p>
+              <p>--</p>
             </City>
           )}
         </Details>
