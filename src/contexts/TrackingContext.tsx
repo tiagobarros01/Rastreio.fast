@@ -23,10 +23,6 @@ function TrackingProvider({ children }: TrackingProviderProps) {
   const [dataTrack, setDataTrack] = useState<DataProps | null>(null);
   const [trackCode, setTrackCode] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
-  // OO135195662BR
-  // LB559365129SE
-  // NX150736229BR
-  // LB559302234SE
 
   async function getTrackingData(code: string) {
     setLoading(true);
