@@ -6,8 +6,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 0.5rem;
+  padding-top: 1rem;
 
-  margin-bottom: 1rem;
+  :not(:last-child) {
+    padding-bottom: 1rem;
+  }
 
   display: flex;
   align-items: center;
