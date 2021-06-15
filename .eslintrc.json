@@ -4,7 +4,11 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -13,12 +17,14 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "import-helpers"
-  ],
+  "plugins": ["react", "@typescript-eslint", "import-helpers"],
   "rules": {
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/prop-types": "off",
+    "space-before-function-paren": "off",
+    "no-use-before-define": "off",
+    "no-console": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -27,25 +33,16 @@
         "tsx": "never"
       }
     ],
-    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/no-unresolved": "off",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-    "space-before-function-paren": "off",
-    "no-console": "off",
     "import/prefer-default-export": "off",
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": [
-          "module",
-          [ "parent", "sibling", "index" ]
-        ],
+        "groups": ["module", ["parent", "sibling", "index"]],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
-    ],
-    "react/prop-types": "off"
+    ]
   },
   "settings": {
     "import/resolver": {
