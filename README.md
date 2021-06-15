@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-<!--   <img src="./public/favicon.png"/> -->
+  <img src="./public/favicon.ico"/>
   <br>
   <br>
   Rastreio.Fast
@@ -14,7 +14,7 @@
 
 ## Features
  - ⚛️ **ReactJs** - A JavaScript library for building user interfaces
- - **Typescript** - A superset of Javascript
+ - <img align="left" alt="Typescript" width="14px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />**Typescript** - A superset of Javascript
  - **Styled-components** - A lib of styles for React
  - **React-icons** - A lib of icons on React
  - _I also used Eslint & Eslint-plugin-import-helpers in development_
