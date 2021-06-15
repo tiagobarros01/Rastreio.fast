@@ -22,9 +22,7 @@ export default function Tracks() {
             {trackCode}
             <CheckIcon />
           </h1>
-          <TrackContainer>
-            {dataTrack}
-          </TrackContainer>
+          <TrackContainer>{dataTrack}</TrackContainer>
         </PackagesHistory>
       )}
     </PackageContainer>

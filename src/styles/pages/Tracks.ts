@@ -61,11 +61,11 @@ export const TrackContainer = styled.div`
   border-radius: 0.8rem;
 
   ::-webkit-scrollbar {
-    width: .8rem;
+    width: 0.8rem;
     background: ${({ theme }) => theme.colors.thirdBackground};
   }
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.yellow};
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
 `;

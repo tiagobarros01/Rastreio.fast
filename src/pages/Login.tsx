@@ -27,18 +27,32 @@ export default function Login() {
               <label htmlFor="emailOrUserName">
                 E-mail or user
                 <br />
-                <input type="text" id="emailOrUserName" autoComplete="email" required maxLength={28} />
+                <input
+                  type="text"
+                  id="emailOrUserName"
+                  autoComplete="email"
+                  required
+                  maxLength={28}
+                />
               </label>
               <br />
               <label htmlFor="password" id="password">
                 Password
                 <br />
-                <input type="password" id="password" autoComplete="password" required maxLength={22} />
+                <input
+                  type="password"
+                  id="password"
+                  autoComplete="password"
+                  required
+                  maxLength={22}
+                />
               </label>
             </fieldset>
             <div>
               <a href="#">Miss your password?</a>
-              <button form="login" type="submit">Enter</button>
+              <button form="login" type="submit">
+                Enter
+              </button>
             </div>
           </LoginForm>
         </FormContainer>

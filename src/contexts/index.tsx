@@ -10,9 +10,7 @@ interface ContextProviderProps {
 function ContextProvider({ children }: ContextProviderProps) {
   return (
     <ThemeContextProvider>
-      <TrackingProvider>
-        {children}
-      </TrackingProvider>
+      <TrackingProvider>{children}</TrackingProvider>
     </ThemeContextProvider>
   );
 }

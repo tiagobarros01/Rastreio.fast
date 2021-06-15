@@ -28,13 +28,14 @@ function ThemeContextProvider({ children }: Props) {
     setTheme(theme.title === 'light' ? dark : light);
   };
 
-  const memoizedValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+  const memoizedValue = useMemo(
+    () => ({ theme, toggleTheme }),
+    [theme, toggleTheme],
+  );
 
   return (
     <ThemeContext.Provider value={memoizedValue}>
-      <ThemeProvider theme={theme}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
 }

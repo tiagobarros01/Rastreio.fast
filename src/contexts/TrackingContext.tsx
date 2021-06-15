@@ -32,17 +32,16 @@ function TrackingProvider({ children }: TrackingProviderProps) {
 
     try {
       setDataTrack(
-        data
-          .map(({
-            cidade, dataHora, descricao, uf,
-          }: DataProps) => (
-            <DataTrack
-              cidade={cidade}
-              dataHora={dataHora}
-              descricao={descricao}
-              uf={uf}
-            />
-          )),
+        data.map(({
+          cidade, dataHora, descricao, uf,
+        }: DataProps) => (
+          <DataTrack
+            cidade={cidade}
+            dataHora={dataHora}
+            descricao={descricao}
+            uf={uf}
+          />
+        )),
       );
       console.log(data);
       setTrackCode(code);
@@ -53,7 +52,10 @@ function TrackingProvider({ children }: TrackingProviderProps) {
   }
   const memoizedValue = useMemo(
     () => ({
-      trackCode, dataTrack, loading, getTrackingData,
+      trackCode,
+      dataTrack,
+      loading,
+      getTrackingData,
     }),
     [trackCode, dataTrack, loading, getTrackingData],
   );

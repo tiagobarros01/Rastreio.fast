@@ -7,9 +7,7 @@ import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
 export default function Homepage() {
   const [code, setCode] = useState<string>('');
 
-  const {
-    getTrackingData,
-  } = useTrack();
+  const { getTrackingData } = useTrack();
 
   return (
     <>
@@ -31,10 +29,7 @@ export default function Homepage() {
             placeholder="Code here"
             required
           />
-          <button
-            type="button"
-            onClick={() => getTrackingData(code)}
-          >
+          <button type="button" onClick={() => getTrackingData(code)}>
             Track order
           </button>
         </div>
