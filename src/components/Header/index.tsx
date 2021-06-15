@@ -16,7 +16,7 @@ import {
 } from './style';
 
 export function Header() {
-  const { theme, toggleTheme } = useTheme(); // ThemeContext
+  const { theme: { title }, toggleTheme } = useTheme(); // ThemeContext
 
   return (
     <HeaderContainer>
@@ -27,7 +27,7 @@ export function Header() {
         <nav>
           <ul>
             <ToggleTheme onClick={() => toggleTheme()}>
-              {theme.title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
+              {title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
             </ToggleTheme>
             <li>Integrations</li>
             <li onClick={() => useRoutes('/searchcep')}>Search CEP</li>

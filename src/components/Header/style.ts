@@ -11,9 +11,9 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
 
-  background: ${(props) => props.theme.colors.background};
+  background: ${({ theme }) => theme.colors.background};
   filter: brightness(0.9);
-  filter: drop-shadow(0px 0px 15px ${(props) => props.theme.colors.background});
+  filter: drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.background});
 `;
 
 export const HeaderContent = styled.div`
@@ -34,7 +34,7 @@ export const HeaderContent = styled.div`
 
   nav ul li {
     padding: 1rem;
-    color: ${(props) => props.theme.colors.text};
+    color: ${({ theme }) => theme.colors.text};
     font-size: 1.1rem;
     font-weight: bold;
 
@@ -42,7 +42,7 @@ export const HeaderContent = styled.div`
     cursor: pointer;
 
     :last-child {
-      color: ${(props) => props.theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.yellow};
     }
 
     :hover {
@@ -83,7 +83,7 @@ export const ToggleTheme = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: ${(props) => props.theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.scndBackground};
 
   transition: filter 200ms;
 
@@ -94,9 +94,9 @@ export const ToggleTheme = styled.div`
 `;
 
 export const MoonDark = styled(RiMoonFill)`
-  color: ${(props) => props.theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow};
 `;
 
 export const SunLight = styled(RiSunFill)`
-  color: ${(props) => props.theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow};
 `;

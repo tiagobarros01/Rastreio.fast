@@ -23,5 +23,5 @@ export const Inner = styled.div`
 
   animation: ${rotate} 600ms linear infinite;
 
-  border-bottom: 3px solid ${(props) => props.theme.colors.inputBackground};
+  border-bottom: 3px solid ${({ theme }) => theme.colors.inputBackground};
 `;
