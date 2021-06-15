@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { useTheme } from '../../hooks/useTheme';
 import Logo from '../../img/Logo.svg';
 import { useRoutes } from '../../services/useRoutes';
 import {
@@ -16,7 +16,7 @@ import {
 } from './style';
 
 export function Header() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme(); // ThemeContext
 
   return (
     <HeaderContainer>

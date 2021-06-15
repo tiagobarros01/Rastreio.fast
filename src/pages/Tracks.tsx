@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Loader } from '../components/Loader/index';
-import { TrackingContext } from '../contexts/TrackingContext';
+import { useTrack } from '../hooks/useTrack';
 import {
   CheckIcon,
   PackageContainer,
@@ -10,7 +10,7 @@ import {
 } from '../styles/pages/Tracks';
 
 export default function Tracks() {
-  const { loading, trackCode, dataTrack } = useContext(TrackingContext);
+  const { loading, trackCode, dataTrack } = useTrack();
 
   return (
     <PackageContainer>

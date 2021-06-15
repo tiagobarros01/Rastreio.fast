@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import Footer from '../components/Footer';
-import { TrackingContext } from '../contexts/TrackingContext';
+import { useTrack } from '../hooks/useTrack';
 import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
 
 export default function Homepage() {
@@ -9,7 +9,7 @@ export default function Homepage() {
 
   const {
     getTrackingData,
-  } = useContext(TrackingContext);
+  } = useTrack();
 
   return (
     <>
