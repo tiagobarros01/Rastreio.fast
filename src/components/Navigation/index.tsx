@@ -4,7 +4,12 @@ import { NavigationMobile } from './mobile/Navigation.mobile';
 import { NavigationWeb } from './Navigation.web';
 
 export function Navigation() {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (window.innerWidth <= 576) {
+      return true;
+    }
+    return false;
+  });
 
   function handleResize() {
     if (window.innerWidth <= 576) {
