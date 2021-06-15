@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 
 import Footer from '../components/Footer';
 import { useTrack } from '../hooks/useTrack';
-import { Input, Title, TrackBoxContainer } from '../styles/pages/Homepage';
+import {
+  CodeContainer,
+  Input,
+  Title,
+  TrackBoxContainer,
+} from '../styles/pages/Homepage';
 
 export default function Homepage() {
   const [code, setCode] = useState<string>('');
@@ -19,7 +24,7 @@ export default function Homepage() {
             fast
           </h1>
         </Title>
-        <div>
+        <CodeContainer>
           <Input
             maxLength={15}
             type="text"
@@ -32,7 +37,7 @@ export default function Homepage() {
           <button type="button" onClick={() => getTrackingData(code)}>
             Track order
           </button>
-        </div>
+        </CodeContainer>
       </TrackBoxContainer>
       <Footer />
     </>

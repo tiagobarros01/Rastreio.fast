@@ -18,9 +18,24 @@ export const TrackBoxContainer = styled.div`
 
     transition: background-color 200ms;
 
+    @media (max-width: 576px) {
+      margin-top: 1rem;
+      width: 45%;
+    }
+
     :hover {
       background: ${({ theme }) => theme.colors.yellow};
     }
+  }
+`;
+
+export const CodeContainer = styled.div`
+  @media (max-width: 576px) {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 `;
 
