@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
-import { TrackingContext, TrackingContextData } from '../contexts/TrackingContext';
+import { TrackingContext } from '../contexts/TrackingContext';
+import { TrackingContextData } from '../types/TrackingContextData';
 
 export function useTrack(): TrackingContextData {
   const ctx = useContext(TrackingContext);

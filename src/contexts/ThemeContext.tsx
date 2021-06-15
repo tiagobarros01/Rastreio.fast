@@ -4,11 +4,7 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { usePersistedState } from '../hooks/usePersistedState';
 import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
-
-export interface ThemeContextData {
-  theme: DefaultTheme;
-  toggleTheme: () => void;
-}
+import { ThemeContextData } from '../types/ThemeContextData';
 
 interface Props {
   children: React.ReactNode;

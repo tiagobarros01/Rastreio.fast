@@ -4,13 +4,8 @@ import { DataTrack } from '../components/DataTrack/index';
 import api from '../services/api';
 import history from '../services/history';
 import { DataProps } from '../types/DataProps';
+import { TrackingContextData } from '../types/TrackingContextData';
 
-export interface TrackingContextData {
-  trackCode: string;
-  dataTrack: DataProps | null;
-  loading: boolean;
-  getTrackingData: (code: string) => Promise<void>;
-}
 interface TrackingProviderProps {
   children: React.ReactNode;
 }
