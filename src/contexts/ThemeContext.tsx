@@ -1,6 +1,7 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useMemo } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
+import { usePersistedState } from '../hooks/usePersistedState';
 import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 
@@ -21,7 +22,7 @@ const ThemeContext = createContext<ThemeContextData>({
 });
 
 function ThemeContextProvider({ children }: Props) {
-  const [theme, setTheme] = useState(dark);
+  const [theme, setTheme] = usePersistedState<DefaultTheme>('@rastreio.fast:theme', dark);
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
