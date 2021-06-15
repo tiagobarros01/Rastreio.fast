@@ -14,7 +14,7 @@ import {
   ToggleTheme,
 } from './style';
 
-export function Header() {
+export function Header(): JSX.Element {
   const { theme: { title }, toggleTheme } = useTheme(); // ThemeContext
 
   return (

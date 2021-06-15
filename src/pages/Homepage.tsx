@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Footer from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { useTrack } from '../hooks/useTrack';
 import {
   CodeContainer,
@@ -9,7 +9,7 @@ import {
   TrackBoxContainer,
 } from '../styles/pages/Homepage';
 
-export default function Homepage() {
+export default function Homepage(): JSX.Element {
   const [code, setCode] = useState<string>('');
 
   const { getTrackingData } = useTrack();

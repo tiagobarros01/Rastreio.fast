@@ -11,7 +11,7 @@ import {
   PasswordContainer,
 } from '../styles/pages/SignIn';
 
-export default function SignIn() {
+export default function SignIn(): JSX.Element {
   return (
     <SignInContainer>
       <FormContainer>

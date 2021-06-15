@@ -17,7 +17,7 @@ import {
 
 export function DataTrack({
   cidade, dataHora, descricao, uf,
-}: DataProps) {
+}: DataProps): JSX.Element {
   return (
     <Container>
       {dataHora ? (

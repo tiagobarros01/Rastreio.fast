@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CEPContainer, CEPTitle, CEPInput } from '../styles/pages/SearchCEP';
 
-export default function SearchCEP() {
+export default function SearchCEP(): JSX.Element {
   return (
     <CEPContainer>
       <CEPTitle>

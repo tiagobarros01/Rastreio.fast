@@ -8,7 +8,7 @@ import SearchCEP from '../pages/SearchCEP';
 import SignIn from '../pages/SignIn';
 import Tracks from '../pages/Tracks';
 
-export default function Routes() {
+export default function Routes(): JSX.Element {
   return (
     <Switch>
       <Route path="/" component={Homepage} exact />

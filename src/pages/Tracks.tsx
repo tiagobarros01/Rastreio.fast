@@ -9,7 +9,7 @@ import {
   TrackContainer,
 } from '../styles/pages/Tracks';
 
-export default function Tracks() {
+export default function Tracks(): JSX.Element {
   const { loading, trackCode, dataTrack } = useTrack();
 
   return (

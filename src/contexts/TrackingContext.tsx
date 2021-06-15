@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { createContext, useMemo, useState } from 'react';
 
 import { DataTrack } from '../components/DataTrack/index';
@@ -6,20 +5,19 @@ import api from '../services/api';
 import history from '../services/history';
 import { DataProps } from '../types/DataProps';
 
+export interface TrackingContextData {
+  trackCode: string;
+  dataTrack: DataProps | null;
+  loading: boolean;
+  getTrackingData: (code: string) => Promise<void>;
+}
 interface TrackingProviderProps {
   children: React.ReactNode;
 }
 
-interface TrackingContextData {
-  trackCode: string;
-  dataTrack: DataProps | null;
-  loading: boolean;
-  getTrackingData: (code: string) => void;
-}
-
 const TrackingContext = createContext({} as TrackingContextData);
 
-function TrackingProvider({ children }: TrackingProviderProps) {
+function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
   const [dataTrack, setDataTrack] = useState<DataProps | null>(null);
   const [trackCode, setTrackCode] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);

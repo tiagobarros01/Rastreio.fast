@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FooterContainer } from './style';
 
-export default function Footer() {
+export function Footer(): JSX.Element {
   return (
     <FooterContainer>
       <p>

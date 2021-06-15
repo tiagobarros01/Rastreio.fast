@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Inner, LoaderContainer } from './style';
 
-export function Loader() {
+export function Loader(): JSX.Element {
   return (
     <LoaderContainer>
       <Inner />

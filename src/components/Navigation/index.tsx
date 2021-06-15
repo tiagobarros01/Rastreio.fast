@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { NavigationMobile } from './mobile/Navigation.mobile';
 import { NavigationWeb } from './Navigation.web';
 
-export function Navigation() {
+export function Navigation(): JSX.Element {
   const [isMobile, setIsMobile] = useState<boolean>(() => {
     if (window.innerWidth <= 576) {
       return true;

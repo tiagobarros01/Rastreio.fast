@@ -5,7 +5,7 @@ import React from 'react';
 import { useRoutes } from '../../services/useRoutes';
 import { List } from './style';
 
-export function NavigationWeb() {
+export function NavigationWeb(): JSX.Element {
   return (
     <List>
       <li>Integrations</li>

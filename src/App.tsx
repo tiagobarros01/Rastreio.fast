@@ -7,7 +7,7 @@ import Routes from './routes';
 import History from './services/history';
 import GlobalStyle from './styles/global';
 
-function App() {
+function App(): JSX.Element {
   return (
     <ContextProvider>
       <Router history={History}>

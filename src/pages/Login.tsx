@@ -9,7 +9,7 @@ import {
   LoginForm,
 } from '../styles/pages/Login';
 
-export default function Login() {
+export default function Login(): JSX.Element {
   return (
     <>
       <LoginContainer>

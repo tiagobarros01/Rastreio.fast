@@ -7,7 +7,7 @@ import {
   Container, StackIcon, ListContainer, List,
 } from './style';
 
-export function NavigationMobile() {
+export function NavigationMobile(): JSX.Element {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   function handleVisibility() {

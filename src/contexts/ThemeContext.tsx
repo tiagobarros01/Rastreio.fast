@@ -5,7 +5,7 @@ import { usePersistedState } from '../hooks/usePersistedState';
 import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 
-interface ThemeContextData {
+export interface ThemeContextData {
   theme: DefaultTheme;
   toggleTheme: () => void;
 }
@@ -21,7 +21,7 @@ const ThemeContext = createContext<ThemeContextData>({
   },
 });
 
-function ThemeContextProvider({ children }: Props) {
+function ThemeContextProvider({ children }: Props): JSX.Element {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('@rastreio.fast:theme', dark);
 
   const toggleTheme = () => {
