@@ -7,6 +7,8 @@ import {
   SignInForm,
   DividesFields,
   NameContainer,
+  BtnContainer,
+  PasswordContainer,
 } from '../styles/pages/SignIn';
 
 export default function SignIn() {
@@ -44,8 +46,7 @@ export default function SignIn() {
                   <input type="text" id="lastName" required maxLength={12} />
                 </label>
               </NameContainer>
-              <br />
-              <div>
+              <PasswordContainer>
                 <label htmlFor="password">
                   Password
                   <br />
@@ -67,12 +68,12 @@ export default function SignIn() {
                     maxLength={22}
                   />
                 </label>
-              </div>
+              </PasswordContainer>
             </DividesFields>
           </fieldset>
-          <div id="btnContainer">
+          <BtnContainer>
             <button type="button">Enter</button>
-          </div>
+          </BtnContainer>
         </SignInForm>
       </FormContainer>
     </SignInContainer>
