@@ -14,7 +14,7 @@ import {
   ToggleTheme,
 } from './style';
 
-export function HeaderWeb() {
+export function Header() {
   const { theme: { title }, toggleTheme } = useTheme(); // ThemeContext
 
   return (
