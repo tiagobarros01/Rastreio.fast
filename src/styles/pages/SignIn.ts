@@ -17,7 +17,7 @@ export const FormContainer = styled.div`
   margin-top: 5rem;
 
   @media (max-width: 576px) {
-    width: 65vw;
+    width: 70vw;
   }
 `;
 
@@ -48,8 +48,20 @@ export const SignInForm = styled.form`
     margin-bottom: 1rem;
 
     @media (max-width: 576px) {
+      width: 100%;
       max-height: 27rem;
+
+      padding: 1rem;
       overflow-y: scroll;
+
+      ::-webkit-scrollbar {
+        width: 0.8rem;
+        background: ${({ theme }) => theme.colors.thirdBackground};
+      }
+      ::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.colors.yellow};
+        border-radius: 0.5rem;
+      }
     }
   }
 
@@ -86,7 +98,7 @@ export const DividesFields = styled.div`
   justify-content: center;
 
   @media (max-width: 576px) {
-    flex-direction: column;
+    display: inherit;
 
     div {
       margin-right: 0;
