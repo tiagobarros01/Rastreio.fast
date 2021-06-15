@@ -1,35 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import Logo from '../../img/Logo.svg';
-import { useRoutes } from '../../services/useRoutes';
-import { Navigation } from '../Navigation/index';
-import {
-  HeaderContainer,
-  HeaderContent,
-  HomeContainer,
-  HomeImage,
-  MoonDark,
-  SunLight,
-  ToggleTheme,
-} from './style';
+import { HeaderWeb } from './Header';
+import { HeaderMobile } from './mobile/Header.mobile';
 
 export function Header() {
-  const { theme: { title }, toggleTheme } = useTheme(); // ThemeContext
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  return (
-    <HeaderContainer>
-      <HeaderContent>
-        <HomeContainer>
-          <HomeImage src={Logo} alt="Logo" onClick={() => useRoutes('/')} />
-        </HomeContainer>
-        <nav>
-          <ToggleTheme onClick={() => toggleTheme()}>
-            {title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
-          </ToggleTheme>
-          <Navigation />
-        </nav>
-      </HeaderContent>
-    </HeaderContainer>
-  );
+  function handleResize() {
+    if (window.innerWidth <= 576) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+  }, [window, handleResize]);
+
+  return isMobile === false ? <HeaderWeb /> : <HeaderMobile />;
 }
