@@ -24,7 +24,7 @@ export const ListContainer = styled.div`
   top: 0;
   left: 0;
   
-  width: 83.6%;
+  width: 80%;
   height: 100vh;
 
   z-index: 12;
