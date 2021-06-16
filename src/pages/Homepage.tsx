@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import { Footer } from '../components/Footer';
 import { useTrack } from '../hooks/useTrack';
@@ -10,9 +10,13 @@ import {
 } from '../styles/pages/Homepage';
 
 export default function Homepage(): JSX.Element {
-  const [code, setCode] = useState<string>('');
+  const valueInputRef = useRef<HTMLInputElement>(null);
 
   const { getTrackingData } = useTrack();
+
+  const handleTrack = useCallback(() => {
+    getTrackingData(String(valueInputRef.current?.value));
+  }, [getTrackingData]);
 
   return (
     <>
@@ -26,15 +30,17 @@ export default function Homepage(): JSX.Element {
         </Title>
         <CodeContainer>
           <Input
-            maxLength={15}
             type="text"
-            value={code.toUpperCase()}
-            onChange={(event) => setCode(event.target.value)}
-            autoComplete="on"
+            ref={valueInputRef}
+            maxLength={15}
             placeholder="Code here"
+            autoFocus
             required
           />
-          <button type="button" onClick={() => getTrackingData(code)}>
+          <button
+            type="button"
+            onClick={() => handleTrack()}
+          >
             Track order
           </button>
         </CodeContainer>
