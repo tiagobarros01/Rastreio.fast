@@ -1,4 +1,6 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, {
+  createContext, useCallback, useMemo, useState,
+} from 'react';
 
 import { DataTrack } from '../components/DataTrack/index';
 import api from '../services/api';
@@ -17,11 +19,11 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
   const [trackCode, setTrackCode] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
-  async function getTrackingData(code: string) {
+  const getTrackingData = useCallback(async (code: string) => {
     setLoading(true);
     setDataTrack(null);
     history.push('/tracks');
-    const { data } = await api.get(`v1?codigo=${code}`);
+    const { data } = await api.get(`v1?codigo=${String(code)}`);
 
     try {
       setDataTrack(
@@ -37,12 +39,12 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         )),
       );
       console.log(data);
-      setTrackCode(code);
+      setTrackCode(String(code));
       setLoading(false);
     } catch (error) {
       console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
     }
-  }
+  }, []);
   const memoizedValue = useMemo(
     () => ({
       trackCode,
