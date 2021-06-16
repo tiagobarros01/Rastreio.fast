@@ -8,8 +8,6 @@ const GlobalStyle = createGlobalStyle`
 
     text-decoration: none;
     list-style: none;
-
-    transition: all 50ms;
   }
 
   body {
