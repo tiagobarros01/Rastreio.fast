@@ -1,6 +1,7 @@
+import InputMask from 'react-input-mask';
 import styled from 'styled-components';
 
-export const Input = styled.input`
+export const Input = styled(InputMask)`
   width: 20rem;
   padding: 1rem;
 
