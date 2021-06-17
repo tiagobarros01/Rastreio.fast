@@ -33,7 +33,7 @@ export const Header = styled.header`
     font-weight: bold;
   }
 
-  a {
+  span {
     color: ${({ theme }) => theme.colors.yellow};
     text-decoration: underline ${({ theme }) => theme.colors.yellow} 2px;
 
@@ -88,7 +88,7 @@ export const LoginForm = styled.form`
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
 
-    a {
+    span {
       color: ${({ theme }) => theme.colors.text};
       font-weight: 700;
       text-decoration: underline;

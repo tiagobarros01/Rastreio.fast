@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 import GlobalStyle from '../styles/global';
@@ -20,7 +19,7 @@ export default function Login(): JSX.Element {
             <p>
               Don&apos;t have any account yet?
               {' '}
-              <a href="">register now</a>
+              <span>register now</span>
             </p>
           </Header>
           <LoginForm id="login" action="" method="GET">
@@ -51,7 +50,7 @@ export default function Login(): JSX.Element {
               </label>
             </fieldset>
             <div>
-              <a href="#">Miss your password?</a>
+              <span>Miss your password?</span>
               <button form="login" type="submit">
                 Enter
               </button>
