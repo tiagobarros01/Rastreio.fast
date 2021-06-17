@@ -1,4 +1,4 @@
-import React, { createContext, useMemo } from 'react';
+import React, { createContext, useCallback, useMemo } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import { usePersistedState } from '../hooks/usePersistedState';
@@ -20,14 +20,17 @@ const ThemeContext = createContext<ThemeContextData>({
 function ThemeContextProvider({ children }: Props): JSX.Element {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('@rastreio.fast:theme', dark);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme(theme.title === 'light' ? dark : light);
-  };
+  }, [setTheme, theme.title]);
 
-  const memoizedValue = useMemo(
-    () => ({ theme, toggleTheme }),
-    [theme, toggleTheme],
-  );
+  const memoizedValue = useMemo(() => {
+    const values: ThemeContextData = {
+      theme,
+      toggleTheme,
+    };
+    return values;
+  }, [theme, toggleTheme]);
 
   return (
     <ThemeContext.Provider value={memoizedValue}>

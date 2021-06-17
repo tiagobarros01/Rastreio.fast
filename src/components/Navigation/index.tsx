@@ -21,7 +21,7 @@ export function Navigation(): JSX.Element {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-  }, [window, handleResize]);
+  }, []);
 
   return isMobile === false ? <NavigationWeb /> : <NavigationMobile />;
 }
