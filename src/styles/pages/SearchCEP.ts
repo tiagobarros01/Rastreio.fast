@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CEPContainer = styled.div`
+export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
@@ -26,7 +26,7 @@ export const CEPContainer = styled.div`
   }
 `;
 
-export const CEPTitle = styled.div`
+export const Title = styled.div`
   width: 100%;
   text-align: center;
 
@@ -39,23 +39,5 @@ export const CEPTitle = styled.div`
 
   span {
     color: ${({ theme }) => theme.colors.yellow};
-  }
-`;
-
-export const CEPInput = styled.input`
-  width: 20rem;
-  padding: 1rem;
-
-  background: ${({ theme }) => theme.colors.inputBackground};
-  color: ${({ theme }) => theme.colors.inputText};
-
-  outline: 0;
-
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    appearance: none;
   }
 `;

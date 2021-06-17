@@ -1,28 +1,25 @@
 import React from 'react';
 
-import { CEPContainer, CEPTitle, CEPInput } from '../styles/pages/SearchCEP';
+import { CEPInput } from '../components/Input/index';
+import { Container, Title } from '../styles/pages/SearchCEP';
 
 export default function SearchCEP(): JSX.Element {
   return (
-    <CEPContainer>
-      <CEPTitle>
+    <Container>
+      <Title>
         <h1>
           Search
           {' '}
           <span>CEP</span>
         </h1>
-      </CEPTitle>
+      </Title>
       <div>
         <CEPInput
-          type="number"
-          maxLength={8}
-          min="0"
-          max="99999999"
+          autoFocus
           required
-          autoComplete="on"
         />
         <button type="button">Search</button>
       </div>
-    </CEPContainer>
+    </Container>
   );
 }
