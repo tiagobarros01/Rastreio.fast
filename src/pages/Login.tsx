@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
@@ -31,8 +32,9 @@ export default function Login(): JSX.Element {
                   type="text"
                   id="emailOrUserName"
                   autoComplete="email"
-                  required
                   maxLength={28}
+                  required
+                  autoFocus
                 />
               </label>
               <br />

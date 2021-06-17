@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
 
 import {
@@ -23,13 +24,19 @@ export default function SignIn(): JSX.Element {
             <label htmlFor="userName">
               User name
               <br />
-              <input type="text" id="userName" required maxLength={12} />
+              <input
+                type="text"
+                id="userName"
+                maxLength={12}
+                required
+                autoFocus
+              />
             </label>
             <br />
             <label htmlFor="email">
               E-mail
               <br />
-              <input type="email" id="email" required maxLength={28} />
+              <input type="email" id="email" maxLength={28} required />
             </label>
             <br />
             <DividesFields>
@@ -37,13 +44,13 @@ export default function SignIn(): JSX.Element {
                 <label htmlFor="name">
                   Name
                   <br />
-                  <input type="text" id="name" required maxLength={12} />
+                  <input type="text" id="name" maxLength={12} required />
                 </label>
                 <br />
                 <label htmlFor="lastName">
                   Last name
                   <br />
-                  <input type="text" id="lastName" required maxLength={12} />
+                  <input type="text" id="lastName" maxLength={12} required />
                 </label>
               </NameContainer>
               <PasswordContainer>
@@ -53,8 +60,8 @@ export default function SignIn(): JSX.Element {
                   <input
                     type="password"
                     id="password"
-                    required
                     maxLength={22}
+                    required
                   />
                 </label>
                 <br />
@@ -64,8 +71,8 @@ export default function SignIn(): JSX.Element {
                   <input
                     type="password"
                     id="confirmPassword"
-                    required
                     maxLength={22}
+                    required
                   />
                 </label>
               </PasswordContainer>

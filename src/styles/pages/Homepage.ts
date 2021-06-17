@@ -67,6 +67,12 @@ export const Input = styled.input`
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 
+  outline: 0;
+
+  :focus {
+    border: 3px solid ${({ theme }) => theme.colors.yellow};
+  }
+
   ::placeholder {
     color: ${({ theme }) => theme.colors.inputText};
   }

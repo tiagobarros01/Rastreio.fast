@@ -11,6 +11,12 @@ export const Input = styled(InputMask)`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 
+  outline: 0;
+
+  :focus {
+    border: 3px solid ${({ theme }) => theme.colors.yellow};
+  }
+
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     appearance: none;
