@@ -15,7 +15,7 @@ interface TrackingProviderProps {
 const TrackingContext = createContext({} as TrackingContextData);
 
 function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
-  const [dataTrack, setDataTrack] = useState<DataProps | null>(null);
+  const [dataTrack, setDataTrack] = useState<DataProps | null | string>(null);
   const [trackCode, setTrackCode] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,25 +25,33 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     history.push('/tracks');
     const { data } = await api.get(`v1?codigo=${String(code)}`);
 
-    try {
-      setDataTrack(
-        data.map(({
-          cidade, dataHora, descricao, uf,
-        }: DataProps) => (
-          <DataTrack
-            cidade={cidade}
-            dataHora={dataHora}
-            descricao={descricao}
-            uf={uf}
-          />
-        )),
-      );
-      console.log(data);
-      setTrackCode(String(code));
-      setLoading(false);
-    } catch (error) {
-      console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
-    }
+    setTimeout(() => {
+      try {
+        setDataTrack(
+          data.map(({
+            cidade, dataHora, descricao, uf,
+          }: DataProps) => (
+            <DataTrack
+              cidade={cidade}
+              dataHora={dataHora}
+              descricao={descricao}
+              uf={uf}
+            />
+          )),
+        );
+        console.log(data);
+        setTrackCode(String(code));
+        setLoading(false);
+      } catch (error) {
+        console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
+        setDataTrack(data.message);
+        history.push('/error');
+
+        setTimeout(() => {
+          history.push('/');
+        }, 6000);
+      }
+    }, 800);
   }, []);
   const memoizedValue = useMemo(
     () => ({

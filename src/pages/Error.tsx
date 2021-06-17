@@ -1,9 +1,23 @@
 import React from 'react';
 
+import { useTrack } from '../hooks/useTrack';
+import { Container, Details, Info } from '../styles/pages/Error';
+
 export default function Error(): JSX.Element {
+  const { dataTrack } = useTrack();
+
   return (
-    <div>
-      <h1>Error</h1>
-    </div>
+    <Container>
+      <Details>
+        <h1>
+          <span>Ops..! </span>
+          Something of wrong isn&apos;t right 😞
+        </h1>
+        <p>{dataTrack}</p>
+      </Details>
+      <Info>
+        <p>We redirect you to the main page, don&apos;t worry</p>
+      </Info>
+    </Container>
   );
 }
