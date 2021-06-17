@@ -20,6 +20,7 @@
   "plugins": ["react", "react-hooks", "@typescript-eslint", "import-helpers"],
   "rules": {
     "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-props-no-spreading": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "react/prop-types": "off",
