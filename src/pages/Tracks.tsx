@@ -4,7 +4,7 @@ import { Loader } from '../components/Loader/index';
 import { useTrack } from '../hooks/useTrack';
 import {
   CheckIcon,
-  PackageContainer,
+  Container,
   PackagesHistory,
   TrackContainer,
 } from '../styles/pages/Tracks';
@@ -13,7 +13,7 @@ export default function Tracks(): JSX.Element {
   const { loading, trackCode, dataTrack } = useTrack();
 
   return (
-    <PackageContainer>
+    <Container>
       {loading === true ? (
         <Loader />
       ) : (
@@ -25,6 +25,6 @@ export default function Tracks(): JSX.Element {
           <TrackContainer>{dataTrack}</TrackContainer>
         </PackagesHistory>
       )}
-    </PackageContainer>
+    </Container>
   );
 }

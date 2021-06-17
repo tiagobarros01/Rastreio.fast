@@ -6,7 +6,7 @@ import {
   CodeContainer,
   Input,
   Title,
-  TrackBoxContainer,
+  Container,
 } from '../styles/pages/Homepage';
 
 export default function Homepage(): JSX.Element {
@@ -20,7 +20,7 @@ export default function Homepage(): JSX.Element {
 
   return (
     <>
-      <TrackBoxContainer>
+      <Container>
         <Title>
           <h1>
             Rastreio
@@ -44,7 +44,7 @@ export default function Homepage(): JSX.Element {
             Track order
           </button>
         </CodeContainer>
-      </TrackBoxContainer>
+      </Container>
       <Footer />
     </>
   );

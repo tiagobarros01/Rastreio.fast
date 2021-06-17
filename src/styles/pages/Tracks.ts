@@ -10,7 +10,7 @@ const fade = keyframes`
   }
 `;
 
-export const PackageContainer = styled.div`
+export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 

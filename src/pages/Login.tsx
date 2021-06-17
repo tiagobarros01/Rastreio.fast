@@ -4,25 +4,25 @@ import React from 'react';
 
 import GlobalStyle from '../styles/global';
 import {
-  LoginContainer,
+  Container,
   FormContainer,
-  HeaderForm,
+  Header,
   LoginForm,
 } from '../styles/pages/Login';
 
 export default function Login(): JSX.Element {
   return (
     <>
-      <LoginContainer>
+      <Container>
         <FormContainer>
-          <HeaderForm>
+          <Header>
             <h1>Login</h1>
             <p>
               Don&apos;t have any account yet?
               {' '}
               <a href="">register now</a>
             </p>
-          </HeaderForm>
+          </Header>
           <LoginForm id="login" action="" method="GET">
             <fieldset form="login" name="login-fields">
               <label htmlFor="emailOrUserName">
@@ -58,7 +58,7 @@ export default function Login(): JSX.Element {
             </div>
           </LoginForm>
         </FormContainer>
-      </LoginContainer>
+      </Container>
       <GlobalStyle />
     </>
   );

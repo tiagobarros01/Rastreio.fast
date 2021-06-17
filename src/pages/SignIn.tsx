@@ -2,9 +2,9 @@
 import React from 'react';
 
 import {
-  SignInContainer,
-  FormContainer,
-  HeaderForm,
+  Wrapper,
+  Container,
+  Header,
   SignInForm,
   DividesFields,
   NameContainer,
@@ -14,11 +14,11 @@ import {
 
 export default function SignIn(): JSX.Element {
   return (
-    <SignInContainer>
-      <FormContainer>
-        <HeaderForm>
+    <Wrapper>
+      <Container>
+        <Header>
           <h1>SignIn</h1>
-        </HeaderForm>
+        </Header>
         <SignInForm id="signIn" action="" method="GET">
           <fieldset form="signIn" name="signIn-fields">
             <label htmlFor="userName">
@@ -82,7 +82,7 @@ export default function SignIn(): JSX.Element {
             <button type="button">Enter</button>
           </BtnContainer>
         </SignInForm>
-      </FormContainer>
-    </SignInContainer>
+      </Container>
+    </Wrapper>
   );
 }

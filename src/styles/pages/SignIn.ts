@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SignInContainer = styled.div`
+export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
 
@@ -12,7 +12,7 @@ export const SignInContainer = styled.div`
   overflow: hidden;
 `;
 
-export const FormContainer = styled.div`
+export const Container = styled.div`
   width: 50vw;
   margin-top: 5rem;
 
@@ -21,7 +21,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const HeaderForm = styled.div`
+export const Header = styled.header`
   flex: 1;
 
   padding-top: 2rem;
