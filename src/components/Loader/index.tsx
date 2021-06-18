@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Inner, LoaderContainer } from './style';
+import { Spinner, LoaderContainer, Container } from './style';
 
 export function Loader(): JSX.Element {
   return (
-    <LoaderContainer>
-      <Inner />
-    </LoaderContainer>
+    <Container>
+      <LoaderContainer>
+        <Spinner />
+      </LoaderContainer>
+    </Container>
   );
 }

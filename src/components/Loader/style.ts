@@ -9,13 +9,24 @@ const rotate = keyframes`
   }
 `;
 
+export const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: ${({ theme }) => theme.colors.scndBackground};
+`;
+
 export const LoaderContainer = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
 `;
 
-export const Inner = styled.div`
+export const Spinner = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
