@@ -8,8 +8,7 @@ export const Input = styled(InputMask)`
   background: ${({ theme }) => theme.colors.inputBackground};
   color: ${({ theme }) => theme.colors.inputText};
 
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 5px 0 0 5px;
 
   outline: 0;
 

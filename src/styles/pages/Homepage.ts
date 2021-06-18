@@ -15,6 +15,7 @@ export const Container = styled.div`
     padding: 1rem;
 
     border: 0;
+    border-radius: 0 5px 5px 0;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
 
@@ -66,8 +67,7 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.colors.inputBackground};
   color: ${({ theme }) => theme.colors.inputText};
 
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px 0 0 5px;
 
   outline: 0;
 

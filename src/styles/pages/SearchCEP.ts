@@ -14,6 +14,8 @@ export const Container = styled.div`
   button {
     padding: 1rem;
 
+    border-radius: 0 5px 5px 0;
+
     border: 0;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
