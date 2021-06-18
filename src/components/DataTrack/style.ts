@@ -5,21 +5,19 @@ import { RiTruckLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 0.5rem;
-  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
 
   :not(:last-child) {
     padding-bottom: 1rem;
   }
 
-  display: flex;
-  align-items: center;
+  padding: 1rem 0 0.5rem .5rem;
 `;
 
 export const DateHour = styled.div`
   width: 6rem;
-
-  margin-right: 0.5rem;
 
   text-align: center;
 `;
@@ -28,7 +26,7 @@ export const Posted = styled(FiCheckCircle)`
   width: 2.5rem;
   height: 2.5rem;
 
-  margin-right: 0.5rem;
+  margin: 0 .5rem 0 .5rem;
 
   padding: 0.5rem;
   border-radius: 0.8rem;
@@ -40,7 +38,7 @@ export const Delivered = styled(BiPackage)`
   width: 2.5rem;
   height: 2.5rem;
 
-  margin-right: 0.5rem;
+  margin: 0 .5rem 0 .5rem;
 
   padding: 0.5rem;
   border-radius: 0.8rem;
@@ -52,7 +50,7 @@ export const Transit = styled(RiTruckLine)<{ description: string }>`
   width: 2.5rem;
   height: 2.5rem;
 
-  margin-right: 0.5rem;
+  margin: 0 .5rem 0 .5rem;
 
   padding: 0.5rem;
   border-radius: 0.8rem;
@@ -71,6 +69,10 @@ export const Details = styled.div`
 `;
 
 export const Description = styled.div`
+  @media (max-width: 576px) {
+    max-width: 18rem;
+  }
+
   p {
     font-weight: bold;
   }

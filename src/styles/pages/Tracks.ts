@@ -60,6 +60,10 @@ export const TrackContainer = styled.div`
 
   border-radius: 0.8rem;
 
+  @media (max-width: 576px) {
+    /* max-width: 95%; */
+  }
+
   ::-webkit-scrollbar {
     width: 0.8rem;
     background: ${({ theme }) => theme.colors.thirdBackground};

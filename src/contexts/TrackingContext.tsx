@@ -40,7 +40,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
           )),
         );
         console.log(data);
-        setTrackCode(String(code));
+        setTrackCode(String(code).toUpperCase());
         setLoading(false);
       } catch (error) {
         console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
