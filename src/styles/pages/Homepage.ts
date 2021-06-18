@@ -9,6 +9,8 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  background: ${({ theme }) => theme.colors.scndBackground};
+
   button {
     padding: 1rem;
 

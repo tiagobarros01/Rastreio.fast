@@ -26,6 +26,8 @@ export const Container = styled.div`
   align-items: center;
 
   flex-direction: column;
+
+  background: ${({ theme }) => theme.colors.scndBackground};
 `;
 
 export const Details = styled.div`
