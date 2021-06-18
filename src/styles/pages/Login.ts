@@ -5,8 +5,8 @@ export const Container = styled.div`
   height: 100vh;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: ${({ theme }) => theme.colors.scndBackground};
 `;
 
@@ -16,9 +16,9 @@ export const FormContainer = styled.div`
 
 export const Header = styled.header`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 
   margin-top: 1rem;
 
@@ -29,8 +29,15 @@ export const Header = styled.header`
 
   p {
     margin-top: 1rem;
+
     color: ${({ theme }) => theme.colors.text};
     font-weight: bold;
+
+    @media (max-width: 576px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   span {
@@ -45,9 +52,10 @@ export const Header = styled.header`
 
 export const LoginForm = styled.form`
   width: 100%;
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 
   margin-top: 2rem;
@@ -63,59 +71,74 @@ export const LoginForm = styled.form`
 
   input {
     width: 30rem;
-    padding: 1rem;
+    
     border-radius: 10px;
 
     background: ${({ theme }) => theme.colors.inputBackground};
     color: ${({ theme }) => theme.colors.inputText};
+    
     font-weight: 500;
 
     border: 0;
     outline: 0;
 
     margin-bottom: 1rem;
+    padding: 1rem;
+
+    @media (max-width: 576px) {
+      width: 20rem;
+    }
 
     :focus {
       border: 3px solid ${({ theme }) => theme.colors.yellow};
     }
   }
+`;
 
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+export const Details = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+  margin: 0.5rem 0 1.5rem 0;
 
-    span {
-      color: ${({ theme }) => theme.colors.text};
-      font-weight: 700;
-      text-decoration: underline;
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 
-      transition: filter 200ms;
+  span {
+    color: ${({ theme }) => theme.colors.text};
 
-      :hover {
-        filter: brightness(1.8);
-      }
+    font-weight: 700;
+    text-decoration: underline;
+
+    transition: filter 200ms;
+
+    :hover {
+      filter: brightness(1.8);
+    }
+  }
+
+  button {
+    width: 7.5rem;
+    height: 3.5rem;
+
+    border-radius: 10px;
+    border: 0;
+    margin-left: 1rem;
+
+    background: ${({ theme }) => theme.colors.yellow};
+
+    font-weight: bold;
+
+    transition: background 400ms;
+
+    @media (max-width: 576px) {
+      margin: 1rem 0 0 0;
     }
 
-    button {
-      width: 7.5rem;
-      height: 3.5rem;
-      border-radius: 10px;
-      border: 0;
-
-      background: ${({ theme }) => theme.colors.yellow};
-      font-weight: bold;
-
-      margin-left: 1rem;
-
-      transition: background 400ms;
-
-      :hover {
-        background: ${({ theme }) => theme.colors.text};
-      }
+    :hover {
+      background: ${({ theme }) => theme.colors.text};
     }
   }
 `;

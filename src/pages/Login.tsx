@@ -7,6 +7,7 @@ import {
   FormContainer,
   Header,
   LoginForm,
+  Details,
 } from '../styles/pages/Login';
 
 export default function Login(): JSX.Element {
@@ -48,12 +49,12 @@ export default function Login(): JSX.Element {
                 />
               </label>
             </fieldset>
-            <div>
+            <Details>
               <span>Miss your password?</span>
               <button form="login" type="submit">
                 Enter
               </button>
-            </div>
+            </Details>
           </LoginForm>
         </FormContainer>
       </Container>
