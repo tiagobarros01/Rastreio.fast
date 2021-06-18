@@ -19,7 +19,6 @@ export default function SearchCEP(): JSX.Element {
         <CEPInput
           value={CEP}
           onChange={(event) => setCEP(event.target.value)}
-          autoFocus
           required
         />
         <button type="button">Search</button>

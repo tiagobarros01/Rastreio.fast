@@ -29,7 +29,6 @@ export default function SignIn(): JSX.Element {
                 id="userName"
                 maxLength={12}
                 required
-                autoFocus
               />
             </label>
             <br />

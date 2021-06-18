@@ -33,7 +33,6 @@ export default function Login(): JSX.Element {
                   autoComplete="email"
                   maxLength={28}
                   required
-                  autoFocus
                 />
               </label>
               <br />
