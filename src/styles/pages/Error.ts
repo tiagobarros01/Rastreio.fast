@@ -1,4 +1,47 @@
+/* eslint-disable no-nested-ternary */
 import styled, { keyframes } from 'styled-components';
+
+const firstJump = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+`;
+
+const scndJump = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+`;
+
+const thirdJump = keyframes`
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+`;
 
 const fade = keyframes`
   0% {
@@ -49,7 +92,14 @@ export const Details = styled.div`
 `;
 
 export const Info = styled.div`
-  padding: 2rem 1rem;
+  height: 5.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
 
   border-radius: 0.3rem;
 
@@ -66,5 +116,43 @@ export const Info = styled.div`
 
     font-weight: 500;
     font-size: 1.1rem;
+  }
+`;
+
+export const Loading = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100%;
+`;
+
+export const PointContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Point = styled.div<{ position: string }>`
+  width: 0.5rem;
+  height: 0.5rem;
+
+  background: #fff;
+
+  animation: ${({ position }) => (position === 'first'
+    ? firstJump
+    : position === 'second'
+      ? scndJump
+      : position === 'third'
+        ? thirdJump
+        : '')} ${({ position }) => (position === 'first'
+  ? '800ms'
+  : position === 'second'
+    ? '830ms'
+    : position === 'third'
+      ? '860ms'
+      : '')} ease-in-out infinite;
+
+  :not(:first-of-type) {
+    margin-left: 0.7rem;
   }
 `;
