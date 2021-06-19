@@ -8,12 +8,8 @@ export function Bookmark(): JSX.Element {
   const { pathname } = useLocation();
 
   return (
-    <>
-      {pathname === '/bookmark' ? null : (
-        <Container onClick={() => useRoutes('/bookmark')}>
-          <Icon />
-        </Container>
-      )}
-    </>
+    <Container location={pathname === '/bookmark' && true} onClick={() => useRoutes('/bookmark')}>
+      <Icon />
+    </Container>
   );
 }

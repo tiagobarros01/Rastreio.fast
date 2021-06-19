@@ -1,7 +1,17 @@
 import { BsFillBookmarksFill } from 'react-icons/bs';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-export const Container = styled.div`
+const goOut = keyframes`
+  from {
+    transform: scale(100%) rotate(0deg);
+  }
+
+  to {
+    transform: scale(0%) rotate(360deg);
+  }
+`;
+
+export const Container = styled.div<{ location: boolean }>`
   width: 4rem;
   height: 4rem;
 
@@ -24,6 +34,8 @@ export const Container = styled.div`
 
   transition: filter 200ms;
 
+  animation: ${({ location }) => location === true && goOut} 1s ease-in-out;
+
   :hover {
     cursor: pointer;
     filter: brightness(.9);
@@ -31,7 +43,7 @@ export const Container = styled.div`
 `;
 
 export const Icon = styled(BsFillBookmarksFill)`
-  color: ${({ theme }) => theme.colors.inputBackground};
+  color: ${({ theme }) => theme.colors.yellow};
 
   font-size: 1.4rem;
 `;
