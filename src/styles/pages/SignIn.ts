@@ -29,8 +29,9 @@ export const Header = styled.header`
 
   h1 {
     text-align: center;
-    color: ${({ theme }) => theme.colors.title};
     font-size: 3.5rem;
+
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
 
@@ -122,13 +123,14 @@ export const BtnContainer = styled.div`
     border-radius: 10px;
     border: 0;
 
-    background: ${({ theme }) => theme.colors.yellow};
+    background: ${({ theme }) => theme.colors.thirdBackground};
     font-weight: bold;
 
-    transition: background 400ms;
+    transition: background 200ms, font-size 100ms;
 
     :hover {
-      background: ${({ theme }) => theme.colors.text};
+      background: ${({ theme }) => theme.colors.yellow};
+      font-size: 1.1rem;
     }
   }
 `;

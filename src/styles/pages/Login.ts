@@ -45,6 +45,7 @@ export const Header = styled.header`
     text-decoration: underline ${({ theme }) => theme.colors.yellow} 2px;
 
     :hover {
+      cursor: pointer;
       filter: brightness(1.2);
     }
   }
@@ -117,6 +118,7 @@ export const Details = styled.div`
     transition: filter 200ms;
 
     :hover {
+      cursor: pointer;
       filter: brightness(1.8);
     }
   }
@@ -129,18 +131,19 @@ export const Details = styled.div`
     border: 0;
     margin-left: 1rem;
 
-    background: ${({ theme }) => theme.colors.yellow};
+    background: ${({ theme }) => theme.colors.thirdBackground};
 
     font-weight: bold;
 
-    transition: background 400ms;
+    transition: background 200ms, font-size 100ms;
 
     @media (max-width: 576px) {
       margin: 1rem 0 0 0;
     }
 
     :hover {
-      background: ${({ theme }) => theme.colors.text};
+      background: ${({ theme }) => theme.colors.yellow};
+      font-size: 1.1rem;
     }
   }
 `;
