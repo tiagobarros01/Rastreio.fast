@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React from 'react';
+import React, { FormEvent, useCallback, useState } from 'react';
 
 import GlobalStyle from '../styles/global';
 import {
@@ -10,7 +11,29 @@ import {
   Details,
 } from '../styles/pages/Login';
 
+interface DataValues {
+  emailOrUserName: string;
+  password: string;
+}
+
 export default function Login(): JSX.Element {
+  const [values, setValues] = useState<DataValues>({} as DataValues);
+
+  const onChange = useCallback((event: FormEvent<HTMLInputElement>) => {
+    const { name, value }: any = event.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  }, [values]);
+
+  function onSubmit(event: any) {
+    event.preventDefault();
+
+    console.log(values);
+  }
+
   return (
     <>
       <Container>
@@ -23,7 +46,7 @@ export default function Login(): JSX.Element {
               <span>register now</span>
             </p>
           </Header>
-          <LoginForm id="login" action="" method="GET">
+          <LoginForm id="login" onSubmit={onSubmit} method="GET">
             <fieldset form="login" name="login-fields">
               <label htmlFor="emailOrUserName">
                 E-mail or user
@@ -31,8 +54,10 @@ export default function Login(): JSX.Element {
                 <input
                   type="text"
                   id="emailOrUserName"
+                  name="emailOrUserName"
                   autoComplete="email"
                   maxLength={28}
+                  onChange={onChange}
                   required
                 />
               </label>
@@ -43,17 +68,17 @@ export default function Login(): JSX.Element {
                 <input
                   type="password"
                   id="password"
+                  name="password"
                   autoComplete="password"
-                  required
                   maxLength={22}
+                  onChange={onChange}
+                  required
                 />
               </label>
             </fieldset>
             <Details>
               <span>Miss your password?</span>
-              <button form="login" type="submit">
-                Enter
-              </button>
+              <button type="submit">Enter</button>
             </Details>
           </LoginForm>
         </FormContainer>
