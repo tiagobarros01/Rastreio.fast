@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
 
+import { Bookmark } from './components/Bookmark';
 import { Header } from './components/Header';
 import ContextProvider from './contexts';
 import Routes from './routes';
@@ -12,6 +13,7 @@ function App(): JSX.Element {
     <ContextProvider>
       <Router history={History}>
         <Header />
+        <Bookmark />
         <Routes />
       </Router>
       <GlobalStyle />
