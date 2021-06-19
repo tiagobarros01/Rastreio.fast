@@ -85,6 +85,8 @@ export const LoginForm = styled.form`
     margin-bottom: 1rem;
     padding: 1rem;
 
+    transition: border 100ms;
+
     @media (max-width: 576px) {
       width: 20rem;
     }

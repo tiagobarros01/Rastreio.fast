@@ -12,10 +12,11 @@ export const Input = styled(InputMask)`
 
   outline: 0;
 
+  transition: border 100ms;
+
   @media (max-width: 576px) {
     border-radius: 10px;
   }
-
 
   :focus {
     border: 3px solid ${({ theme }) => theme.colors.yellow};

@@ -86,6 +86,8 @@ export const SignInForm = styled.form`
     background: ${({ theme }) => theme.colors.inputBackground};
     color: ${({ theme }) => theme.colors.inputText};
 
+    transition: border 100ms;
+
     :focus {
       border: 3px solid ${({ theme }) => theme.colors.yellow};
     }
@@ -104,17 +106,14 @@ export const DividesFields = styled.div`
       margin-right: 0;
     }
   }
-
-  input {
-    width: 100%;
-  }
 `;
 
 export const NameContainer = styled.div`
   margin-right: 1rem;
 `;
 
-export const PasswordContainer = styled.div``;
+export const PasswordContainer = styled.div`
+`;
 
 export const BtnContainer = styled.div`
   button {

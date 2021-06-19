@@ -71,6 +71,8 @@ export const Input = styled.input`
 
   outline: 0;
 
+  transition: border 100ms;
+
   :focus {
     border: 3px solid ${({ theme }) => theme.colors.yellow};
   }
