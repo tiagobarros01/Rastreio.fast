@@ -31,7 +31,12 @@ export default function Login(): JSX.Element {
   function onSubmit(event: any) {
     event.preventDefault();
 
-    console.log(values);
+    console.log(` E-mail / user: ${values.emailOrUserName}\n Password: ${values.password}`);
+
+    setValues({
+      emailOrUserName: '',
+      password: '',
+    });
   }
 
   return (
@@ -57,6 +62,7 @@ export default function Login(): JSX.Element {
                   name="emailOrUserName"
                   autoComplete="email"
                   maxLength={28}
+                  value={values.emailOrUserName}
                   onChange={onChange}
                   required
                 />
@@ -71,6 +77,7 @@ export default function Login(): JSX.Element {
                   name="password"
                   autoComplete="password"
                   maxLength={22}
+                  value={values.password}
                   onChange={onChange}
                   required
                 />
