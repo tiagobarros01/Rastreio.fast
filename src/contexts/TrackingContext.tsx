@@ -17,7 +17,8 @@ const TrackingContext = createContext({} as TrackingContextData);
 function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
   const [dataTrack, setDataTrack] = useState<DataProps | null | string>(null);
   const [trackCode, setTrackCode] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
   const getTrackingData = useCallback(async (code: string) => {
     setLoading(true);
@@ -42,7 +43,10 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         console.log(data);
         setTrackCode(String(code).toUpperCase());
         setLoading(false);
-      } catch (error) {
+        setError(false);
+      } catch (err) {
+        setLoading(false);
+        setError(true);
         console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
         setDataTrack(data.message);
         history.push('/error');
@@ -59,8 +63,9 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
       dataTrack,
       loading,
       getTrackingData,
+      error,
     }),
-    [trackCode, dataTrack, loading, getTrackingData],
+    [trackCode, dataTrack, loading, error, getTrackingData],
   );
 
   return (

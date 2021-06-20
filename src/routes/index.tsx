@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Bookmark from '../pages/Bookmark';
 import Error from '../pages/Error';
@@ -8,17 +8,18 @@ import Login from '../pages/Login';
 import SearchCEP from '../pages/SearchCEP';
 import SignIn from '../pages/SignIn';
 import Tracks from '../pages/Tracks';
+import { CustomRoute } from './Route.custom';
 
 export default function Routes(): JSX.Element {
   return (
     <Switch>
-      <Route path="/" component={Homepage} exact />
-      <Route path="/tracks" component={Tracks} exact />
-      <Route path="/login" component={Login} exact />
-      <Route path="/signin" component={SignIn} exact />
-      <Route path="/bookmark" component={Bookmark} exact />
-      <Route path="/searchcep" component={SearchCEP} exact />
-      <Route path="/error" component={Error} exact />
+      <CustomRoute isPrivate={false} path="/" component={Homepage} exact />
+      <CustomRoute isPrivate path="/tracks" component={Tracks} exact />
+      <CustomRoute isPrivate={false} path="/login" component={Login} exact />
+      <CustomRoute isPrivate={false} path="/signin" component={SignIn} exact />
+      <CustomRoute isPrivate={false} path="/bookmark" component={Bookmark} exact />
+      <CustomRoute isPrivate={false} path="/searchcep" component={SearchCEP} exact />
+      <CustomRoute isPrivate path="/error" component={Error} exact />
     </Switch>
   );
 }
