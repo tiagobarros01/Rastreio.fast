@@ -72,12 +72,12 @@ export const LoginForm = styled.form`
 
   input {
     width: 30rem;
-    
+
     border-radius: 10px;
 
     background: ${({ theme }) => theme.colors.inputBackground};
     color: ${({ theme }) => theme.colors.inputText};
-    
+
     font-weight: 500;
 
     border: 0;

@@ -32,7 +32,7 @@ export const HeaderContent = styled.div`
 `;
 
 export const HomeContainer = styled.div`
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 
   display: flex;
   align-items: center;

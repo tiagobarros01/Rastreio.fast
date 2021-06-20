@@ -19,19 +19,24 @@ interface DataValues {
 export default function Login(): JSX.Element {
   const [values, setValues] = useState<DataValues>({} as DataValues);
 
-  const onChange = useCallback((event: FormEvent<HTMLInputElement>) => {
-    const { name, value }: any = event.target;
+  const onChange = useCallback(
+    (event: FormEvent<HTMLInputElement>) => {
+      const { name, value }: any = event.target;
 
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  }, [values]);
+      setValues({
+        ...values,
+        [name]: value,
+      });
+    },
+    [values],
+  );
 
   function onSubmit(event: any) {
     event.preventDefault();
 
-    console.log(` E-mail / user: ${values.emailOrUserName}\n Password: ${values.password}`);
+    console.log(
+      ` E-mail / user: ${values.emailOrUserName}\n Password: ${values.password}`,
+    );
 
     setValues({
       emailOrUserName: '',
@@ -47,7 +52,6 @@ export default function Login(): JSX.Element {
             <h1>Login</h1>
             <p>
               Don&apos;t have any account yet?
-              {' '}
               <span>register now</span>
             </p>
           </Header>

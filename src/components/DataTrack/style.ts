@@ -13,7 +13,7 @@ export const Container = styled.div`
     padding-bottom: 1rem;
   }
 
-  padding: 1rem 0 0.5rem .5rem;
+  padding: 1rem 0 0.5rem 0.5rem;
 `;
 
 export const DateHour = styled.div`
@@ -26,7 +26,7 @@ export const Posted = styled(FiCheckCircle)`
   width: 2.5rem;
   height: 2.5rem;
 
-  margin: 0 .5rem 0 .5rem;
+  margin: 0 0.5rem 0 0.5rem;
 
   padding: 0.5rem;
   border-radius: 0.8rem;
@@ -38,7 +38,7 @@ export const Delivered = styled(BiPackage)`
   width: 2.5rem;
   height: 2.5rem;
 
-  margin: 0 .5rem 0 .5rem;
+  margin: 0 0.5rem 0 0.5rem;
 
   padding: 0.5rem;
   border-radius: 0.8rem;
@@ -50,7 +50,7 @@ export const Transit = styled(RiTruckLine)<{ description: string }>`
   width: 2.5rem;
   height: 2.5rem;
 
-  margin: 0 .5rem 0 .5rem;
+  margin: 0 0.5rem 0 0.5rem;
 
   padding: 0.5rem;
   border-radius: 0.8rem;

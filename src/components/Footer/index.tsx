@@ -12,7 +12,6 @@ export function Footer(): JSX.Element {
           href="https://github.com/TiagoBarros01"
           rel="noreferrer"
         >
-          {' '}
           Tiago Barros
         </a>
       </p>

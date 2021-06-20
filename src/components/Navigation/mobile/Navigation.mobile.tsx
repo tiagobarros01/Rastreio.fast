@@ -18,14 +18,14 @@ export function NavigationMobile(): JSX.Element {
     <Container onClick={() => handleVisibility()}>
       <StackIcon size={32} />
       {isVisible && (
-      <ListContainer>
-        <List>
-          <li>Integrations</li>
-          <li onClick={() => useRoutes('/searchcep')}>Search CEP</li>
-          <li onClick={() => useRoutes('/login')}>Login</li>
-          <li onClick={() => useRoutes('/signin')}>Sign In ⚡</li>
-        </List>
-      </ListContainer>
+        <ListContainer>
+          <List>
+            <li>Integrations</li>
+            <li onClick={() => useRoutes('/searchcep')}>Search CEP</li>
+            <li onClick={() => useRoutes('/login')}>Login</li>
+            <li onClick={() => useRoutes('/signin')}>Sign In ⚡</li>
+          </List>
+        </ListContainer>
       )}
     </Container>
   );

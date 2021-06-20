@@ -38,7 +38,7 @@ export const Container = styled.div<{ location: boolean }>`
 
   :hover {
     cursor: pointer;
-    filter: brightness(.9);
+    filter: brightness(0.9);
   }
 `;
 

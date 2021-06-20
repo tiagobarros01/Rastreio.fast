@@ -25,7 +25,11 @@ export function Header(): JSX.Element {
         </HomeContainer>
         <nav>
           <ToggleTheme onClick={() => toggleTheme()}>
-            {title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
+            {title === 'light' ? (
+              <MoonDark size={22} />
+            ) : (
+              <SunLight size={22} />
+            )}
           </ToggleTheme>
           <Navigation />
         </nav>

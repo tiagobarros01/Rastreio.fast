@@ -37,10 +37,7 @@ export default function Homepage(): JSX.Element {
             autoFocus
             required
           />
-          <button
-            type="button"
-            onClick={() => handleTrack()}
-          >
+          <button type="button" onClick={() => handleTrack()}>
             Track order
           </button>
         </CodeContainer>

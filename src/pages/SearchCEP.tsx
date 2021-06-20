@@ -11,7 +11,6 @@ export default function SearchCEP(): JSX.Element {
       <Title>
         <h1>
           Search
-          {' '}
           <span>CEP</span>
         </h1>
       </Title>

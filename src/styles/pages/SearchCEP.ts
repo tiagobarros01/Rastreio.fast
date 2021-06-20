@@ -25,8 +25,7 @@ export const Container = styled.div`
     @media (max-width: 576px) {
       margin-top: 1rem;
       width: 45%;
-    };
-
+    }
 
     :hover {
       background: ${({ theme }) => theme.colors.yellow};

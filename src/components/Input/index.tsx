@@ -7,17 +7,23 @@ export const CEPInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
   onChange = () => null,
   ...rest
 }) => {
-  const onlyNumbers = useCallback((str: string) => str.replace(/[^0-9]/g, ''), []);
+  const onlyNumbers = useCallback(
+    (str: string) => str.replace(/[^0-9]/g, ''),
+    [],
+  );
 
-  const handleChange = useCallback((event) => {
-    onChange({
-      ...event,
-      target: {
-        ...event.target,
-        value: onlyNumbers(event.target.value),
-      },
-    });
-  }, [onChange, onlyNumbers]);
+  const handleChange = useCallback(
+    (event) => {
+      onChange({
+        ...event,
+        target: {
+          ...event.target,
+          value: onlyNumbers(event.target.value),
+        },
+      });
+    },
+    [onChange, onlyNumbers],
+  );
   return (
     <Input
       mask="99999-999"

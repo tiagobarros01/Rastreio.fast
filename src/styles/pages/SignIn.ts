@@ -113,8 +113,7 @@ export const NameContainer = styled.div`
   margin-right: 1rem;
 `;
 
-export const PasswordContainer = styled.div`
-`;
+export const PasswordContainer = styled.div``;
 
 export const BtnContainer = styled.div`
   button {

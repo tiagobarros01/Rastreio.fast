@@ -146,13 +146,15 @@ export const Point = styled.div<{ position: string }>`
       ? scndJump
       : position === 'third'
         ? thirdJump
-        : '')} ${({ position }) => (position === 'first'
-  ? '800ms'
-  : position === 'second'
-    ? '830ms'
-    : position === 'third'
-      ? '860ms'
-      : '')} ease-in-out infinite;
+        : '')}
+    ${({ position }) => (position === 'first'
+    ? '800ms'
+    : position === 'second'
+      ? '830ms'
+      : position === 'third'
+        ? '860ms'
+        : '')}
+    ease-in-out infinite;
 
   :not(:first-of-type) {
     margin-left: 0.7rem;

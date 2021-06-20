@@ -15,7 +15,7 @@ export const StackIcon = styled(RiStackFill)`
 
   :hover {
     cursor: pointer;
-    filter: brightness(0.8)
+    filter: brightness(0.8);
   }
 `;
 
@@ -23,7 +23,7 @@ export const ListContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  
+
   width: 80%;
   height: 100vh;
 

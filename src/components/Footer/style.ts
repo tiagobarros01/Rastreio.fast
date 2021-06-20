@@ -7,7 +7,7 @@ export const FooterContainer = styled.div`
   bottom: 10px;
 
   z-index: 3;
-  
+
   p {
     text-align: center;
     color: ${({ theme }) => theme.colors.text};
@@ -17,7 +17,7 @@ export const FooterContainer = styled.div`
       transition: color 200ms;
 
       :hover {
-        filter: brightness(.8)
+        filter: brightness(0.8);
       }
     }
   }

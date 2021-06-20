@@ -18,7 +18,10 @@ const ThemeContext = createContext<ThemeContextData>({
 });
 
 function ThemeContextProvider({ children }: Props): JSX.Element {
-  const [theme, setTheme] = usePersistedState<DefaultTheme>('@rastreio.fast:theme', dark);
+  const [theme, setTheme] = usePersistedState<DefaultTheme>(
+    '@rastreio.fast:theme',
+    dark,
+  );
 
   const toggleTheme = useCallback(() => {
     setTheme(theme.title === 'light' ? dark : light);
