@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { FormEvent, useCallback, useState } from 'react';
+import React, {
+  EventTarget,
+  FormEvent,
+  useCallback,
+  useState,
+} from 'react';
 
 import {
   Wrapper,
@@ -27,7 +32,7 @@ export default function SignIn(): JSX.Element {
 
   const onChange = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
-      const { name, value }: any = event.target;
+      const { name, value }: EventTarget = event.target;
 
       setValues({
         ...values,
@@ -37,7 +42,7 @@ export default function SignIn(): JSX.Element {
     [values],
   );
 
-  function onSubmit(event: any) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     console.log(values);

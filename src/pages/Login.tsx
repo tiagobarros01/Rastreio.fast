@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { FormEvent, useCallback, useState } from 'react';
+import React, {
+  EventTarget,
+  FormEvent,
+  useCallback,
+  useState,
+} from 'react';
 
 import GlobalStyle from '../styles/global';
 import {
@@ -11,7 +16,7 @@ import {
   Details,
 } from '../styles/pages/Login';
 
-interface DataValues {
+interface DataValues{
   emailOrUserName: string;
   password: string;
 }
@@ -21,7 +26,7 @@ export default function Login(): JSX.Element {
 
   const onChange = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
-      const { name, value }: any = event.target;
+      const { name, value }: EventTarget = event.target;
 
       setValues({
         ...values,
@@ -31,7 +36,7 @@ export default function Login(): JSX.Element {
     [values],
   );
 
-  function onSubmit(event: any) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     console.log(
@@ -65,7 +70,7 @@ export default function Login(): JSX.Element {
                   type="text"
                   id="emailOrUserName"
                   name="emailOrUserName"
-                  autoComplete="email"
+                  autoComplete="true"
                   maxLength={28}
                   value={values.emailOrUserName}
                   onChange={onChange}
@@ -80,7 +85,7 @@ export default function Login(): JSX.Element {
                   type="password"
                   id="password"
                   name="password"
-                  autoComplete="password"
+                  autoComplete="true"
                   maxLength={22}
                   value={values.password}
                   onChange={onChange}

@@ -26,36 +26,34 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     history.push('/tracks');
     const { data } = await api.get(`v1?codigo=${String(code)}`);
 
-    setTimeout(() => {
-      try {
-        setDataTrack(
-          data.map(({
-            cidade, dataHora, descricao, uf,
-          }: DataProps) => (
-            <DataTrack
-              cidade={cidade}
-              dataHora={dataHora}
-              descricao={descricao}
-              uf={uf}
-            />
-          )),
-        );
-        console.log(data);
-        setTrackCode(String(code).toUpperCase());
-        setLoading(false);
-        setError(false);
-      } catch (err) {
-        setLoading(false);
-        setError(true);
-        console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
-        setDataTrack(data.message);
-        history.push('/error');
+    try {
+      setDataTrack(
+        data.map(({
+          cidade, dataHora, descricao, uf,
+        }: DataProps) => (
+          <DataTrack
+            cidade={cidade}
+            dataHora={dataHora}
+            descricao={descricao}
+            uf={uf}
+          />
+        )),
+      );
+      console.log(data);
+      setTrackCode(String(code).toUpperCase());
+      setLoading(false);
+      setError(false);
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
+      setDataTrack(data.message);
+      history.push('/error');
 
-        setTimeout(() => {
-          history.push('/');
-        }, 6000);
-      }
-    }, 800);
+      setTimeout(() => {
+        history.push('/');
+      }, 6000);
+    }
   }, []);
   const memoizedValue = useMemo(
     () => ({
