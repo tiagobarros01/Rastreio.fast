@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable jsx-a11y/no-autofocus */
 import React, {
   EventTarget,
   FormEvent,
