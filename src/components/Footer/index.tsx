@@ -7,6 +7,7 @@ export function Footer(): JSX.Element {
     <FooterContainer>
       <p>
         Created with 💛 by
+        {' '}
         <a
           target="_blank"
           href="https://github.com/TiagoBarros01"

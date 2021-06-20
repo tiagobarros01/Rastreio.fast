@@ -11,8 +11,6 @@ interface Props extends RouteProps {
 export const CustomRoute = ({ isPrivate, ...rest }: Props): JSX.Element => {
   const { loading, trackCode, error } = useTrack();
 
-  console.log(error);
-
   if (loading) {
     return <Loader />;
   }

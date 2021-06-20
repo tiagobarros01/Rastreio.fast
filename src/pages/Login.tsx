@@ -52,6 +52,7 @@ export default function Login(): JSX.Element {
             <h1>Login</h1>
             <p>
               Don&apos;t have any account yet?
+              {' '}
               <span>register now</span>
             </p>
           </Header>
