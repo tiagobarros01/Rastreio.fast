@@ -138,6 +138,8 @@ export const Point = styled.div<{ position: string }>`
 
   background: #fff;
 
+  border-radius: 50%;
+
   animation: ${({ position }) => (position === 'first'
     ? firstJump
     : position === 'second'

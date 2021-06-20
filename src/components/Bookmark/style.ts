@@ -28,7 +28,7 @@ export const Container = styled.div<{ location: boolean }>`
 
   background: ${({ theme }) => theme.colors.thirdBackground};
 
-  display: flex;
+  display: ${({ location }) => (location === true ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
 
