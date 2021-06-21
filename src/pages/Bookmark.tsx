@@ -1,21 +1,26 @@
 import React from 'react';
+import { v4 } from 'uuid';
 
 import { useTrack } from '../hooks/useTrack';
-import { Container } from '../styles/pages/Bookmark';
+import { Container, Title, ListContainer } from '../styles/pages/Bookmark';
 
 export default function Bookmark(): JSX.Element {
   const { trackCodeList } = useTrack();
 
-  console.log(trackCodeList.length - 1);
-
   return (
     <Container>
-      <h1>my bookmarks</h1>
-      {trackCodeList.map((item) => (
-        <>
-          <p style={{ marginRight: 10 }}>{item}</p>
-        </>
-      ))}
+      <Title>
+        <h1>my bookmarks</h1>
+      </Title>
+      <ListContainer>
+        {trackCodeList.length !== 0 ? trackCodeList.map((item) => (
+          <ul key={v4()}>
+            <li>
+              {item}
+            </li>
+          </ul>
+        )) : <div><p>You don&apos;t have any tracks yet</p></div> }
+      </ListContainer>
     </Container>
   );
 }
