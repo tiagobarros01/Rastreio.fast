@@ -7,7 +7,7 @@ import { TrackingContextData } from '../@types/TrackingContextData';
 import { DataTrack } from '../components/DataTrack/index';
 import { usePersistedState } from '../hooks/usePersistedState';
 import api from '../services/api';
-import history from '../services/history';
+import { useRoutes } from '../services/useRoutes';
 
 interface TrackingProviderProps {
   children: React.ReactNode;
@@ -29,7 +29,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     async (code: string) => {
       setLoading(true);
       setDataTrack(null);
-      history.push('/tracks');
+      useRoutes('/tracks');
       const { data } = await api.get(`v1?codigo=${String(code)}`);
 
       try {
@@ -56,10 +56,10 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         setError(true);
         console.debug(' Erro:', data.error, '\n', 'Message:', data.message);
         setDataTrack(data.message);
-        history.push('/error');
+        useRoutes('/error'); // if error, redirect to Error page
 
         setTimeout(() => {
-          history.push('/');
+          useRoutes('/'); // Redirect to Homepage
         }, 6000);
       }
     },
