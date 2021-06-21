@@ -19,7 +19,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
   const [dataTrack, setDataTrack] = useState<DataProps | null | string>(null);
   const [trackCode, setTrackCode] = useState<string>('');
   const [trackCodeList, setTrackCodeList] = usePersistedState<string[]>(
-    '@Rastreio.Fast:TrackCodeList',
+    '@Rastreio.fast:TrackCodeList',
     [],
   );
   const [loading, setLoading] = useState<boolean>(false);
