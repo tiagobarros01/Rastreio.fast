@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 
-import { DataProps } from '../../types/DataProps';
+import { DataProps } from '../../@types/DataProps';
 import {
   Container,
   DateHour,

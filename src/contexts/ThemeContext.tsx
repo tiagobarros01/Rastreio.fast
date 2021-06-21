@@ -1,10 +1,10 @@
 import React, { createContext, useCallback, useMemo } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
+import { ThemeContextData } from '../@types/ThemeContextData';
 import { usePersistedState } from '../hooks/usePersistedState';
 import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
-import { ThemeContextData } from '../types/ThemeContextData';
 
 interface Props {
   children: React.ReactNode;
