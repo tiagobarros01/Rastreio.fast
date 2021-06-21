@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
+import { v4 } from 'uuid';
 
 import { DataProps } from '../../@types/DataProps';
 import {
@@ -19,14 +20,14 @@ export function DataTrack({
   cidade, dataHora, descricao, uf,
 }: DataProps): JSX.Element {
   return (
-    <Container>
+    <Container key={v4()}>
       {dataHora ? (
         <DateHour>
-          <p>{dataHora}</p>
+          <li>{dataHora}</li>
         </DateHour>
       ) : (
         <DateHour>
-          <p>--/--/---- --:--</p>
+          <li>--/--/---- --:--</li>
         </DateHour>
       )}
       {descricao === 'Objeto postado' ? (
@@ -39,30 +40,30 @@ export function DataTrack({
       <Info>
         {descricao ? (
           <Description>
-            <p>{descricao}</p>
+            <li>{descricao}</li>
           </Description>
         ) : (
           <Description>
-            <p>--</p>
+            <li>--</li>
           </Description>
         )}
         <Details>
           {uf ? (
             <State>
-              <p>{uf}</p>
+              <li>{uf}</li>
             </State>
           ) : (
             <State>
-              <p>--</p>
+              <li>--</li>
             </State>
           )}
           {cidade ? (
             <City>
-              <p>{` | ${cidade}`}</p>
+              <li>{` | ${cidade}`}</li>
             </City>
           ) : (
             <City>
-              <p>--</p>
+              <li>--</li>
             </City>
           )}
         </Details>

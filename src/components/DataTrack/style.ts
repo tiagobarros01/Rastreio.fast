@@ -16,10 +16,14 @@ export const Container = styled.div`
   padding: 1rem 0 0.5rem 0.5rem;
 `;
 
-export const DateHour = styled.div`
+export const DateHour = styled.ul`
   width: 6rem;
 
   text-align: center;
+
+  li {
+    color: ${({ theme }) => theme.colors.text};
+  }
 `;
 
 export const Posted = styled(FiCheckCircle)`
@@ -68,22 +72,28 @@ export const Details = styled.div`
   display: flex;
 `;
 
-export const Description = styled.div`
+export const Description = styled.ul`
   @media (max-width: 576px) {
     max-width: 18rem;
   }
 
-  p {
+  li {
+    color: ${({ theme }) => theme.colors.title};
     font-weight: bold;
   }
 `;
 
-export const State = styled.div`
+export const State = styled.ul`
   margin-right: 0.4rem;
 
-  p {
+  li {
+    color: ${({ theme }) => theme.colors.title};
     font-weight: bold;
   }
 `;
 
-export const City = styled.div``;
+export const City = styled.ul`
+  li {
+    color: ${({ theme }) => theme.colors.text};
+  }
+`;
