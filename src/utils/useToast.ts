@@ -28,6 +28,8 @@ export const useToast = ({
         background,
         color,
       },
+
+      icon: '🌓',
     });
   } else if (type === 'loading') {
     toast.loading(message, {
