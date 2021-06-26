@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import { Router } from 'react-router-dom';
 
 import { Bookmark } from './components/Bookmark';
@@ -15,6 +16,7 @@ function App(): JSX.Element {
         <Header />
         <Bookmark />
         <Routes />
+        <Toaster />
       </Router>
       <GlobalStyle />
     </ContextProvider>

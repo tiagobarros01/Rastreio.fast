@@ -5,6 +5,7 @@ import { ThemeContextData } from '../@types/ThemeContextData';
 import { usePersistedState } from '../hooks/usePersistedState';
 import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
+import { useToast } from '../utils/useToast';
 
 interface Props {
   children: React.ReactNode;
@@ -25,6 +26,12 @@ function ThemeContextProvider({ children }: Props): JSX.Element {
 
   const toggleTheme = useCallback(() => {
     setTheme(theme.title === 'light' ? dark : light);
+    useToast({
+      message: 'Theme changed',
+      type: 'success',
+      background: theme.title === 'light' ? '#353230' : '#ddd',
+      color: theme.title === 'light' ? '#eee' : '#222',
+    });
   }, [setTheme, theme.title]);
 
   const memoizedValue = useMemo(() => {
