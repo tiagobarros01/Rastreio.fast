@@ -29,7 +29,6 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     async (code: string) => {
       setLoading(true);
       setDataTrack(null);
-      useRoutes('/tracks');
       const { data } = await api.get(`v1?codigo=${String(code)}`);
 
       try {
@@ -45,6 +44,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
             />
           )),
         );
+        useRoutes('/tracks');
         setTrackCode(code.toUpperCase());
         setTrackCodeList(
           (prevState: string[]) => [...new Set(prevState), code],
