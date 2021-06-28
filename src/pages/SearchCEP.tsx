@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FormEvent, useState } from 'react';
 
 import { DataCEPProps } from '../@types/DataCEPProps';
 import { DataCEP } from '../components/DataCEP';
@@ -21,7 +20,7 @@ type DataProps = {
   uf: string;
 
   erro?: boolean;
-}
+};
 
 export default function SearchCEP(): JSX.Element {
   const { theme } = useTheme();
@@ -79,16 +78,17 @@ export default function SearchCEP(): JSX.Element {
           <CEPContainer>
             <CEPInput
               value={CEPCode}
-              onChange={(event) => setCEPCode(event.target.value)}
+              onChange={(event: FormEvent<HTMLInputElement>) => setCEPCode(event.target.value)}
               required
             />
             <button type="button" onClick={() => handleSearchCEP(CEPCode)}>
               Search
             </button>
-            <Link to="/">Forgot your CEP?</Link>
           </CEPContainer>
         </>
-      ) : CEPData === null && isLoading ? <Loader /> : (
+      ) : CEPData === null && isLoading ? (
+        <Loader />
+      ) : (
         <DataCEP
           cep={CEPData?.cep}
           fu={CEPData?.fu}
