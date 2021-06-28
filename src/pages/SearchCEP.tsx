@@ -30,6 +30,16 @@ export default function SearchCEP(): JSX.Element {
   const [CEPCode, setCEPCode] = useState<string>('');
 
   async function handleSearchCEP(cep: string): Promise<void> {
+    if (CEPCode.length !== 8) {
+      useToast({
+        message: 'Fill the field(s)!',
+        type: 'error',
+        background: theme.title === 'light' ? '#353230' : '#ddd',
+        color: theme.title === 'light' ? '#eee' : '#222',
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
