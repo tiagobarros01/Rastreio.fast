@@ -1,5 +1,25 @@
 import { RiStackFill } from 'react-icons/ri';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const toRight = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+`;
+
+const toRightButton = keyframes`
+  from {
+    transform: translateX(-150%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -30,6 +50,8 @@ export const ListContainer = styled.div`
   z-index: 12;
 
   background: ${({ theme }) => theme.colors.scndBackground};
+
+  animation: ${toRight} 400ms;
 `;
 
 export const List = styled.ul`
@@ -37,11 +59,9 @@ export const List = styled.ul`
 
   li {
     width: 100%;
-    background: ${({ theme }) => theme.colors.scndBackground};
     filter: brightness(0.9);
 
     padding: 1rem;
-    color: ${({ theme }) => theme.colors.text};
     font-size: 1.1rem;
     font-weight: bold;
 
@@ -60,5 +80,19 @@ export const List = styled.ul`
       filter: brightness(0.8);
       transform: translateY(-2px);
     }
+  }
+
+  button {
+    width: 8rem;
+
+    display: flex;
+    justify-content: flex-start;
+
+    animation: ${toRightButton} 800ms;
+
+    border: 0;
+
+    color: ${({ theme }) => theme.colors.text};
+    background: none;
   }
 `;
