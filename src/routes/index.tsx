@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 import Bookmark from '../pages/Bookmark';
 import Error from '../pages/Error';
 import Homepage from '../pages/Homepage';
+import Integrations from '../pages/Integrations';
 import Login from '../pages/Login';
 import SearchCEP from '../pages/SearchCEP';
 import SignIn from '../pages/SignIn';
@@ -19,6 +20,7 @@ export default function Routes(): JSX.Element {
       <CustomRoute isPrivate={false} path="/signin" component={SignIn} exact />
       <CustomRoute isPrivate={false} path="/bookmark" component={Bookmark} exact />
       <CustomRoute isPrivate={false} path="/searchcep" component={SearchCEP} exact />
+      <CustomRoute isPrivate={false} path="/integrations" component={Integrations} exact />
       <CustomRoute isPrivate path="/error" component={Error} exact />
     </Switch>
   );

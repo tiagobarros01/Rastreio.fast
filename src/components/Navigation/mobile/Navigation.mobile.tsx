@@ -21,8 +21,8 @@ export function NavigationMobile(): JSX.Element {
             <li>
               <button
                 type="button"
-                onClick={() => useRoutes('/searchcep')}
-                onKeyPress={() => useRoutes('/searchcep')}
+                onClick={() => useRoutes('/integrations')}
+                onKeyPress={() => useRoutes('/integrations')}
               >
                 Integrations
               </button>

@@ -11,7 +11,7 @@ export function NavigationWeb(): JSX.Element {
     <Container>
       <List
         location={pathname === '' && true}
-        onClick={() => useRoutes('/searchcep')}
+        onClick={() => useRoutes('/integrations')}
       >
         Integrations
       </List>
