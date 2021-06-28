@@ -5,7 +5,7 @@ const trackAPI = axios.create({
 });
 
 const cepAPI = axios.create({
-  baseURL: 'https://viacep.com.br/ws/09370360/json/',
+  baseURL: 'https://viacep.com.br/ws/',
 });
 
 export { trackAPI, cepAPI };
