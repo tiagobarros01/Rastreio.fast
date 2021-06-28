@@ -1,8 +1,5 @@
 import React, {
-  EventTarget,
-  FormEvent,
-  useCallback,
-  useState,
+  EventTarget, FormEvent, useCallback, useState,
 } from 'react';
 
 import {

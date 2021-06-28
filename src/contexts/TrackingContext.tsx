@@ -46,9 +46,10 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         );
         useRoutes('/tracks');
         setTrackCode(code.toUpperCase());
-        setTrackCodeList(
-          (prevState: string[]) => [...new Set(prevState), code],
-        );
+        setTrackCodeList((prevState: string[]) => [
+          ...new Set(prevState),
+          code,
+        ]);
         setLoading(false);
         setError(false);
       } catch (err) {

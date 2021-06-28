@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { DataCEPProps } from '../../@types/DataCEPProps';
-import {
-  Container,
-} from './style';
+import { Container } from './style';
 
 export function DataCEP({
-  cep, fu, street, locale, neighborhood, complement,
+  cep,
+  fu,
+  street,
+  locale,
+  neighborhood,
+  complement,
 }: DataCEPProps): JSX.Element {
   return (
     <Container>

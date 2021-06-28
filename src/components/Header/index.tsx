@@ -15,7 +15,10 @@ import {
 } from './style';
 
 export function Header(): JSX.Element {
-  const { theme: { title }, toggleTheme } = useTheme(); // ThemeContext
+  const {
+    theme: { title },
+    toggleTheme,
+  } = useTheme(); // ThemeContext
 
   return (
     <HeaderContainer>

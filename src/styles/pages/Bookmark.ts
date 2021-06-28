@@ -14,12 +14,10 @@ export const Container = styled.div`
 
 export const Title = styled.div`
   width: 100%;
-  
+
   margin-bottom: 1rem;
 
   text-align: center;
 `;
 
-export const ListContainer = styled.div`
-  
-`;
+export const ListContainer = styled.div``;

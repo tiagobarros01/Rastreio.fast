@@ -10,7 +10,7 @@ export function NavigationWeb(): JSX.Element {
   return (
     <Container>
       <List
-        location={pathname === '' && true}
+        location={pathname === '/integrations' && true}
         onClick={() => useRoutes('/integrations')}
       >
         Integrations

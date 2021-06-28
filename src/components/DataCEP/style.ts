@@ -17,7 +17,8 @@ export const Container = styled.div`
 
   background: ${({ theme }) => theme.colors.scndBackground};
 
-  box-shadow: 0 2px 12px ${({ theme }) => (theme.title === 'dark' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.18)')} ;
+  box-shadow: 0 2px 12px
+    ${({ theme }) => (theme.title === 'dark' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.18)')};
 
   padding: 2rem 3rem;
 

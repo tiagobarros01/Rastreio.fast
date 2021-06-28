@@ -18,9 +18,24 @@ export default function Routes(): JSX.Element {
       <CustomRoute isPrivate path="/tracks" component={Tracks} exact />
       <CustomRoute isPrivate={false} path="/login" component={Login} exact />
       <CustomRoute isPrivate={false} path="/signin" component={SignIn} exact />
-      <CustomRoute isPrivate={false} path="/bookmark" component={Bookmark} exact />
-      <CustomRoute isPrivate={false} path="/searchcep" component={SearchCEP} exact />
-      <CustomRoute isPrivate={false} path="/integrations" component={Integrations} exact />
+      <CustomRoute
+        isPrivate={false}
+        path="/bookmark"
+        component={Bookmark}
+        exact
+      />
+      <CustomRoute
+        isPrivate={false}
+        path="/searchcep"
+        component={SearchCEP}
+        exact
+      />
+      <CustomRoute
+        isPrivate={false}
+        path="/integrations"
+        component={Integrations}
+        exact
+      />
       <CustomRoute isPrivate path="/error" component={Error} exact />
     </Switch>
   );

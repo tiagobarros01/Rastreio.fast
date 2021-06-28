@@ -17,7 +17,10 @@ import {
 } from './style';
 
 export function DataTrack({
-  cidade, dataHora, descricao, uf,
+  cidade,
+  dataHora,
+  descricao,
+  uf,
 }: DataProps): JSX.Element {
   return (
     <Container key={v4()}>

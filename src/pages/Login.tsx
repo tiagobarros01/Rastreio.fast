@@ -1,8 +1,5 @@
 import React, {
-  EventTarget,
-  FormEvent,
-  useCallback,
-  useState,
+  EventTarget, FormEvent, useCallback, useState,
 } from 'react';
 
 import GlobalStyle from '../styles/global';
@@ -14,7 +11,7 @@ import {
   Details,
 } from '../styles/pages/Login';
 
-interface DataValues{
+interface DataValues {
   emailOrUserName: string;
   password: string;
 }

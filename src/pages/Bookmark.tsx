@@ -13,13 +13,17 @@ export default function Bookmark(): JSX.Element {
         <h1>my bookmarks</h1>
       </Title>
       <ListContainer>
-        {trackCodeList.length !== 0 ? trackCodeList.map((item) => (
-          <ul key={v4()}>
-            <li>
-              {item}
-            </li>
-          </ul>
-        )) : <div><p>You don&apos;t have any tracks yet</p></div> }
+        {trackCodeList.length !== 0 ? (
+          trackCodeList.map((item) => (
+            <ul key={v4()}>
+              <li>{item}</li>
+            </ul>
+          ))
+        ) : (
+          <div>
+            <p>You don&apos;t have any tracks yet</p>
+          </div>
+        )}
       </ListContainer>
     </Container>
   );
