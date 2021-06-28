@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -13,6 +22,8 @@ export const Container = styled.div`
   padding: 2rem 3rem;
 
   border-radius: 0.8rem;
+
+  animation: ${fade} 800ms ease-in-out;
 
   div {
     display: flex;
