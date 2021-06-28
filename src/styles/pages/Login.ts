@@ -31,7 +31,6 @@ export const Header = styled.header`
     margin-top: 1rem;
 
     color: ${({ theme }) => theme.colors.text};
-    font-weight: bold;
 
     @media (max-width: 576px) {
       display: flex;
@@ -43,6 +42,8 @@ export const Header = styled.header`
   span {
     color: ${({ theme }) => theme.colors.yellow};
     text-decoration: underline ${({ theme }) => theme.colors.yellow} 2px;
+
+    font-weight: 600;
 
     :hover {
       cursor: pointer;
@@ -112,7 +113,6 @@ export const Details = styled.div`
   span {
     color: ${({ theme }) => theme.colors.text};
 
-    font-weight: 700;
     text-decoration: underline;
 
     transition: filter 200ms;

@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { DataCEPProps } from '../@types/DataCEPProps';
 import { DataCEP } from '../components/DataCEP';
@@ -84,6 +85,7 @@ export default function SearchCEP(): JSX.Element {
             <button type="button" onClick={() => handleSearchCEP(CEPCode)}>
               Search
             </button>
+            <Link to="/">Forgot your CEP?</Link>
           </CEPContainer>
         </>
       ) : CEPData === null && isLoading ? <Loader /> : (
