@@ -6,7 +6,7 @@ import { DataProps } from '../@types/DataProps';
 import { TrackingContextData } from '../@types/TrackingContextData';
 import { DataTrack } from '../components/DataTrack/index';
 import { usePersistedState } from '../hooks/usePersistedState';
-import api from '../services/api';
+import { trackAPI } from '../services/api';
 import { useRoutes } from '../services/useRoutes';
 
 interface TrackingProviderProps {
@@ -29,7 +29,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     async (code: string) => {
       setLoading(true);
       setDataTrack(null);
-      const { data } = await api.get(`v1?codigo=${String(code)}`);
+      const { data } = await trackAPI.get(`v1?codigo=${String(code)}`);
 
       try {
         setDataTrack(
