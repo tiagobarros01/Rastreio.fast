@@ -14,8 +14,9 @@ export default function Bookmark(): JSX.Element {
       </Title>
       <ListContainer>
         {trackCodeList.length !== 0 ? (
-          trackCodeList.map((item) => (
+          trackCodeList.map((item, index) => (
             <ul key={v4()}>
+              <p>{index + 1}</p>
               <li>{item}</li>
             </ul>
           ))
