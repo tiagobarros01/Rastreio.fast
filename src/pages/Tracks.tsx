@@ -40,13 +40,16 @@ export default function Tracks(): JSX.Element {
   function handleBookmark() {
     setIsBookmarked((prevState) => (!prevState ? true : true));
     setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
-    useToast({
-      message: 'Added to my bookmark',
-      type: 'success',
-      icon: '🔖',
-      background: theme.title === 'light' ? '#353230' : '#ddd',
-      color: theme.title === 'light' ? '#eee' : '#222',
-    });
+
+    if (!isBookmarked) {
+      useToast({
+        message: 'Added to my bookmark',
+        type: 'success',
+        icon: '🔖',
+        background: theme.title === 'light' ? '#353230' : '#ddd',
+        color: theme.title === 'light' ? '#eee' : '#222',
+      });
+    }
   }
 
   return (

@@ -7,6 +7,7 @@ type Props = {
   background: string;
   color: string;
   icon?: string;
+  duration?: number;
 };
 
 export const useToast = ({
@@ -15,10 +16,11 @@ export const useToast = ({
   background,
   color,
   icon,
+  duration = 1500,
 }: Props): void => {
   if (type === 'error') {
     toast.error(message, {
-      duration: 1500,
+      duration,
 
       style: {
         background,

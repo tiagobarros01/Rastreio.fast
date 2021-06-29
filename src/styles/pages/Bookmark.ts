@@ -1,3 +1,4 @@
+import { FiTrash } from 'react-icons/fi';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -32,10 +33,14 @@ export const ListContainer = styled.div`
 
   border-radius: 0.8rem;
 
+  width: 20%;
+  min-height: 3rem;
   ul {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    padding: 1rem 4rem;
+    padding: 1rem;
 
     width: 90%;
 
@@ -80,5 +85,19 @@ export const ListContainer = styled.div`
         }
       }
     }
+  }
+`;
+
+export const TrashIcon = styled(FiTrash)`
+  color: ${({ theme }) => theme.colors.red};
+
+  cursor: pointer;
+
+  font-size: 1.25rem;
+
+  transition: filter 200ms;
+
+  :hover {
+    filter: brightness(0.8);
   }
 `;
