@@ -39,7 +39,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     async (code: string) => {
       setLoading(true);
       setDataTrack(null);
-      const { data } = await trackAPI.get(`v1?codigo=${String(code)}`);
+      const { data } = await trackAPI.get(`v1?codigo=${String(code).trim()}`);
 
       try {
         setDataTrack(

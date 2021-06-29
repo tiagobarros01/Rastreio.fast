@@ -15,7 +15,7 @@ export default function Homepage(): JSX.Element {
   const { getTrackingData } = useTrack();
 
   const handleTrack = useCallback(() => {
-    getTrackingData(String(valueInputRef.current?.value).trim());
+    getTrackingData(String(valueInputRef.current?.value));
   }, [getTrackingData]);
 
   return (
