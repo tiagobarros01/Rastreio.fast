@@ -1,6 +1,7 @@
 import React, {
   createContext, useCallback, useMemo, useState,
 } from 'react';
+import { v4 } from 'uuid';
 
 import { DataProps } from '../@types/DataProps';
 import { TrackingContextData } from '../@types/TrackingContextData';
@@ -25,6 +26,20 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
+  function setToList(prevState: string[], code: string): string[] {
+    const res = prevState.some((item) => item === code);
+
+    if (!res) {
+      return [
+        ...prevState,
+        code,
+      ];
+    }
+    return [
+      ...prevState,
+    ];
+  }
+
   const getTrackingData = useCallback(
     async (code: string) => {
       setLoading(true);
@@ -37,6 +52,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
             cidade, dataHora, descricao, uf,
           }: DataProps) => (
             <DataTrack
+              key={v4()}
               cidade={cidade}
               dataHora={dataHora}
               descricao={descricao}
@@ -46,10 +62,7 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         );
         useRoutes('/tracks');
         setTrackCode(code.toUpperCase());
-        setTrackCodeList((prevState: string[]) => [
-          ...new Set(prevState),
-          code,
-        ]);
+        setTrackCodeList((prevState: string[]) => setToList(prevState, code));
         setLoading(false);
         setError(false);
       } catch (err) {
