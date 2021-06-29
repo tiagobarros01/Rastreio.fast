@@ -28,13 +28,13 @@ export const Container = styled.div<{ location: boolean }>`
 
   background: ${({ theme }) => theme.colors.thirdBackground};
 
-  display: ${({ location }) => (location === true ? 'none' : 'flex')};
+  display: ${({ location }) => (location ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
 
   transition: filter 200ms;
 
-  animation: ${({ location }) => location === true && goOut} 1s ease-in-out;
+  animation: ${({ location }) => location && goOut} 1s ease-in-out;
 
   :hover {
     cursor: pointer;

@@ -8,7 +8,7 @@ export const Container = styled.ul`
 
 export const List = styled.li<{ location: boolean }>`
   padding: 1rem;
-  color: ${({ location, theme }) => (location === true ? theme.colors.yellow : theme.colors.text)};
+  color: ${({ location, theme }) => (location ? theme.colors.yellow : theme.colors.text)};
   font-size: 1.1rem;
   font-weight: bold;
 
