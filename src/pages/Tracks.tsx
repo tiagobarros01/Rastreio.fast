@@ -8,7 +8,7 @@ import { useTrack } from '../hooks/useTrack';
 import {
   IconContainer,
   PlusIcon,
-  BookmarkIcon,
+  SaveIcon,
   CheckIcon,
   Container,
   PackagesHistory,
@@ -17,7 +17,7 @@ import {
 import { useToast } from '../utils/useToast';
 
 export default function Tracks(): JSX.Element {
-  const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
+  const [isSaved, setIsSaved] = useState<boolean>(false);
   const [icon, setIcon] = useState<boolean>(false);
   const {
     loading,
@@ -33,17 +33,17 @@ export default function Tracks(): JSX.Element {
     const res = trackCodeList.some((item) => item === trackCode);
 
     if (res) {
-      setIsBookmarked(true);
+      setIsSaved(true);
     }
   }, [trackCodeList, trackCode]);
 
-  function handleBookmark() {
-    setIsBookmarked((prevState) => (!prevState ? true : true));
+  function handleSave() {
+    setIsSaved((prevState) => (!prevState ? true : true));
     setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
 
-    if (!isBookmarked) {
+    if (!isSaved) {
       useToast({
-        message: 'Added to my bookmark',
+        message: 'Added to collection',
         type: 'success',
         icon: '🔖',
         background: theme.title === 'light' ? '#353230' : '#ddd',
@@ -63,13 +63,13 @@ export default function Tracks(): JSX.Element {
             <IconContainer
               onMouseEnter={() => setIcon((prevState) => !prevState)}
               onMouseLeave={() => setIcon((prevState) => !prevState)}
-              onClick={handleBookmark}
-              isBookmarked={isBookmarked}
+              onClick={handleSave}
+              isSaved={isSaved}
             >
-              {isBookmarked ? (
+              {isSaved ? (
                 <CheckIcon />
               ) : icon ? (
-                <BookmarkIcon />
+                <SaveIcon />
               ) : (
                 <PlusIcon />
               )}

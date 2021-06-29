@@ -8,10 +8,10 @@ import {
   Title,
   ListContainer,
   TrashIcon,
-} from '../styles/pages/Bookmark';
+} from '../styles/pages/Collections';
 import { useToast } from '../utils/useToast';
 
-export default function Bookmark(): JSX.Element {
+export default function Collections(): JSX.Element {
   const { trackCodeList, getTrackingData, setTrackCodeList } = useTrack();
   const { theme } = useTheme();
 
@@ -26,7 +26,7 @@ export default function Bookmark(): JSX.Element {
     trackCodeList.splice(index, 1);
     setTrackCodeList((prevState) => [...prevState]);
     useToast({
-      message: 'Removes of bookmarks',
+      message: 'Removes of collection',
       type: 'error',
       icon: '🗑️',
       duration: 2500,
@@ -38,7 +38,7 @@ export default function Bookmark(): JSX.Element {
   return (
     <Container>
       <Title>
-        <h1>my bookmarks</h1>
+        <h1>Saved</h1>
       </Title>
       <ListContainer>
         {trackCodeList.length !== 0 ? (

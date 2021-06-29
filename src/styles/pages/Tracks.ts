@@ -44,10 +44,10 @@ export const PackagesHistory = styled.div`
   }
 `;
 
-export const IconContainer = styled.div<{ isBookmarked: boolean }>`
+export const IconContainer = styled.div<{ isSaved: boolean }>`
   display: flex;
 
-  cursor: ${({ isBookmarked }) => (!isBookmarked ? 'pointer' : 'initial')} ;
+  cursor: ${({ isSaved }) => (!isSaved ? 'pointer' : 'initial')} ;
 `;
 
 export const PlusIcon = styled(BsBookmarkPlus)`
@@ -55,7 +55,7 @@ export const PlusIcon = styled(BsBookmarkPlus)`
   margin-left: 1rem;
 `;
 
-export const BookmarkIcon = styled(BsBookmarkFill)`
+export const SaveIcon = styled(BsBookmarkFill)`
   color: ${({ theme }) => theme.colors.green};
   margin-left: 1rem;
 `;

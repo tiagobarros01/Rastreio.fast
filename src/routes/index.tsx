@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
-import Bookmark from '../pages/Bookmark';
+import Collections from '../pages/Collections';
 import Error from '../pages/Error';
 import Homepage from '../pages/Homepage';
 import Integrations from '../pages/Integrations';
@@ -20,8 +20,8 @@ export default function Routes(): JSX.Element {
       <CustomRoute isPrivate={false} path="/signin" component={SignIn} exact />
       <CustomRoute
         isPrivate={false}
-        path="/bookmark"
-        component={Bookmark}
+        path="/collections"
+        component={Collections}
         exact
       />
       <CustomRoute
