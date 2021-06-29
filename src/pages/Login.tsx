@@ -1,5 +1,5 @@
 import React, {
-  EventTarget, FormEvent, useCallback, useState,
+  FormEvent, useRef,
 } from 'react';
 
 import GlobalStyle from '../styles/global';
@@ -11,36 +11,19 @@ import {
   Details,
 } from '../styles/pages/Login';
 
-interface DataValues {
-  emailOrUserName: string;
-  password: string;
-}
-
 export default function Login(): JSX.Element {
-  const [values, setValues] = useState<DataValues>({} as DataValues);
-
-  const onChange = useCallback(
-    (event: FormEvent<HTMLInputElement>) => {
-      const { name, value }: EventTarget = event.target;
-
-      setValues({
-        ...values,
-        [name]: value,
-      });
-    },
-    [values],
-  );
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    console.log(
-      ` E-mail / user: ${values.emailOrUserName}\n Password: ${values.password}`,
-    );
+    const email = emailInputRef.current?.value;
+    const password = passwordInputRef.current?.value;
 
-    setValues({
-      emailOrUserName: '',
-      password: '',
+    console.log({
+      email,
+      password,
     });
   }
 
@@ -66,9 +49,8 @@ export default function Login(): JSX.Element {
                   id="emailOrUserName"
                   name="emailOrUserName"
                   autoComplete="true"
+                  ref={emailInputRef}
                   maxLength={28}
-                  value={values.emailOrUserName}
-                  onChange={onChange}
                   required
                 />
               </label>
@@ -81,9 +63,8 @@ export default function Login(): JSX.Element {
                   id="password"
                   name="password"
                   autoComplete="true"
+                  ref={passwordInputRef}
                   maxLength={22}
-                  value={values.password}
-                  onChange={onChange}
                   required
                 />
               </label>

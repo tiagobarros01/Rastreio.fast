@@ -1,6 +1,4 @@
-import React, {
-  EventTarget, FormEvent, useCallback, useState,
-} from 'react';
+import React, { FormEvent, useRef } from 'react';
 
 import {
   Wrapper,
@@ -13,34 +11,27 @@ import {
   PasswordContainer,
 } from '../styles/pages/SignIn';
 
-interface DataValues {
-  userName: string;
-  email: string;
-  name: string;
-  lastName: string;
-  password: string;
-  confirmPassword: string;
-}
-
 export default function SignIn(): JSX.Element {
-  const [values, setValues] = useState<DataValues>({} as DataValues);
-
-  const onChange = useCallback(
-    (event: FormEvent<HTMLInputElement>) => {
-      const { name, value }: EventTarget = event.target;
-
-      setValues({
-        ...values,
-        [name]: value,
-      });
-    },
-    [values],
-  );
+  const userNameInputRef = useRef<HTMLInputElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const lastNameInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+  const passwordConfirmInputRef = useRef<HTMLInputElement>(null);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    console.log(values);
+    const refs = {
+      userName: userNameInputRef.current?.value,
+      email: emailInputRef.current?.value,
+      name: nameInputRef.current?.value,
+      lastName: lastNameInputRef.current?.value,
+      password: passwordInputRef.current?.value,
+      passwordConfirm: passwordConfirmInputRef.current?.value,
+    };
+
+    console.log(refs);
   }
 
   return (
@@ -58,7 +49,7 @@ export default function SignIn(): JSX.Element {
                 type="text"
                 id="userName"
                 name="userName"
-                onChange={onChange}
+                ref={userNameInputRef}
                 maxLength={12}
                 required
               />
@@ -71,7 +62,7 @@ export default function SignIn(): JSX.Element {
                 type="email"
                 id="email"
                 name="email"
-                onChange={onChange}
+                ref={emailInputRef}
                 maxLength={28}
                 required
               />
@@ -86,7 +77,7 @@ export default function SignIn(): JSX.Element {
                     type="text"
                     id="name"
                     name="name"
-                    onChange={onChange}
+                    ref={nameInputRef}
                     maxLength={12}
                     required
                   />
@@ -99,7 +90,7 @@ export default function SignIn(): JSX.Element {
                     type="text"
                     id="lastName"
                     name="lastName"
-                    onChange={onChange}
+                    ref={lastNameInputRef}
                     maxLength={12}
                     required
                   />
@@ -113,7 +104,7 @@ export default function SignIn(): JSX.Element {
                     type="password"
                     id="password"
                     name="password"
-                    onChange={onChange}
+                    ref={passwordInputRef}
                     maxLength={22}
                     required
                     autoComplete="true"
@@ -127,7 +118,7 @@ export default function SignIn(): JSX.Element {
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    onChange={onChange}
+                    ref={passwordConfirmInputRef}
                     maxLength={22}
                     required
                     autoComplete="true"
