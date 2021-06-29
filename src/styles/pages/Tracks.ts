@@ -1,4 +1,4 @@
-import { FiCheckCircle } from 'react-icons/fi';
+import { BsBookmarkPlus, BsBookmarkFill, BsBookmarkCheck } from 'react-icons/bs';
 import styled, { keyframes } from 'styled-components';
 
 const fade = keyframes`
@@ -44,7 +44,23 @@ export const PackagesHistory = styled.div`
   }
 `;
 
-export const CheckIcon = styled(FiCheckCircle)`
+export const IconContainer = styled.div<{ isBookmarked: boolean }>`
+  display: flex;
+
+  cursor: ${({ isBookmarked }) => (!isBookmarked ? 'pointer' : 'initial')} ;
+`;
+
+export const PlusIcon = styled(BsBookmarkPlus)`
+  color: ${({ theme }) => theme.colors.green};
+  margin-left: 1rem;
+`;
+
+export const BookmarkIcon = styled(BsBookmarkFill)`
+  color: ${({ theme }) => theme.colors.green};
+  margin-left: 1rem;
+`;
+
+export const CheckIcon = styled(BsBookmarkCheck)`
   color: ${({ theme }) => theme.colors.green};
   margin-left: 1rem;
 `;

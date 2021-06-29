@@ -6,10 +6,15 @@ type Props = {
   type: string;
   background: string;
   color: string;
+  icon?: string;
 };
 
 export const useToast = ({
-  message, type, background, color,
+  message,
+  type,
+  background,
+  color,
+  icon,
 }: Props): void => {
   if (type === 'error') {
     toast.error(message, {
@@ -19,6 +24,7 @@ export const useToast = ({
         background,
         color,
       },
+      icon,
     });
   } else if (type === 'success') {
     toast.success(message, {
@@ -29,7 +35,7 @@ export const useToast = ({
         color,
       },
 
-      icon: '🌓',
+      icon,
     });
   } else if (type === 'loading') {
     toast.loading(message, {
@@ -39,6 +45,7 @@ export const useToast = ({
         background,
         color,
       },
+      icon,
     });
   }
 };

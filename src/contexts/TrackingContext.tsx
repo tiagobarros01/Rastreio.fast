@@ -26,19 +26,14 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
-  function setToList(prevState: string[], code: string): string[] {
+  const handleSetToList = useCallback((prevState: string[], code: string): string[] => {
     const res = prevState.some((item) => item === code);
 
     if (!res) {
-      return [
-        ...prevState,
-        code,
-      ];
+      return [...prevState, code];
     }
-    return [
-      ...prevState,
-    ];
-  }
+    return [...prevState];
+  }, []);
 
   const getTrackingData = useCallback(
     async (code: string) => {
@@ -62,7 +57,6 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         );
         useRoutes('/tracks');
         setTrackCode(code.toUpperCase());
-        setTrackCodeList((prevState: string[]) => setToList(prevState, code));
         setLoading(false);
         setError(false);
       } catch (err) {
@@ -77,8 +71,9 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
         }, 6000);
       }
     },
-    [setTrackCodeList],
+    [],
   );
+
   const memoizedValue = useMemo(
     () => ({
       trackCode,
@@ -87,8 +82,19 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
       loading,
       getTrackingData,
       error,
+      setTrackCodeList,
+      handleSetToList,
     }),
-    [trackCode, trackCodeList, dataTrack, loading, error, getTrackingData],
+    [
+      trackCode,
+      trackCodeList,
+      dataTrack,
+      loading,
+      setTrackCodeList,
+      handleSetToList,
+      error,
+      getTrackingData,
+    ],
   );
 
   return (
