@@ -40,7 +40,10 @@ export const ListContainer = styled.div`
     width: 90%;
 
     :not(:last-child) {
-      border-bottom: 1.5px solid ${({ theme }) => (theme.title === 'dark' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.18)')};
+      border-bottom: 1.5px solid
+        ${({ theme }) => (theme.title === 'dark'
+    ? 'rgba(0, 0, 0, 0.3)'
+    : 'rgba(0, 0, 0, 0.18)')};
     }
 
     p {
@@ -60,17 +63,22 @@ export const ListContainer = styled.div`
 
     li {
       cursor: pointer;
+      
+      button {
+        font-size: 1.1rem;
 
-      color: ${({ theme }) => theme.colors.text};
+        border: 0;
 
-      transition: color 200ms;
+        background: 0;
 
-      font-size: 1.1rem;
+        color: ${({ theme }) => theme.colors.text};
 
-      :hover {
-        color: ${({ theme }) => theme.colors.yellow};
+        transition: color 200ms;
+
+        :hover {
+          color: ${({ theme }) => theme.colors.yellow};
+        }
       }
     }
   }
-
 `;
