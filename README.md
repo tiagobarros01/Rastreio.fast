@@ -11,7 +11,7 @@
   <img src="public/gif.gif"/>
 </p> -->
 
-## Features
+## Features 🧪
 This app features all the latest tools and practices in web development!
  - <img align="left" alt="ReactJs" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />**ReactJs** - A JavaScript library for building user interfaces
  - <img align="left" alt="Typescript" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />**Typescript** - A superset of Javascript
@@ -19,7 +19,7 @@ This app features all the latest tools and practices in web development!
  - <img align="left" alt="React-Icons" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />**React-Icons** - A lib of icons for React
  - <img align="left" alt="ESLint" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png" /> _I also used Eslint in development_
 
-## Getting started
+## Getting started 🚀
 
 **1.** Clone this repo using `git clone`<br />
 **2.** Move yourself to the appropriate directory `cd rastreio.fast`<br />
