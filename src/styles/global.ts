@@ -29,6 +29,18 @@ const GlobalStyle = createGlobalStyle`
 
   input {
     border: 0;
+
+    :-webkit-autofill,
+    :-webkit-autofill:hover,
+    :-webkit-autofill:active {
+      border: 1px solid ${({ theme }) => theme.colors.background};
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.text};;
+      box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.background} inset !important;
+      transition: background-color 5000s ease-in-out 0s, border 100ms;
+      :focus {
+        border: 3px solid ${({ theme }) => theme.colors.yellow};
+      }
+    }
   }
 
   button {

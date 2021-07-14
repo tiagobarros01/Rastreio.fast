@@ -48,7 +48,6 @@ export default function Login(): JSX.Element {
                   type="text"
                   id="emailOrUserName"
                   name="emailOrUserName"
-                  autoComplete="true"
                   ref={emailInputRef}
                   maxLength={28}
                   required
@@ -62,7 +61,6 @@ export default function Login(): JSX.Element {
                   type="password"
                   id="password"
                   name="password"
-                  autoComplete="true"
                   ref={passwordInputRef}
                   maxLength={22}
                   required

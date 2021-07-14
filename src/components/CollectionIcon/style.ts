@@ -26,7 +26,9 @@ export const Container = styled.div<{ location: boolean }>`
 
   margin: 0 1.5rem 1.5rem 0;
 
-  background: ${({ theme }) => theme.colors.thirdBackground};
+  background: ${({ theme }) => theme.colors.scndBackground};
+
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
 
   display: ${({ location }) => (location ? 'none' : 'flex')};
   justify-content: center;
@@ -38,7 +40,7 @@ export const Container = styled.div<{ location: boolean }>`
 
   :hover {
     cursor: pointer;
-    filter: brightness(0.9);
+    filter: brightness(0.85);
   }
 `;
 

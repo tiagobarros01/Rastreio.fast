@@ -84,8 +84,8 @@ export const SignInForm = styled.form`
 
     border-radius: 10px;
 
-    background: ${({ theme }) => theme.colors.inputBackground};
-    color: ${({ theme }) => theme.colors.inputText};
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
 
     transition: border 100ms;
 
@@ -119,16 +119,20 @@ export const BtnContainer = styled.div`
   button {
     width: 7.5rem;
     height: 3.5rem;
+
     border-radius: 10px;
     border: 0;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
+    color: ${({ theme }) => theme.colors.text};
+
     font-weight: bold;
 
-    transition: background 200ms, font-size 100ms;
+    transition: background 200ms, color 200ms, font-size 100ms;
 
     :hover {
       background: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.textHover};
       font-size: 1.1rem;
     }
   }

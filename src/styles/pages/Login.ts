@@ -76,8 +76,8 @@ export const LoginForm = styled.form`
 
     border-radius: 10px;
 
-    background: ${({ theme }) => theme.colors.inputBackground};
-    color: ${({ theme }) => theme.colors.inputText};
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
 
     font-weight: 500;
 
@@ -132,10 +132,11 @@ export const Details = styled.div`
     margin-left: 1rem;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
+    color: ${({ theme }) => theme.colors.text};
 
     font-weight: bold;
 
-    transition: background 200ms, font-size 100ms;
+    transition: background 200ms, color 200ms, font-size 100ms;
 
     @media (max-width: 576px) {
       margin: 1rem 0 0 0;
@@ -143,6 +144,7 @@ export const Details = styled.div`
 
     :hover {
       background: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.textHover};
       font-size: 1.1rem;
     }
   }

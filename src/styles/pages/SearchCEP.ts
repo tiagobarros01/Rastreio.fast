@@ -19,8 +19,9 @@ export const Container = styled.div`
     border: 0;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
+    color: ${({ theme }) => theme.colors.text};
 
-    transition: background-color 200ms;
+    transition: background-color 200ms, color 200ms;
 
     @media (max-width: 576px) {
       margin-top: 1rem;
@@ -29,6 +30,7 @@ export const Container = styled.div`
 
     :hover {
       background: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.textHover};
     }
   }
 `;

@@ -107,7 +107,6 @@ export default function SignIn(): JSX.Element {
                     ref={passwordInputRef}
                     maxLength={22}
                     required
-                    autoComplete="true"
                   />
                 </label>
                 <br />
@@ -121,7 +120,6 @@ export default function SignIn(): JSX.Element {
                     ref={passwordConfirmInputRef}
                     maxLength={22}
                     required
-                    autoComplete="true"
                   />
                 </label>
               </PasswordContainer>

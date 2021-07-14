@@ -18,8 +18,9 @@ export const Container = styled.div`
     border-radius: 0 5px 5px 0;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
+    color: ${({ theme }) => theme.colors.text};
 
-    transition: background-color 200ms;
+    transition: background-color 200ms, color 200ms;
 
     @media (max-width: 576px) {
       margin-top: 1rem;
@@ -28,6 +29,7 @@ export const Container = styled.div`
 
     :hover {
       background: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.textHover};
     }
   }
 `;
@@ -64,8 +66,8 @@ export const Input = styled.input`
   width: 20rem;
   padding: 1rem;
 
-  background: ${({ theme }) => theme.colors.inputBackground};
-  color: ${({ theme }) => theme.colors.inputText};
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
 
   border-radius: 5px 0 0 5px;
 

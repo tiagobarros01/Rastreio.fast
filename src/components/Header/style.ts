@@ -61,7 +61,9 @@ export const ToggleTheme = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.background};
+
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
 
   transition: filter 200ms;
 
