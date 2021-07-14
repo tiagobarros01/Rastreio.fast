@@ -8,6 +8,7 @@ import {
   Title,
   ListContainer,
   TrashIcon,
+  WithoutList,
 } from '../styles/pages/Collections';
 import { useToast } from '../utils/useToast';
 
@@ -54,9 +55,9 @@ export default function Collections(): JSX.Element {
             </ul>
           ))
         ) : (
-          <div>
+          <WithoutList>
             <p>You don&apos;t have any tracks yet</p>
-          </div>
+          </WithoutList>
         )}
       </ListContainer>
     </Container>

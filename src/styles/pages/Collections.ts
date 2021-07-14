@@ -35,6 +35,10 @@ export const ListContainer = styled.div`
 
   width: 20%;
   min-height: 3rem;
+
+  @media (max-width: 576px) {
+    width: 60%;
+  }
   ul {
     display: flex;
     justify-content: space-between;
@@ -47,8 +51,8 @@ export const ListContainer = styled.div`
     :not(:last-child) {
       border-bottom: 1.5px solid
         ${({ theme }) => (theme.title === 'dark'
-    ? 'rgba(0, 0, 0, 0.3)'
-    : 'rgba(0, 0, 0, 0.18)')};
+            ? 'rgba(0, 0, 0, 0.3)'
+            : 'rgba(0, 0, 0, 0.18)')};
     }
 
     p {
@@ -68,7 +72,7 @@ export const ListContainer = styled.div`
 
     li {
       cursor: pointer;
-      
+
       button {
         font-size: 1.1rem;
 
@@ -99,5 +103,10 @@ export const TrashIcon = styled(FiTrash)`
 
   :hover {
     filter: brightness(0.8);
+  }
+`;
+
+export const WithoutList = styled.div`
+  @media (max-width: 576px) {
   }
 `;
