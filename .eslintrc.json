@@ -19,6 +19,7 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "import-helpers"],
   "rules": {
+    "indent": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-props-no-spreading": "off",
     "react-hooks/exhaustive-deps": "warn",
