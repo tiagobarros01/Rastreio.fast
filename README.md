@@ -7,9 +7,9 @@
  
 <p align="center">An app to track your packages faster! </p>
  
-<!-- <p align="center">
+<div align="center">
   <img src="public/gif.gif"/>
-</p> -->
+</div>
 
 ## Features 🧪
 This app features all the latest tools and practices in web development!
