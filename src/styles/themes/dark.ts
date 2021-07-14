@@ -8,8 +8,10 @@ export default {
     inputBackground: '#eee',
 
     title: '#eee',
-    inputText: '#111',
+    inputText: '#ccc',
     text: '#ddd',
+
+    textHover: '#111',
 
     shadow: '#1f1d1c',
 

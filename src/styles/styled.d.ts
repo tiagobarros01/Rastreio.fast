@@ -13,6 +13,8 @@ declare module 'styled-components' {
       inputText: string;
       text: string;
 
+      textHover: string;
+
       shadow: string;
 
       yellow: string;
