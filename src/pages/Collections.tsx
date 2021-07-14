@@ -27,7 +27,7 @@ export default function Collections(): JSX.Element {
     trackCodeList.splice(index, 1);
     setTrackCodeList((prevState) => [...prevState]);
     useToast({
-      message: 'Removes of collection',
+      message: 'Removes from collection',
       type: 'error',
       icon: '🗑️',
       duration: 2500,
