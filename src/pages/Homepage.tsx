@@ -34,7 +34,6 @@ export default function Homepage(): JSX.Element {
             ref={valueInputRef}
             maxLength={15}
             placeholder="Code here"
-            autoFocus
             required
           />
           <button type="button" onClick={() => handleTrack()}>
