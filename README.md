@@ -5,7 +5,7 @@
   Rastreio.Fast
  </h1>
  
-<p align="center">An app to track your packages!</p>
+<p align="center">An app to track your packages faster! </p>
  
 <!-- <p align="center">
   <img src="public/gif.gif"/>
