@@ -1,5 +1,7 @@
-import React, { FormEvent, useRef } from 'react';
+/* eslint-disable no-restricted-globals */
+import React, { FormEvent, useRef, useState } from 'react';
 
+import { useStore } from '../hooks/useStore';
 import {
   Wrapper,
   Container,
@@ -12,26 +14,25 @@ import {
 } from '../styles/pages/SignIn';
 
 export default function SignIn(): JSX.Element {
-  const userNameInputRef = useRef<HTMLInputElement>(null);
-  const emailInputRef = useRef<HTMLInputElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
-  const lastNameInputRef = useRef<HTMLInputElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
-  const passwordConfirmInputRef = useRef<HTMLInputElement>(null);
+  const userNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const lastNameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
+  const { user, setUser } = useStore();
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const refs = {
-      userName: userNameInputRef.current?.value,
-      email: emailInputRef.current?.value,
-      name: nameInputRef.current?.value,
-      lastName: lastNameInputRef.current?.value,
-      password: passwordInputRef.current?.value,
-      passwordConfirm: passwordConfirmInputRef.current?.value,
-    };
-
-    console.log(refs);
+    setUser({
+      userName: String(userNameRef.current?.value),
+      name: String(nameRef.current?.value),
+      lastName: String(lastNameRef.current?.value),
+      email: String(emailRef.current?.value),
+      password: String(passwordRef.current?.value),
+      confirmPassword: String(confirmPasswordRef.current?.value),
+    });
   }
 
   return (
@@ -49,8 +50,10 @@ export default function SignIn(): JSX.Element {
                 type="text"
                 id="userName"
                 name="userName"
-                ref={userNameInputRef}
                 maxLength={12}
+                ref={userNameRef}
+                // onChange={onChange}
+                // value={values.userName}
                 required
               />
             </label>
@@ -62,8 +65,10 @@ export default function SignIn(): JSX.Element {
                 type="email"
                 id="email"
                 name="email"
-                ref={emailInputRef}
                 maxLength={28}
+                ref={emailRef}
+                // onChange={onChange}
+                // value={values.email}
                 required
               />
             </label>
@@ -77,8 +82,10 @@ export default function SignIn(): JSX.Element {
                     type="text"
                     id="name"
                     name="name"
-                    ref={nameInputRef}
                     maxLength={12}
+                    ref={nameRef}
+                    // onChange={onChange}
+                    // value={values.name}
                     required
                   />
                 </label>
@@ -90,8 +97,10 @@ export default function SignIn(): JSX.Element {
                     type="text"
                     id="lastName"
                     name="lastName"
-                    ref={lastNameInputRef}
                     maxLength={12}
+                    ref={lastNameRef}
+                    // onChange={onChange}
+                    // value={values.lastName}
                     required
                   />
                 </label>
@@ -104,8 +113,10 @@ export default function SignIn(): JSX.Element {
                     type="password"
                     id="password"
                     name="password"
-                    ref={passwordInputRef}
                     maxLength={22}
+                    ref={passwordRef}
+                    // onChange={onChange}
+                    // value={values.password}
                     required
                   />
                 </label>
@@ -117,8 +128,10 @@ export default function SignIn(): JSX.Element {
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    ref={passwordConfirmInputRef}
                     maxLength={22}
+                    ref={confirmPasswordRef}
+                    // onChange={onChange}
+                    // value={values.confirmPassword}
                     required
                   />
                 </label>
