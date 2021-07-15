@@ -87,6 +87,7 @@ export const List = styled.ul`
 
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 
     animation: ${toRightButton} 800ms;
 

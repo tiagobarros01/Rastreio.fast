@@ -1,69 +1,69 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background: ${({ theme }) => theme.colors.scndBackground};
+
+  overflow: hidden;
 `;
 
-export const FormContainer = styled.div`
-  width: 50%;
+export const Container = styled.div`
+  width: 50vw;
+  margin-top: 5rem;
+
+  @media (max-width: 576px) {
+    width: 70vw;
+  }
 `;
 
 export const Header = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex: 1;
 
-  margin-top: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 
   h1 {
-    color: ${({ theme }) => theme.colors.title};
+    text-align: center;
     font-size: 3.5rem;
-  }
 
-  p {
-    margin-top: 1rem;
-
-    color: ${({ theme }) => theme.colors.text};
-
-    @media (max-width: 576px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  span {
     color: ${({ theme }) => theme.colors.yellow};
-    text-decoration: underline ${({ theme }) => theme.colors.yellow} 2px;
-
-    font-weight: 600;
-
-    :hover {
-      cursor: pointer;
-      filter: brightness(1.2);
-    }
   }
 `;
 
-export const LoginForm = styled.form`
-  width: 100%;
-
+export const SignInForm = styled.form`
+  flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 
-  margin-top: 2rem;
+  padding-bottom: 3rem;
 
   fieldset {
     border: 0;
+    margin-bottom: 1rem;
+
+    @media (max-width: 576px) {
+      width: 100%;
+      max-height: 27rem;
+
+      padding: 1rem;
+      overflow-y: scroll;
+
+      ::-webkit-scrollbar {
+        width: 0.8rem;
+        background: ${({ theme }) => theme.colors.thirdBackground};
+      }
+      ::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.colors.yellow};
+        border-radius: 0.5rem;
+      }
+    }
   }
 
   label {
@@ -72,26 +72,23 @@ export const LoginForm = styled.form`
   }
 
   input {
-    width: 30rem;
+    width: 100%;
+    height: 3.5rem;
+
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+
+    font-weight: 500;
+
+    outline: 0;
 
     border-radius: 10px;
 
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
-
-    font-weight: 500;
-
-    border: 0;
-    outline: 0;
-
-    margin-bottom: 1rem;
-    padding: 1rem;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
 
     transition: border 100ms;
-
-    @media (max-width: 576px) {
-      width: 20rem;
-    }
 
     :focus {
       border: 3px solid ${({ theme }) => theme.colors.yellow};
@@ -99,37 +96,33 @@ export const LoginForm = styled.form`
   }
 `;
 
-export const Details = styled.div`
+export const DividesFields = styled.div`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-
-  margin: 0.5rem 0 1.5rem 0;
+  justify-content: center;
 
   @media (max-width: 576px) {
-    flex-direction: column;
-  }
+    display: inherit;
 
-  span {
-    color: ${({ theme }) => theme.colors.text};
-
-    text-decoration: underline;
-
-    transition: filter 200ms;
-
-    :hover {
-      cursor: pointer;
-      filter: brightness(1.8);
+    div {
+      margin-right: 0;
     }
   }
+`;
 
+export const NameContainer = styled.div`
+  margin-right: 1rem;
+`;
+
+export const PasswordContainer = styled.div``;
+
+export const BtnContainer = styled.div`
   button {
     width: 7.5rem;
     height: 3.5rem;
 
     border-radius: 10px;
     border: 0;
-    margin-left: 1rem;
 
     background: ${({ theme }) => theme.colors.thirdBackground};
     color: ${({ theme }) => theme.colors.text};
@@ -137,10 +130,6 @@ export const Details = styled.div`
     font-weight: bold;
 
     transition: background 200ms, color 200ms, font-size 100ms;
-
-    @media (max-width: 576px) {
-      margin: 1rem 0 0 0;
-    }
 
     :hover {
       background: ${({ theme }) => theme.colors.yellow};

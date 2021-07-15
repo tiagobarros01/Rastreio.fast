@@ -15,6 +15,9 @@ export const List = styled.li<{ location: boolean }>`
   transition: filter transform 200ms;
   cursor: pointer;
 
+  display: flex;
+  align-items: center;
+
   :hover {
     filter: ${({ location }) => (location ? '' : 'brightness(0.8)')};
     transform: translateY(-2px);

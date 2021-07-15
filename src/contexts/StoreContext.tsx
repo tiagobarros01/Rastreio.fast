@@ -1,4 +1,6 @@
-import React, { createContext, useMemo } from 'react';
+import React, {
+ createContext, useMemo,
+} from 'react';
 
 import { StoreContextData } from '../@types/StoreContextData';
 import { usePersistedState } from '../hooks/usePersistedState';
