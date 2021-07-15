@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { StoreProvider } from './StoreContext';
 import { ThemeContextProvider } from './ThemeContext';
 import { TrackingProvider } from './TrackingContext';
 
@@ -10,7 +11,9 @@ interface ContextProviderProps {
 function ContextProvider({ children }: ContextProviderProps): JSX.Element {
   return (
     <ThemeContextProvider>
-      <TrackingProvider>{children}</TrackingProvider>
+      <StoreProvider>
+        <TrackingProvider>{children}</TrackingProvider>
+      </StoreProvider>
     </ThemeContextProvider>
   );
 }
