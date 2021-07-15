@@ -16,7 +16,7 @@ export default function Routes(): JSX.Element {
     <Switch>
       <CustomRoute path="/" component={Homepage} exact />
       <CustomRoute isPrivate path="/tracks" component={Tracks} exact />
-      <CustomRoute path="/login" component={Login} exact />
+      <CustomRoute isSigned path="/login" component={Login} exact />
       <CustomRoute isAuthenticated path="/profile" component={Profile} exact />
       <CustomRoute path="/collections" component={Collections} exact />
       <CustomRoute path="/searchcep" component={SearchCEP} exact />
