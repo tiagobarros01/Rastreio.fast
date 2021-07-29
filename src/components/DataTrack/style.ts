@@ -1,19 +1,22 @@
 /* eslint-disable no-confusing-arrow */
 import { BiPackage } from 'react-icons/bi';
 import { FiCheckCircle } from 'react-icons/fi';
-import { RiTruckLine } from 'react-icons/ri';
+import { RiTruckLine, RiArrowDownSFill } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+
   width: 100%;
 
-  :not(:last-child) {
-    padding-bottom: 1rem;
-  }
+  > div {
+    display: flex;
 
-  padding: 1rem 0 0.5rem 0.5rem;
+    :not(:last-child) {
+      margin: 1rem 0;
+    }
+  }
 `;
 
 export const DateHour = styled.ul`
@@ -60,13 +63,19 @@ export const Transit = styled(RiTruckLine)<{ description: string }>`
   border-radius: 0.8rem;
 
   background: ${({ description }) => description === 'Objeto saiu para entrega ao destinatário'
-    ? ({ theme }) => theme.colors.green
-    : () => description === 'Objeto entregue ao destinatário'
-      ? ({ theme }) => theme.colors.blue
-      : ({ theme }) => theme.colors.yellow};
+      ? ({ theme }) => theme.colors.green
+      : () => description === 'Objeto entregue ao destinatário'
+            ? ({ theme }) => theme.colors.blue
+            : ({ theme }) => theme.colors.yellow};
 `;
 
-export const Info = styled.div``;
+export const Info = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex: 1;
+`;
 
 export const Details = styled.div`
   display: flex;
@@ -83,6 +92,25 @@ export const Description = styled.ul`
   }
 `;
 
+export const MoreInfo = styled(RiArrowDownSFill)`
+  width: 1.8rem;
+  height: 1.8rem;
+
+  background: ${({ theme }) => theme.colors.thirdBackground};
+
+  border-radius: 0.9rem;
+
+  margin-left: 1rem;
+
+  cursor: pointer;
+
+  transition: filter 200ms;
+
+  :hover {
+    filter: brightness(1.2);
+  }
+`;
+
 export const State = styled.ul`
   margin-right: 0.4rem;
 
@@ -96,4 +124,11 @@ export const City = styled.ul`
   li {
     color: ${({ theme }) => theme.colors.text};
   }
+`;
+
+export const DividerContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
 `;
