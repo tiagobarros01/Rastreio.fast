@@ -77,7 +77,7 @@ export default function SearchCEP(): JSX.Element {
 
   return (
     <Container>
-      {CEPData === null && !isLoading ? (
+      {!CEPData && !isLoading ? (
         <>
           <Title>
             <h1>
@@ -96,7 +96,7 @@ export default function SearchCEP(): JSX.Element {
             </button>
           </CEPContainer>
         </>
-      ) : CEPData === null && isLoading ? (
+      ) : !CEPData && isLoading ? (
         <Loader />
       ) : (
         <DataCEP

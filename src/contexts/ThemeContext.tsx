@@ -7,7 +7,7 @@ import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 import { useToast } from '../utils/useToast';
 
-interface Props {
+interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
@@ -18,7 +18,7 @@ const ThemeContext = createContext<ThemeContextData>({
   },
 });
 
-function ThemeContextProvider({ children }: Props): JSX.Element {
+function ThemeContextProvider({ children }: ThemeProviderProps): JSX.Element {
   const [theme, setTheme] = usePersistedState<DefaultTheme>(
     '@Rastreio.fast:theme',
     dark,
