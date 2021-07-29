@@ -68,7 +68,7 @@ export const CheckIcon = styled(BsBookmarkCheck)`
 export const TrackContainer = styled.div`
   max-height: 32rem;
 
-  padding: 0.5rem;
+  padding: 1rem;
 
   overflow-y: scroll;
 

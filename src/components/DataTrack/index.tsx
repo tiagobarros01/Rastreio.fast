@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 } from 'uuid';
 
 import { UnityTrack } from '../../@types/DataProps';
@@ -17,11 +17,14 @@ import {
   Details,
   MoreInfo,
   DividerContainer,
+  MoreInfoContainer,
 } from './style';
 
 export function DataTrack({
   data, hora, descricao, unidade: { cidade, uf }, length,
 }: UnityTrack): JSX.Element {
+  const [moreInfo, setMoreInfo] = useState<boolean>(false);
+
   return (
     <Container key={v4()}>
       <div>
@@ -73,12 +76,16 @@ export function DataTrack({
           )}
             </Details>
           </div>
-          <MoreInfo color="#fff" />
+          <MoreInfo onClick={() => setMoreInfo((prevState) => !prevState)} name="ArrowDown" color="#fff" />
         </Info>
       </div>
+      {moreInfo && (
+        <MoreInfoContainer>
+          <h1>SALVEE</h1>
+        </MoreInfoContainer>
+      )}
       <DividerContainer>
-        {!length && <Divider width="95" />}
-        {console.log(length)}
+        {!length && <Divider width="100" />}
       </DividerContainer>
     </Container>
   );

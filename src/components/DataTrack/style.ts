@@ -2,7 +2,27 @@
 import { BiPackage } from 'react-icons/bi';
 import { FiCheckCircle } from 'react-icons/fi';
 import { RiTruckLine, RiArrowDownSFill } from 'react-icons/ri';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const Crescent = keyframes`
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 8rem;
+  }
+`;
+
+const Fade = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -12,6 +32,8 @@ export const Container = styled.div`
 
   > div {
     display: flex;
+
+    position: relative;
 
     :not(:last-child) {
       margin: 1rem 0;
@@ -131,4 +153,21 @@ export const DividerContainer = styled.div`
 
   display: flex;
   justify-content: center;
+`;
+
+export const MoreInfoContainer = styled.div`
+  background: ${({ theme }) => theme.colors.thirdBackground};
+
+  animation: ${Crescent} 600ms;
+
+  width: 100%;
+  height: 8rem;
+
+  position: absolute;
+
+  z-index: 99999;
+
+  h1 {
+    animation: ${Fade} 1s;
+  }
 `;
