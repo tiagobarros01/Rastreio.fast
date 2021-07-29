@@ -2,7 +2,7 @@
 import React from 'react';
 import { v4 } from 'uuid';
 
-import { DataProps } from '../../@types/DataProps';
+import { UnityTrack } from '../../@types/DataProps';
 import {
   Container,
   DateHour,
@@ -17,16 +17,13 @@ import {
 } from './style';
 
 export function DataTrack({
-  cidade,
-  dataHora,
-  descricao,
-  uf,
-}: DataProps): JSX.Element {
+  hora, descricao, unidade: { cidade, uf },
+}: UnityTrack): JSX.Element {
   return (
     <Container key={v4()}>
-      {dataHora ? (
+      {hora ? (
         <DateHour>
-          <li>{dataHora}</li>
+          <li>{hora}</li>
         </DateHour>
       ) : (
         <DateHour>

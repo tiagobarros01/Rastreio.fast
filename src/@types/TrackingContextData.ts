@@ -4,7 +4,7 @@ export interface TrackingContextData {
   trackCode: string;
   trackCodeList: string[];
   setTrackCodeList: React.Dispatch<React.SetStateAction<string[]>>;
-  dataTrack: DataProps | null | string | JSX.Element[] | undefined;
+  dataTrack: any | null | string;
   loading: boolean;
   error: boolean;
   getTrackingData: (code: string) => Promise<void>;

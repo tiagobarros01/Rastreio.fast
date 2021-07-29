@@ -1,9 +1,27 @@
-export type DataProps = {
-  cidade: string;
+export type UnityTrack = {
   data?: string;
-  dataHora: string;
   descricao: string;
-  uf: string;
-  error?: string;
-  message?: string;
+  hora: string;
+  status?: string;
+  unidade: {
+    cidade: string;
+    local: string;
+    tipounidade: string;
+    uf: string;
+    endereco: {
+      bairro: string;
+      localidade: string;
+      logradouro: string;
+    }
+  }
+}
+
+type TrackObject = {
+  evento: UnityTrack[]
+  categoria: string;
+}
+
+export type DataProps = {
+  objeto: TrackObject[]
+  message: string;
 }
