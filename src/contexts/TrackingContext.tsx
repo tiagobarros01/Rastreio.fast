@@ -20,7 +20,9 @@ const TrackingContext = createContext<TrackingContextData>(
 );
 
 function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
-  const [dataTrack, setDataTrack] = useState<any | string | null | undefined>(null);
+  const [dataTrack, setDataTrack] = useState<string[] | null | JSX.Element[][]>(
+    null,
+  );
   const [trackCode, setTrackCode] = useState<string>('');
   const [trackCodeList, setTrackCodeList] = usePersistedState<string[]>(
     '@Rastreio.fast:TrackCodeList',
@@ -54,17 +56,21 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     });
 
     try {
-      setDataTrack(data.objeto.map(({ evento }) => evento
+      const res = data.objeto.map(({ evento }) => evento
       .map(({
- descricao, unidade, hora,
-}) => (
-  <DataTrack
-    key={v4()}
-    hora={hora}
-    descricao={descricao}
-    unidade={unidade}
-  />
-      ))));
+        descricao, unidade, data, hora,
+      }, index) => (
+        <DataTrack
+          key={v4()}
+          data={data}
+          descricao={descricao}
+          unidade={unidade}
+          hora={hora}
+          length={Number(evento.length - 1 === index)}
+        />
+      )));
+
+      setDataTrack(res);
 
       useRoutes('/tracks');
       setTrackCode(code.toUpperCase());
@@ -73,7 +79,6 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
     } catch (err) {
       setLoading(false);
       setError(true);
-      console.error('Error:', data.message);
       setDataTrack(data.objeto.map(({ categoria }) => categoria));
       useRoutes('/error');
 

@@ -1,5 +1,5 @@
 export type UnityTrack = {
-  data?: string;
+  data: string;
   descricao: string;
   hora: string;
   status?: string;
@@ -14,6 +14,7 @@ export type UnityTrack = {
       logradouro: string;
     }
   }
+  length: number;
 }
 
 type TrackObject = {

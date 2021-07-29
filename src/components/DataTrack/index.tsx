@@ -3,6 +3,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 
 import { UnityTrack } from '../../@types/DataProps';
+import { Divider } from '../Divider';
 import {
   Container,
   DateHour,
@@ -14,60 +15,71 @@ import {
   Description,
   Info,
   Details,
+  MoreInfo,
+  DividerContainer,
 } from './style';
 
 export function DataTrack({
-  hora, descricao, unidade: { cidade, uf },
+  data, hora, descricao, unidade: { cidade, uf }, length,
 }: UnityTrack): JSX.Element {
   return (
     <Container key={v4()}>
-      {hora ? (
-        <DateHour>
-          <li>{hora}</li>
-        </DateHour>
+      <div>
+        {data ? (
+          <DateHour>
+            <li>{`${data} às ${hora}`}</li>
+          </DateHour>
       ) : (
         <DateHour>
           <li>--/--/---- --:--</li>
         </DateHour>
       )}
-      {descricao === 'Objeto postado' ? (
-        <Posted color="#fff" />
+        {descricao === 'Objeto postado' ? (
+          <Posted color="#fff" />
       ) : descricao === 'Objeto entregue ao destinatário' ? (
         <Delivered color="#fff" />
       ) : (
         <Transit color="#fff" description={descricao} />
       )}
-      <Info>
-        {descricao ? (
-          <Description>
-            <li>{descricao}</li>
-          </Description>
+        <Info>
+          <div>
+            {descricao ? (
+              <Description>
+                <li>{descricao}</li>
+              </Description>
         ) : (
           <Description>
             <li>--</li>
           </Description>
         )}
-        <Details>
-          {uf ? (
-            <State>
-              <li>{uf}</li>
-            </State>
+            <Details>
+              {uf ? (
+                <State>
+                  <li>{uf}</li>
+                </State>
           ) : (
             <State>
               <li>--</li>
             </State>
           )}
-          {cidade ? (
-            <City>
-              <li>{` | ${cidade}`}</li>
-            </City>
+              {cidade ? (
+                <City>
+                  <li>{` | ${cidade}`}</li>
+                </City>
           ) : (
             <City>
               <li>--</li>
             </City>
           )}
-        </Details>
-      </Info>
+            </Details>
+          </div>
+          <MoreInfo color="#fff" />
+        </Info>
+      </div>
+      <DividerContainer>
+        {!length && <Divider width="95" />}
+        {console.log(length)}
+      </DividerContainer>
     </Container>
   );
 }
