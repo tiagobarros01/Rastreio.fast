@@ -10,7 +10,7 @@ import {
   Point,
 } from '../styles/pages/Error';
 
-export default function Error(): JSX.Element {
+export const Error = (): JSX.Element => {
   const { dataTrack } = useTrack();
 
   return (
@@ -34,4 +34,4 @@ export default function Error(): JSX.Element {
       </Info>
     </Container>
   );
-}
+};

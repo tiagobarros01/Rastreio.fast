@@ -1,14 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import React, { FormEvent, useState } from 'react';
 
-import { DataCEPProps } from '../@types/DataCEPProps';
-import { DataCEP } from '../components/DataCEP';
-import { CEPInput } from '../components/Input';
-import { Loader } from '../components/Loader';
-import { useTheme } from '../hooks/useTheme';
-import { cepAPI } from '../services/api';
-import { Container, Title, CEPContainer } from '../styles/pages/SearchCEP';
-import { useToast } from '../utils/useToast';
+import { DataCEPProps } from '../../@types/DataCEPProps';
+import { DataCEP } from '../../components/DataCEP';
+import { CEPInput } from '../../components/Input';
+import { Loader } from '../../components/Loader';
+import { useTheme } from '../../hooks/useTheme';
+import { cepAPI } from '../../services/api';
+import { useToast } from '../../utils/useToast';
+import { Container, Title, CEPContainer } from './styles';
 
 type DataProps = {
   bairro: string;
@@ -22,12 +22,12 @@ type DataProps = {
   erro?: boolean;
 };
 
-export default function SearchCEP(): JSX.Element {
+export const SearchCEP = (): JSX.Element => {
   const { theme } = useTheme();
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [CEPData, setCEPData] = useState<DataCEPProps | null>(null);
-  const [CEPCode, setCEPCode] = useState<string>('');
+  const [CEPCode, setCEPCode] = useState('');
 
   async function handleSearchCEP(cep: string): Promise<void> {
     if (CEPCode.length !== 8) {
@@ -110,4 +110,4 @@ export default function SearchCEP(): JSX.Element {
       )}
     </Container>
   );
-}
+};
