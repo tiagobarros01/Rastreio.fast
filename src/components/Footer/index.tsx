@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { FooterContainer } from './style';
 
@@ -9,13 +8,13 @@ export function Footer(): JSX.Element {
       <p>
         Created with 💛 by
         {' '}
-        <Link
+        <a
           target="_blank"
-          to="https://github.com/TiagoBarros01"
+          href="https://github.com/TiagoBarros01"
           rel="noreferrer"
         >
           Tiago Barros
-        </Link>
+        </a>
       </p>
     </FooterContainer>
   );
