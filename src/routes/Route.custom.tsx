@@ -1,17 +1,16 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 
 import { Loader } from '../components/Loader';
 import { useTrack } from '../hooks/useTrack';
 
-interface Props extends RouteProps {
+interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
 }
 
-export const CustomRoute = ({
+export const CustomRoute: React.FC<CustomRouteProps> = ({
  isPrivate, ...rest
-}: Props): JSX.Element => {
+}): JSX.Element => {
   const { loading, trackCode, error } = useTrack();
 
   if (loading) {

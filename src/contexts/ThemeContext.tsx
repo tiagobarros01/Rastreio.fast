@@ -7,18 +7,14 @@ import dark from '../styles/themes/dark';
 import light from '../styles/themes/light';
 import { useToast } from '../utils/useToast';
 
-interface ThemeProviderProps {
-  children: React.ReactNode;
-}
-
 const ThemeContext = createContext<ThemeContextData>({
   theme: dark,
   toggleTheme: () => {
-    console.log("ThemeProvider isn't rendered 😞");
+    console.log("ThemeProvider wasn't rendered 😞");
   },
 });
 
-function ThemeContextProvider({ children }: ThemeProviderProps): JSX.Element {
+const ThemeContextProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>(
     '@Rastreio.fast:theme',
     dark,
@@ -47,6 +43,6 @@ function ThemeContextProvider({ children }: ThemeProviderProps): JSX.Element {
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
-}
+};
 
 export { ThemeContext, ThemeContextProvider };

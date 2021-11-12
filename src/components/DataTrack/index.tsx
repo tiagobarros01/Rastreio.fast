@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
 
@@ -20,10 +19,26 @@ import {
   MoreInfoContainer,
 } from './style';
 
+const iconColor = {
+  color: '#fff',
+};
+
+const showIcon = (description: string) => {
+  if (description === 'Objeto postado') {
+    return <Posted {...iconColor} />;
+  }
+
+  if (description === 'Objeto entregue ao destinatário') {
+    return <Delivered {...iconColor} />;
+  }
+
+    return <Transit description={description} {...iconColor} />;
+};
+
 export function DataTrack({
   data, hora, descricao, unidade: { cidade, uf }, length,
 }: UnityTrack): JSX.Element {
-  const [moreInfo, setMoreInfo] = useState<boolean>(false);
+  const [moreInfo, setMoreInfo] = useState(false);
 
   return (
     <Container key={v4()}>
@@ -37,13 +52,7 @@ export function DataTrack({
           <li>--/--/---- --:--</li>
         </DateHour>
       )}
-        {descricao === 'Objeto postado' ? (
-          <Posted color="#fff" />
-      ) : descricao === 'Objeto entregue ao destinatário' ? (
-        <Delivered color="#fff" />
-      ) : (
-        <Transit color="#fff" description={descricao} />
-      )}
+        {showIcon(descricao)}
         <Info>
           <div>
             {descricao ? (
@@ -76,7 +85,7 @@ export function DataTrack({
           )}
             </Details>
           </div>
-          <MoreInfo onClick={() => setMoreInfo((prevState) => !prevState)} name="ArrowDown" color="#fff" />
+          <MoreInfo onClick={() => setMoreInfo((prevState) => !prevState)} name="ArrowDown" {...iconColor} />
         </Info>
       </div>
       {moreInfo && (

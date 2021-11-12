@@ -7,9 +7,9 @@ import {
 
 type Response<T> = [T, Dispatch<SetStateAction<T>>];
 
-export function usePersistedState<T>(
+export const usePersistedState = <T>(
   key: string, initialState: T,
-): Response<T> {
+): Response<T> => {
   const [state, setState] = useState<T>(() => {
     const storagedValue = localStorage.getItem(key);
 
@@ -24,4 +24,4 @@ export function usePersistedState<T>(
   }, [key, state]);
 
   return [state, setState];
-}
+};
