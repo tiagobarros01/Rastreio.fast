@@ -1,4 +1,5 @@
 import { FiTrash } from 'react-icons/fi';
+
 import styled from 'styled-components';
 
 export const Container = styled.div`

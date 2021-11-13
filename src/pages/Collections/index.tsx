@@ -1,18 +1,19 @@
 import React, { useCallback } from 'react';
+
 import { v4 } from 'uuid';
 
-import { useTheme } from '../hooks/useTheme';
-import { useTrack } from '../hooks/useTrack';
+import { useTheme } from '../../hooks/useTheme';
+import { useTrack } from '../../hooks/useTrack';
+import { useToast } from '../../utils/useToast';
 import {
   Container,
   Title,
   ListContainer,
   TrashIcon,
   WithoutList,
-} from '../styles/pages/Collections';
-import { useToast } from '../utils/useToast';
+} from './styles';
 
-export default function Collections(): JSX.Element {
+export const Collections = (): JSX.Element => {
   const { trackCodeList, getTrackingData, setTrackCodeList } = useTrack();
   const { theme } = useTheme();
 
@@ -23,7 +24,7 @@ export default function Collections(): JSX.Element {
     [getTrackingData],
   );
 
-  function handleRemoveTrack(index: number) {
+  const handleRemoveTrack = (index: number) => {
     trackCodeList.splice(index, 1);
     setTrackCodeList((prevState) => [...prevState]);
     useToast({
@@ -34,7 +35,7 @@ export default function Collections(): JSX.Element {
       background: theme.title === 'light' ? '#353230' : '#ddd',
       color: theme.title === 'light' ? '#eee' : '#222',
     });
-  }
+  };
 
   return (
     <Container>
@@ -62,4 +63,4 @@ export default function Collections(): JSX.Element {
       </ListContainer>
     </Container>
   );
-}
+};

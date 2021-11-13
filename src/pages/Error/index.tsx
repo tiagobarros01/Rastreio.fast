@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useTrack } from '../hooks/useTrack';
+import { useTrack } from '../../hooks/useTrack';
 import {
   Container,
   Details,
@@ -8,9 +8,9 @@ import {
   Loading,
   PointContainer,
   Point,
-} from '../styles/pages/Error';
+} from './styles';
 
-export default function Error(): JSX.Element {
+export const Error = (): JSX.Element => {
   const { dataTrack } = useTrack();
 
   return (
@@ -34,4 +34,4 @@ export default function Error(): JSX.Element {
       </Info>
     </Container>
   );
-}
+};

@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 
 import { Container } from './styles';
@@ -9,10 +8,8 @@ type DividerProps = {
   width?: string;
 };
 
-export function Divider({
+export const Divider: React.FC<DividerProps> = ({
   bgColor,
   height = '2px',
   width = '100',
-}: DividerProps): JSX.Element {
-  return <Container bgColor={bgColor} height={height} width={width} />;
-}
+}) => <Container bgColor={bgColor} height={height} width={width} />;

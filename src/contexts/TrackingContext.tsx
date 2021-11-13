@@ -1,9 +1,9 @@
-/* eslint-disable no-shadow */
-import axios from 'axios';
 import React, {
  createContext, useCallback, useMemo, useState,
 } from 'react';
-import { v4 } from 'uuid';
+
+import axios from 'axios';
+import { v4 as uuidV4 } from 'uuid';
 
 import { DataProps } from '../@types/DataProps';
 import { TrackingContextData } from '../@types/TrackingContextData';
@@ -11,25 +11,21 @@ import { DataTrack } from '../components/DataTrack/index';
 import { usePersistedState } from '../hooks/usePersistedState';
 import { useRoutes } from '../services/useRoutes';
 
-interface TrackingProviderProps {
-  children: React.ReactNode;
-}
-
 const TrackingContext = createContext<TrackingContextData>(
   {} as TrackingContextData,
 );
 
-function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
+const TrackingProvider: React.FC = ({ children }) => {
   const [dataTrack, setDataTrack] = useState<string[] | null | JSX.Element[][]>(
     null,
   );
-  const [trackCode, setTrackCode] = useState<string>('');
+  const [trackCode, setTrackCode] = useState('');
   const [trackCodeList, setTrackCodeList] = usePersistedState<string[]>(
     '@Rastreio.fast:TrackCodeList',
     [],
   );
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSetToList = useCallback(
     (prevState: string[], code: string): string[] => {
@@ -57,15 +53,13 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
 
     try {
       const res = data.objeto.map(({ evento }) => evento
-      .map(({
-        descricao, unidade, data, hora,
-      }, index) => (
+      .map((event, index) => (
         <DataTrack
-          key={v4()}
-          data={data}
-          descricao={descricao}
-          unidade={unidade}
-          hora={hora}
+          key={uuidV4()}
+          data={event.data}
+          descricao={event.descricao}
+          unidade={event.unidade}
+          hora={event.hora}
           length={Number(evento.length - 1 === index)}
         />
       )));
@@ -116,6 +110,6 @@ function TrackingProvider({ children }: TrackingProviderProps): JSX.Element {
       {children}
     </TrackingContext.Provider>
   );
-}
+};
 
 export { TrackingContext, TrackingProvider };

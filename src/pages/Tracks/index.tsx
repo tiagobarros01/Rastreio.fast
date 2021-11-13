@@ -1,10 +1,9 @@
-/* eslint-disable no-unneeded-ternary */
-/* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 
-import { Loader } from '../components/Loader/index';
-import { useTheme } from '../hooks/useTheme';
-import { useTrack } from '../hooks/useTrack';
+import { Loader } from '../../components/Loader';
+import { useTheme } from '../../hooks/useTheme';
+import { useTrack } from '../../hooks/useTrack';
+import { useToast } from '../../utils/useToast';
 import {
   IconContainer,
   PlusIcon,
@@ -13,12 +12,23 @@ import {
   Container,
   PackagesHistory,
   TrackContainer,
-} from '../styles/pages/Tracks';
-import { useToast } from '../utils/useToast';
+} from './styles';
 
-export default function Tracks(): JSX.Element {
-  const [isSaved, setIsSaved] = useState<boolean>(false);
-  const [icon, setIcon] = useState<boolean>(false);
+const showIcon = (isSaved: boolean, icon: boolean) => {
+  if (isSaved) {
+    return <CheckIcon />;
+  }
+
+  if (icon) {
+    return <SaveIcon />;
+  }
+
+  return <PlusIcon />;
+};
+
+export const Tracks = (): JSX.Element => {
+  const [isSaved, setIsSaved] = useState(false);
+  const [icon, setIcon] = useState(false);
   const {
     loading,
     trackCode,
@@ -37,8 +47,8 @@ export default function Tracks(): JSX.Element {
     }
   }, [trackCodeList, trackCode]);
 
-  function handleSave() {
-    setIsSaved((prevState) => (!prevState ? true : true));
+  const handleSave = () => {
+    setIsSaved((prevState) => (!prevState && true));
     setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
 
     if (!isSaved) {
@@ -50,7 +60,7 @@ export default function Tracks(): JSX.Element {
         color: theme.title === 'light' ? '#eee' : '#222',
       });
     }
-  }
+  };
 
   return (
     <Container>
@@ -66,13 +76,7 @@ export default function Tracks(): JSX.Element {
               onClick={handleSave}
               isSaved={isSaved}
             >
-              {isSaved ? (
-                <CheckIcon />
-              ) : icon ? (
-                <SaveIcon />
-              ) : (
-                <PlusIcon />
-              )}
+              {showIcon(isSaved, icon)}
             </IconContainer>
           </h1>
           <TrackContainer>{dataTrack}</TrackContainer>
@@ -80,4 +84,4 @@ export default function Tracks(): JSX.Element {
       )}
     </Container>
   );
-}
+};

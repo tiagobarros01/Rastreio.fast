@@ -1,5 +1,3 @@
-import history from './history';
+import { History } from './history';
 
-export function useRoutes(route: string): void {
-  return history.push(route);
-}
+export const useRoutes = (route: string): void => History.push(route);

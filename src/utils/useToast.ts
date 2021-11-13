@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-return */
 import toast from 'react-hot-toast';
 
 type Props = {

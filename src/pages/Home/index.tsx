@@ -1,15 +1,15 @@
 import React, { useCallback, useRef } from 'react';
 
-import { Footer } from '../components/Footer';
-import { useTrack } from '../hooks/useTrack';
+import { Footer } from '../../components/Footer';
+import { useTrack } from '../../hooks/useTrack';
 import {
   CodeContainer,
   Input,
   Title,
   Container,
-} from '../styles/pages/Homepage';
+} from './styles';
 
-export default function Homepage(): JSX.Element {
+export const Home = (): JSX.Element => {
   const valueInputRef = useRef<HTMLInputElement>(null);
 
   const { getTrackingData } = useTrack();
@@ -28,6 +28,7 @@ export default function Homepage(): JSX.Element {
             fast
           </h1>
         </Title>
+
         <CodeContainer>
           <Input
             type="text"
@@ -41,7 +42,8 @@ export default function Homepage(): JSX.Element {
           </button>
         </CodeContainer>
       </Container>
+
       <Footer />
     </>
   );
-}
+};
