@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { useRoutes } from '~/services/useRoutes';
-
+import { useRoutes } from '../../../services/useRoutes';
 import {
  Container, StackIcon, ListContainer, List,
 } from './style';

@@ -1,8 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 
-import { Footer } from '~/components/Footer';
-import { useTrack } from '~/hooks/useTrack';
-
+import { Footer } from '../../components/Footer';
+import { useTrack } from '../../hooks/useTrack';
 import {
   CodeContainer,
   Input,

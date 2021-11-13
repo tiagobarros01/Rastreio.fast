@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { v4 } from 'uuid';
 
-import { UnityTrack } from '~/@types/DataProps';
-
+import { UnityTrack } from '../../@types/DataProps';
 import { Divider } from '../Divider';
 import {
   Container,

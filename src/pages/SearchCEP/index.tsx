@@ -1,13 +1,12 @@
 import React, { FormEvent, useState } from 'react';
 
-import { DataCEPProps } from '~/@types/DataCEPProps';
-import { DataCEP } from '~/components/DataCEP';
-import { CEPInput } from '~/components/Input';
-import { Loader } from '~/components/Loader';
-import { useTheme } from '~/hooks/useTheme';
-import { cepAPI } from '~/services/api';
-import { useToast } from '~/utils/useToast';
-
+import { DataCEPProps } from '../../@types/DataCEPProps';
+import { DataCEP } from '../../components/DataCEP';
+import { CEPInput } from '../../components/Input';
+import { Loader } from '../../components/Loader';
+import { useTheme } from '../../hooks/useTheme';
+import { cepAPI } from '../../services/api';
+import { useToast } from '../../utils/useToast';
 import { Container, Title, CEPContainer } from './styles';
 
 type DataProps = {

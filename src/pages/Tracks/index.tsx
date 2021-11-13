@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import { Loader } from '~/components/Loader';
-import { useTheme } from '~/hooks/useTheme';
-import { useTrack } from '~/hooks/useTrack';
-import { useToast } from '~/utils/useToast';
-
+import { Loader } from '../../components/Loader';
+import { useTheme } from '../../hooks/useTheme';
+import { useTrack } from '../../hooks/useTrack';
+import { useToast } from '../../utils/useToast';
 import {
   IconContainer,
   PlusIcon,

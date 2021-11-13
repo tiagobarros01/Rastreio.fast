@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { DataCEPProps } from '~/@types/DataCEPProps';
-
+import { DataCEPProps } from '../../@types/DataCEPProps';
 import { Container } from './style';
 
 export const DataCEP = ({

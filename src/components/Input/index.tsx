@@ -1,8 +1,9 @@
-import React, { InputHTMLAttributes, useCallback } from 'react';
+import React, { useCallback } from 'react';
+import { Props } from 'react-input-mask';
 
 import { Input } from './style';
 
-export const CEPInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
+export const CEPInput: React.FC<Partial<Props>> = ({
   value,
   onChange = () => null,
   ...rest
@@ -26,11 +27,11 @@ export const CEPInput: React.FC<InputHTMLAttributes<HTMLInputElement>> = ({
   );
   return (
     <Input
+      {...rest}
       mask="99999-999"
       value={value}
       onChange={handleChange}
       placeholder="Ex.: 09090-090"
-      {...rest}
     />
   );
 };
