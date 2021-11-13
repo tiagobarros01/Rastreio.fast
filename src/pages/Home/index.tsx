@@ -1,7 +1,8 @@
 import React, { useCallback, useRef } from 'react';
 
-import { Footer } from '../../components/Footer';
-import { useTrack } from '../../hooks/useTrack';
+import { Footer } from '~/components/Footer';
+import { useTrack } from '~/hooks/useTrack';
+
 import {
   CodeContainer,
   Input,
@@ -28,6 +29,7 @@ export const Home = (): JSX.Element => {
             fast
           </h1>
         </Title>
+
         <CodeContainer>
           <Input
             type="text"
@@ -41,6 +43,7 @@ export const Home = (): JSX.Element => {
           </button>
         </CodeContainer>
       </Container>
+
       <Footer />
     </>
   );

@@ -1,7 +1,7 @@
-/* eslint-disable no-confusing-arrow */
 import { BiPackage } from 'react-icons/bi';
 import { FiCheckCircle } from 'react-icons/fi';
 import { RiTruckLine, RiArrowDownSFill } from 'react-icons/ri';
+
 import styled, { keyframes } from 'styled-components';
 
 const Crescent = keyframes`
@@ -84,11 +84,11 @@ export const Transit = styled(RiTruckLine)<{ description: string }>`
   padding: 0.5rem;
   border-radius: 0.8rem;
 
-  background: ${({ description }) => description === 'Objeto saiu para entrega ao destinatário'
+  background: ${({ description }) => (description === 'Objeto saiu para entrega ao destinatário'
       ? ({ theme }) => theme.colors.green
-      : () => description === 'Objeto entregue ao destinatário'
+      : () => (description === 'Objeto entregue ao destinatário'
             ? ({ theme }) => theme.colors.blue
-            : ({ theme }) => theme.colors.yellow};
+            : ({ theme }) => theme.colors.yellow))};
 `;
 
 export const Info = styled.div`

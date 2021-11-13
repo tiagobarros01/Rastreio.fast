@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useRoutes } from '../../services/useRoutes';
+import { useRoutes } from '~/services/useRoutes';
+
 import { Container, List } from './style';
 
-export function NavigationWeb(): JSX.Element {
+export const NavigationWeb = (): JSX.Element => {
   const { pathname } = useLocation();
 
   return (
@@ -23,4 +24,4 @@ export function NavigationWeb(): JSX.Element {
       </List>
     </Container>
   );
-}
+};

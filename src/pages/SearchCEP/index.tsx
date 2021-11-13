@@ -1,13 +1,13 @@
-/* eslint-disable no-nested-ternary */
 import React, { FormEvent, useState } from 'react';
 
-import { DataCEPProps } from '../../@types/DataCEPProps';
-import { DataCEP } from '../../components/DataCEP';
-import { CEPInput } from '../../components/Input';
-import { Loader } from '../../components/Loader';
-import { useTheme } from '../../hooks/useTheme';
-import { cepAPI } from '../../services/api';
-import { useToast } from '../../utils/useToast';
+import { DataCEPProps } from '~/@types/DataCEPProps';
+import { DataCEP } from '~/components/DataCEP';
+import { CEPInput } from '~/components/Input';
+import { Loader } from '~/components/Loader';
+import { useTheme } from '~/hooks/useTheme';
+import { cepAPI } from '~/services/api';
+import { useToast } from '~/utils/useToast';
+
 import { Container, Title, CEPContainer } from './styles';
 
 type DataProps = {
@@ -29,7 +29,7 @@ export const SearchCEP = (): JSX.Element => {
   const [CEPData, setCEPData] = useState<DataCEPProps | null>(null);
   const [CEPCode, setCEPCode] = useState('');
 
-  async function handleSearchCEP(cep: string): Promise<void> {
+  const handleSearchCEP = async (cep: string): Promise<void> => {
     if (CEPCode.length !== 8) {
       useToast({
         message: 'Fill the field(s)!',
@@ -73,6 +73,10 @@ export const SearchCEP = (): JSX.Element => {
       console.debug(error);
       setIsLoading(false);
     }
+  };
+
+  if (!CEPData && isLoading) {
+    return <Loader />;
   }
 
   return (
@@ -85,6 +89,7 @@ export const SearchCEP = (): JSX.Element => {
               <span>CEP</span>
             </h1>
           </Title>
+
           <CEPContainer>
             <CEPInput
               value={CEPCode}
@@ -96,8 +101,6 @@ export const SearchCEP = (): JSX.Element => {
             </button>
           </CEPContainer>
         </>
-      ) : !CEPData && isLoading ? (
-        <Loader />
       ) : (
         <DataCEP
           cep={CEPData?.cep}

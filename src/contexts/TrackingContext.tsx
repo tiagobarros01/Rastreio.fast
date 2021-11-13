@@ -1,7 +1,8 @@
-import axios from 'axios';
 import React, {
  createContext, useCallback, useMemo, useState,
 } from 'react';
+
+import axios from 'axios';
 import { v4 as uuidV4 } from 'uuid';
 
 import { DataProps } from '../@types/DataProps';

@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import Logo from '../../img/Logo.svg';
-import { useRoutes } from '../../services/useRoutes';
-import { Navigation } from '../Navigation/index';
+import { useTheme } from '~/hooks/useTheme';
+import Logo from '~/img/Logo.svg';
+import { useRoutes } from '~/services/useRoutes';
+
+import { Navigation } from '../Navigation';
 import {
   HeaderContainer,
   HeaderContent,
@@ -14,7 +15,7 @@ import {
   ToggleTheme,
 } from './style';
 
-export function Header(): JSX.Element {
+export const Header = (): JSX.Element => {
   const {
     theme: { title },
     toggleTheme,
@@ -39,4 +40,4 @@ export function Header(): JSX.Element {
       </HeaderContent>
     </HeaderContainer>
   );
-}
+};

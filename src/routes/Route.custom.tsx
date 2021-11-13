@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 
-import { Loader } from '../components/Loader';
-import { useTrack } from '../hooks/useTrack';
+import { Loader } from '~/components/Loader';
+import { useTrack } from '~/hooks/useTrack';
 
 interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { useTrack } from '../../hooks/useTrack';
+import { useTrack } from '~/hooks/useTrack';
+
 import {
   Container,
   Details,

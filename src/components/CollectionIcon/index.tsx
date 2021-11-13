@@ -1,10 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useRoutes } from '../../services/useRoutes';
+import { useRoutes } from '~/services/useRoutes';
+
 import { Container, Icon } from './style';
 
-export function CollectionIcon(): JSX.Element {
+export const CollectionIcon = (): JSX.Element => {
   const { pathname } = useLocation();
 
   return (
@@ -15,4 +16,4 @@ export function CollectionIcon(): JSX.Element {
       <Icon />
     </Container>
   );
-}
+};

@@ -5,6 +5,7 @@
     "node": true
   },
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
     "airbnb",
     "plugin:@typescript-eslint/recommended"
@@ -17,7 +18,14 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "import-helpers"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "import-helpers",
+    "eslint-plugin-import-helpers",
+    "import"
+  ],
   "rules": {
     "indent": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
@@ -42,7 +50,12 @@
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": ["module", ["parent", "sibling", "index"]],
+        "groups": [
+          ["/^react/"],
+          ["module"],
+          ["/^~//"],
+          ["parent", "sibling", "index"]
+        ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
     ]

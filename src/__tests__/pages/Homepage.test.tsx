@@ -1,17 +1,18 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import ContextProvider from '../../contexts';
-import Homepage from '../../pages/Homepage';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-describe('Test Homepage successfully', () => {
-  it('Should homepage exists', () => {
+import { ContextProvider } from '~/contexts';
+import { Home } from '~/pages/Home';
+
+describe('Test Home successfully', () => {
+  it('Should Home exists', () => {
     const { container } = render(
       <BrowserRouter>
         <ContextProvider>
-          <Homepage />
+          <Home />
         </ContextProvider>
       </BrowserRouter>,
     );
@@ -25,7 +26,7 @@ describe('Test Homepage successfully', () => {
     render(
       <BrowserRouter>
         <ContextProvider>
-          <Homepage />
+          <Home />
         </ContextProvider>
       </BrowserRouter>,
     );
@@ -39,7 +40,7 @@ describe('Test Homepage successfully', () => {
     render(
       <BrowserRouter>
         <ContextProvider>
-          <Homepage />
+          <Home />
         </ContextProvider>
       </BrowserRouter>,
     );
@@ -53,7 +54,7 @@ describe('Test Homepage successfully', () => {
     render(
       <BrowserRouter>
         <ContextProvider>
-          <Homepage />
+          <Home />
         </ContextProvider>
       </BrowserRouter>,
     );

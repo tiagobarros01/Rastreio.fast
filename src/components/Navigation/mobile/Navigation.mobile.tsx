@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 
-import { useRoutes } from '../../../services/useRoutes';
+import { useRoutes } from '~/services/useRoutes';
+
 import {
  Container, StackIcon, ListContainer, List,
 } from './style';
 
-export function NavigationMobile(): JSX.Element {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+export const NavigationMobile = (): JSX.Element => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  function handleVisibility() {
+  const handleVisibility = () => {
     setIsVisible((prevState) => !prevState);
-  }
+  };
 
   return (
     <Container onClick={() => handleVisibility()}>
@@ -41,4 +42,4 @@ export function NavigationMobile(): JSX.Element {
       )}
     </Container>
   );
-}
+};

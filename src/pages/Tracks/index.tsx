@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import { Loader } from '../../components/Loader/index';
-import { useTheme } from '../../hooks/useTheme';
-import { useTrack } from '../../hooks/useTrack';
-import { useToast } from '../../utils/useToast';
+import { Loader } from '~/components/Loader';
+import { useTheme } from '~/hooks/useTheme';
+import { useTrack } from '~/hooks/useTrack';
+import { useToast } from '~/utils/useToast';
+
 import {
   IconContainer,
   PlusIcon,
@@ -47,7 +48,7 @@ export const Tracks = (): JSX.Element => {
     }
   }, [trackCodeList, trackCode]);
 
-  function handleSave() {
+  const handleSave = () => {
     setIsSaved((prevState) => (!prevState && true));
     setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
 
@@ -60,7 +61,7 @@ export const Tracks = (): JSX.Element => {
         color: theme.title === 'light' ? '#eee' : '#222',
       });
     }
-  }
+  };
 
   return (
     <Container>

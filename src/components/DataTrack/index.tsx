@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import { v4 } from 'uuid';
 
-import { UnityTrack } from '../../@types/DataProps';
+import { UnityTrack } from '~/@types/DataProps';
+
 import { Divider } from '../Divider';
 import {
   Container,
@@ -35,9 +37,9 @@ const showIcon = (description: string) => {
     return <Transit description={description} {...iconColor} />;
 };
 
-export function DataTrack({
+export const DataTrack = ({
   data, hora, descricao, unidade: { cidade, uf }, length,
-}: UnityTrack): JSX.Element {
+}: UnityTrack): JSX.Element => {
   const [moreInfo, setMoreInfo] = useState(false);
 
   return (
@@ -98,4 +100,4 @@ export function DataTrack({
       </DividerContainer>
     </Container>
   );
-}
+};

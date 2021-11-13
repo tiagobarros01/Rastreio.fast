@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
+
 import { v4 } from 'uuid';
 
-import { useTheme } from '../../hooks/useTheme';
-import { useTrack } from '../../hooks/useTrack';
-import { useToast } from '../../utils/useToast';
+import { useTheme } from '~/hooks/useTheme';
+import { useTrack } from '~/hooks/useTrack';
+import { useToast } from '~/utils/useToast';
+
 import {
   Container,
   Title,
@@ -23,7 +25,7 @@ export const Collections = (): JSX.Element => {
     [getTrackingData],
   );
 
-  function handleRemoveTrack(index: number) {
+  const handleRemoveTrack = (index: number) => {
     trackCodeList.splice(index, 1);
     setTrackCodeList((prevState) => [...prevState]);
     useToast({
@@ -34,7 +36,7 @@ export const Collections = (): JSX.Element => {
       background: theme.title === 'light' ? '#353230' : '#ddd',
       color: theme.title === 'light' ? '#eee' : '#222',
     });
-  }
+  };
 
   return (
     <Container>
