@@ -5,7 +5,7 @@ import { FooterContainer } from './style';
 export const Footer = (): JSX.Element => (
   <FooterContainer>
     <p>
-      Created with 💛 by
+      Criado com 💛 por
       {' '}
       <a
         target="_blank"

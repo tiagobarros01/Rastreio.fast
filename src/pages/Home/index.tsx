@@ -34,11 +34,11 @@ export const Home = (): JSX.Element => {
             type="text"
             ref={valueInputRef}
             maxLength={15}
-            placeholder="Code here"
+            placeholder="Código de rastreio"
             required
           />
           <button type="button" onClick={() => handleTrack()}>
-            Track order
+            Rastrear
           </button>
         </CodeContainer>
       </Container>

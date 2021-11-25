@@ -15,6 +15,7 @@ export const NavigationMobile = (): JSX.Element => {
   return (
     <Container onClick={() => handleVisibility()}>
       <StackIcon size={32} />
+
       {isVisible && (
         <ListContainer>
           <List>
@@ -24,16 +25,17 @@ export const NavigationMobile = (): JSX.Element => {
                 onClick={() => useRoutes('/integrations')}
                 onKeyPress={() => useRoutes('/integrations')}
               >
-                Integrations
+                Integrações
               </button>
             </li>
+
             <li>
               <button
                 type="button"
                 onClick={() => useRoutes('/searchcep')}
                 onKeyPress={() => useRoutes('/searchcep')}
               >
-                Search CEP
+                Busca CEP
               </button>
             </li>
           </List>

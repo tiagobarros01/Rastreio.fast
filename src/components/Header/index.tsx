@@ -34,6 +34,7 @@ export const Header = (): JSX.Element => {
               <SunLight size={22} />
             )}
           </ToggleTheme>
+
           <Navigation />
         </nav>
       </HeaderContent>
