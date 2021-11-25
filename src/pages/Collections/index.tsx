@@ -40,7 +40,7 @@ export const Collections = (): JSX.Element => {
   return (
     <Container>
       <Title>
-        <h1>Saved</h1>
+        <h1>Salvos</h1>
       </Title>
       <ListContainer>
         {trackCodeList.length !== 0 ? (

@@ -24,7 +24,7 @@ const ThemeContextProvider: React.FC = ({ children }) => {
   const toggleTheme = useCallback(() => {
     setTheme(theme.title === 'light' ? dark : light);
     useToast({
-      message: 'Theme changed',
+      message: 'Tema alterado',
       type: 'success',
       background: theme.title === 'light' ? '#353230' : '#ddd',
       color: theme.title === 'light' ? '#eee' : '#222',
