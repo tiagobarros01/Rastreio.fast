@@ -6,7 +6,7 @@ export interface DefaultTrack {
   versao: string;
 }
 
-export interface typeObject {
+interface typeObject {
   categoria: string;
   evento: Event[];
   nome: string;
@@ -14,7 +14,7 @@ export interface typeObject {
   sigla: string;
 }
 
-export interface Event {
+interface Event {
   cepDestino: string;
   criacao: string;
   data: string;
@@ -26,13 +26,26 @@ export interface Event {
   recebedor?: unknown;
   status: string;
   tipo: string;
+  postagem?: Post;
   unidade: Unit;
   detalheOEC?: Details;
   destino?: Destiny[];
   detalhe?: string;
 }
 
-export interface Destiny {
+interface Post {
+  ar: string;
+  cepdestino: string;
+  datapostagem: string;
+  dataprogramada: string;
+  dh: string;
+  mp: string;
+  peso: string;
+  prazotratamento: string;
+  volume: string;
+}
+
+interface Destiny {
   bairro: string;
   cidade: string;
   codigo: string;
@@ -41,7 +54,7 @@ export interface Destiny {
   uf: string;
 }
 
-export interface Address {
+interface Address {
   bairro: string;
   cep: string;
   codigo: string;
@@ -54,14 +67,14 @@ export interface Address {
   complemento?: string;
 }
 
-export interface Details {
+interface Details {
   carteiro: string;
   distrito: string;
   lista: string;
   unidade: string;
 }
 
-export interface Unit {
+interface Unit {
   cidade: string;
   codigo: string;
   endereco: Address;
