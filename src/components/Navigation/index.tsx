@@ -4,7 +4,7 @@ import { NavigationMobile } from './mobile/Navigation.mobile';
 import { NavigationWeb } from './Navigation.web';
 
 export const Navigation = (): JSX.Element => {
-  const [isMobile, setIsMobile] = useState<boolean>(() => {
+  const [isMobile, setIsMobile] = useState(() => {
     if (window.innerWidth <= 576) {
       return true;
     }
@@ -21,7 +21,11 @@ export const Navigation = (): JSX.Element => {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  return isMobile === false ? <NavigationWeb /> : <NavigationMobile />;
+  return !isMobile ? <NavigationWeb /> : <NavigationMobile />;
 };

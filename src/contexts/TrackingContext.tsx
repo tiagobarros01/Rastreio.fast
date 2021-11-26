@@ -5,8 +5,8 @@ import React, {
 import axios from 'axios';
 import { v4 as uuidV4 } from 'uuid';
 
-import { DataProps } from '../@types/DataProps';
-import { TrackingContextData } from '../@types/TrackingContextData';
+import type { DataProps } from '../@types/DataProps';
+import type { TrackingContextData } from '../@types/TrackingContextData';
 import { DataTrack } from '../components/DataTrack/index';
 import { usePersistedState } from '../hooks/usePersistedState';
 import { useRoutes } from '../services/useRoutes';

@@ -8,12 +8,8 @@ import {
 export const NavigationMobile = (): JSX.Element => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleVisibility = () => {
-    setIsVisible((prevState) => !prevState);
-  };
-
   return (
-    <Container onClick={() => handleVisibility()}>
+    <Container onClick={() => setIsVisible((prevState) => !prevState)}>
       <StackIcon size={32} />
 
       {isVisible && (
