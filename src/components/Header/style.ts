@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
 
   background: ${({ theme }) => theme.colors.background};
+  
   filter: brightness(0.9);
   filter: drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.background});
 `;

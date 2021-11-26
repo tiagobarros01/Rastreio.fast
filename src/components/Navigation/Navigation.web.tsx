@@ -10,13 +10,14 @@ export const NavigationWeb = (): JSX.Element => {
   return (
     <Container>
       <List
-        location={pathname === '/integrations' && true}
+        location={pathname === '/integrations'}
         onClick={() => useRoutes('/integrations')}
       >
         Integrações
       </List>
+
       <List
-        location={pathname === '/searchcep' && true}
+        location={pathname === '/searchcep'}
         onClick={() => useRoutes('/searchcep')}
       >
         Busca CEP
