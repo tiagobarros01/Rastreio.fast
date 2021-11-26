@@ -26,9 +26,9 @@ interface Event {
   recebedor?: unknown;
   status: string;
   tipo: string;
-  postagem?: Post;
+  postagem: Post;
   unidade: Unit;
-  detalheOEC?: Details;
+  detalheOEC: Details;
   destino?: Destiny[];
   detalhe?: string;
 }

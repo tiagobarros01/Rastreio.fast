@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const trackAPI = axios.create({
-  baseURL: 'https://correios.contrateumdev.com.br/api/',
+  baseURL: 'https://correios.contrateumdev.com.br/api',
 });
 
 const cepAPI = axios.create({

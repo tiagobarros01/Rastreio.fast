@@ -1,30 +1,20 @@
 interface Post {
-  zipCodeDestination: string;
-  postDate: string;
-  dateScheduled: string;
-  weight: string;
-  treatmentTerm: string;
-  volume: string;
-  dh: string;
-  mp: string;
-  ar: string;
+  zipCodeDestination?: string;
+  postDate?: string;
+  dateScheduled?: string;
+  weight?: string;
+  treatmentTerm?: string;
+  volume?: string;
+  dh?: string;
+  mp?: string;
+  ar?: string;
 }
 
 interface Details {
-  postman: string;
-  district: string;
-  list: string;
-  unit: string;
-}
-
-interface Unit {
-  city: string;
-  code: string;
-  address: Address;
-  local: string;
-  sto: string;
-  unitType: string;
-  uf: string;
+  postman?: string;
+  district?: string;
+  list?: string;
+  unit?: string;
 }
 
 interface Address {
@@ -39,8 +29,17 @@ interface Address {
   uf: string;
   complement?: string;
 }
+interface Unit {
+  city: string;
+  code: string;
+  address: Address;
+  local: string;
+  sto: string;
+  unitType: string;
+  uf: string;
+}
 
-interface Destiny {
+export interface Destiny {
   neighborhood: string;
   city: string;
   code: string;
@@ -49,7 +48,7 @@ interface Destiny {
   uf: string;
 }
 
-interface Event {
+export interface Event {
   zipCodeDestination: string;
   creation: string;
   date: string;
@@ -68,7 +67,7 @@ interface Event {
   details?: string;
 }
 
-interface typeObject {
+export interface typeObject {
   category: string;
   event: Event[];
   name: string;
