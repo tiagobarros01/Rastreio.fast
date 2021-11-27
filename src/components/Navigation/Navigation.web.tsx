@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useRoutes } from '../../services/useRoutes';
+import { useRoutes } from 'src/services/useRoutes';
+
 import { Container, List } from './style';
 
 export const NavigationWeb = (): JSX.Element => {

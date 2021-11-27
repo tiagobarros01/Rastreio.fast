@@ -2,9 +2,10 @@ import React, { useCallback } from 'react';
 
 import { v4 } from 'uuid';
 
-import { useTheme } from '../../hooks/useTheme';
-import { useTrack } from '../../hooks/useTrack';
-import { useToast } from '../../utils/useToast';
+import { useTheme } from 'src/hooks/useTheme';
+import { useTrack } from 'src/hooks/useTrack';
+import { useToast } from 'src/utils/useToast';
+
 import {
   Container,
   Title,

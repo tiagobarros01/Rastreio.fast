@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { useTheme } from '../../hooks/useTheme';
-import Logo from '../../img/Logo.svg';
-import { useRoutes } from '../../services/useRoutes';
+import { useTheme } from 'src/hooks/useTheme';
+import Logo from 'src/img/Logo.svg';
+import { useRoutes } from 'src/services/useRoutes';
+
 import { Navigation } from '../Navigation';
 import {
   HeaderContainer,

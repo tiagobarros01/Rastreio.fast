@@ -2,11 +2,11 @@ import React, { createContext, useCallback, useMemo } from 'react';
 
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import { ThemeContextData } from '../@types/ThemeContextData';
-import { usePersistedState } from '../hooks/usePersistedState';
-import dark from '../styles/themes/dark';
-import light from '../styles/themes/light';
-import { useToast } from '../utils/useToast';
+import type { ThemeContextData } from 'src/@types/ThemeContextData';
+import { usePersistedState } from 'src/hooks/usePersistedState';
+import dark from 'src/styles/themes/dark';
+import light from 'src/styles/themes/light';
+import { useToast } from 'src/utils/useToast';
 
 const ThemeContext = createContext<ThemeContextData>({
   theme: dark,

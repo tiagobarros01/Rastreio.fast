@@ -1,12 +1,13 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
-import { Collections } from '../pages/Collections';
-import { Error } from '../pages/Error';
-import { Home } from '../pages/Home';
-import { Integrations } from '../pages/Integrations';
-import { SearchCEP } from '../pages/SearchCEP';
-import { Tracks } from '../pages/Tracks';
+import { Collections } from 'src/pages/Collections';
+import { Error } from 'src/pages/Error';
+import { Home } from 'src/pages/Home';
+import { Integrations } from 'src/pages/Integrations';
+import { SearchCEP } from 'src/pages/SearchCEP';
+import { Tracks } from 'src/pages/Tracks';
+
 import { CustomRoute } from './Route.custom';
 
 export const Routes = (): JSX.Element => (

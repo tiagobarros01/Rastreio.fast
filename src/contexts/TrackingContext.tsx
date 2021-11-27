@@ -3,16 +3,16 @@ import React, {
 } from 'react';
 
 import axios from 'axios';
-import { trackAPI } from 'src/services/api';
 import { v4 as uuidV4 } from 'uuid';
 
-import type { DataProps } from '../@types/DataProps';
-import type { DefaultTrack } from '../@types/DefaultTrack';
-import type { TrackingContextData } from '../@types/TrackingContextData';
-import { DataTrack } from '../components/DataTrack/index';
-import { usePersistedState } from '../hooks/usePersistedState';
-import { useRoutes } from '../services/useRoutes';
-import { formatReturnTrack } from '../utils/formatReturnTrack';
+import type { DataProps } from 'src/@types/DataProps';
+import type { DefaultTrack } from 'src/@types/DefaultTrack';
+import type { TrackingContextData } from 'src/@types/TrackingContextData';
+import { DataTrack } from 'src/components/DataTrack/index';
+import { usePersistedState } from 'src/hooks/usePersistedState';
+import { trackAPI } from 'src/services/api';
+import { useRoutes } from 'src/services/useRoutes';
+import { formatReturnTrack } from 'src/utils/formatReturnTrack';
 
 const TrackingContext = createContext<TrackingContextData>(
   {} as TrackingContextData,
