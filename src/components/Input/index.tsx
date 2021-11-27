@@ -1,29 +1,28 @@
 import React, { useCallback } from 'react';
-import { Props } from 'react-input-mask';
+import type { Props } from 'react-input-mask';
 
 import { Input } from './style';
+
+const onlyNumbers = (
+  (str: string) => str.replace(/[^0-9]/g, ''));
 
 export const CEPInput: React.FC<Partial<Props>> = ({
   value,
   onChange = () => null,
   ...rest
 }) => {
-  const onlyNumbers = useCallback(
-    (str: string) => str.replace(/[^0-9]/g, ''),
-    [],
-  );
-
   const handleChange = useCallback(
     (event) => {
       onChange({
         ...event,
+
         target: {
           ...event.target,
           value: onlyNumbers(event.target.value),
         },
       });
     },
-    [onChange, onlyNumbers],
+    [onChange],
   );
   return (
     <Input

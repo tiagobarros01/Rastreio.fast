@@ -9,7 +9,7 @@ export const CollectionIcon = (): JSX.Element => {
 
   return (
     <Container
-      location={pathname === '/collections' && true}
+      location={pathname === '/collections'}
       onClick={() => useRoutes('/collections')}
     >
       <Icon />

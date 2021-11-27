@@ -15,8 +15,10 @@ export const App = (): JSX.Element => (
       <Header />
       <CollectionIcon />
       <Routes />
+
       <Toaster />
     </Router>
+
     <GlobalStyle />
   </ContextProvider>
   );

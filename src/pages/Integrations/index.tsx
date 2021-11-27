@@ -6,7 +6,7 @@ import { Container } from './styles';
 
 export const Integrations = (): JSX.Element => (
   <Container>
-    <h1>Integrations</h1>
+    <h1>Integrações</h1>
     <div>
       <img src={CorreiosLogo} alt="correios-logo" />
       <img src={ViacepLogo} alt="correios-logo" />

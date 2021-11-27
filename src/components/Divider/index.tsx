@@ -1,15 +1,11 @@
 import React from 'react';
 
-import { Container } from './styles';
-
-type DividerProps = {
-  bgColor?: string;
-  height?: string;
-  width?: string;
-};
+import { Container, DividerProps } from './styles';
 
 export const Divider: React.FC<DividerProps> = ({
   bgColor,
   height = '2px',
   width = '100',
-}) => <Container bgColor={bgColor} height={height} width={width} />;
+}) => (
+  <Container bgColor={bgColor} height={height} width={width} />
+  );

@@ -1,16 +1,6 @@
 import { BsFillBookmarksFill } from 'react-icons/bs';
 
-import styled, { keyframes } from 'styled-components';
-
-const goOut = keyframes`
-  from {
-    transform: scale(100%) rotate(0deg);
-  }
-
-  to {
-    transform: scale(0%) rotate(360deg);
-  }
-`;
+import styled from 'styled-components';
 
 export const Container = styled.div<{ location: boolean }>`
   width: 4rem;
@@ -36,8 +26,6 @@ export const Container = styled.div<{ location: boolean }>`
   align-items: center;
 
   transition: filter 200ms;
-
-  animation: ${({ location }) => location && goOut} 1s ease-in-out;
 
   :hover {
     cursor: pointer;

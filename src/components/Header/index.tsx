@@ -26,6 +26,7 @@ export const Header = (): JSX.Element => {
         <HomeContainer>
           <HomeImage src={Logo} alt="Logo" onClick={() => useRoutes('/')} />
         </HomeContainer>
+
         <nav>
           <ToggleTheme onClick={() => toggleTheme()}>
             {title === 'light' ? (
@@ -34,6 +35,7 @@ export const Header = (): JSX.Element => {
               <SunLight size={22} />
             )}
           </ToggleTheme>
+
           <Navigation />
         </nav>
       </HeaderContent>

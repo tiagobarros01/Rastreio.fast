@@ -1,21 +1,37 @@
 import React, {
- createContext, useCallback, useMemo, useState,
+ createContext, useCallback, useMemo, useState, useEffect,
 } from 'react';
 
 import axios from 'axios';
+import { trackAPI } from 'src/services/api';
 import { v4 as uuidV4 } from 'uuid';
 
-import { DataProps } from '../@types/DataProps';
-import { TrackingContextData } from '../@types/TrackingContextData';
+import type { DataProps } from '../@types/DataProps';
+import type { DefaultTrack } from '../@types/DefaultTrack';
+import type { TrackingContextData } from '../@types/TrackingContextData';
 import { DataTrack } from '../components/DataTrack/index';
 import { usePersistedState } from '../hooks/usePersistedState';
 import { useRoutes } from '../services/useRoutes';
+import { formatReturnTrack } from '../utils/formatReturnTrack';
 
 const TrackingContext = createContext<TrackingContextData>(
   {} as TrackingContextData,
 );
 
 const TrackingProvider: React.FC = ({ children }) => {
+  useEffect(() => {
+    (async () => {
+      const { data } = await trackAPI.post<DefaultTrack>('/rastreio', {
+        code: 'OS076037093BR',
+        type: 'LS',
+      });
+
+      const formattedTrack = formatReturnTrack(data);
+
+      console.log(formattedTrack);
+    })();
+  }, []);
+
   const [dataTrack, setDataTrack] = useState<string[] | null | JSX.Element[][]>(
     null,
   );

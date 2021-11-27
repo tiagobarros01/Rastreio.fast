@@ -1,12 +1,7 @@
 import axios from 'axios';
 
 const trackAPI = axios.create({
-  baseURL: 'https://correios.contrateumdev.com.br/api/',
-  method: 'POST',
-  data: {
-    code: 'ON931559908BR',
-    type: 'LS',
-},
+  baseURL: 'https://correios.contrateumdev.com.br/api',
 });
 
 const cepAPI = axios.create({
