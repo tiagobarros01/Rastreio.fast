@@ -28,3 +28,5 @@ This app features all the latest tools and practices in web development!
 **4.** Run `yarn start` to start the app
 <br>
 <br>
+
+V2 Is coming...👀⚡
