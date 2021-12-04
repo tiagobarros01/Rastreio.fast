@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useTheme } from 'src/contexts/Theme';
@@ -14,12 +14,14 @@ import {
   ToggleTheme,
 } from './style';
 
-export const Header = (): JSX.Element => {
+type IHeaderProps = ComponentPropsWithoutRef<'div'>
+
+export const Header = (props: IHeaderProps): JSX.Element => {
   const { theme: { title }, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Content>
         <HomeContainer>
           <HomeImage src="/images/Logo.svg" alt="Logo" onClick={() => navigate('/')} />

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 
 import { FooterContainer } from './style';
 
-export const Footer = (): JSX.Element => (
-  <FooterContainer>
+type IFooterProps = ComponentPropsWithoutRef<'div'>;
+
+export const Footer = (props: IFooterProps): JSX.Element => (
+  <FooterContainer {...props}>
     <p>
       Criado com 💛 por
       {' '}
