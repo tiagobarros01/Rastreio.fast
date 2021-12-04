@@ -28,6 +28,7 @@
   ],
   "rules": {
     "indent": "off",
+    "arrow-body-style": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-props-no-spreading": "off",
     "react-hooks/exhaustive-deps": "warn",

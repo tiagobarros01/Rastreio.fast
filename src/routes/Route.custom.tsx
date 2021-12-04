@@ -17,9 +17,9 @@ export const CustomRoute: React.FC<CustomRouteProps> = ({
     return <Loader />;
   }
 
-  if (isPrivate && trackCode === '' && !error) {
-    return <Redirect to="/" />;
-  }
+  // if (isPrivate && trackCode === '' && !error) {
+  //   return <Redirect to="/" />;
+  // }
 
   return <Route {...rest} />;
 };

@@ -4,6 +4,7 @@ export interface DefaultTrack {
   quantidade: string;
   resultado: string;
   versao: string;
+  message?: string;
 }
 
 interface Objeto {

@@ -1,7 +1,9 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 
-import { Footer } from '../../components/Footer';
-import { useTrack } from '../../hooks/useTrack';
+import { Footer } from 'src/components/Footer';
+import { useTrack } from 'src/contexts/Tracking';
+import { useRoutes } from 'src/services/useRoutes';
+
 import {
   CodeContainer,
   Input,
@@ -10,13 +12,15 @@ import {
 } from './styles';
 
 export const Home = (): JSX.Element => {
-  const valueInputRef = useRef<HTMLInputElement>(null);
+  const { getTrackingData, isLoading } = useTrack();
 
-  const { getTrackingData } = useTrack();
+  const codeInputRef = useRef<HTMLInputElement>(null);
 
-  const handleTrack = useCallback(() => {
-    getTrackingData(String(valueInputRef.current?.value));
-  }, [getTrackingData]);
+  const handleTrack = async () => {
+    await getTrackingData(codeInputRef.current?.value || '');
+
+    useRoutes('/tracks');
+  };
 
   return (
     <>
@@ -32,13 +36,14 @@ export const Home = (): JSX.Element => {
         <CodeContainer>
           <Input
             type="text"
-            ref={valueInputRef}
             maxLength={15}
             placeholder="Código de rastreio"
             required
+            ref={codeInputRef}
           />
+
           <button type="button" onClick={() => handleTrack()}>
-            Rastrear
+            {isLoading ? 'Carregando' : 'Rastrear'}
           </button>
         </CodeContainer>
       </Container>

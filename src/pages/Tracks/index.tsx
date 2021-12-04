@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { Loader } from '../../components/Loader';
-import { useTheme } from '../../hooks/useTheme';
-import { useTrack } from '../../hooks/useTrack';
-import { useToast } from '../../utils/useToast';
+import { DataTrack } from 'src/components/DataTrack';
+import { Loader } from 'src/components/Loader';
+import { useTrack } from 'src/contexts/Tracking';
+import { useTheme } from 'src/hooks/useTheme';
+import { useToast } from 'src/utils/useToast';
+
 import {
   IconContainer,
   PlusIcon,
@@ -29,42 +31,39 @@ const showIcon = (isSaved: boolean, icon: boolean) => {
 export const Tracks = (): JSX.Element => {
   const [isSaved, setIsSaved] = useState(false);
   const [icon, setIcon] = useState(false);
-  const {
-    loading,
-    trackCode,
-    dataTrack,
-    trackCodeList,
-    setTrackCodeList,
-    handleSetToList,
-  } = useTrack();
+  const { isLoading, track, trackCode } = useTrack();
   const { theme } = useTheme();
 
-  useEffect(() => {
-    const res = trackCodeList.some((item) => item === trackCode);
+  const event = track?.object[0].event.map((eventItem) => eventItem);
 
-    if (res) {
-      setIsSaved(true);
-    }
-  }, [trackCodeList, trackCode]);
+  console.log(event);
 
-  const handleSave = () => {
-    setIsSaved((prevState) => (!prevState && true));
-    setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
+  // useEffect(() => {
+  //   const res = trackCodeList.some((item) => item === trackCode);
 
-    if (!isSaved) {
-      useToast({
-        message: 'Added to collection',
-        type: 'success',
-        icon: '🔖',
-        background: theme.title === 'light' ? '#353230' : '#ddd',
-        color: theme.title === 'light' ? '#eee' : '#222',
-      });
-    }
-  };
+  //   if (res) {
+  //     setIsSaved(true);
+  //   }
+  // }, [trackCodeList, trackCode]);
+
+  // const handleSave = () => {
+  //   setIsSaved((prevState) => (!prevState && true));
+  //   setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
+
+  //   if (!isSaved) {
+  //     useToast({
+  //       message: 'Added to collection',
+  //       type: 'success',
+  //       icon: '🔖',
+  //       background: theme.title === 'light' ? '#353230' : '#ddd',
+  //       color: theme.title === 'light' ? '#eee' : '#222',
+  //     });
+  //   }
+  // };
 
   return (
     <Container>
-      {loading ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <PackagesHistory>
@@ -73,13 +72,24 @@ export const Tracks = (): JSX.Element => {
             <IconContainer
               onMouseEnter={() => setIcon((prevState) => !prevState)}
               onMouseLeave={() => setIcon((prevState) => !prevState)}
-              onClick={handleSave}
+              // onClick={handleSave}
               isSaved={isSaved}
             >
               {showIcon(isSaved, icon)}
             </IconContainer>
           </h1>
-          <TrackContainer>{dataTrack}</TrackContainer>
+
+          <TrackContainer>
+            {event?.map((eventItem) => (
+              <>
+                <h1>{eventItem.date}</h1>
+                <h1>{eventItem.hour}</h1>
+                <h1>{eventItem.description}</h1>
+                <h1>{eventItem.unit.unitType === 'País' ? eventItem.unit.local : eventItem.unit.city}</h1>
+                <h1>{eventItem.unit.uf}</h1>
+              </>
+            ))}
+          </TrackContainer>
         </PackagesHistory>
       )}
     </Container>
