@@ -9,6 +9,7 @@ export const light = {
     background: '#f0f0f0',
     scndBackground: '#ddd',
     thirdBackground: '#bbb',
+
     inputBackground: '#222',
 
     title: '#222',

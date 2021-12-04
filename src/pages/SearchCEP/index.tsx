@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useRef } from 'react';
 
 import { ICEPProps } from 'src/@types/CEP';
 import { DataCEP } from 'src/components/DataCEP';
@@ -27,10 +27,13 @@ export const SearchCEP = (): JSX.Element => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [CEPData, setCEPData] = useState<ICEPProps | null>(null);
-  const [CEPCode, setCEPCode] = useState('');
 
-  const handleSearchCEP = async (cep: string): Promise<void> => {
-    if (CEPCode.length !== 8) {
+  const codeInputRef = useRef<HTMLInputElement>(null);
+
+  const handleSearchCEP = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+
+    if (codeInputRef.current?.value.length !== 8) {
       useToast({
         message: 'Fill the field(s)!',
         type: 'error',
@@ -43,7 +46,7 @@ export const SearchCEP = (): JSX.Element => {
     setIsLoading(true);
 
     try {
-      const { data } = await cepAPI.get<DataProps>(`${cep}/json/`);
+      const { data } = await cepAPI.get<DataProps>(`${codeInputRef.current?.value}/json/`);
 
       console.log(data.erro);
 
@@ -85,19 +88,18 @@ export const SearchCEP = (): JSX.Element => {
         <>
           <Title>
             <h1>
-              Search
+              Busca
               <span>CEP</span>
             </h1>
           </Title>
 
-          <CEPContainer>
-            <CEPInput
-              value={CEPCode}
-              onChange={(event: FormEvent<HTMLInputElement>) => setCEPCode(event.target.value)}
+          <CEPContainer onSubmit={handleSearchCEP}>
+            <input
               required
+              ref={codeInputRef}
             />
-            <button type="button" onClick={() => handleSearchCEP(CEPCode)}>
-              Search
+            <button type="submit">
+              Buscar
             </button>
           </CEPContainer>
         </>

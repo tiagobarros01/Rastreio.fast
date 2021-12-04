@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${({ theme }) => theme.colors.background};
+
     overflow: hidden;
   }
 
@@ -45,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+
     outline: 0;
   }
 

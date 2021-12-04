@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+import { GenericCenter } from 'src/components/GenericCenter';
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Container = styled(GenericCenter)`
+  flex: 1;
+
   flex-direction: column;
 
   background: ${({ theme }) => theme.colors.scndBackground};
@@ -22,19 +20,19 @@ export const Container = styled.div`
 
     transition: background-color 200ms, color 200ms;
 
-    @media (max-width: 576px) {
-      margin-top: 1rem;
-      width: 45%;
-    }
-
     :hover {
       background: ${({ theme }) => theme.colors.yellow[100]};
       color: ${({ theme }) => theme.colors.textHover};
     }
+
+    @media (max-width: 576px) {
+      margin-top: 1rem;
+      width: 45%;
+    }
   }
 `;
 
-export const CodeContainer = styled.div`
+export const FormContainer = styled.form`
   @media (max-width: 576px) {
     display: flex;
 
@@ -44,7 +42,7 @@ export const CodeContainer = styled.div`
   }
 `;
 
-export const Title = styled.div`
+export const TitleContainer = styled.div`
   width: 100%;
   margin: 0 auto;
 

@@ -26,6 +26,5 @@
   ],
   "files": [
     "src/styles/styled.d.ts",
-    "src/@types/target.d.ts"
   ]
 }

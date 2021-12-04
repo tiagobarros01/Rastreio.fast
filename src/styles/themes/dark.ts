@@ -9,6 +9,7 @@ export const dark = {
     background: '#191716',
     scndBackground: '#242221',
     thirdBackground: '#353230',
+
     inputBackground: '#eee',
 
     title: '#eee',

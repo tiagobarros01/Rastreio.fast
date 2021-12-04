@@ -1,40 +1,45 @@
-import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { FormEvent, useRef } from 'react';
 
+import { DashboardBase } from 'src/components/DashboardBase';
 import { Footer } from 'src/components/Footer';
 import { useTrack } from 'src/contexts/Tracking';
 
 import {
-  CodeContainer,
+  FormContainer,
   Input,
-  Title,
+  TitleContainer,
   Container,
 } from './styles';
 
 export const Home = (): JSX.Element => {
   const { getTrackingData, isLoading } = useTrack();
-  const navigate = useNavigate();
 
   const codeInputRef = useRef<HTMLInputElement>(null);
 
-  const handleTrack = async () => {
-    await getTrackingData(codeInputRef.current?.value || '');
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
 
-    navigate('/tracks');
+    if (!codeInputRef.current?.value) {
+      console.log('Vazio');
+
+      return;
+    }
+
+    await getTrackingData(codeInputRef.current.value);
   };
 
   return (
-    <>
+    <DashboardBase>
       <Container>
-        <Title>
+        <TitleContainer>
           <h1>
             Rastreio
             <span>.</span>
             fast
           </h1>
-        </Title>
+        </TitleContainer>
 
-        <CodeContainer>
+        <FormContainer onSubmit={handleSubmit}>
           <Input
             type="text"
             maxLength={15}
@@ -43,13 +48,13 @@ export const Home = (): JSX.Element => {
             ref={codeInputRef}
           />
 
-          <button type="button" onClick={() => handleTrack()}>
+          <button type="submit">
             {isLoading ? 'Carregando' : 'Rastrear'}
           </button>
-        </CodeContainer>
+        </FormContainer>
       </Container>
 
       <Footer />
-    </>
+    </DashboardBase>
   );
 };

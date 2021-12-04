@@ -6,8 +6,8 @@ import Logo from 'src/img/Logo.svg';
 
 import { Navigation } from '../Navigation';
 import {
-  HeaderContainer,
-  HeaderContent,
+  Wrapper,
+  Content,
   HomeContainer,
   HomeImage,
   MoonDark,
@@ -16,15 +16,12 @@ import {
 } from './style';
 
 export const Header = (): JSX.Element => {
-  const {
-    theme: { title },
-    toggleTheme,
-  } = useTheme(); // ThemeContext
+  const { theme: { title }, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   return (
-    <HeaderContainer>
-      <HeaderContent>
+    <Wrapper>
+      <Content>
         <HomeContainer>
           <HomeImage src={Logo} alt="Logo" onClick={() => navigate('/')} />
         </HomeContainer>
@@ -40,7 +37,7 @@ export const Header = (): JSX.Element => {
 
           <Navigation />
         </nav>
-      </HeaderContent>
-    </HeaderContainer>
+      </Content>
+    </Wrapper>
   );
 };
