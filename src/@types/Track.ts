@@ -1,13 +1,4 @@
-const unitTypes = [
-  'Unidade de Distribuição',
-  'Unidade de Logística Integrada',
-  'Unidade de Tratamento',
-  'Unidade Operacional',
-  'País',
-  'Agência dos Correios',
-] as const;
-
-export type IUnitTypesData = typeof unitTypes[number];
+import { IUnitTypesData } from './DefaultTrack';
 
 interface Post {
   zipCodeDestination?: string;

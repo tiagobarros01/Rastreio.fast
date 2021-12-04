@@ -1,3 +1,13 @@
+const unitTypes = [
+  'Unidade de Distribuição',
+  'Unidade de Logística Integrada',
+  'Unidade de Tratamento',
+  'Unidade Operacional',
+  'País',
+  'Agência dos Correios',
+] as const;
+
+export type IUnitTypesData = typeof unitTypes[number];
 export interface DefaultTrack {
   objeto: Objeto[];
   pesquisa: string;
@@ -81,6 +91,6 @@ interface Unit {
   endereco: Endereco;
   local: string;
   sto: string;
-  tipounidade: string;
+  tipounidade: IUnitTypesData;
   uf: string;
 }
