@@ -29,7 +29,7 @@ export const Container = styled.div`
     }
 
     :hover {
-      background: ${({ theme }) => theme.colors.yellow};
+      background: ${({ theme }) => theme.colors.yellow[100]};
       color: ${({ theme }) => theme.colors.textHover};
     }
   }
@@ -55,6 +55,6 @@ export const Title = styled.div`
   }
 
   span {
-    color: ${({ theme }) => theme.colors.yellow};
+    color: ${({ theme }) => theme.colors.yellow[100]};
   }
 `;

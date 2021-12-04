@@ -28,7 +28,7 @@ export const Container = styled.div`
     }
 
     :hover {
-      background: ${({ theme }) => theme.colors.yellow};
+      background: ${({ theme }) => theme.colors.yellow[100]};
       color: ${({ theme }) => theme.colors.textHover};
     }
   }
@@ -57,7 +57,7 @@ export const Title = styled.div`
     font-size: 3rem;
 
     span {
-      color: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.yellow[100]};
     }
   }
 `;
@@ -76,7 +76,7 @@ export const Input = styled.input`
   transition: border 100ms;
 
   :focus {
-    border: 3px solid ${({ theme }) => theme.colors.yellow};
+    border: 3px solid ${({ theme }) => theme.colors.yellow[100]};
   }
 
   ::placeholder {

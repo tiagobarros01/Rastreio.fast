@@ -60,7 +60,7 @@ export const Posted = styled(FiCheckCircle)`
   padding: 0.5rem;
   border-radius: 0.8rem;
 
-  background: ${({ theme }) => theme.colors.red};
+  background: ${({ theme }) => theme.colors.red[100]};
 `;
 
 export const Delivered = styled(BiPackage)`
@@ -72,7 +72,7 @@ export const Delivered = styled(BiPackage)`
   padding: 0.5rem;
   border-radius: 0.8rem;
 
-  background: ${({ theme }) => theme.colors.blue};
+  background: ${({ theme }) => theme.colors.blue[100]};
 `;
 
 export const Transit = styled(RiTruckLine)<{ description: string }>`
@@ -85,10 +85,10 @@ export const Transit = styled(RiTruckLine)<{ description: string }>`
   border-radius: 0.8rem;
 
   background: ${({ description }) => (description === 'Objeto saiu para entrega ao destinatário'
-      ? ({ theme }) => theme.colors.green
-      : () => (description === 'Objeto entregue ao destinatário'
-            ? ({ theme }) => theme.colors.blue
-            : ({ theme }) => theme.colors.yellow))};
+    ? ({ theme }) => theme.colors.green[100]
+    : () => (description === 'Objeto entregue ao destinatário'
+      ? ({ theme }) => theme.colors.blue[100]
+      : ({ theme }) => theme.colors.yellow[100]))};
 `;
 
 export const Info = styled.div`

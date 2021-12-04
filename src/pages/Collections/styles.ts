@@ -52,8 +52,8 @@ export const ListContainer = styled.div`
     :not(:last-child) {
       border-bottom: 1.5px solid
         ${({ theme }) => (theme.title === 'dark'
-            ? 'rgba(0, 0, 0, 0.3)'
-            : 'rgba(0, 0, 0, 0.18)')};
+    ? 'rgba(0, 0, 0, 0.3)'
+    : 'rgba(0, 0, 0, 0.18)')};
     }
 
     p {
@@ -86,7 +86,7 @@ export const ListContainer = styled.div`
         transition: color 200ms;
 
         :hover {
-          color: ${({ theme }) => theme.colors.yellow};
+          color: ${({ theme }) => theme.colors.yellow[100]};
         }
       }
     }
@@ -94,7 +94,7 @@ export const ListContainer = styled.div`
 `;
 
 export const TrashIcon = styled(FiTrash)`
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.red[100]};
 
   cursor: pointer;
 

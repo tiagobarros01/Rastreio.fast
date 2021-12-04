@@ -52,17 +52,17 @@ export const IconContainer = styled.div<{ isSaved: boolean }>`
 `;
 
 export const PlusIcon = styled(BsBookmarkPlus)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.green[100]};
   margin-left: 1rem;
 `;
 
 export const SaveIcon = styled(BsBookmarkFill)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.green[100]};
   margin-left: 1rem;
 `;
 
 export const CheckIcon = styled(BsBookmarkCheck)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.green[100]};
   margin-left: 1rem;
 `;
 
@@ -82,7 +82,7 @@ export const TrackContainer = styled.div`
     background: ${({ theme }) => theme.colors.thirdBackground};
   }
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.yellow};
+    background: ${({ theme }) => theme.colors.yellow[100]};
     border-radius: 0.5rem;
   }
 `;

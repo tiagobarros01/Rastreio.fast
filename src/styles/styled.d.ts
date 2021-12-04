@@ -3,6 +3,7 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     title: string;
+
     colors: {
       background: string;
       scndBackground: string;
@@ -17,18 +18,25 @@ declare module 'styled-components' {
 
       shadow: string;
 
-      yellow: string;
+      yellow: {
+        100: string;
+      },
 
-      red: string;
-      DarkRed: string;
+      red: {
+        100: string;
+        200: string;
+      },
 
-      green: string;
-      DarkGreen: string;
+      green: {
+        100: string;
+        200: string;
+      },
 
-      blue: string;
-      DarkBlue: string;
-
-      TwitterBlue: string;
+      blue: {
+        100: string;
+        200: string;
+        300: string;
+      },
     };
   }
 }

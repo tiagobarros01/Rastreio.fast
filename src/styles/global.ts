@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
       box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.background} inset !important;
       transition: background-color 5000s ease-in-out 0s, border 100ms;
       :focus {
-        border: 3px solid ${({ theme }) => theme.colors.yellow};
+        border: 3px solid ${({ theme }) => theme.colors.yellow[100]};
       }
     }
   }
@@ -80,6 +80,6 @@ export const GlobalStyle = createGlobalStyle`
   @media (max-width: 576px) {
     html {
       font-size: 75%;
-    } 
+    }
   }
 `;

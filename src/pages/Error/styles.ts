@@ -82,7 +82,7 @@ export const Details = styled.div`
   flex-direction: column;
 
   span {
-    color: ${({ theme }) => theme.colors.DarkRed};
+    color: ${({ theme }) => theme.colors.red[200]};
   }
 
   p {
@@ -103,7 +103,7 @@ export const Info = styled.div`
 
   border-radius: 0.3rem;
 
-  background: ${({ theme }) => theme.colors.DarkRed};
+  background: ${({ theme }) => theme.colors.red[200]};
 
   animation: ${fade} 1.8s ease-out;
 

@@ -13,7 +13,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
 
   background: ${({ theme }) => theme.colors.background};
-  
+
   filter: brightness(0.9);
   filter: drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.background});
 `;
@@ -76,9 +76,9 @@ export const ToggleTheme = styled.div`
 `;
 
 export const MoonDark = styled(RiMoonFill)`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow[100]};
 `;
 
 export const SunLight = styled(RiSunFill)`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow[100]};
 `;

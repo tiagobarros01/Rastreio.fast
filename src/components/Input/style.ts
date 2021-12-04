@@ -20,7 +20,7 @@ export const Input = styled(InputMask)`
   }
 
   :focus {
-    border: 3px solid ${({ theme }) => theme.colors.yellow};
+    border: 3px solid ${({ theme }) => theme.colors.yellow[100]};
   }
 
   ::-webkit-outer-spin-button,
