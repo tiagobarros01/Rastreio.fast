@@ -2,6 +2,8 @@ import { BsBookmarkPlus, BsBookmarkFill, BsBookmarkCheck } from 'react-icons/bs'
 
 import styled, { keyframes } from 'styled-components';
 
+import { GenericCenter } from 'src/components/GenericCenter';
+
 const fade = keyframes`
   from {
     opacity: 0;
@@ -12,20 +14,13 @@ const fade = keyframes`
 `;
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  flex: 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 2rem;
 `;
 
-export const PackagesHistory = styled.div`
+export const PackagesHistory = styled(GenericCenter)`
   width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   flex-direction: column;
 
@@ -33,8 +28,7 @@ export const PackagesHistory = styled.div`
 
   animation: ${fade} 1s;
 
-  h1 {
-    margin-top: 3rem;
+  > h1 {
 
     width: 100%;
     height: 2rem;

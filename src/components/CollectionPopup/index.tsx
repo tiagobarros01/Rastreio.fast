@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Container, Icon } from './style';
 
-export const CollectionIcon = (): JSX.Element => {
+export const CollectionPopup = (): JSX.Element => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 

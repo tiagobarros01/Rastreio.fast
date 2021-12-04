@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { DashboardBase } from 'src/components/DashboardBase';
 import { DataTrack } from 'src/components/DataTrack';
-import { Loader } from 'src/components/Loader';
 import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
 import { useToast } from 'src/utils/useToast';
@@ -29,14 +29,13 @@ const showIcon = (isSaved: boolean, icon: boolean) => {
 };
 
 export const Tracks = (): JSX.Element => {
-  const [isSaved, setIsSaved] = useState(false);
-  const [icon, setIcon] = useState(false);
   const { isLoading, track, trackCode } = useTrack();
   const { theme } = useTheme();
 
-  const event = track?.object[0].event.map((eventItem) => eventItem);
+  const [isSaved, setIsSaved] = useState(false);
+  const [icon, setIcon] = useState(false);
 
-  console.log(event);
+  const event = track?.object[0].event.map((eventItem) => eventItem);
 
   // useEffect(() => {
   //   const res = trackCodeList.some((item) => item === trackCode);
@@ -62,13 +61,12 @@ export const Tracks = (): JSX.Element => {
   // };
 
   return (
-    <Container>
-      {isLoading ? (
-        <Loader />
-      ) : (
+    <DashboardBase>
+      <Container>
         <PackagesHistory>
           <h1>
             {trackCode}
+
             <IconContainer
               onMouseEnter={() => setIcon((prevState) => !prevState)}
               onMouseLeave={() => setIcon((prevState) => !prevState)}
@@ -91,7 +89,7 @@ export const Tracks = (): JSX.Element => {
             ))}
           </TrackContainer>
         </PackagesHistory>
-      )}
-    </Container>
+      </Container>
+    </DashboardBase>
   );
 };
