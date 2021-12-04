@@ -8,4 +8,4 @@ export const Loader = (): JSX.Element => (
       <Spinner />
     </LoaderContainer>
   </Container>
-  );
+);

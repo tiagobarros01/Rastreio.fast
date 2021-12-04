@@ -1,8 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useTheme } from 'src/contexts/Theme';
 import Logo from 'src/img/Logo.svg';
-import { useRoutes } from 'src/services/useRoutes';
 
 import { Navigation } from '../Navigation';
 import {
@@ -20,12 +20,13 @@ export const Header = (): JSX.Element => {
     theme: { title },
     toggleTheme,
   } = useTheme(); // ThemeContext
+  const navigate = useNavigate();
 
   return (
     <HeaderContainer>
       <HeaderContent>
         <HomeContainer>
-          <HomeImage src={Logo} alt="Logo" onClick={() => useRoutes('/')} />
+          <HomeImage src={Logo} alt="Logo" onClick={() => navigate('/')} />
         </HomeContainer>
 
         <nav>

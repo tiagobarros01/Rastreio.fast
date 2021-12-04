@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import type { DefaultTrack } from '../@types/DefaultTrack';
 import type { Track } from '../@types/Track';
 import { trackAPI } from '../services/api';
-import { useRoutes } from '../services/useRoutes';
 import { formatReturnTrack } from '../utils/formatReturnTrack';
 
 interface ITrackingData {
@@ -16,6 +16,8 @@ interface ITrackingData {
 const TrackingContext = createContext({} as ITrackingData);
 
 export const TrackingProvider: React.FC = ({ children }) => {
+  const navigate = useNavigate();
+
   const [track, setTrack] = useState<Track | undefined>({} as Track);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,7 +45,7 @@ export const TrackingProvider: React.FC = ({ children }) => {
       const formattedTrack = formatReturnTrack(data);
 
       setTrack(formattedTrack);
-      useRoutes('/tracks');
+      navigate('/tracks');
     } catch (err: any) {
       console.log(err.response?.data.message || err.message);
     }

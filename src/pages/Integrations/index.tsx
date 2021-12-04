@@ -12,4 +12,4 @@ export const Integrations = (): JSX.Element => (
       <img src={ViacepLogo} alt="correios-logo" />
     </div>
   </Container>
-  );
+);

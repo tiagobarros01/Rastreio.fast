@@ -16,4 +16,4 @@ export const Footer = (): JSX.Element => (
       </a>
     </p>
   </FooterContainer>
-  );
+);

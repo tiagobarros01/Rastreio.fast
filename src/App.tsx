@@ -1,24 +1,23 @@
 import React from 'react';
 import { Toaster } from 'react-hot-toast';
-import { Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { CollectionIcon } from './components/CollectionIcon';
 import { Header } from './components/Header';
 import { ContextProviders } from './contexts';
-import { Routes } from './routes';
-import { History } from './services/history';
+import { MainRoutes } from './routes';
 import { GlobalStyle } from './styles/global';
 
 export const App = (): JSX.Element => (
-  <ContextProviders>
-    <Router history={History}>
+  <Router>
+    <ContextProviders>
       <Header />
       <CollectionIcon />
-      <Routes />
+      <MainRoutes />
 
       <Toaster />
-    </Router>
 
-    <GlobalStyle />
-  </ContextProviders>
+      <GlobalStyle />
+    </ContextProviders>
+  </Router>
 );

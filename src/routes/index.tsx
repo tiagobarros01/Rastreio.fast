@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { Collections } from 'src/pages/Collections';
 import { Error } from 'src/pages/Error';
@@ -8,15 +8,15 @@ import { Integrations } from 'src/pages/Integrations';
 import { SearchCEP } from 'src/pages/SearchCEP';
 import { Tracks } from 'src/pages/Tracks';
 
-import { CustomRoute } from './Route.custom';
+export const MainRoutes = (): JSX.Element => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/tracks" element={<Tracks />} />
+    <Route path="/collections" element={<Collections />} />
+    <Route path="/searchcep" element={<SearchCEP />} />
+    <Route path="/integrations" element={<Integrations />} />
+    <Route path="/error" element={<Error />} />
 
-export const Routes = (): JSX.Element => (
-  <Switch>
-    <CustomRoute path="/" component={Home} exact />
-    <CustomRoute isPrivate path="/tracks" component={Tracks} exact />
-    <CustomRoute path="/collections" component={Collections} exact />
-    <CustomRoute path="/searchcep" component={SearchCEP} exact />
-    <CustomRoute path="/integrations" component={Integrations} exact />
-    <CustomRoute isPrivate path="/error" component={Error} exact />
-  </Switch>
-  );
+    <Route path="*" element={<h1>NOT FOUND</h1>} />
+  </Routes>
+);

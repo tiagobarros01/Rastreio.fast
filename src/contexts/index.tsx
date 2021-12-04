@@ -9,4 +9,4 @@ export const ContextProviders: React.FC = ({ children }) => (
       {children}
     </TrackingProvider>
   </ThemeProvider>
-  );
+);

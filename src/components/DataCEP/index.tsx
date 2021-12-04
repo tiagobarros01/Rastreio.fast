@@ -42,4 +42,4 @@ export const DataCEP = ({
       <p>{neighborhood}</p>
     </div>
   </Container>
-  );
+);

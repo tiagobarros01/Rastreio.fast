@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { Route, RouteProps } from 'react-router-dom';
 
 import { Loader } from 'src/components/Loader';
 
@@ -8,7 +8,8 @@ interface CustomRouteProps extends RouteProps {
 }
 
 export const CustomRoute: React.FC<CustomRouteProps> = ({
- isPrivate, ...rest
+  children,
+  isPrivate, ...rest
 }): JSX.Element => {
   // const { loading, trackCode, error } = useTrack();
 
@@ -20,5 +21,5 @@ export const CustomRoute: React.FC<CustomRouteProps> = ({
   //   return <Redirect to="/" />;
   // }
 
-  return <Route {...rest} />;
+  return <Route {...rest}>{children}</Route>;
 };

@@ -1,7 +1,7 @@
 import type { DefaultTrack } from 'src/@types/DefaultTrack';
 import type {
   Track, typeObject, Event, Destiny,
- } from 'src/@types/Track';
+} from 'src/@types/Track';
 
 export const formatReturnTrack = (track: DefaultTrack): Track => {
   const trackingObject = track.objeto.map((object) => {

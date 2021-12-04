@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Footer } from 'src/components/Footer';
 import { useTrack } from 'src/contexts/Tracking';
-import { useRoutes } from 'src/services/useRoutes';
 
 import {
   CodeContainer,
@@ -13,13 +13,14 @@ import {
 
 export const Home = (): JSX.Element => {
   const { getTrackingData, isLoading } = useTrack();
+  const navigate = useNavigate();
 
   const codeInputRef = useRef<HTMLInputElement>(null);
 
   const handleTrack = async () => {
     await getTrackingData(codeInputRef.current?.value || '');
 
-    useRoutes('/tracks');
+    navigate('/tracks');
   };
 
   return (
