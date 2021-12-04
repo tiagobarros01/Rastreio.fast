@@ -21,4 +21,4 @@ export const App = (): JSX.Element => (
 
     <GlobalStyle />
   </ContextProviders>
-  );
+);

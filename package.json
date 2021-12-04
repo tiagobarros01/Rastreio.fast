@@ -60,12 +60,15 @@
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
     "typescript": "^4.5.2"
   }
 }

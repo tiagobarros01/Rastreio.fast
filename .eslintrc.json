@@ -8,26 +8,25 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "airbnb",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2021,
     "sourceType": "module"
   },
   "plugins": [
     "react",
     "react-hooks",
     "@typescript-eslint",
-    "import-helpers",
     "eslint-plugin-import-helpers",
-    "import"
+    "prettier"
   ],
   "rules": {
-    "indent": "off",
     "arrow-body-style": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-props-no-spreading": "off",
