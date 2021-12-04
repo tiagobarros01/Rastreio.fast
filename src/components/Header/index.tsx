@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useTheme } from 'src/hooks/useTheme';
+import { useTheme } from 'src/contexts/Theme';
 import Logo from 'src/img/Logo.svg';
 import { useRoutes } from 'src/services/useRoutes';
 

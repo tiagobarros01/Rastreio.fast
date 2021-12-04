@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { DataTrack } from 'src/components/DataTrack';
 import { Loader } from 'src/components/Loader';
+import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
-import { useTheme } from 'src/hooks/useTheme';
 import { useToast } from 'src/utils/useToast';
 
 import {

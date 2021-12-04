@@ -1,4 +1,4 @@
-export type DataCEPProps = {
+export type ICEPProps = {
   neighborhood?: string;
   cep?: string;
   complement?: string;

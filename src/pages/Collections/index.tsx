@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 
 import { v4 } from 'uuid';
 
-import { useTheme } from 'src/hooks/useTheme';
+import { useTheme } from 'src/contexts/Theme';
 import { useToast } from 'src/utils/useToast';
 
 import {

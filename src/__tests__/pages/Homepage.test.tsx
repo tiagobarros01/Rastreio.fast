@@ -4,16 +4,17 @@ import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { ContextProvider } from '../../contexts';
+import { ContextProviders } from 'src/contexts';
+
 import { Home } from '../../pages/Home';
 
 describe('Test Home successfully', () => {
   it('Should Home exists', () => {
     const { container } = render(
       <BrowserRouter>
-        <ContextProvider>
+        <ContextProviders>
           <Home />
-        </ContextProvider>
+        </ContextProviders>
       </BrowserRouter>,
     );
 
@@ -25,9 +26,9 @@ describe('Test Home successfully', () => {
 
     render(
       <BrowserRouter>
-        <ContextProvider>
+        <ContextProviders>
           <Home />
-        </ContextProvider>
+        </ContextProviders>
       </BrowserRouter>,
     );
 
@@ -39,9 +40,9 @@ describe('Test Home successfully', () => {
 
     render(
       <BrowserRouter>
-        <ContextProvider>
+        <ContextProviders>
           <Home />
-        </ContextProvider>
+        </ContextProviders>
       </BrowserRouter>,
     );
 
@@ -53,9 +54,9 @@ describe('Test Home successfully', () => {
   it('Should input exists', () => {
     render(
       <BrowserRouter>
-        <ContextProvider>
+        <ContextProviders>
           <Home />
-        </ContextProvider>
+        </ContextProviders>
       </BrowserRouter>,
     );
 

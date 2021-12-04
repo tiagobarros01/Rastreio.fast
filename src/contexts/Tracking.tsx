@@ -9,8 +9,8 @@ import { formatReturnTrack } from '../utils/formatReturnTrack';
 interface ITrackingData {
   getTrackingData(code: string): Promise<void>;
   track?: Track;
-  isLoading: boolean;
   trackCode?: string | string[];
+  isLoading: boolean;
 }
 
 const TrackingContext = createContext({} as ITrackingData);

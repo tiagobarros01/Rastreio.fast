@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { DataCEPProps } from 'src/@types/DataCEPProps';
+import type { ICEPProps } from 'src/@types/CEP';
 
 import { Container } from './style';
 
@@ -11,7 +11,7 @@ export const DataCEP = ({
   locale,
   neighborhood,
   complement,
-}: DataCEPProps): JSX.Element => (
+}: ICEPProps): JSX.Element => (
   <Container>
     <div>
       <strong>CEP:</strong>

@@ -1,12 +1,13 @@
 import React, { FormEvent, useState } from 'react';
 
-import { DataCEPProps } from '../../@types/DataCEPProps';
-import { DataCEP } from '../../components/DataCEP';
-import { CEPInput } from '../../components/Input';
-import { Loader } from '../../components/Loader';
-import { useTheme } from '../../hooks/useTheme';
-import { cepAPI } from '../../services/api';
-import { useToast } from '../../utils/useToast';
+import { ICEPProps } from 'src/@types/CEP';
+import { DataCEP } from 'src/components/DataCEP';
+import { CEPInput } from 'src/components/Input';
+import { Loader } from 'src/components/Loader';
+import { useTheme } from 'src/contexts/Theme';
+import { cepAPI } from 'src/services/api';
+import { useToast } from 'src/utils/useToast';
+
 import { Container, Title, CEPContainer } from './styles';
 
 type DataProps = {
@@ -25,7 +26,7 @@ export const SearchCEP = (): JSX.Element => {
   const { theme } = useTheme();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [CEPData, setCEPData] = useState<DataCEPProps | null>(null);
+  const [CEPData, setCEPData] = useState<ICEPProps | null>(null);
   const [CEPCode, setCEPCode] = useState('');
 
   const handleSearchCEP = async (cep: string): Promise<void> => {
