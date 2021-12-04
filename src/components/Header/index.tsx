@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useTheme } from 'src/contexts/Theme';
-import Logo from 'src/img/Logo.svg';
 
 import { Navigation } from '../Navigation';
 import {
@@ -23,7 +22,7 @@ export const Header = (): JSX.Element => {
     <Wrapper>
       <Content>
         <HomeContainer>
-          <HomeImage src={Logo} alt="Logo" onClick={() => navigate('/')} />
+          <HomeImage src="/images/Logo.svg" alt="Logo" onClick={() => navigate('/')} />
         </HomeContainer>
 
         <nav>
