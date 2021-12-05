@@ -5,6 +5,7 @@ import type { DefaultTrack } from '../@types/DefaultTrack';
 import type { Track } from '../@types/Track';
 import { trackAPI } from '../services/api';
 import { formatReturnTrack } from '../utils/formatReturnTrack';
+import { sleep } from '../utils/sleep';
 
 interface ITrackingData {
   getTrackingData(code: string): Promise<void>;
@@ -25,6 +26,8 @@ export const TrackingProvider: React.FC = ({ children }) => {
 
   const getTrackingData = async (code: string) => {
     setIsLoading(true);
+
+    await sleep(2000);
 
     try {
       const { data } = await trackAPI.post<DefaultTrack>('/rastreio', {

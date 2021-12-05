@@ -8,34 +8,12 @@ export const Container = styled(GenericCenter)`
   flex-direction: column;
 
   background: ${({ theme }) => theme.colors.scndBackground};
-
-  button {
-    padding: 1rem;
-
-    border: 0;
-    border-radius: 0 5px 5px 0;
-
-    background: ${({ theme }) => theme.colors.thirdBackground};
-    color: ${({ theme }) => theme.colors.text};
-
-    transition: background-color 200ms, color 200ms;
-
-    :hover {
-      background: ${({ theme }) => theme.colors.yellow[100]};
-      color: ${({ theme }) => theme.colors.textHover};
-    }
-
-    @media (max-width: 576px) {
-      margin-top: 1rem;
-      width: 45%;
-    }
-  }
 `;
 
 export const FormContainer = styled.form`
-  @media (max-width: 576px) {
-    display: flex;
+  display: flex;
 
+  @media (max-width: 576px) {
     justify-content: center;
     align-items: center;
     flex-direction: column;

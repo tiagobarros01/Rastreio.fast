@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
-import { Loader } from 'src/components/Loader';
-
 interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
 }

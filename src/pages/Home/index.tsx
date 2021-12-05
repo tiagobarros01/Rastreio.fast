@@ -1,5 +1,6 @@
 import React, { FormEvent, useRef } from 'react';
 
+import { Button } from 'src/components/Button';
 import { DashboardBase } from 'src/components/DashboardBase';
 import { Footer } from 'src/components/Footer';
 import { useTrack } from 'src/contexts/Tracking';
@@ -48,9 +49,9 @@ export const Home = (): JSX.Element => {
             ref={codeInputRef}
           />
 
-          <button type="submit">
-            {isLoading ? 'Carregando' : 'Rastrear'}
-          </button>
+          <Button type="submit" isLoading={isLoading}>
+            Rastrear
+          </Button>
         </FormContainer>
       </Container>
 

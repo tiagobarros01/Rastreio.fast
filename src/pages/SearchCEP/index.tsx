@@ -1,9 +1,9 @@
 import React, { FormEvent, useState, useRef } from 'react';
 
 import { ICEPProps } from 'src/@types/CEP';
+import { Button } from 'src/components/Button';
 import { DataCEP } from 'src/components/DataCEP';
 import { CEPInput } from 'src/components/Input';
-import { Loader } from 'src/components/Loader';
 import { useTheme } from 'src/contexts/Theme';
 import { cepAPI } from 'src/services/api';
 import { useToast } from 'src/utils/useToast';
@@ -78,10 +78,6 @@ export const SearchCEP = (): JSX.Element => {
     }
   };
 
-  if (!CEPData && isLoading) {
-    return <Loader />;
-  }
-
   return (
     <Container>
       {!CEPData && !isLoading ? (
@@ -98,9 +94,9 @@ export const SearchCEP = (): JSX.Element => {
               required
               ref={codeInputRef}
             />
-            <button type="submit">
+            <Button isLoading={isLoading} type="submit">
               Buscar
-            </button>
+            </Button>
           </CEPContainer>
         </>
       ) : (
