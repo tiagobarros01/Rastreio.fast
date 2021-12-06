@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { GenericCenter } from 'src/components/GenericCenter';
 
-export const Container = styled(GenericCenter)`
+export const Container = styled(GenericCenter).attrs(() => ({
+  as: 'main',
+}))`
   flex: 1;
 
   flex-direction: column;
