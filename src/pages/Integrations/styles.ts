@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+import { GenericCenter } from 'src/components/GenericCenter';
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const Container = styled(GenericCenter).attrs(() => ({
+  as: 'main',
+}))`
+  flex: 1;
   flex-direction: column;
 
   background: ${({ theme }) => theme.colors.scndBackground};

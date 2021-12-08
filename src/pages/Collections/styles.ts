@@ -2,13 +2,12 @@ import { FiTrash } from 'react-icons/fi';
 
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+import { GenericCenter } from 'src/components/GenericCenter';
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const Container = styled(GenericCenter).attrs(() => ({
+  as: 'main',
+}))`
+  flex: 1;
   flex-direction: column;
 
   background: ${({ theme }) => theme.colors.scndBackground};
@@ -22,14 +21,12 @@ export const Title = styled.div`
   text-align: center;
 `;
 
-export const ListContainer = styled.div`
+export const ListContainer = styled(GenericCenter)`
   background: ${({ theme }) => theme.colors.scndBackground};
+
   box-shadow: 0 2px 12px
     ${({ theme }) => (theme.title === 'dark' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.18)')};
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
 
   border-radius: 0.8rem;
@@ -40,6 +37,7 @@ export const ListContainer = styled.div`
   @media (max-width: 576px) {
     width: 60%;
   }
+
   ul {
     display: flex;
     justify-content: space-between;

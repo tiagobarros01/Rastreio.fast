@@ -2,6 +2,7 @@ import React, { FormEvent, useState, useRef } from 'react';
 
 import { ICEPProps } from 'src/@types/CEP';
 import { Button } from 'src/components/Button';
+import { DashboardBase } from 'src/components/DashboardBase';
 import { DataCEP } from 'src/components/DataCEP';
 import { CEPInput } from 'src/components/Input';
 import { useTheme } from 'src/contexts/Theme';
@@ -79,36 +80,39 @@ export const SearchCEP = (): JSX.Element => {
   };
 
   return (
-    <Container>
-      {!CEPData && !isLoading ? (
-        <>
-          <Title>
-            <h1>
-              Busca
-              <span>CEP</span>
-            </h1>
-          </Title>
+    <DashboardBase>
+      <Container>
+        {!CEPData && !isLoading ? (
+          <>
+            <Title>
+              <h1>
+                Busca
+                <span>CEP</span>
+              </h1>
+            </Title>
 
-          <CEPContainer onSubmit={handleSearchCEP}>
-            <input
-              required
-              ref={codeInputRef}
-            />
-            <Button isLoading={isLoading} type="submit">
-              Buscar
-            </Button>
-          </CEPContainer>
-        </>
-      ) : (
-        <DataCEP
-          cep={CEPData?.cep}
-          fu={CEPData?.fu}
-          street={CEPData?.street}
-          complement={CEPData?.complement}
-          locale={CEPData?.locale}
-          neighborhood={CEPData?.neighborhood}
-        />
-      )}
-    </Container>
+            <CEPContainer onSubmit={handleSearchCEP}>
+              <input
+                required
+                ref={codeInputRef}
+              />
+
+              <Button isLoading={isLoading} type="submit">
+                Buscar
+              </Button>
+            </CEPContainer>
+          </>
+        ) : (
+          <DataCEP
+            cep={CEPData?.cep}
+            fu={CEPData?.fu}
+            street={CEPData?.street}
+            complement={CEPData?.complement}
+            locale={CEPData?.locale}
+            neighborhood={CEPData?.neighborhood}
+          />
+        )}
+      </Container>
+    </DashboardBase>
   );
 };

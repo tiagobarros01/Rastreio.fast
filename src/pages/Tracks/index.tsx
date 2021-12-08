@@ -12,7 +12,6 @@ import {
   SaveIcon,
   CheckIcon,
   Container,
-  PackagesHistory,
   TrackContainer,
 } from './styles';
 
@@ -63,32 +62,30 @@ export const Tracks = (): JSX.Element => {
   return (
     <DashboardBase>
       <Container>
-        <PackagesHistory>
-          <h1>
-            {trackCode}
+        <h1>
+          {trackCode}
 
-            <IconContainer
-              onMouseEnter={() => setIcon((prevState) => !prevState)}
-              onMouseLeave={() => setIcon((prevState) => !prevState)}
+          <IconContainer
+            onMouseEnter={() => setIcon((prevState) => !prevState)}
+            onMouseLeave={() => setIcon((prevState) => !prevState)}
               // onClick={handleSave}
-              isSaved={isSaved}
-            >
-              {showIcon(isSaved, icon)}
-            </IconContainer>
-          </h1>
+            isSaved={isSaved}
+          >
+            {showIcon(isSaved, icon)}
+          </IconContainer>
+        </h1>
 
-          <TrackContainer>
-            {event?.map((eventItem) => (
-              <>
-                <h1>{eventItem.date}</h1>
-                <h1>{eventItem.hour}</h1>
-                <h1>{eventItem.description}</h1>
-                <h1>{eventItem.unit.unitType === 'País' ? eventItem.unit.local : eventItem.unit.city}</h1>
-                <h1>{eventItem.unit.uf}</h1>
-              </>
-            ))}
-          </TrackContainer>
-        </PackagesHistory>
+        <TrackContainer>
+          {event?.map((eventItem) => (
+            <>
+              <h1>{eventItem.date}</h1>
+              <h1>{eventItem.hour}</h1>
+              <h1>{eventItem.description}</h1>
+              <h1>{eventItem.unit.unitType === 'País' ? eventItem.unit.local : eventItem.unit.city}</h1>
+              <h1>{eventItem.unit.uf}</h1>
+            </>
+          ))}
+        </TrackContainer>
       </Container>
     </DashboardBase>
   );

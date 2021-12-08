@@ -13,13 +13,11 @@ const fade = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled(GenericCenter)`
   flex: 1;
 
   margin-top: 2rem;
-`;
 
-export const PackagesHistory = styled(GenericCenter)`
   width: 100%;
 
   flex-direction: column;

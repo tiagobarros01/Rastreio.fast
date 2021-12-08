@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 
 import { v4 } from 'uuid';
 
+import { DashboardBase } from 'src/components/DashboardBase';
 import { useTheme } from 'src/contexts/Theme';
 import { useToast } from 'src/utils/useToast';
 
@@ -38,9 +39,11 @@ export const Collections = (): JSX.Element => {
   // };
 
   return (
-
-    <h1>SALVE</h1>
-    // <Container>
+    <DashboardBase>
+      <Container>
+        <h1>SALVE</h1>
+      </Container>
+    </DashboardBase>
     //   <Title>
     //     <h1>Salvos</h1>
     //   </Title>
@@ -63,6 +66,5 @@ export const Collections = (): JSX.Element => {
     //       </WithoutList>
     //     )}
     //   </ListContainer>
-    // </Container>
   );
 };
