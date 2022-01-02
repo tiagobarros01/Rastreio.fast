@@ -2,6 +2,8 @@ import { BsBookmarkPlus, BsBookmarkFill, BsBookmarkCheck } from 'react-icons/bs'
 
 import styled, { keyframes } from 'styled-components';
 
+import { GenericCenter } from 'src/components/GenericCenter';
+
 const fade = keyframes`
   from {
     opacity: 0;
@@ -11,21 +13,12 @@ const fade = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+export const Container = styled(GenericCenter)`
+  flex: 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+  margin-top: 2rem;
 
-export const PackagesHistory = styled.div`
   width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   flex-direction: column;
 
@@ -33,8 +26,7 @@ export const PackagesHistory = styled.div`
 
   animation: ${fade} 1s;
 
-  h1 {
-    margin-top: 3rem;
+  > h1 {
 
     width: 100%;
     height: 2rem;
@@ -52,17 +44,17 @@ export const IconContainer = styled.div<{ isSaved: boolean }>`
 `;
 
 export const PlusIcon = styled(BsBookmarkPlus)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.green[100]};
   margin-left: 1rem;
 `;
 
 export const SaveIcon = styled(BsBookmarkFill)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.green[100]};
   margin-left: 1rem;
 `;
 
 export const CheckIcon = styled(BsBookmarkCheck)`
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.green[100]};
   margin-left: 1rem;
 `;
 
@@ -82,7 +74,7 @@ export const TrackContainer = styled.div`
     background: ${({ theme }) => theme.colors.thirdBackground};
   }
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.yellow};
+    background: ${({ theme }) => theme.colors.yellow[100]};
     border-radius: 0.5rem;
   }
 `;

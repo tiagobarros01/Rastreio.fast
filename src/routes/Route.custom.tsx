@@ -1,25 +1,23 @@
 import React from 'react';
-import { Redirect, Route, RouteProps } from 'react-router-dom';
-
-import { Loader } from '../components/Loader';
-import { useTrack } from '../hooks/useTrack';
+import { Route, RouteProps } from 'react-router-dom';
 
 interface CustomRouteProps extends RouteProps {
   isPrivate?: boolean;
 }
 
 export const CustomRoute: React.FC<CustomRouteProps> = ({
- isPrivate, ...rest
+  children,
+  isPrivate, ...rest
 }): JSX.Element => {
-  const { loading, trackCode, error } = useTrack();
+  // const { loading, trackCode, error } = useTrack();
 
-  if (loading) {
-    return <Loader />;
-  }
+  // if (loading) {
+  //   return <Loader />;
+  // }
 
-  if (isPrivate && trackCode === '' && !error) {
-    return <Redirect to="/" />;
-  }
+  // if (isPrivate && trackCode === '' && !error) {
+  //   return <Redirect to="/" />;
+  // }
 
-  return <Route {...rest} />;
+  return <Route {...rest}>{children}</Route>;
 };

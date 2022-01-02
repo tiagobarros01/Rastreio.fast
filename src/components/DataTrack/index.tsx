@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { v4 } from 'uuid';
 
-import type { UnityTrack } from '../../@types/DataProps';
 import { Divider } from '../Divider';
 import {
   Container,
@@ -42,7 +41,7 @@ export const DataTrack = ({
   descricao,
   unidade: { cidade, uf },
   length,
-}: UnityTrack): JSX.Element => {
+}: any): JSX.Element => {
   const [moreInfo, setMoreInfo] = useState(false);
 
   return (

@@ -1,50 +1,28 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+import { GenericCenter } from 'src/components/GenericCenter';
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Container = styled(GenericCenter).attrs(() => ({
+  as: 'main',
+}))`
+  flex: 1;
+
   flex-direction: column;
 
   background: ${({ theme }) => theme.colors.scndBackground};
-
-  button {
-    padding: 1rem;
-
-    border: 0;
-    border-radius: 0 5px 5px 0;
-
-    background: ${({ theme }) => theme.colors.thirdBackground};
-    color: ${({ theme }) => theme.colors.text};
-
-    transition: background-color 200ms, color 200ms;
-
-    @media (max-width: 576px) {
-      margin-top: 1rem;
-      width: 45%;
-    }
-
-    :hover {
-      background: ${({ theme }) => theme.colors.yellow};
-      color: ${({ theme }) => theme.colors.textHover};
-    }
-  }
 `;
 
-export const CodeContainer = styled.div`
-  @media (max-width: 576px) {
-    display: flex;
+export const FormContainer = styled.form`
+  display: flex;
 
+  @media (max-width: 576px) {
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
 `;
 
-export const Title = styled.div`
+export const TitleContainer = styled.div`
   width: 100%;
   margin: 0 auto;
 
@@ -57,7 +35,7 @@ export const Title = styled.div`
     font-size: 3rem;
 
     span {
-      color: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.yellow[100]};
     }
   }
 `;
@@ -76,7 +54,7 @@ export const Input = styled.input`
   transition: border 100ms;
 
   :focus {
-    border: 3px solid ${({ theme }) => theme.colors.yellow};
+    border: 3px solid ${({ theme }) => theme.colors.yellow[100]};
   }
 
   ::placeholder {

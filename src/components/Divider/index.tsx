@@ -6,6 +6,7 @@ export const Divider: React.FC<DividerProps> = ({
   bgColor,
   height = '2px',
   width = '100',
+  ...rest
 }) => (
-  <Container bgColor={bgColor} height={height} width={width} />
-  );
+  <Container bgColor={bgColor} height={height} width={width} {...rest} />
+);

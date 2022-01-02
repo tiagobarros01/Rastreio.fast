@@ -1,24 +1,26 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { ComponentPropsWithoutRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { useRoutes } from '../../services/useRoutes';
 import { Container, List } from './style';
 
-export const NavigationWeb = (): JSX.Element => {
+type INavigationWebProps = ComponentPropsWithoutRef<'ul'>;
+
+export const NavigationWeb = (props: INavigationWebProps): JSX.Element => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container {...props}>
       <List
         location={pathname === '/integrations'}
-        onClick={() => useRoutes('/integrations')}
+        onClick={() => navigate('/integrations')}
       >
         Integrações
       </List>
 
       <List
         location={pathname === '/searchcep'}
-        onClick={() => useRoutes('/searchcep')}
+        onClick={() => navigate('/searchcep')}
       >
         Busca CEP
       </List>

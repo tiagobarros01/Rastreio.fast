@@ -2,24 +2,23 @@ import { RiMoonFill, RiSunFill } from 'react-icons/ri';
 
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.header`
-  width: 100vw;
-  height: 4.5rem;
+import { GenericCenter } from '../GenericCenter';
 
-  position: fixed;
-  z-index: 3;
+export const Wrapper = styled.header`
+  width: 100%;
+  height: 4.5rem;
 
   display: flex;
   align-items: center;
 
   background: ${({ theme }) => theme.colors.background};
-  
-  filter: brightness(0.9);
-  filter: drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.background});
+
+  filter: brightness(0.9) drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.background});
 `;
 
-export const HeaderContent = styled.div`
+export const Content = styled.div`
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,17 +50,13 @@ export const HomeImage = styled.img`
   }
 `;
 
-export const ToggleTheme = styled.div`
+export const ToggleTheme = styled(GenericCenter)`
   width: 2.5rem;
   height: 2.5rem;
 
   border-radius: 50%;
 
   margin-left: 1rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   background: ${({ theme }) => theme.colors.background};
 
@@ -76,9 +71,9 @@ export const ToggleTheme = styled.div`
 `;
 
 export const MoonDark = styled(RiMoonFill)`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow[100]};
 `;
 
 export const SunLight = styled(RiSunFill)`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow[100]};
 `;

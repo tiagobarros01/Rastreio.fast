@@ -1,49 +1,61 @@
-import React, { useCallback, useRef } from 'react';
+import React, { FormEvent, useRef } from 'react';
 
-import { Footer } from '../../components/Footer';
-import { useTrack } from '../../hooks/useTrack';
+import { Button } from 'src/components/Button';
+import { DashboardBase } from 'src/components/DashboardBase';
+import { Footer } from 'src/components/Footer';
+import { useTrack } from 'src/contexts/Tracking';
+
 import {
-  CodeContainer,
+  FormContainer,
   Input,
-  Title,
+  TitleContainer,
   Container,
 } from './styles';
 
 export const Home = (): JSX.Element => {
-  const valueInputRef = useRef<HTMLInputElement>(null);
+  const { getTrackingData, isLoading } = useTrack();
 
-  const { getTrackingData } = useTrack();
+  const codeInputRef = useRef<HTMLInputElement>(null);
 
-  const handleTrack = useCallback(() => {
-    getTrackingData(String(valueInputRef.current?.value));
-  }, [getTrackingData]);
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+
+    if (!codeInputRef.current?.value) {
+      console.log('Vazio');
+
+      return;
+    }
+
+    await getTrackingData(codeInputRef.current.value);
+  };
 
   return (
-    <>
+    <DashboardBase>
       <Container>
-        <Title>
+        <TitleContainer>
           <h1>
             Rastreio
             <span>.</span>
             fast
           </h1>
-        </Title>
+        </TitleContainer>
 
-        <CodeContainer>
+        <FormContainer onSubmit={handleSubmit}>
           <Input
             type="text"
-            ref={valueInputRef}
             maxLength={15}
             placeholder="Código de rastreio"
             required
+            ref={codeInputRef}
           />
-          <button type="button" onClick={() => handleTrack()}>
+
+          <Button type="submit" isLoading={isLoading}>
             Rastrear
-          </button>
-        </CodeContainer>
+          </Button>
+        </FormContainer>
       </Container>
 
       <Footer />
-    </>
+    </DashboardBase>
   );
 };

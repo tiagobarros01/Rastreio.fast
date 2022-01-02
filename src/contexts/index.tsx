@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { ThemeContextProvider } from './ThemeContext';
-import { TrackingProvider } from './TrackingContext';
+import { ThemeProvider } from './Theme';
+import { TrackingProvider } from './Tracking';
 
-export const ContextProvider: React.FC = ({ children }) => (
-  <ThemeContextProvider>
-    <TrackingProvider>{children}</TrackingProvider>
-  </ThemeContextProvider>
-  );
+export const ContextProviders: React.FC = ({ children }) => (
+  <ThemeProvider>
+    <TrackingProvider>
+      {children}
+    </TrackingProvider>
+  </ThemeProvider>
+);

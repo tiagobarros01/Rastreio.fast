@@ -1,6 +1,8 @@
+import { ComponentPropsWithoutRef } from 'react';
+
 import styled from 'styled-components';
 
-export interface DividerProps {
+export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
   bgColor?: string;
   height?: string;
   width?: string;

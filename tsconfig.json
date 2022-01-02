@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es6",
+    "target": "ES2021",
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,6 +26,5 @@
   ],
   "files": [
     "src/styles/styled.d.ts",
-    "src/@types/target.d.ts"
   ]
 }

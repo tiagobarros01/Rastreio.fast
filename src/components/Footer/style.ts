@@ -13,7 +13,7 @@ export const FooterContainer = styled.div`
     color: ${({ theme }) => theme.colors.text};
 
     a {
-      color: ${({ theme }) => theme.colors.yellow};
+      color: ${({ theme }) => theme.colors.yellow[100]};
       transition: color 200ms;
 
       :hover {

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useTheme } from '../../hooks/useTheme';
-import Logo from '../../img/Logo.svg';
-import { useRoutes } from '../../services/useRoutes';
+import { useTheme } from 'src/contexts/Theme';
+
 import { Navigation } from '../Navigation';
 import {
-  HeaderContainer,
-  HeaderContent,
+  Wrapper,
+  Content,
   HomeContainer,
   HomeImage,
   MoonDark,
@@ -14,17 +14,17 @@ import {
   ToggleTheme,
 } from './style';
 
-export const Header = (): JSX.Element => {
-  const {
-    theme: { title },
-    toggleTheme,
-  } = useTheme(); // ThemeContext
+type IHeaderProps = ComponentPropsWithoutRef<'div'>
+
+export const Header = (props: IHeaderProps): JSX.Element => {
+  const { theme: { title }, toggleTheme } = useTheme();
+  const navigate = useNavigate();
 
   return (
-    <HeaderContainer>
-      <HeaderContent>
+    <Wrapper {...props}>
+      <Content>
         <HomeContainer>
-          <HomeImage src={Logo} alt="Logo" onClick={() => useRoutes('/')} />
+          <HomeImage src="/images/Logo.svg" alt="Logo" onClick={() => navigate('/')} />
         </HomeContainer>
 
         <nav>
@@ -38,7 +38,7 @@ export const Header = (): JSX.Element => {
 
           <Navigation />
         </nav>
-      </HeaderContent>
-    </HeaderContainer>
+      </Content>
+    </Wrapper>
   );
 };

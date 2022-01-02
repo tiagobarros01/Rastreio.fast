@@ -1,2 +1,4 @@
-node_modules/*
-.vscode/*
+**/*.js
+node_modules
+build
+/*.js

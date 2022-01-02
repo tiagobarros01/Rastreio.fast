@@ -1,21 +1,22 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-import { Collections } from '../pages/Collections';
-import { Error } from '../pages/Error';
-import { Home } from '../pages/Home';
-import { Integrations } from '../pages/Integrations';
-import { SearchCEP } from '../pages/SearchCEP';
-import { Tracks } from '../pages/Tracks';
-import { CustomRoute } from './Route.custom';
+import { Collections } from 'src/pages/Collections';
+import { Error } from 'src/pages/Error';
+import { Home } from 'src/pages/Home';
+import { Integrations } from 'src/pages/Integrations';
+import { SearchCEP } from 'src/pages/SearchCEP';
+import { Tracks } from 'src/pages/Tracks';
 
-export const Routes = (): JSX.Element => (
-  <Switch>
-    <CustomRoute path="/" component={Home} exact />
-    <CustomRoute isPrivate path="/tracks" component={Tracks} exact />
-    <CustomRoute path="/collections" component={Collections} exact />
-    <CustomRoute path="/searchcep" component={SearchCEP} exact />
-    <CustomRoute path="/integrations" component={Integrations} exact />
-    <CustomRoute isPrivate path="/error" component={Error} exact />
-  </Switch>
-  );
+export const MainRoutes = (): JSX.Element => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/tracks" element={<Tracks />} />
+    <Route path="/collections" element={<Collections />} />
+    <Route path="/searchcep" element={<SearchCEP />} />
+    <Route path="/integrations" element={<Integrations />} />
+    <Route path="/error" element={<Error />} />
+
+    <Route path="*" element={<h1>NOT FOUND</h1>} />
+  </Routes>
+);

@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, ComponentPropsWithoutRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { useRoutes } from '../../../services/useRoutes';
 import {
- Container, StackIcon, ListContainer, List,
+  Container, StackIcon, ListContainer, List,
 } from './style';
 
-export const NavigationMobile = (): JSX.Element => {
+type INavigationMobileProps = ComponentPropsWithoutRef<'div'>;
+
+export const NavigationMobile = (props: INavigationMobileProps): JSX.Element => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <Container onClick={() => setIsVisible((prevState) => !prevState)}>
+    <Container onClick={() => setIsVisible((prevState) => !prevState)} {...props}>
       <StackIcon size={32} />
 
       {isVisible && (
@@ -18,8 +21,8 @@ export const NavigationMobile = (): JSX.Element => {
             <li>
               <button
                 type="button"
-                onClick={() => useRoutes('/integrations')}
-                onKeyPress={() => useRoutes('/integrations')}
+                onClick={() => navigate('/integrations')}
+                onKeyPress={() => navigate('/integrations')}
               >
                 Integrações
               </button>
@@ -28,8 +31,8 @@ export const NavigationMobile = (): JSX.Element => {
             <li>
               <button
                 type="button"
-                onClick={() => useRoutes('/searchcep')}
-                onKeyPress={() => useRoutes('/searchcep')}
+                onClick={() => navigate('/searchcep')}
+                onKeyPress={() => navigate('/searchcep')}
               >
                 Busca CEP
               </button>

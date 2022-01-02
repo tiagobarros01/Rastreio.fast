@@ -15,11 +15,11 @@ export const Container = styled.div<{ location: boolean }>`
 
   z-index: 3;
 
-  margin: 0 1.5rem 1.5rem 0;
+  margin: 0 1.5rem 1.5rem;
 
   background: ${({ theme }) => theme.colors.scndBackground};
 
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 12px #00000050;
 
   display: ${({ location }) => (location ? 'none' : 'flex')};
   justify-content: center;
@@ -34,7 +34,7 @@ export const Container = styled.div<{ location: boolean }>`
 `;
 
 export const Icon = styled(BsFillBookmarksFill)`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.yellow[100]};
 
   font-size: 1.4rem;
 `;

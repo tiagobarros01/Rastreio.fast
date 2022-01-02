@@ -26,11 +26,11 @@ export const CEPInput: React.FC<Partial<Props>> = ({
   );
   return (
     <Input
-      {...rest}
       mask="99999-999"
       value={value}
       onChange={handleChange}
       placeholder="Ex.: 09090-090"
+      {...rest}
     />
   );
 };
