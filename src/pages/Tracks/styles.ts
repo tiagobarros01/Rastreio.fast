@@ -13,6 +13,11 @@ const fade = keyframes`
   }
 `;
 
+const SaveIconBaseStyles = styled.svg`
+  color: ${({ theme }) => theme.colors.green[100]};
+  margin-left: 1rem;
+`;
+
 export const Container = styled(GenericCenter)`
   flex: 1;
 
@@ -43,20 +48,17 @@ export const IconContainer = styled.div<{ isSaved: boolean }>`
   cursor: ${({ isSaved }) => (!isSaved ? 'pointer' : 'initial')} ;
 `;
 
-export const PlusIcon = styled(BsBookmarkPlus)`
-  color: ${({ theme }) => theme.colors.green[100]};
-  margin-left: 1rem;
-`;
+export const PlusIcon = styled(SaveIconBaseStyles).attrs(() => ({
+  as: BsBookmarkPlus,
+}))``;
 
-export const SaveIcon = styled(BsBookmarkFill)`
-  color: ${({ theme }) => theme.colors.green[100]};
-  margin-left: 1rem;
-`;
+export const SaveIcon = styled(SaveIconBaseStyles).attrs(() => ({
+  as: BsBookmarkFill,
+}))``;
 
-export const CheckIcon = styled(BsBookmarkCheck)`
-  color: ${({ theme }) => theme.colors.green[100]};
-  margin-left: 1rem;
-`;
+export const CheckIcon = styled(SaveIconBaseStyles).attrs(() => ({
+  as: BsBookmarkCheck,
+}))``;
 
 export const TrackContainer = styled.div`
   max-height: 32rem;
