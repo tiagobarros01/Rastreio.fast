@@ -34,8 +34,6 @@ export const Tracks = (): JSX.Element => {
   const [isSaved, setIsSaved] = useState(false);
   const [icon, setIcon] = useState(false);
 
-  const event = track?.object[0].event.map((eventItem) => eventItem);
-
   // useEffect(() => {
   //   const res = trackCodeList.some((item) => item === trackCode);
 
@@ -76,13 +74,12 @@ export const Tracks = (): JSX.Element => {
         </h1>
 
         <TrackContainer>
-          {event?.map((eventItem) => (
+          {track?.events?.map((eventItem) => (
             <>
               <h1>{eventItem.date}</h1>
               <h1>{eventItem.hour}</h1>
-              <h1>{eventItem.description}</h1>
-              <h1>{eventItem.unit.unitType === 'País' ? eventItem.unit.local : eventItem.unit.city}</h1>
-              <h1>{eventItem.unit.uf}</h1>
+              <h1>{eventItem.locale}</h1>
+              <h1>{eventItem.status}</h1>
             </>
           ))}
         </TrackContainer>
