@@ -114,7 +114,7 @@ export const EventTrack = styled.div`
 `;
 
 export const EventTrackHeader = styled.div`
-  background: ${({ theme }) => theme.colors.yellow[100]};
+  background: ${({ theme }) => theme.colors.yellow[400]};
 
   padding: 0.5rem 0.75rem;
 

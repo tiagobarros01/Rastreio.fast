@@ -13,7 +13,7 @@ export const FooterContainer = styled.div`
     color: ${({ theme }) => theme.colors.text};
 
     a {
-      color: ${({ theme }) => theme.colors.yellow[100]};
+      color: ${({ theme }) => theme.colors.yellow[400]};
 
       transition: filter 200ms ease-in-out;
 

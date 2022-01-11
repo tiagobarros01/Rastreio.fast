@@ -35,7 +35,7 @@ export const TitleContainer = styled.div`
     font-size: 3rem;
 
     span {
-      color: ${({ theme }) => theme.colors.yellow[100]};
+      color: ${({ theme }) => theme.colors.yellow[400]};
     }
   }
 `;

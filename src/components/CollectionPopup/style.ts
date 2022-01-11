@@ -34,7 +34,7 @@ export const Container = styled.div<{ location: boolean }>`
 `;
 
 export const Icon = styled(BsFillBookmarksFill)`
-  color: ${({ theme }) => theme.colors.yellow[100]};
+  color: ${({ theme }) => theme.colors.yellow[400]};
 
   font-size: 1.4rem;
 `;

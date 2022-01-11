@@ -74,9 +74,9 @@ export const ToggleTheme = styled(GenericCenter)`
 `;
 
 export const MoonDark = styled(RiMoonFill)`
-  color: ${({ theme }) => theme.colors.yellow[100]};
+  color: ${({ theme }) => theme.colors.yellow[400]};
 `;
 
 export const SunLight = styled(RiSunFill)`
-  color: ${({ theme }) => theme.colors.yellow[100]};
+  color: ${({ theme }) => theme.colors.yellow[400]};
 `;

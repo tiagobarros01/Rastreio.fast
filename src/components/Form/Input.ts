@@ -19,7 +19,7 @@ export const Input = styled.input`
   transition: border 200ms ease-in-out;
 
   :focus {
-    border-color: ${({ theme }) => theme.colors.yellow[100]};
+    border-color: ${({ theme }) => theme.colors.yellow[400]};
   }
 
   ::placeholder {

@@ -9,7 +9,7 @@ export const Container = styled.ul`
 export const ListItem = styled.li<{ location: boolean }>`
   padding: 1rem;
 
-  color: ${({ location, theme }) => (location ? theme.colors.yellow[100] : theme.colors.text)};
+  color: ${({ location, theme }) => (location ? theme.colors.yellow[400] : theme.colors.text)};
 
   font-size: 1.1rem;
   font-weight: bold;

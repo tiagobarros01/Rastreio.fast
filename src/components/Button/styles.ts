@@ -20,17 +20,17 @@ export const ButtonBase = styled.button<IButtonProps>`
   border: 0;
   border-radius: 0 5px 5px 0;
 
-  background: ${({ theme }) => theme.colors.yellow[100]};
+  background: ${({ theme }) => theme.colors.yellow[400]};
 
-  transition: filter 200ms ease-in-out, color 200ms ease-in-out;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out;
 
   :hover {
-    ${({ theme }) => (theme.title === 'dark' ? css`
-      color: ${theme.colors.textHover};
-      filter: brightness(0.8);
-    ` : css`
-      filter: brightness(0.95);
-    `)}
+    background: ${({ theme }) => theme.colors.yellow[500]};
+
+    ${({ theme }) => theme.title === 'dark'
+      && css`
+        color: ${theme.colors.textHover}
+      `}
   }
 
   @media (max-width: 576px) {

@@ -84,7 +84,7 @@ export const ListContainer = styled(GenericCenter)`
         transition: color 200ms;
 
         :hover {
-          color: ${({ theme }) => theme.colors.yellow[100]};
+          color: ${({ theme }) => theme.colors.yellow[400]};
         }
       }
     }

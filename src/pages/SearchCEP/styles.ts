@@ -9,6 +9,8 @@ export const Container = styled(GenericCenter).attrs(() => ({
   flex-direction: column;
 
   background: ${({ theme }) => theme.colors.scndBackground};
+
+  padding-bottom: 1rem;
 `;
 
 export const CEPContainer = styled.form`
@@ -33,6 +35,6 @@ export const Title = styled.div`
   }
 
   span {
-    color: ${({ theme }) => theme.colors.yellow[100]};
+    color: ${({ theme }) => theme.colors.yellow[400]};
   }
 `;

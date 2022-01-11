@@ -74,7 +74,7 @@ export const List = styled.ul`
     }
 
     :last-child {
-      color: ${({ theme }) => theme.colors.yellow[100]};
+      color: ${({ theme }) => theme.colors.yellow[400]};
     }
 
     :hover {
