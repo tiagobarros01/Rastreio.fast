@@ -4,7 +4,7 @@ import type {
 } from 'src/@types/Track';
 
 export const formatReturnTrack = (track: DefaultTrack): Track => {
-  const objectEvents = track.eventos.map((event) => {
+  const objectEvents = track.eventos.reverse().map((event) => {
     const eventFormatted: Event = {
       date: event.data,
       hour: event.hora,

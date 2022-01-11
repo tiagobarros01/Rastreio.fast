@@ -8,6 +8,18 @@ export const GlobalStyle = createGlobalStyle`
 
     text-decoration: none;
     list-style: none;
+
+    ::-webkit-scrollbar {
+      width: 0.8rem;
+      height: 0.6rem;
+      background: ${({ theme }) => theme.colors.thirdBackground};
+      border-radius: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.colors.yellow[100]};
+      border-radius: 0.5rem;
+    }
   }
 
   body {

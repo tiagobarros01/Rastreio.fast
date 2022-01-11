@@ -13,6 +13,10 @@ import {
   CheckIcon,
   Container,
   TrackContainer,
+  Line,
+  EventTrack,
+  EventTrackHeader,
+  EventTrackBody,
 } from './styles';
 
 const showIcon = (isSaved: boolean, icon: boolean) => {
@@ -28,7 +32,7 @@ const showIcon = (isSaved: boolean, icon: boolean) => {
 };
 
 export const Tracks = (): JSX.Element => {
-  const { isLoading, track, trackCode } = useTrack();
+  const { track, trackCode } = useTrack();
   const { theme } = useTheme();
 
   const [isSaved, setIsSaved] = useState(false);
@@ -74,14 +78,39 @@ export const Tracks = (): JSX.Element => {
         </h1>
 
         <TrackContainer>
-          {track?.events?.map((eventItem) => (
-            <>
-              <h1>{eventItem.date}</h1>
-              <h1>{eventItem.hour}</h1>
-              <h1>{eventItem.locale}</h1>
-              <h1>{eventItem.status}</h1>
-            </>
-          ))}
+          {track?.events?.map((eventItem, index) => {
+            const localeInfo = eventItem.locale.split('/');
+
+            const city = localeInfo[0];
+            const uf = localeInfo[localeInfo.length - 1];
+
+            return (
+              <EventTrack key={`Event - ${index}`}>
+                <EventTrackHeader>
+                  <strong>Data:</strong>
+                  <p>
+                    {`${eventItem.date}`}
+                    {' '}
+                    <strong>às</strong>
+                    {' '}
+                    {`${eventItem.hour}`}
+                  </p>
+                </EventTrackHeader>
+
+                <EventTrackBody>
+                  <strong>{eventItem.status}</strong>
+
+                  <br />
+
+                  <p>
+                    {`${city} - ${uf}`}
+                  </p>
+                </EventTrackBody>
+              </EventTrack>
+            );
+          })}
+
+          {/* <Line /> */}
         </TrackContainer>
       </Container>
     </DashboardBase>
