@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Container, List } from './style';
+import { Container, ListItem } from './style';
 
 type INavigationWebProps = ComponentPropsWithoutRef<'ul'>;
 
@@ -11,19 +11,19 @@ export const NavigationWeb = (props: INavigationWebProps): JSX.Element => {
 
   return (
     <Container {...props}>
-      <List
+      <ListItem
         location={pathname === '/integrations'}
         onClick={() => navigate('/integrations')}
       >
         Integrações
-      </List>
+      </ListItem>
 
-      <List
+      <ListItem
         location={pathname === '/searchcep'}
         onClick={() => navigate('/searchcep')}
       >
         Busca CEP
-      </List>
+      </ListItem>
     </Container>
   );
 };

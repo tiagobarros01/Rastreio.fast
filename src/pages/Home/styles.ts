@@ -43,7 +43,7 @@ export const TitleContainer = styled.div`
 export const Input = styled.input`
   width: 20rem;
 
-  padding: .85rem;
+  padding: 0.85rem;
 
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};

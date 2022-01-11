@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
   isLoading?: boolean;
@@ -22,12 +22,15 @@ export const ButtonBase = styled.button<IButtonProps>`
 
   background: ${({ theme }) => theme.colors.yellow[100]};
 
-  transition: 200ms;
+  transition: filter 200ms ease-in-out, color 200ms ease-in-out;
 
   :hover {
-    filter: brightness(0.8);
-
-    color: ${({ theme }) => theme.colors.textHover};
+    ${({ theme }) => (theme.title === 'dark' ? css`
+      color: ${theme.colors.textHover};
+      filter: brightness(0.8);
+    ` : css`
+      filter: brightness(0.95);
+    `)}
   }
 
   @media (max-width: 576px) {

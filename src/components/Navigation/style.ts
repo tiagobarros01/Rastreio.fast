@@ -6,7 +6,7 @@ export const Container = styled.ul`
   justify-content: center;
 `;
 
-export const List = styled.li<{ location: boolean }>`
+export const ListItem = styled.li<{ location: boolean }>`
   padding: 1rem;
 
   color: ${({ location, theme }) => (location ? theme.colors.yellow[100] : theme.colors.text)};
@@ -14,7 +14,7 @@ export const List = styled.li<{ location: boolean }>`
   font-size: 1.1rem;
   font-weight: bold;
 
-  transition: filter transform 200ms;
+  transition: filter 200ms, transform 100ms ease-in-out;
 
   cursor: pointer;
 
@@ -22,7 +22,7 @@ export const List = styled.li<{ location: boolean }>`
   align-items: center;
 
   :hover {
-    filter: ${({ location }) => (location ? '' : 'brightness(0.8)')};
+    filter: ${({ location }) => !location && 'brightness(0.8)'};
 
     transform: translateY(-2px);
   }
