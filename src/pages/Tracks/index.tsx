@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BsCheck2Circle, BsTruck, BsBoxSeam } from 'react-icons/bs';
 
 import { DashboardBase } from 'src/components/DashboardBase';
-import { DataTrack } from 'src/components/DataTrack';
 import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
 import { useToast } from 'src/utils/useToast';

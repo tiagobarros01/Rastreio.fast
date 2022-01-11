@@ -4,7 +4,7 @@ import { ICEPProps } from 'src/@types/CEP';
 import { Button } from 'src/components/Button';
 import { DashboardBase } from 'src/components/DashboardBase';
 import { DataCEP } from 'src/components/DataCEP';
-import { CEPInput } from 'src/components/Input';
+// import { CEPInput } from 'src/components/Input';
 import { useTheme } from 'src/contexts/Theme';
 import { cepAPI } from 'src/services/api';
 import { useToast } from 'src/utils/useToast';
