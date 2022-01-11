@@ -13,7 +13,7 @@ export const Container = styled.div<{ location: boolean }>`
   bottom: 0;
   right: 0;
 
-  z-index: 3;
+  z-index: 99999;
 
   margin: 0 1.5rem 1.5rem;
 

@@ -31,8 +31,13 @@ export const Container = styled(GenericCenter)`
 
   animation: ${fade} 1s;
 
-  > h1 {
+  @media (max-width: 576px) {
+    justify-content: flex-start;
 
+    overflow: hidden;
+  }
+
+  > h1 {
     width: 100%;
     height: 2rem;
 
@@ -70,6 +75,15 @@ export const TrackContainer = styled.div`
   overflow-x: scroll;
 
   position: relative;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+
+    overflow-y: scroll;
+    overflow-x: initial;
+
+    height: 100%;
+  }
 `;
 
 export const Line = styled.div`
@@ -103,6 +117,12 @@ export const EventTrack = styled.div`
   background: ${({ theme }) => theme.colors.scndBackground};
 
   z-index: 9999;
+
+  @media (max-width: 576px) {
+    min-height: 10rem;
+
+    margin: 1rem 0;
+  }
 
   strong {
     color: ${({ theme }) => theme.colors.title};
