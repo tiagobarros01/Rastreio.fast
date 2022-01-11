@@ -29,7 +29,7 @@ export const CEPInput: React.FC<Partial<Props>> = ({
       mask="99999-999"
       value={value}
       onChange={handleChange}
-      placeholder="Ex.: 09090-090"
+      placeholder="Digite seu CEP"
       {...rest}
     />
   );
