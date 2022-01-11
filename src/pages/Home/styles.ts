@@ -42,7 +42,8 @@ export const TitleContainer = styled.div`
 
 export const Input = styled.input`
   width: 20rem;
-  padding: 1rem;
+
+  padding: .85rem;
 
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
@@ -53,8 +54,12 @@ export const Input = styled.input`
 
   transition: border 100ms;
 
+  border: 2px solid ${({ theme }) => theme.colors.background};
+
+  transition: border 200ms ease-in-out;
+
   :focus {
-    border: 3px solid ${({ theme }) => theme.colors.yellow[100]};
+    border-color: ${({ theme }) => theme.colors.yellow[100]};
   }
 
   ::placeholder {

@@ -95,7 +95,8 @@ export const Tracks = (): JSX.Element => {
           {track?.events?.map((eventItem, index) => {
             const localeInfo = eventItem.locale.split('/');
 
-            const city = localeInfo[0];
+            const locale = localeInfo[0];
+            const city = localeInfo[1];
             const uf = localeInfo[localeInfo.length - 1];
 
             return (
@@ -109,12 +110,9 @@ export const Tracks = (): JSX.Element => {
                 <EventTrack key={`Event - ${index}`}>
                   <EventTrackHeader>
                     <strong>Data:</strong>
+
                     <p>
-                      {`${eventItem.date}`}
-                      {' '}
-                      <strong>às</strong>
-                      {' '}
-                      {`${eventItem.hour}`}
+                      {`${eventItem.date} às ${eventItem.hour}`}
                     </p>
                   </EventTrackHeader>
 
@@ -124,7 +122,7 @@ export const Tracks = (): JSX.Element => {
                     <br />
 
                     <p>
-                      {`${city} - ${uf}`}
+                      {`${locale} - ${city} - ${uf}`}
                     </p>
                   </EventTrackBody>
                 </EventTrack>
