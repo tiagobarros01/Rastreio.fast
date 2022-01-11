@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BsCheck2Circle, BsTruck, BsBoxSeam } from 'react-icons/bs';
 
 import { DashboardBase } from 'src/components/DashboardBase';
 import { DataTrack } from 'src/components/DataTrack';
@@ -17,9 +18,10 @@ import {
   EventTrack,
   EventTrackHeader,
   EventTrackBody,
+  EventTrackIcon,
 } from './styles';
 
-const showIcon = (isSaved: boolean, icon: boolean) => {
+const showSaveIcon = (isSaved: boolean, icon: boolean) => {
   if (isSaved) {
     return <CheckIcon />;
   }
@@ -29,6 +31,18 @@ const showIcon = (isSaved: boolean, icon: boolean) => {
   }
 
   return <PlusIcon />;
+};
+
+const showTrackIcon = (status: string) => {
+  if (status.toLocaleLowerCase().includes('entregue')) {
+    return <BsBoxSeam color="#fff" size="26" />;
+  }
+
+  if (status.toLocaleLowerCase().includes('postado')) {
+    return <BsCheck2Circle color="#fff" size="26" />;
+  }
+
+  return <BsTruck color="#fff" size="26" />;
 };
 
 export const Tracks = (): JSX.Element => {
@@ -73,7 +87,7 @@ export const Tracks = (): JSX.Element => {
               // onClick={handleSave}
             isSaved={isSaved}
           >
-            {showIcon(isSaved, icon)}
+            {showSaveIcon(isSaved, icon)}
           </IconContainer>
         </h1>
 
@@ -85,28 +99,37 @@ export const Tracks = (): JSX.Element => {
             const uf = localeInfo[localeInfo.length - 1];
 
             return (
-              <EventTrack key={`Event - ${index}`}>
-                <EventTrackHeader>
-                  <strong>Data:</strong>
-                  <p>
-                    {`${eventItem.date}`}
-                    {' '}
-                    <strong>às</strong>
-                    {' '}
-                    {`${eventItem.hour}`}
-                  </p>
-                </EventTrackHeader>
+              <>
+                {track?.events.length > 0 && (
+                <EventTrackIcon>
+                  {showTrackIcon(eventItem.status)}
+                </EventTrackIcon>
+                )}
 
-                <EventTrackBody>
-                  <strong>{eventItem.status}</strong>
+                <EventTrack key={`Event - ${index}`}>
+                  <EventTrackHeader>
+                    <strong>Data:</strong>
+                    <p>
+                      {`${eventItem.date}`}
+                      {' '}
+                      <strong>às</strong>
+                      {' '}
+                      {`${eventItem.hour}`}
+                    </p>
+                  </EventTrackHeader>
 
-                  <br />
+                  <EventTrackBody>
+                    <strong>{eventItem.status}</strong>
 
-                  <p>
-                    {`${city} - ${uf}`}
-                  </p>
-                </EventTrackBody>
-              </EventTrack>
+                    <br />
+
+                    <p>
+                      {`${city} - ${uf}`}
+                    </p>
+                  </EventTrackBody>
+                </EventTrack>
+
+              </>
             );
           })}
 

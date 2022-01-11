@@ -86,11 +86,14 @@ export const Line = styled.div`
   align-self: center;
 `;
 
-export const EventTrack = styled.div`
-  & + & {
-    margin-left: 6rem;
-  }
+export const EventTrackIcon = styled.div`
+  display: flex;
+  align-self: center;
 
+  margin: 0 1.8rem;
+`;
+
+export const EventTrack = styled.div`
   min-width: 16rem;
 
   overflow: hidden;
