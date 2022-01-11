@@ -37,5 +37,9 @@ export const ButtonBase = styled.button<IButtonProps>`
     margin-top: 1rem;
 
     width: 45%;
+
+    border-radius: 5px;
+
+    padding: 0.8rem;
   }
 `;

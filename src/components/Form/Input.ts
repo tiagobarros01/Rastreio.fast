@@ -25,4 +25,8 @@ export const Input = styled.input`
   ::placeholder {
     color: ${({ theme }) => theme.colors.inputText};
   }
+
+  @media (max-width: 576px) {
+    border-radius: 5px;
+  }
 `;
