@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const FooterContainer = styled.div`
-  width: 100vw;
+  width: 100%;
 
-  position: fixed;
-  bottom: 10px;
+  padding-bottom: 0.625rem;
 
-  z-index: 3;
+  background: ${({ theme }) => theme.colors.scndBackground};
 
   p {
     text-align: center;
@@ -15,10 +14,15 @@ export const FooterContainer = styled.div`
 
     a {
       color: ${({ theme }) => theme.colors.yellow[100]};
+
       transition: filter 200ms ease-in-out;
 
       :hover {
-        filter: brightness(0.8);
+        ${({ theme }) => (theme.title === 'dark' ? css`
+          filter: brightness(0.8);
+        ` : css`
+          filter: brightness(0.9);
+        `)}
       }
     }
   }

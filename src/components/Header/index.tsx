@@ -17,7 +17,7 @@ import {
 type IHeaderProps = ComponentPropsWithoutRef<'div'>
 
 export const Header = (props: IHeaderProps): JSX.Element => {
-  const { theme: { title }, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ export const Header = (props: IHeaderProps): JSX.Element => {
 
         <nav>
           <ToggleTheme onClick={() => toggleTheme()}>
-            {title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
+            {theme.title === 'light' ? <MoonDark size={22} /> : <SunLight size={22} />}
           </ToggleTheme>
 
           <Navigation />

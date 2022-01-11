@@ -64,11 +64,12 @@ export const ToggleTheme = styled(GenericCenter)`
 
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
 
-  transition: filter 200ms;
+  transition: filter 200ms ease-in-out;
+
+  cursor: pointer;
 
   :hover {
-    cursor: pointer;
-    filter: brightness(0.85);
+    filter: brightness(0.95);
   }
 `;
 
