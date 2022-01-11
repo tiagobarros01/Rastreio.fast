@@ -10,11 +10,12 @@ export const FooterContainer = styled.div`
 
   p {
     text-align: center;
+
     color: ${({ theme }) => theme.colors.text};
 
     a {
       color: ${({ theme }) => theme.colors.yellow[100]};
-      transition: color 200ms;
+      transition: filter 200ms ease-in-out;
 
       :hover {
         filter: brightness(0.8);

@@ -45,6 +45,8 @@ export const HomeImage = styled.img`
 
   cursor: pointer;
 
+  transition: transform 100ms ease-in-out;
+
   :hover {
     transform: translateY(-3px);
   }
