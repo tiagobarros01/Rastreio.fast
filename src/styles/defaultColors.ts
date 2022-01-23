@@ -1,5 +1,5 @@
 export const defaultColors = {
-  yellow: {
+  brand: {
     50: '#fff9dc',
     100: '#fcedb1',
     200: '#f8e184',

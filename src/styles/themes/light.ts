@@ -1,23 +1,24 @@
+import { DefaultTheme } from 'styled-components';
+
 import { defaultColors } from '../defaultColors';
 
-export const light = {
+export const light: DefaultTheme = {
   title: 'light',
 
   colors: {
     ...defaultColors,
 
-    background: '#f0f0f0',
-    scndBackground: '#ddd',
-    thirdBackground: '#bbb',
-
-    inputBackground: '#222',
-
-    title: '#222',
-    inputText: '#111',
-    text: '#333',
-
-    textHover: '#eee',
-
-    shadow: '#e8e0dc',
+    base: {
+      50: '#0e0c0c',
+      100: '#262626',
+      200: '#3f3f3f',
+      300: '#595959',
+      400: '#727272',
+      500: '#8c8c8c',
+      600: '#a5a5a5',
+      700: '#bfbfbf',
+      800: '#d8d8d8',
+      900: '#f3f2f1',
+    },
   },
 };
