@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BsCheck2Circle, BsTruck, BsBoxSeam } from 'react-icons/bs';
 
+import { DefaultTheme } from 'styled-components';
+
 import { DashboardBase } from 'src/components/DashboardBase';
 import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
+import { dark } from 'src/styles/themes/dark';
 import { useToast } from 'src/utils/useToast';
 
 import {
@@ -17,7 +20,6 @@ import {
   EventTrack,
   EventTrackHeader,
   EventTrackBody,
-  EventTrackIcon,
 } from './styles';
 
 const showSaveIcon = (isSaved: boolean, icon: boolean) => {
@@ -32,16 +34,20 @@ const showSaveIcon = (isSaved: boolean, icon: boolean) => {
   return <PlusIcon />;
 };
 
-const showTrackIcon = (status: string) => {
-  if (status.toLocaleLowerCase().includes('entregue')) {
-    return <BsBoxSeam color="#fff" size="26" />;
+const showTrackIcon = (status: string, theme: string) => {
+  const statusIncludes = (includes: string) => {
+    return status.toLocaleLowerCase().includes(includes);
+  };
+
+  if (statusIncludes('entregue')) {
+    return <BsBoxSeam color={theme} size="26" />;
   }
 
-  if (status.toLocaleLowerCase().includes('postado')) {
-    return <BsCheck2Circle color="#fff" size="26" />;
+  if (statusIncludes('postado')) {
+    return <BsCheck2Circle color={theme} size="26" />;
   }
 
-  return <BsTruck color="#fff" size="26" />;
+  return <BsTruck color={theme} size="26" />;
 };
 
 export const Tracks = (): JSX.Element => {
@@ -99,34 +105,29 @@ export const Tracks = (): JSX.Element => {
             const uf = localeInfo[localeInfo.length - 1];
 
             return (
-              <>
-                {track?.events.length > 0 && (
-                <EventTrackIcon>
-                  {showTrackIcon(eventItem.status)}
-                </EventTrackIcon>
-                )}
-
-                <EventTrack key={`Event - ${index}`}>
-                  <EventTrackHeader>
+              <EventTrack key={`Event - ${index}`}>
+                <EventTrackHeader>
+                  <div>
                     <strong>Data:</strong>
 
                     <p>
                       {`${eventItem.date} às ${eventItem.hour}`}
                     </p>
-                  </EventTrackHeader>
+                  </div>
 
-                  <EventTrackBody>
-                    <strong>{eventItem.status}</strong>
+                  {showTrackIcon(eventItem.status, dark.colors.background)}
+                </EventTrackHeader>
 
-                    <br />
+                <EventTrackBody>
+                  <strong>{eventItem.status}</strong>
 
-                    <p>
-                      {`${locale} - ${city} - ${uf}`}
-                    </p>
-                  </EventTrackBody>
-                </EventTrack>
+                  <br />
 
-              </>
+                  <p>
+                    {`${locale} - ${city} - ${uf}`}
+                  </p>
+                </EventTrackBody>
+              </EventTrack>
             );
           })}
 

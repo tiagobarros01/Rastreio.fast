@@ -76,6 +76,8 @@ export const TrackContainer = styled.div`
 
   position: relative;
 
+  gap: 1.8rem;
+
   @media (max-width: 576px) {
     flex-direction: column;
 
@@ -98,13 +100,6 @@ export const Line = styled.div`
 
   display: flex;
   align-self: center;
-`;
-
-export const EventTrackIcon = styled.div`
-  display: flex;
-  align-self: center;
-
-  margin: 0 1.8rem;
 `;
 
 export const EventTrack = styled.div`
@@ -139,6 +134,10 @@ export const EventTrackHeader = styled.div`
   padding: 0.5rem 0.75rem;
 
   width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   strong {
     color: #222;
