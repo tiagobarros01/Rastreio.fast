@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Collections } from 'src/pages/Collections';
 import { Home } from 'src/pages/Home';
 import { Integrations } from 'src/pages/Integrations';
+import { NotFound } from 'src/pages/NotFound';
 import { SearchCEP } from 'src/pages/SearchCEP';
 import { Tracks } from 'src/pages/Tracks';
 
@@ -24,6 +25,6 @@ export const MainRoutes = (): JSX.Element => (
     <Route path="/searchcep" element={<SearchCEP />} />
     <Route path="/integrations" element={<Integrations />} />
 
-    <Route path="*" element={<h1>NOT FOUND</h1>} />
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
