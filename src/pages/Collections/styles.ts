@@ -10,7 +10,7 @@ export const Container = styled(GenericCenter).attrs(() => ({
   flex: 1;
   flex-direction: column;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 `;
 
 export const Title = styled.div`
@@ -22,7 +22,7 @@ export const Title = styled.div`
 `;
 
 export const ListContainer = styled(GenericCenter)`
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   box-shadow: 0 2px 12px
     ${({ theme }) => (theme.title === 'dark' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.18)')};
@@ -55,7 +55,7 @@ export const ListContainer = styled(GenericCenter)`
     }
 
     p {
-      color: ${({ theme }) => theme.colors.title};
+      color: ${({ theme }) => theme.colors.base[50]};
 
       font-size: 1.2rem;
       font-weight: 600;
@@ -79,12 +79,12 @@ export const ListContainer = styled(GenericCenter)`
 
         background: 0;
 
-        color: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.base[100]};
 
         transition: color 200ms;
 
         :hover {
-          color: ${({ theme }) => theme.colors.yellow[400]};
+          color: ${({ theme }) => theme.colors.brand[400]};
         }
       }
     }

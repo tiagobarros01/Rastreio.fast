@@ -8,7 +8,7 @@ export const Container = styled(GenericCenter).attrs(() => ({
   flex: 1;
   flex-direction: column;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   img {
     width: 12rem;

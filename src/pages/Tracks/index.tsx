@@ -115,7 +115,7 @@ export const Tracks = (): JSX.Element => {
                     </p>
                   </div>
 
-                  {showTrackIcon(eventItem.status, dark.colors.background)}
+                  {showTrackIcon(eventItem.status, dark.colors.base[900])}
                 </EventTrackHeader>
 
                 <EventTrackBody>

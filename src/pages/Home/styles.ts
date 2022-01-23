@@ -9,7 +9,7 @@ export const Container = styled(GenericCenter).attrs(() => ({
 
   flex-direction: column;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 `;
 
 export const FormContainer = styled.form`
@@ -31,11 +31,11 @@ export const TitleContainer = styled.div`
   margin-bottom: 1rem;
 
   h1 {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.base[100]};
     font-size: 3rem;
 
     span {
-      color: ${({ theme }) => theme.colors.yellow[400]};
+      color: ${({ theme }) => theme.colors.brand[400]};
     }
   }
 `;

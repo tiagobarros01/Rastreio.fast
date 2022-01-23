@@ -32,7 +32,7 @@ export const Container = styled.div`
 `;
 
 export const StackIcon = styled(RiStackFill)`
-  color: ${({ theme }) => theme.colors.inputBackground};
+  color: ${({ theme }) => theme.colors.base[50]};
 
   :hover {
     cursor: pointer;
@@ -50,7 +50,7 @@ export const ListContainer = styled.div`
 
   z-index: 12;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   animation: ${toRight} 400ms;
 `;
@@ -70,11 +70,11 @@ export const List = styled.ul`
     cursor: pointer;
 
     :not(:last-child) {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.background};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.base[900]};
     }
 
     :last-child {
-      color: ${({ theme }) => theme.colors.yellow[400]};
+      color: ${({ theme }) => theme.colors.brand[400]};
     }
 
     :hover {
@@ -94,7 +94,7 @@ export const List = styled.ul`
 
     border: 0;
 
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.base[100]};
     background: none;
   }
 `;

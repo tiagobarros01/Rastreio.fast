@@ -5,8 +5,8 @@ export const Input = styled.input`
 
   padding: 0.85rem;
 
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.text};
+  background: ${({ theme }) => theme.colors.base[900]};
+  color: ${({ theme }) => theme.colors.base[100]};
 
   border-radius: 5px 0 0 5px;
 
@@ -14,16 +14,16 @@ export const Input = styled.input`
 
   transition: border 100ms;
 
-  border: 2px solid ${({ theme }) => theme.colors.background};
+  border: 2px solid ${({ theme }) => theme.colors.base[900]};
 
   transition: border 200ms ease-in-out;
 
   :focus {
-    border-color: ${({ theme }) => theme.colors.yellow[400]};
+    border-color: ${({ theme }) => theme.colors.brand[400]};
   }
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.inputText};
+    color: ${({ theme }) => theme.colors.base[200]};
   }
 
   @media (max-width: 576px) {

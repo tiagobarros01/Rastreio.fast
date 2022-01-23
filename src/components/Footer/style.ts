@@ -5,15 +5,15 @@ export const FooterContainer = styled.div`
 
   padding-bottom: 0.625rem;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   p {
     text-align: center;
 
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.base[100]};
 
     a {
-      color: ${({ theme }) => theme.colors.yellow[400]};
+      color: ${({ theme }) => theme.colors.brand[400]};
 
       transition: filter 200ms ease-in-out;
 

@@ -92,7 +92,7 @@ export const Line = styled.div`
   width: 100%;
   height: 6px;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   border-radius: 0.8rem;
 
@@ -109,7 +109,7 @@ export const EventTrack = styled.div`
 
   border-radius: 0.625rem;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   z-index: 9999;
 
@@ -120,16 +120,16 @@ export const EventTrack = styled.div`
   }
 
   strong {
-    color: ${({ theme }) => theme.colors.title};
+    color: ${({ theme }) => theme.colors.base[50]};
   }
 
   p {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.base[100]};
   }
 `;
 
 export const EventTrackHeader = styled.div`
-  background: ${({ theme }) => theme.colors.yellow[400]};
+  background: ${({ theme }) => theme.colors.brand[400]};
 
   padding: 0.5rem 0.75rem;
 

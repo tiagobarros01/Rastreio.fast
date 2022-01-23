@@ -12,24 +12,24 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
       width: 0.8rem;
       height: 0.6rem;
-      background: ${({ theme }) => theme.colors.thirdBackground};
+      background: ${({ theme }) => theme.colors.base[700]};
       border-radius: 0.5rem;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.colors.yellow[400]};
+      background: ${({ theme }) => theme.colors.brand[400]};
       border-radius: 0.5rem;
     }
   }
 
   body {
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.base[900]};
 
     overflow: hidden;
   }
 
   h1, h2, h3, p {
-    color: ${({ theme }) => theme.colors.text}
+    color: ${({ theme }) => theme.colors.base[100]}
   }
 
   body, button {
@@ -46,12 +46,12 @@ export const GlobalStyle = createGlobalStyle`
     :-webkit-autofill,
     :-webkit-autofill:hover,
     :-webkit-autofill:active {
-      border: 1px solid ${({ theme }) => theme.colors.background};
-      -webkit-text-fill-color: ${({ theme }) => theme.colors.text};
-      box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.background} inset !important;
+      border: 1px solid ${({ theme }) => theme.colors.base[900]};
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.base[100]};
+      box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.base[900]} inset !important;
       transition: background-color 5000s ease-in-out 0s, border 100ms;
       :focus {
-        border: 3px solid ${({ theme }) => theme.colors.yellow[400]};
+        border: 3px solid ${({ theme }) => theme.colors.brand[400]};
       }
     }
   }
