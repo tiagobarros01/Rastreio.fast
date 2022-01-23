@@ -11,9 +11,9 @@ export const Wrapper = styled.header`
   display: flex;
   align-items: center;
 
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.base[900]};
 
-  filter: brightness(0.9) drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.background});
+  filter: brightness(0.9) drop-shadow(0px 0px 15px ${({ theme }) => theme.colors.base[900]});
 `;
 
 export const Content = styled.div`
@@ -45,6 +45,8 @@ export const HomeImage = styled.img`
 
   cursor: pointer;
 
+  transition: transform 100ms ease-in-out;
+
   :hover {
     transform: translateY(-3px);
   }
@@ -58,22 +60,23 @@ export const ToggleTheme = styled(GenericCenter)`
 
   margin-left: 1rem;
 
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.base[900]};
 
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
 
-  transition: filter 200ms;
+  transition: filter 200ms ease-in-out;
+
+  cursor: pointer;
 
   :hover {
-    cursor: pointer;
-    filter: brightness(0.85);
+    filter: brightness(0.95);
   }
 `;
 
 export const MoonDark = styled(RiMoonFill)`
-  color: ${({ theme }) => theme.colors.yellow[100]};
+  color: ${({ theme }) => theme.colors.brand[400]};
 `;
 
 export const SunLight = styled(RiSunFill)`
-  color: ${({ theme }) => theme.colors.yellow[100]};
+  color: ${({ theme }) => theme.colors.brand[400]};
 `;

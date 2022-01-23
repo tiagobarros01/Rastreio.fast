@@ -13,23 +13,35 @@ const fade = keyframes`
   }
 `;
 
+const SaveIconBaseStyles = styled.svg`
+  color: ${({ theme }) => theme.colors.green[100]};
+  margin-left: 1rem;
+`;
+
 export const Container = styled(GenericCenter)`
   flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
 
   margin-top: 2rem;
 
   width: 100%;
 
-  flex-direction: column;
-
   gap: 2rem;
 
   animation: ${fade} 1s;
 
-  > h1 {
+  @media (max-width: 576px) {
+    justify-content: flex-start;
 
+    overflow: hidden;
+  }
+
+  > h1 {
     width: 100%;
     height: 2rem;
+
+    padding-top: 2rem;
 
     display: flex;
     align-items: center;
@@ -43,38 +55,106 @@ export const IconContainer = styled.div<{ isSaved: boolean }>`
   cursor: ${({ isSaved }) => (!isSaved ? 'pointer' : 'initial')} ;
 `;
 
-export const PlusIcon = styled(BsBookmarkPlus)`
-  color: ${({ theme }) => theme.colors.green[100]};
-  margin-left: 1rem;
-`;
+export const PlusIcon = styled(SaveIconBaseStyles).attrs(() => ({
+  as: BsBookmarkPlus,
+}))``;
 
-export const SaveIcon = styled(BsBookmarkFill)`
-  color: ${({ theme }) => theme.colors.green[100]};
-  margin-left: 1rem;
-`;
+export const SaveIcon = styled(SaveIconBaseStyles).attrs(() => ({
+  as: BsBookmarkFill,
+}))``;
 
-export const CheckIcon = styled(BsBookmarkCheck)`
-  color: ${({ theme }) => theme.colors.green[100]};
-  margin-left: 1rem;
-`;
+export const CheckIcon = styled(SaveIconBaseStyles).attrs(() => ({
+  as: BsBookmarkCheck,
+}))``;
 
 export const TrackContainer = styled.div`
-  max-height: 32rem;
+  width: 95%;
 
   padding: 1rem;
 
-  overflow-y: scroll;
+  display: flex;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  overflow-x: scroll;
+
+  position: relative;
+
+  gap: 1.8rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+
+    overflow-y: scroll;
+    overflow-x: initial;
+
+    height: 100%;
+  }
+`;
+
+export const Line = styled.div`
+  width: 100%;
+  height: 6px;
+
+  background: ${({ theme }) => theme.colors.base[800]};
 
   border-radius: 0.8rem;
 
-  ::-webkit-scrollbar {
-    width: 0.8rem;
-    background: ${({ theme }) => theme.colors.thirdBackground};
+  position: absolute;
+
+  display: flex;
+  align-self: center;
+`;
+
+export const EventTrack = styled.div`
+  min-width: 16rem;
+
+  overflow: hidden;
+
+  border-radius: 0.625rem;
+
+  background: ${({ theme }) => theme.colors.base[800]};
+
+  z-index: 9999;
+
+  @media (max-width: 576px) {
+    min-height: 10rem;
+
+    margin: 1rem 0;
   }
-  ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.yellow[100]};
-    border-radius: 0.5rem;
+
+  strong {
+    color: ${({ theme }) => theme.colors.base[50]};
   }
+
+  p {
+    color: ${({ theme }) => theme.colors.base[100]};
+  }
+`;
+
+export const EventTrackHeader = styled.div`
+  background: ${({ theme }) => theme.colors.brand[400]};
+
+  padding: 0.5rem 0.75rem;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  strong {
+    color: #222;
+    font-weight: 600;
+  }
+
+  > strong {
+    font-weight: bold;
+  }
+
+  p {
+    color: #333;
+  }
+`;
+
+export const EventTrackBody = styled.div`
+  padding: 0.75rem;
 `;

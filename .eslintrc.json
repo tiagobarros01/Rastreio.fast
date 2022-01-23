@@ -29,10 +29,12 @@
   "rules": {
     "arrow-body-style": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-unused-vars": "off",
     "react/jsx-props-no-spreading": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "react/prop-types": "off",
+    "react/no-array-index-key": "off",
     "space-before-function-paren": "off",
     "no-use-before-define": "off",
     "no-console": "off",

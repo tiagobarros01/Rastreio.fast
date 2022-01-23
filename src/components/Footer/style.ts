@@ -1,24 +1,34 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const FooterContainer = styled.div`
-  width: 100vw;
+  width: 100%;
 
-  position: fixed;
-  bottom: 10px;
+  padding-bottom: 0.625rem;
 
-  z-index: 3;
+  background: ${({ theme }) => theme.colors.base[800]};
 
-  p {
+  > p {
     text-align: center;
-    color: ${({ theme }) => theme.colors.text};
+
+    color: ${({ theme }) => theme.colors.base[100]};
+
+    > p {
+      display: inline-block;
+    }
 
     a {
-      color: ${({ theme }) => theme.colors.yellow[100]};
-      transition: color 200ms;
+      color: ${({ theme }) => theme.colors.brand[400]};
+
+      transition: filter 200ms ease-in-out;
 
       :hover {
-        filter: brightness(0.8);
+        ${({ theme }) => (theme.title === 'dark' ? css`
+          filter: brightness(0.8);
+        ` : css`
+          filter: brightness(0.9);
+        `)}
       }
     }
   }
+
 `;

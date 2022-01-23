@@ -12,5 +12,5 @@ export const Container = styled.div<DividerProps>`
   height: ${({ height }) => height};
   width: ${({ width }) => width}%;
 
-  background: ${({ bgColor, theme }) => (bgColor || theme.colors.thirdBackground)};
+  background: ${({ bgColor, theme }) => (bgColor || theme.colors.base[700])};
 `;

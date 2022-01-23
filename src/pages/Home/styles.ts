@@ -9,7 +9,7 @@ export const Container = styled(GenericCenter).attrs(() => ({
 
   flex-direction: column;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 `;
 
 export const FormContainer = styled.form`
@@ -31,33 +31,11 @@ export const TitleContainer = styled.div`
   margin-bottom: 1rem;
 
   h1 {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.base[100]};
     font-size: 3rem;
 
     span {
-      color: ${({ theme }) => theme.colors.yellow[100]};
+      color: ${({ theme }) => theme.colors.brand[400]};
     }
-  }
-`;
-
-export const Input = styled.input`
-  width: 20rem;
-  padding: 1rem;
-
-  background: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.text};
-
-  border-radius: 5px 0 0 5px;
-
-  outline: 0;
-
-  transition: border 100ms;
-
-  :focus {
-    border: 3px solid ${({ theme }) => theme.colors.yellow[100]};
-  }
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.inputText};
   }
 `;

@@ -3,11 +3,11 @@ import React, { FormEvent, useRef } from 'react';
 import { Button } from 'src/components/Button';
 import { DashboardBase } from 'src/components/DashboardBase';
 import { Footer } from 'src/components/Footer';
+import { Input } from 'src/components/Form/Input';
 import { useTrack } from 'src/contexts/Tracking';
 
 import {
   FormContainer,
-  Input,
   TitleContainer,
   Container,
 } from './styles';

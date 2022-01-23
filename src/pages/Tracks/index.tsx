@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { BsCheck2Circle, BsTruck, BsBoxSeam } from 'react-icons/bs';
 
 import { DashboardBase } from 'src/components/DashboardBase';
-import { DataTrack } from 'src/components/DataTrack';
 import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
+import { dark } from 'src/styles/themes/dark';
 import { useToast } from 'src/utils/useToast';
 
 import {
@@ -13,9 +14,13 @@ import {
   CheckIcon,
   Container,
   TrackContainer,
+  Line,
+  EventTrack,
+  EventTrackHeader,
+  EventTrackBody,
 } from './styles';
 
-const showIcon = (isSaved: boolean, icon: boolean) => {
+const showSaveIcon = (isSaved: boolean, icon: boolean) => {
   if (isSaved) {
     return <CheckIcon />;
   }
@@ -27,37 +32,55 @@ const showIcon = (isSaved: boolean, icon: boolean) => {
   return <PlusIcon />;
 };
 
+const showTrackIcon = (status: string, theme: string) => {
+  const statusIncludes = (includes: string): boolean => {
+    return status.toLocaleLowerCase().includes(includes);
+  };
+
+  if (statusIncludes('entregue')) {
+    return <BsBoxSeam color={theme} size="26" />;
+  }
+
+  if (statusIncludes('postado')) {
+    return <BsCheck2Circle color={theme} size="26" />;
+  }
+
+  return <BsTruck color={theme} size="26" />;
+};
+
 export const Tracks = (): JSX.Element => {
-  const { isLoading, track, trackCode } = useTrack();
+  const {
+    track, trackCode, setTrackCodeList, trackCodeList,
+  } = useTrack();
   const { theme } = useTheme();
 
   const [isSaved, setIsSaved] = useState(false);
   const [icon, setIcon] = useState(false);
 
-  const event = track?.object[0].event.map((eventItem) => eventItem);
+  const handleSaveTrack = () => {
+    if (!trackCode) return;
 
-  // useEffect(() => {
-  //   const res = trackCodeList.some((item) => item === trackCode);
+    if (isSaved) return;
 
-  //   if (res) {
-  //     setIsSaved(true);
-  //   }
-  // }, [trackCodeList, trackCode]);
+    setIsSaved(true);
+    setTrackCodeList((prevState) => [...prevState, trackCode]);
 
-  // const handleSave = () => {
-  //   setIsSaved((prevState) => (!prevState && true));
-  //   setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
+    useToast({
+      message: 'Adicionado à sua coleção',
+      type: 'success',
+      icon: '🔖',
+      background: theme.title === 'light' ? '#353230' : '#ddd',
+      color: theme.title === 'light' ? '#eee' : '#222',
+    });
+  };
 
-  //   if (!isSaved) {
-  //     useToast({
-  //       message: 'Added to collection',
-  //       type: 'success',
-  //       icon: '🔖',
-  //       background: theme.title === 'light' ? '#353230' : '#ddd',
-  //       color: theme.title === 'light' ? '#eee' : '#222',
-  //     });
-  //   }
-  // };
+  useEffect(() => {
+    const hasSaved = trackCodeList.some((item) => item === trackCode);
+
+    if (hasSaved) {
+      setIsSaved(true);
+    }
+  }, [trackCodeList, trackCode]);
 
   return (
     <DashboardBase>
@@ -68,24 +91,52 @@ export const Tracks = (): JSX.Element => {
           <IconContainer
             onMouseEnter={() => setIcon((prevState) => !prevState)}
             onMouseLeave={() => setIcon((prevState) => !prevState)}
-              // onClick={handleSave}
+            onClick={handleSaveTrack}
             isSaved={isSaved}
           >
-            {showIcon(isSaved, icon)}
+            {showSaveIcon(isSaved, icon)}
           </IconContainer>
         </h1>
 
         <TrackContainer>
-          {event?.map((eventItem) => (
-            <>
-              <h1>{eventItem.date}</h1>
-              <h1>{eventItem.hour}</h1>
-              <h1>{eventItem.description}</h1>
-              <h1>{eventItem.unit.unitType === 'País' ? eventItem.unit.local : eventItem.unit.city}</h1>
-              <h1>{eventItem.unit.uf}</h1>
-            </>
-          ))}
+          {track?.events?.map((eventItem, index) => {
+            const localeInfo = eventItem.locale.split('/');
+
+            const locale = localeInfo[0];
+            const city = localeInfo[1];
+            const uf = localeInfo[localeInfo.length - 1];
+
+            return (
+              <EventTrack key={`Event - ${index}`}>
+                <EventTrackHeader>
+                  <div>
+                    <strong>Data:</strong>
+
+                    <p>
+                      {`${eventItem.date} às ${eventItem.hour}`}
+                    </p>
+                  </div>
+
+                  {showTrackIcon(eventItem.status, dark.colors.base[900])}
+                </EventTrackHeader>
+
+                <EventTrackBody>
+                  <strong>{eventItem.status}</strong>
+
+                  <br />
+
+                  <p>
+                    {`${locale} - ${city} - ${uf}`}
+                  </p>
+                </EventTrackBody>
+              </EventTrack>
+            );
+          })}
+
+          {/* <Line /> */}
         </TrackContainer>
+
+        <div />
       </Container>
     </DashboardBase>
   );

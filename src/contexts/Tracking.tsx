@@ -1,5 +1,9 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, {
+  createContext, useState, useContext, useMemo,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { usePersistedState } from 'src/hooks/usePersistedState';
 
 import type { DefaultTrack } from '../@types/DefaultTrack';
 import type { Track } from '../@types/Track';
@@ -10,8 +14,10 @@ import { sleep } from '../utils/sleep';
 interface ITrackingData {
   getTrackingData(code: string): Promise<void>;
   track?: Track;
-  trackCode?: string | string[];
+  trackCode?: string;
   isLoading: boolean;
+  trackCodeList: string[];
+  setTrackCodeList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const TrackingContext = createContext({} as ITrackingData);
@@ -19,10 +25,17 @@ const TrackingContext = createContext({} as ITrackingData);
 export const TrackingProvider: React.FC = ({ children }) => {
   const navigate = useNavigate();
 
-  const [track, setTrack] = useState<Track | undefined>({} as Track);
+  const [trackCodeList, setTrackCodeList] = usePersistedState<string[]>(
+    '@Rastreio.fast:tracks',
+    [],
+  );
+
+  const [track, setTrack] = useState<Track>({} as Track);
   const [isLoading, setIsLoading] = useState(false);
 
-  const trackCode = track?.object?.map((object) => object.number);
+  const trackCode = useMemo(() => {
+    return track?.code;
+  }, [track?.code]);
 
   const getTrackingData = async (code: string) => {
     setIsLoading(true);
@@ -30,27 +43,20 @@ export const TrackingProvider: React.FC = ({ children }) => {
     await sleep(2000);
 
     try {
-      const { data } = await trackAPI.post<DefaultTrack>('/rastreio', {
-        code,
-        type: 'LS',
+      const { data } = await trackAPI.get<DefaultTrack>('', {
+        params: {
+          codigo: code.trim(),
+        },
       });
-
-      if (data?.message) {
-        throw new Error(data.message);
-      }
-
-      const trackOject = data.objeto.map((object) => object);
-
-      if (trackOject[0].categoria.includes('ERRO')) {
-        throw new Error(trackOject[0].categoria);
-      }
 
       const formattedTrack = formatReturnTrack(data);
 
       setTrack(formattedTrack);
       navigate('/tracks');
-    } catch (err: any) {
-      console.log(err.response?.data.message || err.message);
+    } catch (err) {
+      if (err instanceof Error) {
+        console.log(err.message);
+      }
     }
 
     setIsLoading(false);
@@ -63,6 +69,8 @@ export const TrackingProvider: React.FC = ({ children }) => {
         isLoading,
         getTrackingData,
         trackCode,
+        trackCodeList,
+        setTrackCodeList,
       }}
     >
       {children}

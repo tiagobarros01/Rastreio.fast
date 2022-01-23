@@ -15,7 +15,7 @@ export const Container = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
-  background: ${({ theme }) => theme.colors.scndBackground};
+  background: ${({ theme }) => theme.colors.base[800]};
 
   box-shadow: 0 2px 12px
     ${({ theme }) => (theme.title === 'dark' ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.18)')};
@@ -34,14 +34,14 @@ export const Container = styled.div`
     gap: 0.5rem;
 
     strong {
-      color: ${({ theme }) => theme.colors.title};
+      color: ${({ theme }) => theme.colors.base[50]};
       font-weight: 600;
 
       font-size: 1.2rem;
     }
 
     p {
-      color: ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.base[100]};
       font-size: 1.1rem;
     }
   }

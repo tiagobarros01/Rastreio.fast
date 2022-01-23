@@ -11,10 +11,10 @@ export const usePersistedState = <T>(
   key: string, initialState: T,
 ): Response<T> => {
   const [state, setState] = useState<T>(() => {
-    const storagedValue = localStorage.getItem(key);
+    const storedValue = localStorage.getItem(key);
 
-    if (storagedValue) {
-      return JSON.parse(storagedValue);
+    if (storedValue) {
+      return JSON.parse(storedValue);
     }
     return initialState;
   });

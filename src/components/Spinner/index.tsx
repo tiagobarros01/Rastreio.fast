@@ -9,8 +9,8 @@ export const Spinner = (): JSX.Element => {
   return (
     <Container className="center">
       <>
-        {[...Array(12)].map(() => (
-          <Blade />
+        {[...Array(12)].map((_, index) => (
+          <Blade key={`Blade - ${index}`} />
         ))}
       </>
     </Container>

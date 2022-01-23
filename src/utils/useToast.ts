@@ -1,12 +1,10 @@
-import toast from 'react-hot-toast';
+import toast, { Toast as ToastProps } from 'react-hot-toast';
 
-type Props = {
-  message: string;
-  type: string;
+interface UseToastProps extends Partial<ToastProps> {
   background: string;
   color: string;
-  icon?: string;
-  duration?: number;
+  message: string;
+  type: 'error' | 'success' | 'loading' | 'custom';
 };
 
 export const useToast = ({
@@ -16,37 +14,15 @@ export const useToast = ({
   color,
   icon,
   duration = 1500,
-}: Props): void => {
-  if (type === 'error') {
-    toast.error(message, {
-      duration,
+}: UseToastProps): void => {
+  toast[type](message, {
+    duration,
 
-      style: {
-        background,
-        color,
-      },
-      icon,
-    });
-  } else if (type === 'success') {
-    toast.success(message, {
-      duration: 1500,
+    style: {
+      background,
+      color,
+    },
 
-      style: {
-        background,
-        color,
-      },
-
-      icon,
-    });
-  } else if (type === 'loading') {
-    toast.loading(message, {
-      duration: 1500,
-
-      style: {
-        background,
-        color,
-      },
-      icon,
-    });
-  }
+    icon,
+  });
 };

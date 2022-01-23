@@ -1,6 +1,7 @@
+/* eslint-disable consistent-return */
 import { ComponentPropsWithoutRef } from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface IButtonProps extends ComponentPropsWithoutRef<'button'> {
   isLoading?: boolean;
@@ -20,19 +21,33 @@ export const ButtonBase = styled.button<IButtonProps>`
   border: 0;
   border-radius: 0 5px 5px 0;
 
-  background: ${({ theme }) => theme.colors.yellow[100]};
+  background: ${({ theme }) => theme.colors.brand[400]};
 
-  transition: 200ms;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out, filter 200ms ease-in-out;
 
   :hover {
-    filter: brightness(0.8);
+    background: ${({ theme }) => theme.colors.brand[500]};
 
-    color: ${({ theme }) => theme.colors.textHover};
+    ${({ theme }) => {
+    if (theme.title === 'dark') {
+      return css`
+        color: ${theme.colors.base[900]}
+      `;
+    }
+  }
+}
+
+  :focus {
+    filter: brightness(0.9);
   }
 
   @media (max-width: 576px) {
     margin-top: 1rem;
 
     width: 45%;
+
+    border-radius: 5px;
+
+    padding: 0.8rem;
   }
 `;
