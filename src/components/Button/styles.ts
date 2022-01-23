@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { ComponentPropsWithoutRef } from 'react';
 
 import styled, { css } from 'styled-components';
@@ -22,15 +23,22 @@ export const ButtonBase = styled.button<IButtonProps>`
 
   background: ${({ theme }) => theme.colors.brand[400]};
 
-  transition: background 200ms ease-in-out, color 200ms ease-in-out;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out, filter 200ms ease-in-out;
 
   :hover {
     background: ${({ theme }) => theme.colors.brand[500]};
 
-    ${({ theme }) => theme.title === 'dark'
-      && css`
+    ${({ theme }) => {
+    if (theme.title === 'dark') {
+      return css`
         color: ${theme.colors.base[900]}
-      `}
+      `;
+    }
+  }
+}
+
+  :focus {
+    filter: brightness(0.9);
   }
 
   @media (max-width: 576px) {
