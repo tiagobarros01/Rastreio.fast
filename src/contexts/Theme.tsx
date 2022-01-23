@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 
 import type { DefaultTheme } from 'styled-components';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
@@ -21,12 +21,10 @@ const ThemeContext = createContext<IThemeContextData>({
 });
 
 export const ThemeProvider: React.FC = ({ children }) => {
-  // const [theme, setTheme] = usePersistedState<DefaultTheme>(
-  //   '@Rastreio.fast:theme',
-  //   dark,
-  // );
-
-  const [theme, setTheme] = useState(dark);
+  const [theme, setTheme] = usePersistedState<DefaultTheme>(
+    '@Rastreio.fast:theme',
+    dark,
+  );
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
