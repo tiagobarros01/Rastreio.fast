@@ -3,6 +3,8 @@ import React, {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { usePersistedState } from 'src/hooks/usePersistedState';
+
 import type { DefaultTrack } from '../@types/DefaultTrack';
 import type { Track } from '../@types/Track';
 import { trackAPI } from '../services/api';
@@ -14,12 +16,19 @@ interface ITrackingData {
   track?: Track;
   trackCode?: string;
   isLoading: boolean;
+  trackCodeList: string[];
+  setTrackCodeList: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const TrackingContext = createContext({} as ITrackingData);
 
 export const TrackingProvider: React.FC = ({ children }) => {
   const navigate = useNavigate();
+
+  const [trackCodeList, setTrackCodeList] = usePersistedState<string[]>(
+    '@Rastreio.fast:tracks',
+    [],
+  );
 
   const [track, setTrack] = useState<Track>({} as Track);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +45,7 @@ export const TrackingProvider: React.FC = ({ children }) => {
     try {
       const { data } = await trackAPI.get<DefaultTrack>('', {
         params: {
-          codigo: code,
+          codigo: code.trim(),
         },
       });
 
@@ -60,6 +69,8 @@ export const TrackingProvider: React.FC = ({ children }) => {
         isLoading,
         getTrackingData,
         trackCode,
+        trackCodeList,
+        setTrackCodeList,
       }}
     >
       {children}

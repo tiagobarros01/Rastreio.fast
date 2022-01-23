@@ -31,28 +31,25 @@ export const ListContainer = styled(GenericCenter)`
 
   border-radius: 0.8rem;
 
-  width: 20%;
   min-height: 3rem;
+
+  padding: 1rem;
 
   @media (max-width: 576px) {
     width: 60%;
   }
 
   ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 1rem;
-
-    width: 90%;
-
     :not(:last-child) {
       border-bottom: 1.5px solid
-        ${({ theme }) => (theme.title === 'dark'
-    ? 'rgba(0, 0, 0, 0.3)'
-    : 'rgba(0, 0, 0, 0.18)')};
+        ${({ theme }) => {
+    if (theme.title === 'dark') {
+      return 'rgba(0, 0, 0, 0.3)';
     }
+
+    return 'rgba(0, 0, 0, 0.18)';
+  }
+}}
 
     p {
       color: ${({ theme }) => theme.colors.base[50]};
@@ -60,17 +57,28 @@ export const ListContainer = styled(GenericCenter)`
       font-size: 1.2rem;
       font-weight: 600;
 
-      margin-right: 1rem;
+      margin: 0 1.4rem;
+      margin-right: 2rem;
 
-      width: 1rem;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      text-align: center;
     }
 
     li {
       cursor: pointer;
+
+      text-decoration: none;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 1px solid ${({ theme }) => theme.colors.base[700]};
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+
+      :last-child {
+        margin-bottom: 0;
+      }
 
       button {
         font-size: 1.1rem;
@@ -97,6 +105,8 @@ export const TrashIcon = styled(FiTrash)`
   cursor: pointer;
 
   font-size: 1.25rem;
+
+  margin-left: 2rem;
 
   transition: filter 200ms;
 

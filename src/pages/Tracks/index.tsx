@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BsCheck2Circle, BsTruck, BsBoxSeam } from 'react-icons/bs';
 
-import { DefaultTheme } from 'styled-components';
-
 import { DashboardBase } from 'src/components/DashboardBase';
 import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
@@ -35,7 +33,7 @@ const showSaveIcon = (isSaved: boolean, icon: boolean) => {
 };
 
 const showTrackIcon = (status: string, theme: string) => {
-  const statusIncludes = (includes: string) => {
+  const statusIncludes = (includes: string): boolean => {
     return status.toLocaleLowerCase().includes(includes);
   };
 
@@ -51,34 +49,38 @@ const showTrackIcon = (status: string, theme: string) => {
 };
 
 export const Tracks = (): JSX.Element => {
-  const { track, trackCode } = useTrack();
+  const {
+    track, trackCode, setTrackCodeList, trackCodeList,
+  } = useTrack();
   const { theme } = useTheme();
 
   const [isSaved, setIsSaved] = useState(false);
   const [icon, setIcon] = useState(false);
 
-  // useEffect(() => {
-  //   const res = trackCodeList.some((item) => item === trackCode);
+  const handleSaveTrack = () => {
+    if (!trackCode) return;
 
-  //   if (res) {
-  //     setIsSaved(true);
-  //   }
-  // }, [trackCodeList, trackCode]);
+    if (isSaved) return;
 
-  // const handleSave = () => {
-  //   setIsSaved((prevState) => (!prevState && true));
-  //   setTrackCodeList((prevState: string[]) => handleSetToList(prevState, trackCode));
+    setIsSaved(true);
+    setTrackCodeList((prevState) => [...prevState, trackCode]);
 
-  //   if (!isSaved) {
-  //     useToast({
-  //       message: 'Added to collection',
-  //       type: 'success',
-  //       icon: '🔖',
-  //       background: theme.title === 'light' ? '#353230' : '#ddd',
-  //       color: theme.title === 'light' ? '#eee' : '#222',
-  //     });
-  //   }
-  // };
+    useToast({
+      message: 'Adicionado à sua coleção',
+      type: 'success',
+      icon: '🔖',
+      background: theme.title === 'light' ? '#353230' : '#ddd',
+      color: theme.title === 'light' ? '#eee' : '#222',
+    });
+  };
+
+  useEffect(() => {
+    const hasSaved = trackCodeList.some((item) => item === trackCode);
+
+    if (hasSaved) {
+      setIsSaved(true);
+    }
+  }, [trackCodeList, trackCode]);
 
   return (
     <DashboardBase>
@@ -89,7 +91,7 @@ export const Tracks = (): JSX.Element => {
           <IconContainer
             onMouseEnter={() => setIcon((prevState) => !prevState)}
             onMouseLeave={() => setIcon((prevState) => !prevState)}
-              // onClick={handleSave}
+            onClick={handleSaveTrack}
             isSaved={isSaved}
           >
             {showSaveIcon(isSaved, icon)}
@@ -133,6 +135,8 @@ export const Tracks = (): JSX.Element => {
 
           {/* <Line /> */}
         </TrackContainer>
+
+        <div />
       </Container>
     </DashboardBase>
   );

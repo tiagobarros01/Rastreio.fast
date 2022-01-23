@@ -20,12 +20,12 @@ const SaveIconBaseStyles = styled.svg`
 
 export const Container = styled(GenericCenter)`
   flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
 
   margin-top: 2rem;
 
   width: 100%;
-
-  flex-direction: column;
 
   gap: 2rem;
 
@@ -40,6 +40,8 @@ export const Container = styled(GenericCenter)`
   > h1 {
     width: 100%;
     height: 2rem;
+
+    padding-top: 2rem;
 
     display: flex;
     align-items: center;

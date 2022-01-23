@@ -1,9 +1,8 @@
-import React, { useCallback } from 'react';
-
-import { v4 } from 'uuid';
+import React, { Fragment, useCallback } from 'react';
 
 import { DashboardBase } from 'src/components/DashboardBase';
 import { useTheme } from 'src/contexts/Theme';
+import { useTrack } from 'src/contexts/Tracking';
 import { useToast } from 'src/utils/useToast';
 
 import {
@@ -15,56 +14,55 @@ import {
 } from './styles';
 
 export const Collections = (): JSX.Element => {
-  // const { trackCodeList, getTrackingData, setTrackCodeList } = useTrack();
-  // const { theme } = useTheme();
+  const { trackCodeList, getTrackingData, setTrackCodeList } = useTrack();
+  const { theme } = useTheme();
 
-  // const handleTrack = useCallback(
-  //   (code: string) => {
-  //     getTrackingData(code);
-  //   },
-  //   [getTrackingData],
-  // );
+  const handleTrack = (code: string) => {
+    getTrackingData(code);
+  };
 
-  // const handleRemoveTrack = (index: number) => {
-  //   trackCodeList.splice(index, 1);
-  //   setTrackCodeList((prevState) => [...prevState]);
-  //   useToast({
-  //     message: 'Removes from collection',
-  //     type: 'error',
-  //     icon: '🗑️',
-  //     duration: 2500,
-  //     background: theme.title === 'light' ? '#353230' : '#ddd',
-  //     color: theme.title === 'light' ? '#eee' : '#222',
-  //   });
-  // };
+  const handleRemoveTrack = (code: string) => {
+    setTrackCodeList((prevState) => prevState.filter((item) => item !== code));
+
+    useToast({
+      message: 'Removido da sua coleção',
+      type: 'error',
+      icon: '🗑️',
+      duration: 2500,
+      background: theme.title === 'light' ? '#353230' : '#ddd',
+      color: theme.title === 'light' ? '#eee' : '#222',
+    });
+  };
 
   return (
     <DashboardBase>
       <Container>
-        <h1>SALVE</h1>
+        <Title>
+          <h1>Salvos</h1>
+        </Title>
+
+        <ListContainer>
+          {trackCodeList.length !== 0 ? (
+            <ul>
+              {trackCodeList.map((code, index) => (
+                <li key={`CodeItem - ${index}`}>
+                  <p>{index + 1}</p>
+
+                  <button type="button" onClick={() => handleTrack(code)}>
+                    {code}
+                  </button>
+
+                  <TrashIcon onClick={() => handleRemoveTrack(code)} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <WithoutList>
+              <p>Você ainda não tem rastreios salvos</p>
+            </WithoutList>
+          )}
+        </ListContainer>
       </Container>
     </DashboardBase>
-    //   <Title>
-    //     <h1>Salvos</h1>
-    //   </Title>
-    //   <ListContainer>
-    //     {trackCodeList.length !== 0 ? (
-    //       trackCodeList.map((code, index) => (
-    //         <ul key={v4()}>
-    //           <p>{index + 1}</p>
-    //           <li>
-    //             <button type="button" onClick={() => handleTrack(code)}>
-    //               {code}
-    //             </button>
-    //           </li>
-    //           <TrashIcon onClick={() => handleRemoveTrack(index)} />
-    //         </ul>
-    //       ))
-    //     ) : (
-    //       <WithoutList>
-    //         <p>You don&apos;t have any tracks yet</p>
-    //       </WithoutList>
-    //     )}
-    //   </ListContainer>
   );
 };
