@@ -7,10 +7,14 @@ export const FooterContainer = styled.div`
 
   background: ${({ theme }) => theme.colors.base[800]};
 
-  p {
+  > p {
     text-align: center;
 
     color: ${({ theme }) => theme.colors.base[100]};
+
+    > p {
+      display: inline-block;
+    }
 
     a {
       color: ${({ theme }) => theme.colors.brand[400]};
@@ -26,4 +30,5 @@ export const FooterContainer = styled.div`
       }
     }
   }
+
 `;

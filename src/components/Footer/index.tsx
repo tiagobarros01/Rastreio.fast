@@ -9,12 +9,14 @@ export const Footer = (props: IFooterProps): JSX.Element => (
     <p>
       Criado com 💛 por
       {' '}
+      <p>Tiago Barros - </p>
+      {' '}
       <a
         target="_blank"
         href="https://github.com/TiagoBarros01"
         rel="noreferrer"
       >
-        Tiago Barros
+        Github
       </a>
     </p>
   </FooterContainer>
