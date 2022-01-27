@@ -29,4 +29,4 @@ This app features all the latest tools and practices in web development!
 <br>
 <br>
 
-V2 Is coming...👀⚡
+This app uses the Link & Track API (https://linketrack.com/) to provide tracking data ⚡
