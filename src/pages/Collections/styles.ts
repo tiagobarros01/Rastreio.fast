@@ -119,3 +119,8 @@ export const WithoutList = styled.div`
   @media (max-width: 576px) {
   }
 `;
+
+export const SpinnerContainer = styled.div`
+  margin-left: 1.8rem;
+  margin-top: 0.3rem;
+`;

@@ -1,6 +1,7 @@
-import React, { Fragment, useCallback } from 'react';
+import React from 'react';
 
 import { DashboardBase } from 'src/components/DashboardBase';
+import { Spinner } from 'src/components/Spinner';
 import { useTheme } from 'src/contexts/Theme';
 import { useTrack } from 'src/contexts/Tracking';
 import { useToast } from 'src/utils/useToast';
@@ -11,10 +12,13 @@ import {
   ListContainer,
   TrashIcon,
   WithoutList,
+  SpinnerContainer,
 } from './styles';
 
 export const Collections = (): JSX.Element => {
-  const { trackCodeList, getTrackingData, setTrackCodeList } = useTrack();
+  const {
+    trackCodeList, getTrackingData, setTrackCodeList, isLoading,
+  } = useTrack();
   const { theme } = useTheme();
 
   const handleTrack = (code: string) => {
@@ -52,7 +56,11 @@ export const Collections = (): JSX.Element => {
                     {code}
                   </button>
 
-                  <TrashIcon onClick={() => handleRemoveTrack(code)} />
+                  {isLoading ? (
+                    <SpinnerContainer>
+                      <Spinner />
+                    </SpinnerContainer>
+                  ) : <TrashIcon onClick={() => handleRemoveTrack(code)} />}
                 </li>
               ))}
             </ul>

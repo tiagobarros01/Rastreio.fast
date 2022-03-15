@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 
 import {
   Container,
   Blade,
 } from './styles';
 
-export const Spinner = (): JSX.Element => {
+type SpinnerProps = ComponentPropsWithoutRef<'div'>;
+
+export const Spinner = (props: SpinnerProps): JSX.Element => {
   return (
-    <Container className="center">
+    <Container className="center" {...props}>
       <>
         {[...Array(12)].map((_, index) => (
           <Blade key={`Blade - ${index}`} />
