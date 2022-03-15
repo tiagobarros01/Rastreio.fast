@@ -74,7 +74,7 @@ export const TrackContainer = styled.div`
 
   display: flex;
 
-  overflow-x: scroll;
+  overflow: auto;
 
   position: relative;
 
@@ -82,9 +82,6 @@ export const TrackContainer = styled.div`
 
   @media (max-width: 576px) {
     flex-direction: column;
-
-    overflow-y: scroll;
-    overflow-x: initial;
 
     height: 100%;
   }
