@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { DashboardBase } from 'src/components/DashboardBase';
 import { Spinner } from 'src/components/Spinner';
@@ -21,8 +21,14 @@ export const Collections = (): JSX.Element => {
   } = useTrack();
   const { theme } = useTheme();
 
-  const handleTrack = (code: string) => {
-    getTrackingData(code);
+  const trackCodeRef = useRef<string | null>(null);
+
+  const handleTrack = async (code: string) => {
+    trackCodeRef.current = code;
+
+    await getTrackingData(code);
+
+    trackCodeRef.current = null;
   };
 
   const handleRemoveTrack = (code: string) => {
@@ -56,7 +62,7 @@ export const Collections = (): JSX.Element => {
                     {code}
                   </button>
 
-                  {isLoading ? (
+                  {isLoading && trackCodeRef.current === code ? (
                     <SpinnerContainer>
                       <Spinner />
                     </SpinnerContainer>
