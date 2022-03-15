@@ -83,22 +83,25 @@ export const TrackContainer = styled.div`
   @media (max-width: 576px) {
     flex-direction: column;
 
-    height: 100%;
+    position: relative;
+
+    padding-left: 4rem;
+
+    ::after {
+      content: '';
+
+      width: 3px;
+      height: 100%;
+
+      background: ${({ theme }) => theme.colors.base[700]};
+
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+
+      z-index: 99999999;
+    }
   }
-`;
-
-export const Line = styled.div`
-  width: 100%;
-  height: 6px;
-
-  background: ${({ theme }) => theme.colors.base[800]};
-
-  border-radius: 0.8rem;
-
-  position: absolute;
-
-  display: flex;
-  align-self: center;
 `;
 
 export const EventTrack = styled.div`
@@ -112,11 +115,6 @@ export const EventTrack = styled.div`
 
   z-index: 9999;
 
-  @media (max-width: 576px) {
-    min-height: 10rem;
-
-    margin: 1rem 0;
-  }
 
   strong {
     color: ${({ theme }) => theme.colors.base[50]};
@@ -124,6 +122,31 @@ export const EventTrack = styled.div`
 
   p {
     color: ${({ theme }) => theme.colors.base[100]};
+  }
+
+  @media (max-width: 576px) {
+    position: relative;
+
+    margin: 1rem 0;
+
+    overflow: visible;
+
+    ::after {
+      content: '';
+
+      width: 25px;
+      height: 25px;
+
+      border-radius: 25px;
+
+      background: ${({ theme }) => theme.colors.base[700]};
+
+      position: absolute;
+      left: -14%;
+      top: 37px;
+
+      z-index: 999999;
+    }
   }
 `;
 
@@ -149,6 +172,10 @@ export const EventTrackHeader = styled.div`
 
   p {
     color: #333;
+  }
+
+  @media (max-width: 576px) {
+    border-radius: 0.625rem 0.625rem 0 0;
   }
 `;
 

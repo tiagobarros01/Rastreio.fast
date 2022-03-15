@@ -14,7 +14,6 @@ import {
   CheckIcon,
   Container,
   TrackContainer,
-  Line,
   EventTrack,
   EventTrackHeader,
   EventTrackBody,
@@ -133,7 +132,6 @@ export const Tracks = (): JSX.Element => {
             );
           })}
 
-          {/* <Line /> */}
         </TrackContainer>
 
         <div />
