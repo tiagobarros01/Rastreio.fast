@@ -21,8 +21,6 @@ export const Home = (): JSX.Element => {
     event.preventDefault();
 
     if (!codeInputRef.current?.value) {
-      console.log('Vazio');
-
       return;
     }
 

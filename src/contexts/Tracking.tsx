@@ -4,6 +4,7 @@ import React, {
 import { useNavigate } from 'react-router-dom';
 
 import { usePersistedState } from 'src/hooks/usePersistedState';
+import { tracksRepository } from 'src/services/repositories/TracksRepository';
 
 import type { DefaultTrack } from '../@types/DefaultTrack';
 import type { Track } from '../@types/Track';
@@ -40,18 +41,10 @@ export const TrackingProvider: React.FC = ({ children }) => {
   const getTrackingData = async (code: string) => {
     setIsLoading(true);
 
-    await sleep(2000);
-
     try {
-      const { data } = await trackAPI.get<DefaultTrack>('', {
-        params: {
-          codigo: code.trim(),
-        },
-      });
+      const trackList = await tracksRepository.getTrack(code);
 
-      const formattedTrack = formatReturnTrack(data);
-
-      setTrack(formattedTrack);
+      setTrack(trackList);
       navigate('/tracks');
     } catch (err) {
       if (err instanceof Error) {
