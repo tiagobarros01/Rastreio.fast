@@ -8,7 +8,6 @@ import { tracksRepository } from 'src/services/repositories/TracksRepository';
 
 import type { DefaultTrack } from '../@types/DefaultTrack';
 import type { Track } from '../@types/Track';
-import { trackAPI } from '../services/api';
 import { formatReturnTrack } from '../utils/formatReturnTrack';
 import { sleep } from '../utils/sleep';
 

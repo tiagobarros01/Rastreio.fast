@@ -6,12 +6,12 @@ import { CEPInput } from 'src/components/CEPInput';
 import { DashboardBase } from 'src/components/DashboardBase';
 import { DataCEP } from 'src/components/DataCEP';
 import { useTheme } from 'src/contexts/Theme';
-import { cepAPI } from 'src/services/api';
+import { cepsRepository } from 'src/services/repositories/CepsRepository';
 import { useToast } from 'src/utils/useToast';
 
 import { Container, Title, CEPContainer } from './styles';
 
-type DataProps = {
+export type CEP = {
   bairro: string;
   cep: string;
   complemento: string;
@@ -47,9 +47,9 @@ export const SearchCEP = (): JSX.Element => {
     setIsLoading(true);
 
     try {
-      const { data } = await cepAPI.get<DataProps>(`${CEPInputValue}/json`);
+      const cep = await cepsRepository.getCEP(CEPInputValue);
 
-      if (data.erro) {
+      if (cep.erro) {
         useToast({
           message: 'CEP Inválido',
           type: 'error',
@@ -63,17 +63,16 @@ export const SearchCEP = (): JSX.Element => {
       }
 
       setCEPData({
-        cep: data.cep,
-        neighborhood: data.bairro,
-        complement: data.complemento,
-        street: data.logradouro,
-        locale: data.localidade,
-        fu: data.uf,
+        cep: cep.cep,
+        neighborhood: cep.bairro,
+        complement: cep.complemento,
+        street: cep.logradouro,
+        locale: cep.localidade,
+        fu: cep.uf,
       });
-
-      setIsLoading(false);
     } catch (error) {
       console.debug(error);
+    } finally {
       setIsLoading(false);
     }
   };
