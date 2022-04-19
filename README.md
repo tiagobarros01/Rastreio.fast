@@ -27,5 +27,6 @@ This app features all the latest tools and practices in web development!
 **3.** Run `yarn` to install dependencies<br />
 **4.** Run `yarn start` to start the app
 <br>
+<br>
 
 This app uses the [Link & Track](https://linketrack.com/) API to provide tracking data ⚡
