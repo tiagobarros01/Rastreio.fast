@@ -4,9 +4,9 @@
   <br>
   Rastreio.Fast
  </h1>
- 
+
 <p align="center">An app to track your packages faster! </p>
- 
+
 <div align="center">
   <img src="public/gif.gif"/>
 </div>
@@ -26,7 +26,6 @@ This app features all the latest tools and practices in web development!
 **2.** Move yourself to the appropriate directory `cd rastreio.fast`<br />
 **3.** Run `yarn` to install dependencies<br />
 **4.** Run `yarn start` to start the app
-<br>
 <br>
 
 This app uses the [Link & Track](https://linketrack.com/) API to provide tracking data ⚡
