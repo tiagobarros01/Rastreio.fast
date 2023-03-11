@@ -1,11 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import type {FunctionComponent} from 'react';
 
-function App() {
-  return (
-    <h1>Hello rastreio!</h1>
-  )
-}
-
-export default App
+export const App: FunctionComponent = () => {
+	return (
+		<h1>Hello rastreio</h1>
+	);
+};
