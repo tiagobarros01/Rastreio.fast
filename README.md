@@ -30,3 +30,5 @@ This app features all the latest tools and practices in web development!
 <br>
 
 This app uses the [Link & Track](https://linketrack.com/) API to provide tracking data ⚡
+
+V2 is comming soon... 🔜
